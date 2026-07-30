@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>健運動 · 活力長青 — 動健康 10 分鐘計畫</title>
+<meta name="description" content="用運動與數據，陪伴社區長者找回身體的力量。健運動是一個高中生自學打造的計畫，結合每日十分鐘運動、自動提醒與運動記錄。">
+<meta name="theme-color" content="#0d1a50">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="健運動">
+<meta property="og:title" content="健運動 · 活力長青 — 動健康 10 分鐘計畫">
+<meta property="og:description" content="用運動與數據，陪伴社區長者找回身體的力量。">
+<meta property="og:image" content="assets/img/hero-1100.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/icon-64.png?v=6" sizes="64x64">
+<link rel="icon" href="assets/img/icon-192.png?v=6" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png?v=6">
+
+<link rel="preload" href="assets/fonts/nm-text-400.woff2?v=6" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nm-text-500.woff2?v=6" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/hero-mobile-1200.jpg?v=6" as="image" media="(max-width: 809px)">
+<link rel="preload" href="assets/img/hero-2000.jpg?v=6" as="image" media="(min-width: 810px)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
+<!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
+<link rel="stylesheet" href="assets/css/site.css?v=26">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<!-- ══ opening curtain ══ -->
+<div class="curtain" id="curtain" aria-hidden="true">
+  <div class="curtain__in">
+    <svg class="ring" viewBox="0 0 200 200" role="presentation">
+      <defs>
+        <path id="ringPath" fill="none"
+              d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+      </defs>
+      <text><textPath href="#ringPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
+    </svg>
+    <img class="curtain__mark" src="assets/img/icon-192.png?v=6" alt="" width="56" height="55">
+  </div>
+</div>
+
+<a class="skip" href="#main">跳至主要內容</a>
+<div class="progress" id="progress" aria-hidden="true"><i></i></div>
+
+<!-- where-am-I marker for a 14,000px page, borrowed from the deso reference -->
+<div class="chapter" id="chapter" aria-hidden="true">
+  <span class="chapter__no" id="chapterNo">01</span>
+  <span class="chapter__name" id="chapterName">數據發現</span>
+</div>
+
+<!-- ══ nav ══ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首">
+    <img src="assets/img/icon-192.png?v=6" alt="" width="34" height="33">
+    <span>健運動</span>
+  </a>
+
+  <nav class="nav__links" aria-label="主要導覽">
+    <a href="#data">數據</a>
+    <a href="#video">影片</a>
+    <a href="#about">關於</a>
+    <a href="#story">活動</a>
+  </nav>
+
+  <div class="nav__right">
+    <a class="btn btn--pill" href="#book">預約</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- ══ fullscreen menu ══ -->
+<div class="menu" id="menu" hidden>
+  <nav class="menu__list" aria-label="全站選單">
+    <a href="#data"><em>01</em><span>數據發現</span></a>
+    <a href="#video"><em>02</em><span>每天十分鐘</span></a>
+    <a href="#about"><em>03</em><span>關於這個專案</span></a>
+    <a href="#story"><em>04</em><span>不只是運動</span></a>
+    <a href="#collab"><em>—</em><span>合作</span></a>
+  </nav>
+  <div class="menu__foot">
+    <span class="meta">Contact</span>
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+  </div>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══ 1 · HERO ══ -->
+<section class="hero" aria-label="健運動">
+  <!-- same atmosphere recipe as #video so the two navies match exactly -->
+  <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="hero__media">
+    <picture>
+      <source media="(min-width: 810px)" srcset="assets/img/hero-2000.jpg?v=6">
+      <img src="assets/img/hero-mobile-1200.jpg?v=6" alt="三位長輩與帶運動的青年在戶外扶欄旁高舉手臂，笑著一起活動身體" width="1768" height="1179" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="hero__scrim"></div>
+
+  <div class="hero__body">
+    <p class="hero__eyebrow" data-reveal>活力長青 · 動健康 10 分鐘計畫</p>
+    <h1 class="hero__title" aria-label="健運動">
+      <span class="mask"><i style="--d:0ms">健</i></span><span class="mask"><i style="--d:90ms">運</i></span><span class="mask"><i style="--d:180ms">動</i></span>
+    </h1>
+    <p class="hero__lede" data-reveal style="--d:420ms">用運動與數據，<wbr>陪伴社區長者找回身體的力量。</p>
+
+    <p class="hero__by" data-reveal style="--d:540ms">
+      <span class="meta">Supported by</span>
+      社團法人中華長照協會
+    </p>
+  </div>
+
+  <a class="hero__cue" href="#data" data-reveal style="--d:620ms">
+    <span class="meta">Scroll</span>
+    <i></i>
+  </a>
+</section>
+
+<!-- ══ marquee ══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>活力長青</span><b>·</b><span class="ghost">動健康 10 分鐘計畫</span><b>·</b><span>每天十分鐘</span><b>·</b><span class="ghost">動出好體力</span><b>·</b>
+    <span>活力長青</span><b>·</b><span class="ghost">動健康 10 分鐘計畫</span><b>·</b><span>每天十分鐘</span><b>·</b><span class="ghost">動出好體力</span><b>·</b>
+  </div>
+</div>
+
+<!-- ══ 2 · 數據發現（statement） ══ -->
+<section class="sec sec--paper" id="data">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>01</em>數據發現</p>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">我們不只帶長輩運動，也用數據認識他們的身體。</p>
+
+    <h2 class="statement">
+      <span class="mask mask--q"><i style="--d:0ms">「有動」</i></span>
+      <span class="mask"><i style="--d:90ms">不等於「有力」，</i></span>
+      <span class="mask mask--q"><i style="--d:180ms">「年紀」</i></span>
+      <span class="mask"><i style="--d:270ms">也不代表「風險」。</i></span>
+    </h2>
+
+  </div>
+</section>
+
+<!-- ══ 2b · 發現 + 儀表板 ══ -->
+<section class="sec sec--tint" id="findings" aria-labelledby="dash-h">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>基線評估 · Findings</p>
+
+    <p class="finding__lead" data-reveal>
+      8 位長輩的基線評估中，<b>4 位握力低於 AWGS-2019 標準</b>；7 位受測者中，<b>3 位起立測試超過安全值</b>。
+    </p>
+
+    <p class="finding__turn" data-reveal style="--d:80ms">
+      更值得注意的是：65–74 歲這組被標記的風險，反而比 75–84 歲更多 —— 每個人的身體狀況都不一樣。
+    </p>
+
+    <blockquote class="pullout" data-reveal style="--d:160ms">
+      這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
+    </blockquote>
+
+    <div class="dash__head dash__head--spaced">
+      <h3 class="h3" id="dash-h" data-reveal style="--d:60ms">基線評估儀表板</h3>
+      <a class="btn btn--ghost" data-reveal style="--d:120ms"
+         href="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+         target="_blank" rel="noopener">
+        新視窗開啟
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
+      </a>
+    </div>
+
+    <figure class="dash" data-reveal style="--d:160ms">
+      <div class="dash__bar">
+        <span class="meta">Baseline Assessment</span>
+        <span class="meta dash__hint">完整互動版請開新視窗</span>
+      </div>
+      <div class="dash__frame" id="dashFrame"
+           data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1">
+        <div class="dash__zoom" id="dashZoom"></div>
+        <div class="dash__load"><i></i><span class="meta">載入儀表板…</span></div>
+      </div>
+      <figcaption class="dash__cap">
+        n=8，單次基線評估（2026 年 2 月），結果為方向性參考。儀表板內容為英文。
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 3 · 影片 ══ -->
+<section class="sec sec--navy" id="video">
+  <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <p class="eyebrow eyebrow--inv" data-reveal><em>02</em>一起來運動</p>
+
+    <h2 class="h2 h2--inv">
+      <span class="mask"><i style="--d:0ms">每天十分鐘，</i></span>
+      <span class="mask"><i style="--d:100ms">動出好體力</i></span>
+    </h2>
+
+    <p class="sec__note sec__note--inv" data-reveal>跟著一起動 —— 走到哪，動到哪。</p>
+
+    <div class="clips" id="shorts">
+      <!-- no captions: both clips are from the same session, they carry their own
+           burnt-in titles, and the three lines above already frame the section.
+           If one is ever added it must go inside the figure — anything outside the
+           pinned element scrolls up underneath the held frame. -->
+      <article class="clip" data-reveal>
+        <figure class="short">
+          <div class="short__box">
+            <video class="lazyvid" playsinline muted loop preload="none"
+                   poster="assets/video/poster/short-1.jpg"
+                   data-src="assets/video/short-1.mp4?v=6" data-end="12.8"
+                   aria-label="短片：運動後回報就有機會抽獎"></video>
+            <button class="short__tap" type="button" aria-label="播放或暫停短片一">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </figure>
+      </article>
+
+      <article class="clip" data-reveal>
+        <figure class="short">
+          <div class="short__box">
+            <video class="lazyvid" playsinline muted loop preload="none"
+                   poster="assets/video/poster/short-2.jpg"
+                   data-src="assets/video/short-2.mp4?v=6" data-end="14.8"
+                   aria-label="短片：跟著一起做十分鐘運動"></video>
+            <button class="short__tap" type="button" aria-label="播放或暫停短片二">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+        </figure>
+      </article>
+    </div>
+
+    <figure class="film" data-reveal>
+      <div class="film__box" id="filmBox" data-yt="LlGhXdVetII">
+        <img src="assets/video/poster/intro.jpg?v=6"
+             alt="影片封面：帶運動的青年與兩位長輩在長照據點一起做動作" loading="lazy" decoding="async">
+        <button class="film__play" type="button" id="filmPlay" aria-label="播放一分鐘介紹影片">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span>一分鐘介紹</span>
+        </button>
+      </div>
+      <figcaption>想了解計畫怎麼運作？看這支就懂了。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 4 · 關於這個專案 ══ -->
+<section class="sec sec--paper" id="about">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>03</em>關於這個專案</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">一個高中生自學打造，</i></span>
+      <span class="mask"><i style="--d:90ms">用運動與數據</i></span>
+      <span class="mask"><i style="--d:180ms">陪伴社區長者。</i></span>
+    </h2>
+
+    <ul class="cards">
+      <li class="card" data-reveal>
+        <em class="card__no">01</em>
+        <h3>運動陪伴</h3>
+        <p>不只是運動，是每天的陪伴。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">02</em>
+        <h3>記錄運動</h3>
+        <p>每一次的努力，都被好好記下。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">03</em>
+        <h3>數據追蹤</h3>
+        <p>看見每位長輩不一樣的需求。</p>
+      </li>
+      <li class="card" data-reveal style="--d:140ms">
+        <em class="card__no">04</em>
+        <h3>自學打造</h3>
+        <p>從零開始，一個人建立的系統。</p>
+      </li>
+    </ul>
+
+    <blockquote class="pullout" data-reveal>
+      自建 LINE 官方帳號、Make 自動化、Google Sheet 與 Notion 資料庫，每天自動提醒長輩運動，並記錄每次的運動回報。
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ 5 · 不只是運動 ══ -->
+<section class="sec sec--tint" id="story">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>04</em>不只是運動</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">這些是這一路走來，</i></span>
+      <span class="mask"><i style="--d:100ms">和長輩之間的故事。</i></span>
+    </h2>
+
+    <ol class="grid" id="grid">
+      <li class="shot" data-reveal>
+        <button type="button">
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-28-tamsui-md.jpg?v=6" alt="長輩在淡水美術館一起看展，隔著玻璃櫃欣賞畫作" width="668" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.28</em><b>淡水美術館 · 一起去看展</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal>
+        <button type="button" data-i="0">
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-21-dessert-md.jpg?v=6" alt="長輩圍著桌子動手做點心" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.21</em><b>點心手作課 · 動手也動心</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:60ms">
+        <button type="button" data-i="1">
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-15-improv-md.jpg?v=6" alt="長輩在即興創作課上一起動手玩創作" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.15</em><b>即興創作課 · 一起開心玩</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:120ms">
+        <button type="button" data-i="2">
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-14-firedrill-md.jpg?v=6" alt="據點消防演習，長輩一起練習疏散" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.14</em><b>消防演習 · 把安全一起練熟</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:180ms">
+        <button type="button" data-i="3">
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-13-coach-md.jpg?v=6" alt="第一次擔任運動指導員，帶著兩位長輩一起向上伸展" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.13</em><b>第一次帶運動 · 從陪伴開始</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:240ms">
+        <button type="button" data-i="4">
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-07-market-md.jpg?v=6" alt="在台北車站無家者市集推廣健運動" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.07</em><b>台北車站二手市集 · 街頭健運動推廣</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:300ms">
+        <button type="button" data-i="5">
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-03-checkup-md.jpg?v=6" alt="健康檢查現場，用數據認識長輩的身體狀況" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.03</em><b>健康檢查 · 用數據認識身體</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal>
+        <button type="button" data-i="6">
+          <span class="shot__img"><img src="assets/img/timeline/2026-01-31-launch-md.jpg?v=6" alt="健運動開張日，第一次向長輩介紹計畫" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.01.31</em><b>健運動開張 · 計畫的起點</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:60ms">
+        <button type="button" data-i="7">
+          <span class="shot__img"><img src="assets/img/timeline/2026-01-17-awards-md.jpg?v=7" alt="圍爐頒獎典禮上，志工團隊在台上接受表揚與獎狀" width="1000" height="666" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.01.17</em><b>圍爐頒獎 · 一年的努力被看見</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:120ms">
+        <button type="button" data-i="8">
+          <span class="shot__img"><img src="assets/img/timeline/2025-12-27-meal-md.jpg?v=6" alt="志工在門口把熱食交到長輩手上" width="750" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.12.27</em><b>永樂居送餐 · 送到長輩手上</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:180ms">
+        <button type="button" data-i="9">
+          <span class="shot__img"><img src="assets/img/timeline/2025-12-13-xmas-md.jpg?v=6" alt="台北車站聖誕送餐場次，志工發送餐點" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.12.13</em><b>聖誕送餐 · 節日裡的溫暖</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:240ms">
+        <button type="button" data-i="10">
+          <span class="shot__img"><img src="assets/img/timeline/2025-07-12-meal-md.jpg?v=6" alt="志工把熱食送到長輩家中，和阿公阿嬤一起合照" width="750" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.07.12</em><b>社區送餐 · 把熱飯送到家</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal style="--d:300ms">
+        <button type="button" data-i="11">
+          <span class="shot__img"><img src="assets/img/timeline/2025-06-13-towel-md.jpg?v=6" alt="夏日送餐並發送一百份涼感毛巾" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.06.13</em><b>夏日送暖 · 送餐與涼感毛巾</b></span>
+        </button>
+      </li>
+      <li class="shot" data-reveal>
+        <button type="button" data-i="12">
+          <span class="shot__img"><img src="assets/img/timeline/2025-03-14-street-md.jpg?v=6" alt="街頭送餐，把溫飽送到需要的人手上" width="668" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.03.14</em><b>街頭送餐 · 把溫飽送到需要的人</b></span>
+        </button>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ 6 · 合作 ══ -->
+<section class="sec sec--navy invite" id="collab">
+  <!-- Atmospheric layer. Stays inert until assets/img/collab-bg.jpg exists;
+       site.js probes the file first, so a missing image changes nothing. -->
+  <div class="sec__bg" data-bg="assets/img/collab-bg.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <p class="eyebrow eyebrow--inv" data-reveal>合作 · Collaboration</p>
+
+    <h2 class="statement statement--inv">
+      <span class="mask"><i style="--d:0ms">想把這個計畫</i></span>
+      <span class="mask"><i style="--d:100ms">帶進你的機構嗎？</i></span>
+    </h2>
+
+    <p class="sec__note sec__note--inv" data-reveal>歡迎合作單位與我聯繫，一起把十分鐘帶給更多長輩。</p>
+
+    <div class="invite__act" data-reveal style="--d:80ms">
+      <a class="btn btn--solid-inv" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A"
+         target="_blank" rel="noopener">寄信給我</a>
+      <button class="invite__addr" type="button" id="copyMail"
+              data-mail="lucychi13450@gmail.com" aria-label="複製電子郵件地址">
+        <span id="copyMailText">lucychi13450@gmail.com</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7 · 預約 ══ -->
+<section class="sec sec--paper" id="book">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow" data-reveal>Reservation</p>
+
+    <h2 class="h2" data-reveal style="--d:60ms">合作單位預約專區</h2>
+
+    <p class="sec__note" data-reveal style="--d:120ms">此預約專區提供給<strong>已合作的機構</strong>安排課程時段。第一次接洽的單位，歡迎先寄信給我。</p>
+
+    <form class="form" id="form" novalidate data-reveal style="--d:180ms">
+      <div class="field">
+        <label for="f-date">日期 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-date" name="date" type="date" required autocomplete="off"
+               aria-describedby="e-date">
+        <p class="err" id="e-date" role="alert"></p>
+      </div>
+
+      <!-- 時間 is a native time input, exactly like 日期 above: any time is
+           allowed, and the browser's own control opens it. No fixed slot list —
+           a select capped the range and put a chevron on one field but not the
+           other. -->
+      <div class="field">
+        <label for="f-time">時間 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-time" name="time" type="time" required autocomplete="off"
+               aria-describedby="e-time h-time">
+        <p class="hint" id="h-time">課程希望開始的時間。</p>
+        <p class="err" id="e-time" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-place">地點 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-place" name="place" type="text" required autocomplete="off"
+               placeholder="例：新北市永和區永樂居" aria-describedby="e-place">
+        <p class="err" id="e-place" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-who">邀請人 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-who" name="inviter" type="text" required autocomplete="off"
+               placeholder="例：王督導（永樂居）" aria-describedby="e-who h-who">
+        <p class="hint" id="h-who">你的姓名或職稱，方便我知道是誰來訊。</p>
+        <p class="err" id="e-who" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-note">備註 <span class="opt">選填</span></label>
+        <textarea id="f-note" name="note" rows="4"
+                  placeholder="人數、場地條件、或任何想先告訴我的事"></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" id="f-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button class="btn btn--solid btn--big" type="submit" id="submit">
+        <span>送出預約</span>
+      </button>
+
+      <p class="err err--form" id="e-form" role="alert"></p>
+      <p class="form__fine">送出後我會收到通知，並盡快與你確認時段。</p>
+    </form>
+
+    <div class="done" id="done" hidden>
+      <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
+      <h3>已收到你的預約</h3>
+      <p>我會盡快與你確認，謝謝！</p>
+      <dl class="done__recap" id="recap"></dl>
+      <button class="btn btn--ghost" type="button" id="again">再填一筆</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ 8 · footer ══ -->
+<footer class="foot">
+  <div class="sec__bg" data-bg="assets/img/tex-foot.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="foot__top">
+      <!-- same turning mark that opens the page, closing it -->
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" role="presentation">
+          <defs>
+            <path id="sealPath" fill="none"
+                  d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
+          </defs>
+          <text><textPath href="#sealPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
+        </svg>
+        <img src="assets/img/icon-192.png?v=6" alt="" width="40" height="39" loading="lazy" decoding="async">
+      </div>
+
+      <p class="eyebrow eyebrow--inv" data-reveal>About me</p>
+      <p class="foot__me">
+        <span class="mask"><i style="--d:0ms">我是 Lucas，</i></span>
+        <span class="mask"><i style="--d:90ms">相信運動能陪伴長輩、</i></span>
+        <span class="mask"><i style="--d:180ms">也相信數據能帶來改變。</i></span>
+      </p>
+    </div>
+
+    <div class="foot__grid">
+      <div class="foot__cell" data-reveal>
+        <span class="meta">支持單位</span>
+        <div class="foot__logo">
+          <img src="assets/img/association-logo.png?v=6" alt="社團法人中華長照協會 China Long-Term Care Association" width="900" height="169" loading="lazy" decoding="async">
+        </div>
+        <p>本計畫由社團法人中華長照協會支持。</p>
+      </div>
+
+      <div class="foot__cell" data-reveal style="--d:80ms">
+        <span class="meta">合作與聯絡</span>
+        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+        <p>歡迎合作單位、機構與想了解計畫的朋友來信。</p>
+      </div>
+    </div>
+
+    <div class="foot__bar">
+      <span class="meta">© <span id="yr">2026</span> 健運動 · 活力長青</span>
+      <a class="foot__up" href="#top">
+        回到頁首
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ lightbox ══ -->
+<div class="lb" id="lb" hidden>
+  <div class="lb__bar">
+    <span class="meta" id="lbCount">01 / 13</span>
+    <button class="lb__x" type="button" id="lbClose" aria-label="關閉圖片檢視">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <figure class="lb__fig">
+    <img id="lbImg" alt="" decoding="async">
+    <figcaption><em id="lbDate"></em><b id="lbTitle"></b></figcaption>
+  </figure>
+  <button class="lb__nav lb__nav--prev" type="button" id="lbPrev" aria-label="上一張">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb__nav lb__nav--next" type="button" id="lbNext" aria-label="下一張">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
+<script src="assets/js/site.js?v=26" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Netlify / Cloudflare Pages cache rules.
+# The HTML must never be cached, or a deploy won't reach people who have already
+# visited. Fingerprinted assets carry ?v= and can be cached hard.
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

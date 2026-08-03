@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>健運動 · 活力長青 — 動健康 10 分鐘計畫</title>
-<meta name="description" content="用運動與數據，陪伴社區長者找回身體的力量。健運動是一個高中生自學打造的計畫，結合每日十分鐘運動、自動提醒與運動記錄。">
+<meta name="description" content="健運動是一個高中生自學打造的長輩運動計畫：加入 LINE 官方帳號，每天提醒你動十分鐘、回報就自動記錄；也可以預約我到據點現場帶課。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
 
@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=26">
+<link rel="stylesheet" href="assets/css/site.css?v=29">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -44,7 +44,7 @@
       </defs>
       <text><textPath href="#ringPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
     </svg>
-    <img class="curtain__mark" src="assets/img/icon-192.png?v=6" alt="" width="56" height="55">
+    <img class="curtain__mark" src="assets/img/mark-320.png?v=29" alt="" width="56" height="56">
   </div>
 </div>
 
@@ -54,13 +54,13 @@
 <!-- where-am-I marker for a 14,000px page, borrowed from the deso reference -->
 <div class="chapter" id="chapter" aria-hidden="true">
   <span class="chapter__no" id="chapterNo">01</span>
-  <span class="chapter__name" id="chapterName">數據發現</span>
+  <span class="chapter__name" id="chapterName">怎麼運作</span>
 </div>
 
 <!-- ══ nav ══ -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首">
-    <img src="assets/img/icon-192.png?v=6" alt="" width="34" height="33">
+    <img src="assets/img/mark-320.png?v=29" alt="" width="34" height="34">
     <span>健運動</span>
   </a>
 
@@ -70,6 +70,7 @@
        laptop. site.js derives both the active state and the smooth scroll from
        this list, so adding a link here is all that is needed. -->
   <nav class="nav__links" aria-label="主要導覽">
+    <a href="#how">介紹</a>
     <a href="#data">數據</a>
     <a href="#video">影片</a>
     <a href="#about">關於</a>
@@ -88,13 +89,16 @@
 <!-- ══ fullscreen menu ══ -->
 <div class="menu" id="menu" hidden>
   <nav class="menu__list" aria-label="全站選單">
-    <a href="#data"><em>01</em><span>數據發現</span></a>
-    <a href="#video"><em>02</em><span>每天十分鐘</span></a>
-    <a href="#about"><em>03</em><span>關於這個專案</span></a>
-    <a href="#story"><em>04</em><span>不只是運動</span></a>
+    <a href="#how"><em>01</em><span>怎麼運作</span></a>
+    <a href="#data"><em>02</em><span>數據發現</span></a>
+    <a href="#video"><em>03</em><span>每天十分鐘</span></a>
+    <a href="#about"><em>04</em><span>關於這個專案</span></a>
+    <a href="#story"><em>05</em><span>不只是運動</span></a>
     <a href="#collab"><em>—</em><span>合作</span></a>
   </nav>
   <div class="menu__foot">
+    <span class="meta">LINE</span>
+    <a href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
     <span class="meta">Contact</span>
     <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
   </div>
@@ -129,7 +133,7 @@
     </p>
   </div>
 
-  <a class="hero__cue" href="#data" data-reveal style="--d:620ms">
+  <a class="hero__cue" href="#how" data-reveal style="--d:620ms">
     <span class="meta">Scroll</span>
     <i></i>
   </a>
@@ -143,12 +147,64 @@
   </div>
 </div>
 
-<!-- ══ 2 · 數據發現（statement） ══ -->
+<!-- ══ 2 · 怎麼運作 ══
+     Readers arrived at the data without knowing what the project *is*. This
+     section comes first now and answers that: a LINE tracker anyone can join,
+     and on-site classes on top of it. -->
+<section class="sec sec--tint" id="how">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>01</em>怎麼運作</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">先用 LINE 陪你動，</i></span>
+      <span class="mask"><i style="--d:100ms">再到現場一起動。</i></span>
+    </h2>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">
+健運動有兩個部分：<strong>LINE 每天陪你動</strong>，<strong>現場課程我親自帶</strong>。
+    </p>
+
+    <ol class="flow">
+      <li class="flow__step" data-reveal>
+        <em class="flow__no">01</em>
+        <h3 class="flow__h">加入 LINE</h3>
+        <p class="flow__p">一鍵加入，不用下載 App。</p>
+      </li>
+      <li class="flow__step" data-reveal style="--d:70ms">
+        <em class="flow__no">02</em>
+        <h3 class="flow__h">每天提醒</h3>
+        <p class="flow__p">每天固定時間提醒你。</p>
+      </li>
+      <li class="flow__step" data-reveal style="--d:140ms">
+        <em class="flow__no">03</em>
+        <h3 class="flow__h">動十分鐘</h3>
+        <p class="flow__p">坐著站著都行，不用器材。</p>
+      </li>
+      <li class="flow__step" data-reveal style="--d:210ms">
+        <em class="flow__no">04</em>
+        <h3 class="flow__h">回報就完成</h3>
+        <p class="flow__p">自動記錄，月底抽獎。</p>
+      </li>
+    </ol>
+
+    <div class="join" data-reveal style="--d:120ms">
+      <a class="btn btn--solid btn--big" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">
+        加入健運動 LINE 官方帳號
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
+      </a>
+      <p class="join__note">
+想要我到現場帶？<a href="#book">預約課程</a>。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 · 數據發現（statement） ══ -->
 <section class="sec sec--paper" id="data">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>01</em>數據發現</p>
+    <p class="eyebrow" data-reveal><em>02</em>數據發現</p>
 
-    <p class="sec__intro" data-reveal style="--d:80ms">我們不只帶長輩運動，也用數據認識他們的身體。</p>
+    <p class="sec__intro" data-reveal style="--d:80ms">在開始帶運動之前，我先幫每一位長輩做了一次身體檢測。</p>
 
     <h2 class="statement">
       <span class="mask mask--q"><i style="--d:0ms">「有動」</i></span>
@@ -165,15 +221,20 @@
   <div class="wrap">
     <p class="eyebrow" data-reveal>基線評估 · Findings</p>
 
-    <p class="finding__lead" data-reveal>
-      8 位長輩的基線評估中，<b>4 位握力低於 AWGS-2019 標準</b>；7 位受測者中，<b>3 位起立測試超過安全值</b>。
+    <!-- readers said the numbers arrived before they knew what was measured -->
+    <p class="finding__intro" data-reveal>
+我量了兩件事：<b>握力</b>，看肌少症；<b>30 秒起立坐下</b>，看跌倒風險。一個握力器、一張椅子就能做。
     </p>
 
-    <p class="finding__turn" data-reveal style="--d:80ms">
-      更值得注意的是：65–74 歲這組被標記的風險，反而比 75–84 歲更多 —— 每個人的身體狀況都不一樣。
+    <p class="finding__lead" data-reveal style="--d:80ms">
+      結果是：8 位受測長輩中，<b>4 位握力低於 AWGS-2019 亞洲肌少症標準</b>；7 位受測者中，<b>3 位起立測試超過安全值</b>。
     </p>
 
-    <blockquote class="pullout" data-reveal style="--d:160ms">
+    <p class="finding__turn" data-reveal style="--d:160ms">
+      更值得注意的是：65–74 歲這組被標記的風險，反而比 75–84 歲更多 —— 年紀大不一定比較虛弱，每個人的身體狀況都不一樣。
+    </p>
+
+    <blockquote class="pullout" data-reveal style="--d:240ms">
       這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
     </blockquote>
 
@@ -186,6 +247,10 @@
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
       </a>
     </div>
+
+    <p class="dash__intro" data-reveal style="--d:100ms">
+8 位長輩的完整結果。手機上點「新視窗開啟」看更清楚。
+    </p>
 
     <figure class="dash" data-reveal style="--d:160ms">
       <div class="dash__bar">
@@ -204,12 +269,12 @@
   </div>
 </section>
 
-<!-- ══ 3 · 影片 ══ -->
+<!-- ══ 4 · 影片 ══ -->
 <section class="sec sec--navy" id="video">
   <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
 
   <div class="wrap">
-    <p class="eyebrow eyebrow--inv" data-reveal><em>02</em>一起來運動</p>
+    <p class="eyebrow eyebrow--inv" data-reveal><em>03</em>一起來運動</p>
 
     <h2 class="h2 h2--inv">
       <span class="mask"><i style="--d:0ms">每天十分鐘，</i></span>
@@ -266,10 +331,10 @@
   </div>
 </section>
 
-<!-- ══ 4 · 關於這個專案 ══ -->
+<!-- ══ 5 · 關於這個專案 ══ -->
 <section class="sec sec--paper" id="about">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>03</em>關於這個專案</p>
+    <p class="eyebrow" data-reveal><em>04</em>關於這個專案</p>
 
     <h2 class="h2">
       <span class="mask"><i style="--d:0ms">一個高中生自學打造，</i></span>
@@ -306,10 +371,10 @@
   </div>
 </section>
 
-<!-- ══ 5 · 不只是運動 ══ -->
+<!-- ══ 6 · 不只是運動 ══ -->
 <section class="sec sec--tint" id="story">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>04</em>不只是運動</p>
+    <p class="eyebrow" data-reveal><em>05</em>不只是運動</p>
 
     <h2 class="h2">
       <span class="mask"><i style="--d:0ms">這些是這一路走來，</i></span>
@@ -405,7 +470,7 @@
   </div>
 </section>
 
-<!-- ══ 6 · 合作 ══ -->
+<!-- ══ 7 · 合作 ══ -->
 <section class="sec sec--navy invite" id="collab">
   <!-- Atmospheric layer. Stays inert until assets/img/collab-bg.jpg exists;
        site.js probes the file first, so a missing image changes nothing. -->
@@ -432,20 +497,25 @@
   </div>
 </section>
 
-<!-- ══ 7 · 預約 ══ -->
+<!-- ══ 8 · 預約 ══ -->
 <section class="sec sec--paper" id="book">
   <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-reveal>Reservation</p>
+    <p class="eyebrow" data-reveal>預約課程 · Reservation</p>
 
-    <h2 class="h2" data-reveal style="--d:60ms">合作單位預約專區</h2>
+    <h2 class="h2" data-reveal style="--d:60ms">預約十分鐘運動課程</h2>
 
-    <p class="sec__note" data-reveal style="--d:120ms">此預約專區提供給<strong>已合作的機構</strong>安排課程時段。第一次接洽的單位，歡迎先寄信給我。</p>
+    <p class="sec__intro" data-reveal style="--d:100ms">
+我到你的據點，帶長輩做<strong>十分鐘體適能運動</strong> —— 暖身、肌力、伸展，坐著也能做，不需器材。
+    </p>
+
+    <p class="sec__note" data-reveal style="--d:140ms">此表單提供給<strong>已合作的機構</strong>安排時段。第一次接洽的單位，歡迎先寄信給我。</p>
 
     <form class="form" id="form" novalidate data-reveal style="--d:180ms">
       <div class="field">
         <label for="f-date">日期 <span class="req" aria-hidden="true">必填</span></label>
         <input id="f-date" name="date" type="date" required autocomplete="off"
-               aria-describedby="e-date">
+               aria-describedby="e-date h-date">
+        <p class="hint" id="h-date">希望我到場帶課的日期。</p>
         <p class="err" id="e-date" role="alert"></p>
       </div>
 
@@ -464,7 +534,8 @@
       <div class="field">
         <label for="f-place">地點 <span class="req" aria-hidden="true">必填</span></label>
         <input id="f-place" name="place" type="text" required autocomplete="off"
-               placeholder="例：新北市永和區永樂居" aria-describedby="e-place">
+               placeholder="例：新北市永和區永樂居" aria-describedby="e-place h-place">
+        <p class="hint" id="h-place">據點或教室的地址。</p>
         <p class="err" id="e-place" role="alert"></p>
       </div>
 
@@ -472,14 +543,16 @@
         <label for="f-who">邀請人 <span class="req" aria-hidden="true">必填</span></label>
         <input id="f-who" name="inviter" type="text" required autocomplete="off"
                placeholder="例：王督導（永樂居）" aria-describedby="e-who h-who">
-        <p class="hint" id="h-who">你的姓名或職稱，方便我知道是誰來訊。</p>
+        <p class="hint" id="h-who">你的姓名或職稱。</p>
         <p class="err" id="e-who" role="alert"></p>
       </div>
 
       <div class="field">
         <label for="f-note">備註 <span class="opt">選填</span></label>
         <textarea id="f-note" name="note" rows="4"
-                  placeholder="人數、場地條件、或任何想先告訴我的事"></textarea>
+                  placeholder="例：約 12 位長輩，多數坐輪椅，教室有椅子"
+                  aria-describedby="h-note"></textarea>
+        <p class="hint" id="h-note">人數、長輩狀況、場地條件。</p>
       </div>
 
       <input type="text" name="_gotcha" id="f-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -518,7 +591,7 @@
           </defs>
           <text><textPath href="#sealPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
         </svg>
-        <img src="assets/img/icon-192.png?v=6" alt="" width="40" height="39" loading="lazy" decoding="async">
+        <img src="assets/img/mark-320.png?v=29" alt="" width="40" height="40" loading="lazy" decoding="async">
       </div>
 
       <p class="eyebrow eyebrow--inv" data-reveal>About me</p>
@@ -533,12 +606,16 @@
       <div class="foot__cell" data-reveal>
         <span class="meta">支持單位</span>
         <div class="foot__logo">
-          <img src="assets/img/association-logo.png?v=6" alt="社團法人中華長照協會 China Long-Term Care Association" width="900" height="169" loading="lazy" decoding="async">
+          <img src="assets/img/association-logo.png?v=29" alt="社團法人中華長照協會 China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
         </div>
         <p>本計畫由社團法人中華長照協會支持。</p>
       </div>
 
       <div class="foot__cell" data-reveal style="--d:80ms">
+        <span class="meta">加入 LINE</span>
+        <a class="foot__mail" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
+        <p>每天提醒你動十分鐘，動完回報就自動記錄。</p>
+
         <span class="meta">合作與聯絡</span>
         <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
         <p>歡迎合作單位、機構與想了解計畫的朋友來信。</p>
@@ -575,6 +652,6 @@
   </button>
 </div>
 
-<script src="assets/js/site.js?v=26" defer></script>
+<script src="assets/js/site.js?v=29" defer></script>
 </body>
 </html>

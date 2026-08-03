@@ -66,12 +66,14 @@
 
     var chip = $('#chapter'), chipNo = $('#chapterNo'), chipName = $('#chapterName');
     var foot = $('.foot'), shownChapter = -1;
+    /* keep these numbers in step with the section eyebrows and the menu */
     var CHAPTERS = [
-      { sel: '#data',     no: '01', name: '數據發現' },
-      { sel: '#findings', no: '01', name: '基線評估' },
-      { sel: '#video',    no: '02', name: '每天十分鐘' },
-      { sel: '#about',    no: '03', name: '關於這個專案' },
-      { sel: '#story',    no: '04', name: '不只是運動' },
+      { sel: '#how',      no: '01', name: '怎麼運作' },
+      { sel: '#data',     no: '02', name: '數據發現' },
+      { sel: '#findings', no: '02', name: '基線評估' },
+      { sel: '#video',    no: '03', name: '每天十分鐘' },
+      { sel: '#about',    no: '04', name: '關於這個專案' },
+      { sel: '#story',    no: '05', name: '不只是運動' },
       { sel: '#collab',   no: '—',  name: '合作' },
       { sel: '#book',     no: '—',  name: '預約專區' }
     ].map(function (c) { c.el = $(c.sel); return c; });

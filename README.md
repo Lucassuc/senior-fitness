@@ -137,16 +137,17 @@ nothing. **Don't reintroduce a fixed `aspect-ratio` on `.shot__img`.**
 feeling 單調. This is the one place the build departs from the reference
 system's "no gradients" rule.
 
-**The icon is a filled navy square.** `logo_favicon.png` is a navy disc
-surrounded by *opaque* white, and the white figure touches that surround — so
-neither pasting over navy nor a flood fill can separate them. `build-assets.sh`
-masks to the disc and snaps every non-white pixel to the exact brand navy, so
-the disc edge vanishes into the tile. Keep that step if you swap the file.
+**The on-page mark is `mark-320.png`, a transparent navy disc.** `logo_favicon.png`
+is that disc surrounded by *opaque* white. A flood fill from the image border
+strips the white page around it without touching the white figure inside, because
+the figure is fully enclosed by navy — the fill can never reach it. A 0.6px blur
+on the alpha keeps the disc edge smooth. See the LINE/logos note near the end of
+this file for why the association logo is handled the opposite way.
 
-A filled square is the right call over leaving the white: the nav bar flips
-between white and navy as you scroll, and a filled navy tile reads correctly on
-both — white corners would look like a sticker on the dark sections, and the
-mark would vanish entirely on the light ones.
+The **favicons** (`icon-512/192/180/64.png`) stay filled navy squares and are
+generated separately by `build-assets.sh`. Don't make those transparent: a
+transparent favicon disappears against a dark browser tab, and favicons ignore
+`?v=` query strings so they have to be renamed to update anyway.
 
 ## Motion
 
@@ -398,3 +399,34 @@ Prompt used, if you want variations:
   navy/white system. Both live in your Tableau workbook, not the site.
 - The 60-second intro plays from YouTube (`youtube-nocookie`) rather than the
   local 126 MB `intro_video.mp4`, which is far too heavy to serve.
+
+## LINE, logos and copy length
+
+**The LINE link must be `https://line.me/R/ti/p/@217xlrbb`.** `lin.ee/OziFILE`
+was tried and is wrong: on desktop it opens a "scan this QR code" page, which is
+useless to someone already sitting at a computer. The `line://ti/p/@217xlrbb`
+scheme is also wrong for a web page — it does nothing in a browser without the
+LINE app installed. The `line.me/R/...` form is the same destination in a shape
+that works everywhere: it deep-links into the app on a phone and opens a real
+page on a laptop. It appears three times: the 怎麼運作 button, the phone menu and
+the footer.
+
+**Two logos, two different treatments, both deliberate.**
+
+- `mark-320.png` (健運動) is *去背* — the white page background is flood-filled
+  away so the navy badge sits on transparency. Used in the nav, the opening
+  curtain and the footer seal. The favicons keep a solid background on purpose;
+  a transparent favicon vanishes in a dark browser tab.
+- `association-logo.png` (中華長照協會) is **not** 去背, and must not be. Their
+  mark is a red heart with dark-grey type — on the navy footer it would be
+  unreadable, and recolouring a partner's official logo is not ours to do. What
+  was actually wrong was the *baked-in* white margin inside the PNG doubling up
+  with `.foot__logo`'s padding, so the card looked ragged. The file is now
+  trimmed to its ink, and `.foot__logo` supplies even padding on a white card.
+  **Don't "fix" this by making it transparent.**
+
+**Keep the copy short.** An earlier pass answered "explain more" with long
+paragraphs and a reader pushed back — they do not want that level of detail
+standing between them and the page. The 怎麼運作 intro is one line, each flow step
+is a fragment, each form hint is a short phrase, and the findings lead-in is one
+sentence. If you add copy here, cut something else.

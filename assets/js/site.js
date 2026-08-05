@@ -30,6 +30,37 @@
     setTimeout(function () { curtain.classList.add('curtain--skip'); }, 2600);
   })();
 
+  /* ── 1b · live month counters ────────────────────────────────
+     The proof strip used to carry hardcoded month figures, which meant the
+     page quietly started lying every 1st of the month. Each .stat__n[data-since]
+     now recomputes elapsed WHOLE months from its start date, so 17/6 become
+     18/7 on their own. Whole months only — a day short of the anniversary does
+     not count, because the number sits next to a claim a 承辦人 could check. */
+  (function () {
+    var now = new Date();
+
+    $$('.stat__n[data-since]').forEach(function (el) {
+      var parts = (el.getAttribute('data-since') || '').split('-');
+      if (parts.length !== 3) return;
+      var y = +parts[0], m = +parts[1] - 1, d = +parts[2];
+      if (isNaN(y) || isNaN(m) || isNaN(d)) return;
+
+      var months = (now.getFullYear() - y) * 12 + (now.getMonth() - m);
+      if (now.getDate() < d) months--;          /* anniversary not reached yet */
+      if (months < 1) months = 1;
+
+      /* first child is the digits; the 個月 unit lives in a sibling span */
+      if (el.firstChild && el.firstChild.nodeType === 3) {
+        el.firstChild.nodeValue = String(months);
+      }
+    });
+
+    var stamp = $('#dataStamp');
+    if (stamp) {
+      stamp.textContent = '資料截至 ' + now.getFullYear() + ' 年 ' + (now.getMonth() + 1) + ' 月';
+    }
+  })();
+
   /* ── 2 · reveal on scroll ────────────────────────────────── */
   (function () {
     var targets = $$('[data-reveal], .h2, .statement, .hero__title, .foot__me');
@@ -66,16 +97,19 @@
 
     var chip = $('#chapter'), chipNo = $('#chapterNo'), chipName = $('#chapterName');
     var foot = $('.foot'), shownChapter = -1;
-    /* keep these numbers in step with the section eyebrows and the menu */
+    /* Keep these numbers in step with the section eyebrows and the menu — and
+       keep the array in document order, since the loop below takes the last
+       entry whose top has passed the threshold. */
     var CHAPTERS = [
-      { sel: '#how',      no: '01', name: '怎麼運作' },
-      { sel: '#data',     no: '02', name: '數據發現' },
-      { sel: '#findings', no: '02', name: '基線評估' },
+      { sel: '#gap',      no: '01', name: '問題' },
+      { sel: '#how',      no: '02', name: '怎麼運作' },
       { sel: '#video',    no: '03', name: '每天十分鐘' },
-      { sel: '#about',    no: '04', name: '關於這個專案' },
-      { sel: '#story',    no: '05', name: '不只是運動' },
-      { sel: '#collab',   no: '—',  name: '合作' },
-      { sel: '#book',     no: '—',  name: '預約專區' }
+      { sel: '#story',    no: '04', name: '不只是運動' },
+      { sel: '#data',     no: '05', name: '成效' },
+      { sel: '#findings', no: '05', name: '基線評估' },
+      { sel: '#about',    no: '06', name: '關於這個專案' },
+      { sel: '#offer',    no: '07', name: '合作內容' },
+      { sel: '#book',     no: '—',  name: '合作洽詢' }
     ].map(function (c) { c.el = $(c.sel); return c; });
 
     /* Photo-grid drift. Applied to the frame, not the card: .shot carries
@@ -539,33 +573,34 @@
     }, { passive: true });
   })();
 
-  /* ── 10 · reservation form ───────────────────────────────── */
+  /* ── 10 · 合作洽詢 form ───────────────────────────────────────
+     Was a date/time/place booking form. A 據點 does not commit to a slot before
+     anyone has spoken, so this collects who they are and what they need; the
+     scheduling itself happens afterwards on LINE. The Make webhook is unchanged
+     but the field set is not — the scenario has to be re-mapped to match the
+     names posted below. */
   (function () {
     var form = $('#form'); if (!form) return;
 
     var HOOK = 'https://hook.us2.make.com/n4mpjgv5wvijbfcgd2bj3efpc38n1p1s';
 
-    var date = $('#f-date'), time = $('#f-time'), place = $('#f-place'),
-        who = $('#f-who'), note = $('#f-note'),
+    var org = $('#f-org'), who = $('#f-who'), phone = $('#f-phone'),
+        contact = $('#f-contact'), place = $('#f-place'), count = $('#f-count'),
+        cond = $('#f-cond'), need = $('#f-need'), when = $('#f-when'), note = $('#f-note'),
         trap_ = $('#f-trap'),
         submit = $('#submit'), done = $('#done'), recap = $('#recap'), again = $('#again');
 
-    /* no bookings in the past */
-    var t = new Date();
-    var iso = t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
-    date.setAttribute('min', iso);
-
-    /* No showPicker() wiring here on purpose. Both 日期 and 時間 are native
-       inputs with appearance:auto restored (see the CSS), so each opens the
-       browser's own picker with no JS — which is the point, since showPicker()
-       does nothing for a time input on macOS Safari. */
-
     var RULES = [
-      { el: date,  err: '#e-date',  msg: '請選擇日期。',
-        ok: function (v) { return !!v && v >= iso; }, late: '日期不能早於今天。' },
-      { el: time,  err: '#e-time',  msg: '請填寫時間。', ok: function (v) { return !!v; } },
-      { el: place, err: '#e-place', msg: '請填寫地點。', ok: function (v) { return v.trim().length >= 2; } },
-      { el: who,   err: '#e-who',   msg: '請填寫邀請人。', ok: function (v) { return v.trim().length >= 1; } }
+      { el: org,     err: '#e-org',     msg: '請填寫單位或據點名稱。',
+        ok: function (v) { return v.trim().length >= 2; } },
+      { el: who,     err: '#e-who',     msg: '請填寫承辦人姓名與職稱。',
+        ok: function (v) { return v.trim().length >= 1; } },
+      { el: phone,   err: '#e-phone',   msg: '請填寫聯絡電話。',
+        ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
+      { el: contact, err: '#e-contact', msg: '請填寫 Email 或 LINE ID。',
+        ok: function (v) { return v.trim().length >= 3; } },
+      { el: place,   err: '#e-place',   msg: '請填寫據點地點。',
+        ok: function (v) { return v.trim().length >= 2; } }
     ];
 
     function mark(rule, bad, text) {
@@ -581,9 +616,7 @@
     function check(rule, quiet) {
       var v = rule.el.value || '';
       var bad = !rule.ok(v);
-      var text = rule.msg;
-      if (!bad && rule.late && v && v < iso) { bad = true; text = rule.late; }
-      if (!quiet) mark(rule, bad, text);
+      if (!quiet) mark(rule, bad, rule.msg);
       return !bad;
     }
 
@@ -629,25 +662,37 @@
         return;
       }
 
+      /* The recap below is built from this map, so the order here is the order
+         the reader sees it played back in. */
       var fields = {
-        '邀請人': who.value.trim(),
-        '日期': date.value,
-        '時間': time.value,
-        '地點': place.value.trim(),
-        '備註': note.value.trim()
+        '單位／據點': org.value.trim(),
+        '承辦人': who.value.trim(),
+        '聯絡電話': phone.value.trim(),
+        'Email／LINE': contact.value.trim(),
+        '據點地點': place.value.trim(),
+        '長輩人數': count.value.trim(),
+        '長輩健康情形': cond.value,
+        '想先了解': need.value,
+        '期望開始時間': when.value.trim(),
+        '其他需求': note.value.trim()
       };
 
+      var summary = Object.keys(fields).map(function (k) {
+        return k + '：' + (fields[k] || '（未填）');
+      }).join('／');
+
       var body = new URLSearchParams({
+        org: org.value.trim(),
         inviter: who.value.trim(),
-        date: date.value,
-        time: time.value,
+        phone: phone.value.trim(),
+        contact: contact.value.trim(),
         place: place.value.trim(),
+        count: count.value.trim(),
+        condition: cond.value,
+        need: need.value,
+        start: when.value.trim(),
         note: note.value.trim(),
-        summary: '邀請人：' + fields['邀請人'] +
-                 '／日期：' + fields['日期'] +
-                 '／時間：' + fields['時間'] +
-                 '／地點：' + fields['地點'] +
-                 '／備註：' + (fields['備註'] || '（無）'),
+        summary: summary,
         submitted_at: new Date().toISOString(),
         source: location.href
       });
@@ -673,7 +718,7 @@
         fail('送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。');
       }).then(function () {
         submit.disabled = false;
-        $('span', submit).textContent = '送出預約';
+        $('span', submit).textContent = '送出洽詢';
       });
     });
 
@@ -683,7 +728,7 @@
         RULES.forEach(function (r) { mark(r, false); });
         done.hidden = true;
         form.hidden = false;
-        date.focus();
+        org.focus();
       });
     }
   })();

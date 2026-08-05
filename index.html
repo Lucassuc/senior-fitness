@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>健運動 · 活力長青 — 動健康 10 分鐘計畫</title>
-<meta name="description" content="健運動是一個高中生自學打造的長輩運動計畫：加入 LINE 官方帳號，每天提醒你動十分鐘、回報就自動記錄；也可以預約我到據點現場帶課。">
+<title>健運動 · 陪長輩每天動十分鐘，讓據點看見成效</title>
+<meta name="description" content="健運動是給社區據點與長照站的長輩運動計畫：LINE 每天陪長輩動十分鐘、出席自動記錄，也到據點現場帶課。歡迎據點與機構洽詢合作。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="健運動">
-<meta property="og:title" content="健運動 · 活力長青 — 動健康 10 分鐘計畫">
-<meta property="og:description" content="用運動與數據，陪伴社區長者找回身體的力量。">
-<meta property="og:image" content="assets/img/hero-1100.jpg">
+<meta property="og:title" content="健運動 · 陪長輩每天動十分鐘，讓據點看見成效">
+<meta property="og:description" content="一週一堂課，剩下的六天呢？LINE 每天陪長輩動十分鐘，出席自動記錄。給社區據點與長照站。">
+<meta property="og:image" content="assets/img/hero-og-1200.jpg?v=45">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/icon-64.png?v=6" sizes="64x64">
@@ -22,14 +22,14 @@
 
 <link rel="preload" href="assets/fonts/nm-text-400.woff2?v=6" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/nm-text-500.woff2?v=6" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/img/hero-mobile-1200.jpg?v=6" as="image" media="(max-width: 809px)">
-<link rel="preload" href="assets/img/hero-2000.jpg?v=6" as="image" media="(min-width: 810px)">
+<link rel="preload" href="assets/img/hero-mobile-1400.jpg?v=45" as="image" media="(max-width: 809px)">
+<link rel="preload" href="assets/img/hero-2093.jpg?v=45" as="image" media="(min-width: 810px)">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=29">
+<link rel="stylesheet" href="assets/css/site.css?v=47">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -44,7 +44,7 @@
       </defs>
       <text><textPath href="#ringPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
     </svg>
-    <img class="curtain__mark" src="assets/img/mark-320.png?v=29" alt="" width="56" height="56">
+    <img class="curtain__mark" src="assets/img/mark-320-solid.png?v=41" alt="" width="56" height="56">
   </div>
 </div>
 
@@ -54,13 +54,13 @@
 <!-- where-am-I marker for a 14,000px page, borrowed from the deso reference -->
 <div class="chapter" id="chapter" aria-hidden="true">
   <span class="chapter__no" id="chapterNo">01</span>
-  <span class="chapter__name" id="chapterName">怎麼運作</span>
+  <span class="chapter__name" id="chapterName">問題</span>
 </div>
 
 <!-- ══ nav ══ -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首">
-    <img src="assets/img/mark-320.png?v=29" alt="" width="34" height="34">
+    <img src="assets/img/mark-320-solid.png?v=41" alt="" width="34" height="34">
     <span>健運動</span>
   </a>
 
@@ -71,15 +71,14 @@
        this list, so adding a link here is all that is needed. -->
   <nav class="nav__links" aria-label="主要導覽">
     <a href="#how">介紹</a>
-    <a href="#data">數據</a>
     <a href="#video">影片</a>
-    <a href="#about">關於</a>
     <a href="#story">活動</a>
-    <a href="#collab">合作</a>
+    <a href="#data">成效</a>
+    <a href="#offer">合作內容</a>
   </nav>
 
   <div class="nav__right">
-    <a class="btn btn--pill" href="#book">預約</a>
+    <a class="btn btn--pill" href="#book">談合作</a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單">
       <i></i><i></i>
     </button>
@@ -89,18 +88,20 @@
 <!-- ══ fullscreen menu ══ -->
 <div class="menu" id="menu" hidden>
   <nav class="menu__list" aria-label="全站選單">
-    <a href="#how"><em>01</em><span>怎麼運作</span></a>
-    <a href="#data"><em>02</em><span>數據發現</span></a>
+    <a href="#gap"><em>01</em><span>問題</span></a>
+    <a href="#how"><em>02</em><span>怎麼運作</span></a>
     <a href="#video"><em>03</em><span>每天十分鐘</span></a>
-    <a href="#about"><em>04</em><span>關於這個專案</span></a>
-    <a href="#story"><em>05</em><span>不只是運動</span></a>
-    <a href="#collab"><em>—</em><span>合作</span></a>
+    <a href="#story"><em>04</em><span>不只是運動</span></a>
+    <a href="#data"><em>05</em><span>成效</span></a>
+    <a href="#about"><em>06</em><span>關於這個專案</span></a>
+    <a href="#offer"><em>07</em><span>合作內容</span></a>
+    <a href="#book"><em>—</em><span>合作洽詢</span></a>
   </nav>
   <div class="menu__foot">
     <span class="meta">LINE</span>
     <a href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
     <span class="meta">Contact</span>
-    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
   </div>
 </div>
 
@@ -114,18 +115,21 @@
 
   <div class="hero__media">
     <picture>
-      <source media="(min-width: 810px)" srcset="assets/img/hero-2000.jpg?v=6">
-      <img src="assets/img/hero-mobile-1200.jpg?v=6" alt="三位長輩與帶運動的青年在戶外扶欄旁高舉手臂，笑著一起活動身體" width="1768" height="1179" fetchpriority="high" decoding="async">
+      <source media="(min-width: 810px)" srcset="assets/img/hero-2093.jpg?v=45">
+      <img src="assets/img/hero-mobile-1400.jpg?v=45" alt="三位長輩與帶運動的青年在戶外扶欄旁高舉手臂，笑著一起活動身體" width="1400" height="933" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="hero__scrim"></div>
 
   <div class="hero__body">
-    <p class="hero__eyebrow" data-reveal>活力長青 · 動健康 10 分鐘計畫</p>
+    <!-- The eyebrow names the reader on sight. The old one described the
+         programme; a 據點承辦人 opening this page had to guess whether it was
+         for them, for their elders, or for nobody in particular. -->
+    <p class="hero__eyebrow" data-reveal>給社區據點 · 長照站 · 關懷據點</p>
     <h1 class="hero__title" aria-label="健運動">
       <span class="mask"><i style="--d:0ms">健</i></span><span class="mask"><i style="--d:90ms">運</i></span><span class="mask"><i style="--d:180ms">動</i></span>
     </h1>
-    <p class="hero__lede" data-reveal style="--d:420ms">用運動與數據，<wbr>陪伴社區長者找回身體的力量。</p>
+    <p class="hero__lede" data-reveal style="--d:420ms">每天陪長輩動十分鐘，<wbr>讓據點看得見長輩的改變。</p>
 
     <p class="hero__by" data-reveal style="--d:540ms">
       <span class="meta">Supported by</span>
@@ -133,7 +137,7 @@
     </p>
   </div>
 
-  <a class="hero__cue" href="#how" data-reveal style="--d:620ms">
+  <a class="hero__cue" href="#gap" data-reveal style="--d:620ms">
     <span class="meta">Scroll</span>
     <i></i>
   </a>
@@ -147,125 +151,126 @@
   </div>
 </div>
 
-<!-- ══ 2 · 怎麼運作 ══
-     Readers arrived at the data without knowing what the project *is*. This
-     section comes first now and answers that: a LINE tracker anyone can join,
-     and on-site classes on top of it. -->
+<!-- ══ 2 · 問題 ══
+     The wedge. A 承辦人 books courses in 12-session terms, so opening with the
+     arithmetic of their own calendar earns the rest of the page. Everything
+     after this is an answer to the question asked here. -->
+<section class="sec sec--paper" id="gap">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>01</em>問題</p>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">一期十二堂，一週一堂課。</p>
+
+    <h2 class="statement">
+      <span class="mask"><i style="--d:0ms">那剩下的</i></span>
+      <span class="mask"><i style="--d:90ms">六天呢？</i></span>
+    </h2>
+
+    <blockquote class="pullout" data-reveal style="--d:200ms">
+      一整期加起來只有十二個小時。肌力不會從一週一次長出來 —— 真正決定長輩會不會變強的，是沒有人陪的那六天。
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ 3 · 怎麼運作 ══ -->
 <section class="sec sec--tint" id="how">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>01</em>怎麼運作</p>
+    <p class="eyebrow" data-reveal><em>02</em>怎麼運作</p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">先用 LINE 陪你動，</i></span>
-      <span class="mask"><i style="--d:100ms">再到現場一起動。</i></span>
+      <span class="mask"><i style="--d:0ms">每天用 LINE 陪，</i></span>
+      <span class="mask"><i style="--d:100ms">每週到現場帶。</i></span>
     </h2>
 
     <p class="sec__intro" data-reveal style="--d:80ms">
-健運動有兩個部分：<strong>LINE 每天陪你動</strong>，<strong>現場課程我親自帶</strong>。
+健運動把兩件事接在一起：<strong>LINE 每天陪長輩動十分鐘</strong>，<strong>現場我親自到據點帶</strong>。長輩得到陪伴，據點看得到<strong>誰每天有動、誰連續在動</strong>。
     </p>
 
     <ol class="flow">
       <li class="flow__step" data-reveal>
         <em class="flow__no">01</em>
-        <h3 class="flow__h">加入 LINE</h3>
-        <p class="flow__p">一鍵加入，不用下載 App。</p>
+        <h3 class="flow__h">長輩加入 LINE</h3>
+        <p class="flow__p">用長輩原本就在用的 LINE，掃 QR code 就加入，不用再裝新的 App。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:70ms">
         <em class="flow__no">02</em>
         <h3 class="flow__h">每天提醒</h3>
-        <p class="flow__p">每天固定時間提醒你。</p>
+        <p class="flow__p">每天固定時間，提醒長輩動一動。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:140ms">
         <em class="flow__no">03</em>
-        <h3 class="flow__h">動十分鐘</h3>
-        <p class="flow__p">坐著站著都行，不用器材。</p>
+        <h3 class="flow__h">運動或拉伸十分鐘</h3>
+        <!-- Deliberately no weekday names. Naming days turns this into a
+             timetable a 長輩 can fail; a weekly target is something they aim at
+             and still choose their own way to. 就很好 keeps it praise-framed
+             rather than a requirement. -->
+        <p class="flow__p">運動、拉伸自己選，坐著站著都行。一週有 4 天做到運動就很好。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:210ms">
         <em class="flow__no">04</em>
-        <h3 class="flow__h">回報就完成</h3>
-        <p class="flow__p">自動記錄，月底抽獎。</p>
+        <h3 class="flow__h">按一下回報</h3>
+        <!-- Deliberately no prize count or item. Those change month to month and
+             would go stale on a page nobody remembers to edit; the 據點承辦人
+             only needs to know a motivation mechanic exists. Specifics belong
+             in the LINE account, where the 長輩 actually act on them. -->
+        <p class="flow__p">在 LINE 上按一下就完成。月底公布英雄榜，表揚持續在動的長輩。</p>
       </li>
     </ol>
 
-    <div class="join" data-reveal style="--d:120ms">
+    <!-- Proof strip. Placed here, not in the hero: the strongest figure is 17
+         個月 and the weakest is 8 位, so the small one has to travel with the
+         big ones or it reads thin on its own. Detailed findings stay in #data
+         where they have the context to land. Update the note's date whenever
+         these change. -->
+    <p class="stats__lead" data-reveal style="--d:60ms">這不是計畫書，是已經在跑的東西。</p>
+
+    <ul class="stats" data-reveal style="--d:120ms">
+      <!-- data-since drives the number: site.js recomputes elapsed whole months
+           on every load, so these never go stale. The literal digits are only a
+           no-JS fallback — update them if you ever edit the start dates. -->
+      <li class="stat">
+        <span class="stat__n" data-since="2025-03-01">17<span class="stat__u">個月</span></span>
+        <span class="stat__l">走進社區</span>
+      </li>
+      <li class="stat">
+        <span class="stat__n" data-since="2026-01-31">6<span class="stat__u">個月</span></span>
+        <span class="stat__l">健運動運作</span>
+      </li>
+      <li class="stat">
+        <span class="stat__n">8<span class="stat__u">位</span></span>
+        <!-- 分析, not 檢測: the health check itself was run by the partner
+             organisation. What is Lucas's here is the analysis, so the label
+             has to say that. Swap this whole figure for a 回報率 or 連續天數
+             number once that data is available — it comes from his own LINE
+             system, so it is unambiguously his to claim. -->
+        <span class="stat__l">體能資料分析</span>
+      </li>
+    </ul>
+
+    <!-- The two time figures must stay separately labelled. 健運動 opened
+         2026.01.31; the 10 months before that were volunteer work in the same
+         community, which is worth showing precisely because it proves he did
+         not parachute in — but merging them into one number would be a claim
+         he cannot defend if a 承辦人 asks. -->
+    <p class="stats__note" data-reveal style="--d:160ms">2025 年 3 月起以志工身分參與社區服務 · 健運動 2026 年 1 月開張 · <span id="dataStamp">資料截至 2026 年 8 月</span></p>
+
+    <!-- A bordered panel rather than a loose button: this is the one place the
+         reader leaves the site, so it needs to look like a defined object and
+         say exactly what it is. The fine print separates the two LINE routes —
+         the 長輩 account is not the channel a 承辦人 uses to arrange dates. -->
+    <div class="linecard" data-reveal style="--d:200ms">
+      <p class="linecard__label">長輩用的官方帳號</p>
+      <p class="linecard__lede">每天的提醒、每次的回報，都在這個帳號上。加入後，你會收到和長輩一模一樣的訊息。</p>
       <a class="btn btn--solid btn--big" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">
         加入健運動 LINE 官方帳號
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
       </a>
-      <p class="join__note">
-想要我到現場帶？<a href="#book">預約課程</a>。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 3 · 數據發現（statement） ══ -->
-<section class="sec sec--paper" id="data">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>02</em>數據發現</p>
-
-    <p class="sec__intro" data-reveal style="--d:80ms">在開始帶運動之前，我先幫每一位長輩做了一次身體檢測。</p>
-
-    <h2 class="statement">
-      <span class="mask mask--q"><i style="--d:0ms">「有動」</i></span>
-      <span class="mask"><i style="--d:90ms">不等於「有力」，</i></span>
-      <span class="mask mask--q"><i style="--d:180ms">「年紀」</i></span>
-      <span class="mask"><i style="--d:270ms">也不代表「風險」。</i></span>
-    </h2>
-
-  </div>
-</section>
-
-<!-- ══ 2b · 發現 + 儀表板 ══ -->
-<section class="sec sec--tint" id="findings" aria-labelledby="dash-h">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal>基線評估 · Findings</p>
-
-    <!-- readers said the numbers arrived before they knew what was measured -->
-    <p class="finding__intro" data-reveal>
-我量了兩件事：<b>握力</b>，看肌少症；<b>30 秒起立坐下</b>，看跌倒風險。一個握力器、一張椅子就能做。
-    </p>
-
-    <p class="finding__lead" data-reveal style="--d:80ms">
-      結果是：8 位受測長輩中，<b>4 位握力低於 AWGS-2019 亞洲肌少症標準</b>；7 位受測者中，<b>3 位起立測試超過安全值</b>。
-    </p>
-
-    <p class="finding__turn" data-reveal style="--d:160ms">
-      更值得注意的是：65–74 歲這組被標記的風險，反而比 75–84 歲更多 —— 年紀大不一定比較虛弱，每個人的身體狀況都不一樣。
-    </p>
-
-    <blockquote class="pullout" data-reveal style="--d:240ms">
-      這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
-    </blockquote>
-
-    <div class="dash__head dash__head--spaced">
-      <h3 class="h3" id="dash-h" data-reveal style="--d:60ms">基線評估儀表板</h3>
-      <a class="btn btn--ghost" data-reveal style="--d:120ms"
-         href="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
-         target="_blank" rel="noopener">
-        新視窗開啟
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
-      </a>
+      <p class="linecard__fine">這個帳號只用來提醒長輩運動。<strong>課程時段不在這裡安排</strong> —— 那部分我會直接跟你聯繫。</p>
     </div>
 
-    <p class="dash__intro" data-reveal style="--d:100ms">
-8 位長輩的完整結果。手機上點「新視窗開啟」看更清楚。
+    <p class="join__note" data-reveal style="--d:260ms">
+想把健運動帶進你的據點？<a href="#book">填寫合作洽詢</a>。
     </p>
-
-    <figure class="dash" data-reveal style="--d:160ms">
-      <div class="dash__bar">
-        <span class="meta">Baseline Assessment</span>
-        <span class="meta dash__hint">完整互動版請開新視窗</span>
-      </div>
-      <div class="dash__frame" id="dashFrame"
-           data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1">
-        <div class="dash__zoom" id="dashZoom"></div>
-        <div class="dash__load"><i></i><span class="meta">載入儀表板…</span></div>
-      </div>
-      <figcaption class="dash__cap">
-        n=8，單次基線評估（2026 年 2 月），結果為方向性參考。儀表板內容為英文。
-      </figcaption>
-    </figure>
   </div>
 </section>
 
@@ -274,14 +279,14 @@
   <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
 
   <div class="wrap">
-    <p class="eyebrow eyebrow--inv" data-reveal><em>03</em>一起來運動</p>
+    <p class="eyebrow eyebrow--inv" data-reveal><em>03</em>每天十分鐘</p>
 
     <h2 class="h2 h2--inv">
       <span class="mask"><i style="--d:0ms">每天十分鐘，</i></span>
       <span class="mask"><i style="--d:100ms">動出好體力</i></span>
     </h2>
 
-    <p class="sec__note sec__note--inv" data-reveal>跟著一起動 —— 走到哪，動到哪。</p>
+    <p class="sec__note sec__note--inv" data-reveal>這就是長輩每天在 LINE 上收到的十分鐘。</p>
 
     <div class="clips" id="shorts">
       <!-- no captions: both clips are from the same session, they carry their own
@@ -294,7 +299,7 @@
             <video class="lazyvid" playsinline muted loop preload="none"
                    poster="assets/video/poster/short-1.jpg"
                    data-src="assets/video/short-1.mp4?v=6" data-end="12.8"
-                   aria-label="短片：運動後回報就有機會抽獎"></video>
+                   aria-label="短片：運動後回報，就有機會登上每月英雄榜"></video>
             <button class="short__tap" type="button" aria-label="播放或暫停短片一">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </button>
@@ -331,55 +336,23 @@
   </div>
 </section>
 
-<!-- ══ 5 · 關於這個專案 ══ -->
-<section class="sec sec--paper" id="about">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>04</em>關於這個專案</p>
-
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">一個高中生自學打造，</i></span>
-      <span class="mask"><i style="--d:90ms">用運動與數據</i></span>
-      <span class="mask"><i style="--d:180ms">陪伴社區長者。</i></span>
-    </h2>
-
-    <ul class="cards">
-      <li class="card" data-reveal>
-        <em class="card__no">01</em>
-        <h3>運動陪伴</h3>
-        <p>不只是運動，是每天的陪伴。</p>
-      </li>
-      <li class="card" data-reveal style="--d:70ms">
-        <em class="card__no">02</em>
-        <h3>記錄運動</h3>
-        <p>每一次的努力，都被好好記下。</p>
-      </li>
-      <li class="card" data-reveal style="--d:70ms">
-        <em class="card__no">03</em>
-        <h3>數據追蹤</h3>
-        <p>看見每位長輩不一樣的需求。</p>
-      </li>
-      <li class="card" data-reveal style="--d:140ms">
-        <em class="card__no">04</em>
-        <h3>自學打造</h3>
-        <p>從零開始，一個人建立的系統。</p>
-      </li>
-    </ul>
-
-    <blockquote class="pullout" data-reveal>
-      自建 LINE 官方帳號、Make 自動化、Google Sheet 與 Notion 資料庫，每天自動提醒長輩運動，並記錄每次的運動回報。
-    </blockquote>
-  </div>
-</section>
-
-<!-- ══ 6 · 不只是運動 ══ -->
+<!-- ══ 5 · 不只是運動 ══
+     Moved ahead of the data on purpose. These photos are the evidence that the
+     companionship is real and sustained — the meal deliveries and the 圍爐 are
+     not off-topic, they are the whole argument. Proof of relationship first,
+     proof of effect second. -->
 <section class="sec sec--tint" id="story">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>05</em>不只是運動</p>
+    <p class="eyebrow" data-reveal><em>04</em>不只是運動</p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">這些是這一路走來，</i></span>
-      <span class="mask"><i style="--d:100ms">和長輩之間的故事。</i></span>
+      <span class="mask"><i style="--d:0ms">陪伴不是一堂課，</i></span>
+      <span class="mask"><i style="--d:100ms">是一直都在。</i></span>
     </h2>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">
+送餐、圍爐、手作課、看展 —— 從攝影志工到健運動，這一年多來和長輩之間累積的，不只是運動。
+    </p>
 
     <ol class="grid" id="grid">
       <li class="shot" data-reveal>
@@ -470,105 +443,295 @@
   </div>
 </section>
 
-<!-- ══ 7 · 合作 ══ -->
-<section class="sec sec--navy invite" id="collab">
-  <!-- Atmospheric layer. Stays inert until assets/img/collab-bg.jpg exists;
-       site.js probes the file first, so a missing image changes nothing. -->
-  <div class="sec__bg" data-bg="assets/img/collab-bg.jpg?v=6" aria-hidden="true"></div>
-
+<!-- ══ 6 · 成效（statement） ══ -->
+<section class="sec sec--paper" id="data">
   <div class="wrap">
-    <p class="eyebrow eyebrow--inv" data-reveal>合作 · Collaboration</p>
+    <p class="eyebrow" data-reveal><em>05</em>成效</p>
 
-    <h2 class="statement statement--inv">
-      <span class="mask"><i style="--d:0ms">想把這個計畫</i></span>
-      <span class="mask"><i style="--d:100ms">帶進你的機構嗎？</i></span>
+    <p class="sec__intro" data-reveal style="--d:80ms">2026 年 2 月，合作機構為長輩做了一次健康檢查。我取得資料後做了分析。</p>
+
+    <h2 class="statement">
+      <span class="mask mask--q"><i style="--d:0ms">「有動」</i></span>
+      <span class="mask"><i style="--d:90ms">不等於「有力」，</i></span>
+      <span class="mask mask--q"><i style="--d:180ms">「年紀」</i></span>
+      <span class="mask"><i style="--d:270ms">也不代表「風險」。</i></span>
     </h2>
 
-    <p class="sec__note sec__note--inv" data-reveal>歡迎合作單位與我聯繫，一起把十分鐘帶給更多長輩。</p>
-
-    <div class="invite__act" data-reveal style="--d:80ms">
-      <a class="btn btn--solid-inv" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A"
-         target="_blank" rel="noopener">寄信給我</a>
-      <button class="invite__addr" type="button" id="copyMail"
-              data-mail="lucychi13450@gmail.com" aria-label="複製電子郵件地址">
-        <span id="copyMailText">lucychi13450@gmail.com</span>
-      </button>
-    </div>
   </div>
 </section>
 
-<!-- ══ 8 · 預約 ══ -->
-<section class="sec sec--paper" id="book">
-  <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-reveal>預約課程 · Reservation</p>
+<!-- ══ 6b · 發現 + 儀表板 ══ -->
+<section class="sec sec--tint" id="findings" aria-labelledby="dash-h">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>基線評估 · Findings</p>
 
-    <h2 class="h2" data-reveal style="--d:60ms">預約十分鐘運動課程</h2>
-
-    <p class="sec__intro" data-reveal style="--d:100ms">
-我到你的據點，帶長輩做<strong>十分鐘體適能運動</strong> —— 暖身、肌力、伸展，坐著也能做，不需器材。
+    <!-- readers said the numbers arrived before they knew what was measured -->
+    <p class="finding__intro" data-reveal>
+檢查裡有兩個數字最關鍵：<b>握力</b>，看肌少症；<b>五次坐站測試</b>，看跌倒風險。
     </p>
 
-    <p class="sec__note" data-reveal style="--d:140ms">此表單提供給<strong>已合作的機構</strong>安排時段。第一次接洽的單位，歡迎先寄信給我。</p>
+    <p class="finding__lead" data-reveal style="--d:80ms">
+      8 位長輩中，<b>4 位握力低於標準</b>；7 位受測者中，<b>3 位坐站測試超過 12 秒</b>。
+    </p>
+
+    <!-- The two thresholds carry the whole finding, so they get explained in
+         plain words here instead of sitting in the headline as bare jargon. -->
+    <p class="finding__fine" data-reveal style="--d:120ms">
+      <b>AWGS-2019</b> 是亞洲肌少症工作小組的診斷標準，握力男性低於 28 公斤、女性低於 18 公斤即偏弱。<b>五次坐站測試</b>是從椅子連續站起坐下五次，超過 12 秒代表下肢肌力不足、跌倒風險偏高。
+    </p>
+
+    <p class="finding__turn" data-reveal style="--d:160ms">
+      更意外的是：<b>65–74 歲</b>被標記的風險，比 <b>75–84 歲</b>還多。
+    </p>
+
+    <blockquote class="pullout" data-reveal style="--d:240ms">
+      這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
+    </blockquote>
+
+    <div class="dash__head dash__head--spaced">
+      <h3 class="h3" id="dash-h" data-reveal style="--d:60ms">基線評估儀表板</h3>
+      <a class="btn btn--ghost" data-reveal style="--d:120ms"
+         href="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+         target="_blank" rel="noopener">
+        新視窗開啟
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
+      </a>
+    </div>
+
+    <!-- Do NOT put a deliverable promise here. An earlier draft said this
+         dashboard was "what a partner 據點 gets at the end of a term" — Lucas
+         has never produced an endline report and the underlying health check
+         was run by the partner organisation, not by him. -->
+    <p class="dash__intro" data-reveal style="--d:100ms">
+8 位長輩的完整結果。手機上點「新視窗開啟」看更清楚。
+    </p>
+
+    <figure class="dash" data-reveal style="--d:160ms">
+      <div class="dash__bar">
+        <span class="meta">基線評估</span>
+        <span class="meta dash__hint">完整互動版請開新視窗</span>
+      </div>
+      <div class="dash__frame" id="dashFrame"
+           data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1">
+        <div class="dash__zoom" id="dashZoom"></div>
+        <div class="dash__load"><i></i><span class="meta">載入儀表板…</span></div>
+      </div>
+      <figcaption class="dash__cap">
+        n=8，單次基線評估（2026 年 2 月），結果為方向性參考。
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 7 · 關於這個專案 ══
+     The four cards that used to sit here said the same things the new 問題 and
+     合作內容 sections now say properly. What is left is the part only this
+     section can carry: who is on the other end of the form. -->
+<section class="sec sec--paper" id="about">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>06</em>關於這個專案</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">一個高中生自學打造，</i></span>
+      <span class="mask"><i style="--d:90ms">用運動與數據</i></span>
+      <span class="mask"><i style="--d:180ms">陪伴社區長者。</i></span>
+    </h2>
+
+    <p class="sec__intro" data-reveal style="--d:100ms">
+我是 Lucas，高中生。2025 年 3 月開始在社區當<strong>攝影志工</strong>，跟著送餐、圍爐，慢慢認識了這裡的長輩。2026 年 1 月，<strong>健運動開張</strong> —— 從一個 LINE 官方帳號開始。
+    </p>
+
+    <blockquote class="pullout" data-reveal style="--d:180ms">
+      自建 LINE 官方帳號、Make 自動化、Google Sheet 與 Notion 資料庫，每天提醒長輩運動，並記錄每一次回報。
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ 8 · 合作內容 ══
+     The section the site was missing entirely: what a 據點 actually receives.
+     Four deliverables, priced-in-kind, with the last one aimed squarely at the
+     paperwork a 承辦人 has to produce at the end of a term. -->
+<section class="sec sec--tint" id="offer">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>07</em>合作內容</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">合作的據點，</i></span>
+      <span class="mask"><i style="--d:100ms">會拿到什麼？</i></span>
+    </h2>
+
+    <ul class="cards">
+      <!-- 01 and 03 both used to say 回報 and read as the same service. 01 is
+           now purely the reminder side, 03 purely the record side. -->
+      <li class="card" data-reveal>
+        <em class="card__no">01</em>
+        <h3>每天自動提醒</h3>
+        <p>固定時間發到長輩的 LINE，不用記、也不會忘。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">02</em>
+        <!-- 帶動, not 課程: Lucas holds no 體適能指導員 certificate and Taiwan's
+             預防延緩 programmes require one, so 課程 would imply a credential he
+             does not have. 與據點人員一起進行 signals he does not run a room
+             alone. Do NOT state 志工身分 here — this work is paid. -->
+        <h3>現場帶動</h3>
+        <p>我到據點帶十分鐘伸展與肌力，動作簡單、坐著也能做，與據點人員一起進行。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">03</em>
+        <h3>運動與拉伸紀錄</h3>
+        <p>長輩按下「運動」或「拉伸」，系統就分開記下來，月底整理成英雄榜。</p>
+      </li>
+      <!-- Not "I will assess your elders": Lucas has never administered the
+           fitness tests — the 2026-02 health check was the partner
+           organisation's and he analysed the data afterwards. The parenthetical
+           states that limit outright so nobody books him expecting testing. -->
+      <li class="card" data-reveal style="--d:140ms">
+        <em class="card__no">04</em>
+        <h3>資料分析</h3>
+        <p>你們已經有的健檢或出席資料，我幫忙找出裡面的重點。（檢測本身由據點或醫護執行）</p>
+      </li>
+    </ul>
+
+    <blockquote class="pullout" data-reveal>
+      這些不一定要一起做。第一次合作，先從一個月的 LINE 陪伴開始就好 —— 不用簽約，也不用排整期的課。
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══ 9 · 合作洽詢 ══
+     The standalone navy 合作 banner that used to sit here was removed: it asked
+     the same question this section asks and then pointed at this form, so a
+     reader met the invitation twice. Its headline moved down here, where the
+     form can answer it immediately. -->
+<section class="sec sec--paper" id="book">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow" data-reveal>合作洽詢 · Contact</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">想把健運動</i></span>
+      <span class="mask"><i style="--d:100ms">帶進你的據點嗎？</i></span>
+    </h2>
+
+    <p class="sec__intro" data-reveal style="--d:100ms">
+填完這張表，我會在<strong>三個工作天內</strong>跟你聯繫，一起確認適合的合作方式。想先聊聊、或安排一次體驗，都可以。
+    </p>
+
+    <!-- The two LINE routes are genuinely separate and a 承辦人 will assume
+         otherwise, so this says it plainly at the point of doubt. -->
+    <p class="sec__note" data-reveal style="--d:140ms">這張表只是第一次接洽，<strong>不會直接排課</strong>。<strong>課程時段</strong>（哪天、幾點、幾堂）之後由我直接與你聯繫敲定，不走長輩那個官方帳號。</p>
 
     <form class="form" id="form" novalidate data-reveal style="--d:180ms">
-      <div class="field">
-        <label for="f-date">日期 <span class="req" aria-hidden="true">必填</span></label>
-        <input id="f-date" name="date" type="date" required autocomplete="off"
-               aria-describedby="e-date h-date">
-        <p class="hint" id="h-date">希望我到場帶課的日期。</p>
-        <p class="err" id="e-date" role="alert"></p>
-      </div>
+      <p class="form__group">聯絡資訊</p>
 
-      <!-- 時間 is a native time input, exactly like 日期 above: any time is
-           allowed, and the browser's own control opens it. No fixed slot list —
-           a select capped the range and put a chevron on one field but not the
-           other. -->
       <div class="field">
-        <label for="f-time">時間 <span class="req" aria-hidden="true">必填</span></label>
-        <input id="f-time" name="time" type="time" required autocomplete="off"
-               aria-describedby="e-time h-time">
-        <p class="hint" id="h-time">課程希望開始的時間。</p>
-        <p class="err" id="e-time" role="alert"></p>
+        <label for="f-org">單位／據點名稱 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-org" name="org" type="text" required autocomplete="organization"
+               placeholder="例：永和永樂居關懷據點" aria-describedby="e-org h-org">
+        <p class="hint" id="h-org">請填寫完整名稱。</p>
+        <p class="err" id="e-org" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-place">地點 <span class="req" aria-hidden="true">必填</span></label>
-        <input id="f-place" name="place" type="text" required autocomplete="off"
-               placeholder="例：新北市永和區永樂居" aria-describedby="e-place h-place">
-        <p class="hint" id="h-place">據點或教室的地址。</p>
-        <p class="err" id="e-place" role="alert"></p>
-      </div>
-
-      <div class="field">
-        <label for="f-who">邀請人 <span class="req" aria-hidden="true">必填</span></label>
-        <input id="f-who" name="inviter" type="text" required autocomplete="off"
-               placeholder="例：王督導（永樂居）" aria-describedby="e-who h-who">
-        <p class="hint" id="h-who">你的姓名或職稱。</p>
+        <label for="f-who">承辦人姓名與職稱 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-who" name="inviter" type="text" required autocomplete="name"
+               placeholder="例：王小明 督導" aria-describedby="e-who h-who">
+        <p class="hint" id="h-who">我聯繫時要找的人。</p>
         <p class="err" id="e-who" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-note">備註 <span class="opt">選填</span></label>
+        <label for="f-phone">聯絡電話 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-phone" name="phone" type="tel" required autocomplete="tel"
+               placeholder="例：0912-345-678" aria-describedby="e-phone h-phone">
+        <p class="hint" id="h-phone">市話請加區碼。</p>
+        <p class="err" id="e-phone" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-contact">Email 或 LINE ID <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-contact" name="contact" type="text" required autocomplete="email"
+               placeholder="例：abc@gmail.com" aria-describedby="e-contact h-contact">
+        <p class="hint" id="h-contact">填 Email 或 LINE ID 都可以，我用你方便的那個聯繫。</p>
+        <p class="err" id="e-contact" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-place">據點地點 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="f-place" name="place" type="text" required autocomplete="off"
+               placeholder="例：新北市永和區" aria-describedby="e-place h-place">
+        <p class="hint" id="h-place">填到行政區就可以。</p>
+        <p class="err" id="e-place" role="alert"></p>
+      </div>
+
+      <p class="form__group">長輩狀況</p>
+
+      <div class="field">
+        <label for="f-count">參與長輩人數 <span class="opt">選填</span></label>
+        <input id="f-count" name="count" type="text" autocomplete="off"
+               placeholder="例：15 人" aria-describedby="h-count">
+        <p class="hint" id="h-count">大概的人數就可以。</p>
+      </div>
+
+      <div class="field">
+        <label for="f-cond">長輩健康情形 <span class="opt">選填</span></label>
+        <select id="f-cond" name="condition" aria-describedby="h-cond">
+          <option value="">請選擇</option>
+          <option>健康</option>
+          <option>亞健康</option>
+          <option>衰弱</option>
+          <option>輕度失智</option>
+          <option>中重度失智</option>
+          <option>混合，狀況不一</option>
+        </select>
+        <p class="hint" id="h-cond">這會影響課程強度。據點內狀況不一很正常，細節可以寫在下面的「其他需求」。</p>
+      </div>
+
+      <p class="form__group">需求</p>
+
+      <div class="field">
+        <label for="f-need">想先了解哪一項 <span class="opt">選填</span></label>
+        <select id="f-need" name="need" aria-describedby="h-need">
+          <option value="">請選擇</option>
+          <option>LINE 每日陪伴導入</option>
+          <option>現場十分鐘課程</option>
+          <option>出席紀錄</option>
+          <option>資料分析</option>
+          <option>都想了解</option>
+          <option>還不確定，想先聊聊</option>
+        </select>
+        <p class="hint" id="h-need">不確定也沒關係，可以先聊聊。</p>
+      </div>
+
+      <div class="field">
+        <label for="f-when">期望開始時間 <span class="opt">選填</span></label>
+        <input id="f-when" name="when" type="text" autocomplete="off"
+               placeholder="例：2026 年 10 月，或下一期" aria-describedby="h-when">
+        <p class="hint" id="h-when">大概的時間就可以，細節之後在 LINE 上談。</p>
+      </div>
+
+      <div class="field">
+        <label for="f-note">其他需求 <span class="opt">選填</span></label>
         <textarea id="f-note" name="note" rows="4"
-                  placeholder="例：約 12 位長輩，多數坐輪椅，教室有椅子"
+                  placeholder="例：場地有椅子沒有器材；多數長輩坐輪椅；需要核銷用的報表"
                   aria-describedby="h-note"></textarea>
-        <p class="hint" id="h-note">人數、長輩狀況、場地條件。</p>
+        <p class="hint" id="h-note">場地條件、經費來源、報表需求都可以寫在這裡。</p>
       </div>
 
       <input type="text" name="_gotcha" id="f-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <button class="btn btn--solid btn--big" type="submit" id="submit">
-        <span>送出預約</span>
+        <span>送出洽詢</span>
       </button>
 
       <p class="err err--form" id="e-form" role="alert"></p>
-      <p class="form__fine">送出後我會收到通知，並盡快與你確認時段。</p>
+      <p class="form__fine">送出後我會收到通知，並在三個工作天內與你聯繫。</p>
     </form>
 
     <div class="done" id="done" hidden>
       <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
-      <h3>已收到你的預約</h3>
-      <p>我會盡快與你確認，謝謝！</p>
+      <h3>已收到你的訊息</h3>
+      <p>我會在三個工作天內與你聯繫，謝謝！</p>
       <dl class="done__recap" id="recap"></dl>
       <button class="btn btn--ghost" type="button" id="again">再填一筆</button>
     </div>
@@ -576,7 +739,7 @@
 </section>
 </main>
 
-<!-- ══ 8 · footer ══ -->
+<!-- ══ 11 · footer ══ -->
 <footer class="foot">
   <div class="sec__bg" data-bg="assets/img/tex-foot.jpg?v=6" aria-hidden="true"></div>
 
@@ -591,7 +754,7 @@
           </defs>
           <text><textPath href="#sealPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
         </svg>
-        <img src="assets/img/mark-320.png?v=29" alt="" width="40" height="40" loading="lazy" decoding="async">
+        <img src="assets/img/mark-320-solid.png?v=41" alt="" width="40" height="40" loading="lazy" decoding="async">
       </div>
 
       <p class="eyebrow eyebrow--inv" data-reveal>About me</p>
@@ -606,7 +769,7 @@
       <div class="foot__cell" data-reveal>
         <span class="meta">支持單位</span>
         <div class="foot__logo">
-          <img src="assets/img/association-logo.png?v=29" alt="社團法人中華長照協會 China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
         </div>
         <p>本計畫由社團法人中華長照協會支持。</p>
       </div>
@@ -614,11 +777,11 @@
       <div class="foot__cell" data-reveal style="--d:80ms">
         <span class="meta">加入 LINE</span>
         <a class="foot__mail" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
-        <p>每天提醒你動十分鐘，動完回報就自動記錄。</p>
+        <p>每天提醒長輩動十分鐘，動完回報就自動記錄。</p>
 
         <span class="meta">合作與聯絡</span>
-        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%A9%9F%E6%A7%8B%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
-        <p>歡迎合作單位、機構與想了解計畫的朋友來信。</p>
+        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+        <p>歡迎據點、機構與想了解計畫的朋友來信。</p>
       </div>
     </div>
 
@@ -652,6 +815,6 @@
   </button>
 </div>
 
-<script src="assets/js/site.js?v=29" defer></script>
+<script src="assets/js/site.js?v=47" defer></script>
 </body>
 </html>

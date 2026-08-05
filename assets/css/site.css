@@ -1103,9 +1103,13 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .foot__cell{display:flex;flex-direction:column;gap:var(--s4);align-items:flex-start}
 .foot__cell .meta{color:var(--haze)}
 .foot__cell p{font-size:.9375rem;color:rgba(255,255,255,.66);line-height:1.85;max-width:34ch}
+/* The white chip is gone: association-logo-reverse.png is a knockout built from
+   the supplied artwork — paper white stripped to alpha, the neutral wordmark
+   turned white, the red mark left in brand colour — so it sits directly on the
+   navy. association-logo-transparent.png keeps the original colours for any
+   light-background use. */
 .foot__logo{
-  background:#fff;border-radius:var(--r);padding:var(--s4) var(--s5);
-  width:100%;max-width:340px;
+  width:100%;max-width:300px;margin-block:var(--s3);
 }
 .foot__logo img{width:100%;height:auto}
 .foot__mail{
@@ -1216,3 +1220,106 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   .marquee__track{animation:none}
   .hero__cue i::after{animation:none;opacity:.6}
 }
+
+/* ── 合作洽詢 form: group headings + select chevron ───────────
+   The contact form is long enough (ten fields) that unbroken stack of inputs
+   read as a wall. These headings split it into 聯絡資訊 / 長輩狀況 / 需求, the
+   same three-block grouping the fitnfun reference uses. */
+.form__group{
+  font-family:var(--ff-latin);font-weight:500;
+  font-size:.6875rem;letter-spacing:.2em;color:var(--haze);
+  padding-top:var(--s5);border-top:1px solid var(--rule);
+}
+.form__group:first-child{padding-top:0;border-top:0}
+
+/* appearance:none up in .field strips the native arrow, so draw one. Set the
+   image and its placement only — never the background shorthand, which would
+   wipe the background-color the focus and invalid states rely on. */
+.field select{
+  padding-right:calc(var(--s4) + 22px);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230d1a50' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6.5 8 10.5 12 6.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right var(--s4) center;
+  background-size:16px 16px;
+  cursor:pointer;
+}
+.field select:invalid,.field select option[value=""]{color:var(--ink-faint)}
+
+/* ── proof strip (#how) ───────────────────────────────────────
+   Three figures kept on one row at every width: they are short (17/14/8) and
+   stacking them would turn a two-second scan into a scroll. Labels are two
+   characters for the same reason — the detail lives in .stats__note. */
+.stats__lead{
+  margin-top:var(--s8);
+  font-family:var(--ff-display);font-weight:500;
+  font-size:clamp(1.0625rem,4.4vw,1.25rem);line-height:1.6;
+}
+.stats{
+  margin-top:var(--s5);padding-top:var(--s5);
+  border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);
+}
+.stat__n{
+  display:block;
+  font-family:var(--ff-display);font-weight:600;
+  font-size:clamp(2rem,9vw,3.25rem);line-height:1;letter-spacing:.01em;
+  color:var(--ink);
+}
+.stat__u{
+  font-size:.42em;font-weight:500;letter-spacing:.02em;
+  margin-left:.18em;color:var(--ink-soft);
+}
+.stat__l{
+  display:block;margin-top:10px;
+  font-size:.8125rem;line-height:1.5;color:var(--ink-soft);
+}
+.stats__note{
+  margin-top:var(--s5);
+  font-family:var(--ff-latin);font-size:.75rem;letter-spacing:.06em;
+  color:var(--ink-faint);
+}
+
+/* ── mark ─────────────────────────────────────────────────────
+   No ring, no chip. In mark-320.png the fist and barbell are cut clean out of
+   the navy disc, so on a navy surface the page showed through and the hand
+   vanished. mark-320-solid.png fills those cut-outs with real white, which
+   renders identically on paper and stays legible on navy — so one file serves
+   every placement. */
+
+/* ── LINE panel + finding footnote ────────────────────────────
+   Flat elevation only — a border and a surface shift, no shadow, matching the
+   neuemontreal reference's approach. The panel exists because this is the one
+   outbound link on the page: a bare button gave a 承辦人 no idea where it led
+   or which of the two LINE routes it was. */
+.linecard{
+  margin-top:var(--s8);
+  border:1px solid var(--rule-2);border-radius:var(--r);
+  background:var(--fill);
+  padding:var(--s5) var(--s5) var(--s6);
+}
+@media (min-width:810px){ .linecard{padding:var(--s6);max-width:34rem} }
+.linecard__label{
+  font-family:var(--ff-latin);font-weight:500;
+  font-size:.6875rem;letter-spacing:.2em;color:var(--haze);
+  margin-bottom:var(--s4);
+}
+.linecard__lede{
+  font-family:var(--ff-display);font-weight:500;
+  font-size:clamp(1.0625rem,4.4vw,1.1875rem);line-height:1.7;
+  margin-bottom:var(--s5);
+}
+.linecard .btn{width:100%}
+.linecard__fine{
+  margin-top:var(--s4);
+  font-size:.8125rem;line-height:1.75;color:var(--ink-faint);
+}
+.linecard__fine strong{color:var(--ink-soft)}
+
+.finding__fine{
+  margin-top:var(--s4);
+  padding-left:var(--s4);border-left:1px solid var(--rule-2);
+  font-size:.8125rem;line-height:1.9;color:var(--ink-soft);
+  max-width:52ch;
+}
+.finding__fine b{color:var(--ink);font-weight:500}
+.linecard + .join__note{margin-top:var(--s5)}

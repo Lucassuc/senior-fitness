@@ -1,1 +1,5 @@
 .DS_Store
+
+# Design-reference skill copied in for styling work — 220 MB, and it contains a
+# 99 MB file that GitHub rejects outright. It is not part of the site.
+fitnfun-design/

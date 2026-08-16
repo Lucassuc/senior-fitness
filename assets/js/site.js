@@ -63,7 +63,11 @@
 
   /* ── 2 · reveal on scroll ────────────────────────────────── */
   (function () {
-    var targets = $$('[data-reveal], .h2, .statement, .hero__title, .foot__me');
+    /* .hero--type__title (course.html) belongs here for the same reason
+       .hero__title does: it wraps its lines in .mask, and a mask stays
+       translated out of view until its parent gets .is-in. Leave it out and the
+       headline renders as blank space at full height. */
+    var targets = $$('[data-reveal], .h2, .statement, .hero__title, .hero--type__title, .foot__me');
     if (!targets.length) return;
 
     if (!('IntersectionObserver' in window)) {
@@ -80,11 +84,26 @@
 
     targets.forEach(function (el) { io.observe(el); });
 
-    /* anything already in view on load fires immediately via the observer,
-       but the hero should never wait on a scroll event */
-    requestAnimationFrame(function () {
-      $$('.hero [data-reveal], .hero__title').forEach(function (el) { el.classList.add('is-in'); });
-    });
+    /* Anything already in view on load fires immediately via the observer, but
+       the hero should never wait on a scroll event.
+       The rAF is deliberate — it lets one frame paint in the pre-animation
+       state so the entrance actually animates instead of snapping. The catch:
+       a document that loads while hidden (background tab, restored session)
+       never gets that frame, and a masked headline left un-revealed renders as
+       blank space at full height. So repeat it on visibilitychange: a missing
+       hero is far worse than a skipped animation. */
+    function revealHero() {
+      $$('.hero [data-reveal], .hero__title, .hero--type [data-reveal], .hero--type__title')
+        .forEach(function (el) { el.classList.add('is-in'); });
+    }
+    requestAnimationFrame(revealHero);
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', function once() {
+        if (document.hidden) return;
+        revealHero();
+        document.removeEventListener('visibilitychange', once);
+      });
+    }
   })();
 
   /* ── 3 · scroll progress + nav state ─────────────────────── */
@@ -94,6 +113,23 @@
     var hero = $('.hero');
     var media = $('.hero__media');
     var heroBody = $('.hero__body');
+
+    /* The bar is transparent over the hero and only turns solid once a section
+       has arrived under it. That switch was keyed to .hero, which exists on the
+       index page and not on course.html — its hero is .hero--type — so on the
+       course page the bar never went solid and the white brand, links and
+       burger sat invisibly on top of the white 為什麼有這個計畫 section. Both
+       heroes trip it now. The parallax blocks below stay keyed to .hero via
+       their own null-guarded media/heroBody lookups. */
+    var navTrip = $('.hero, .hero--type');
+
+    /* The type hero is pinned (see the CSS note), so without this it would just
+       sit frozen while the page slid over it. Same easing-out the index hero
+       gets, so the overlap reads as depth rather than a stuck element. The
+       collision fix is the sticky positioning itself, not this — so a reader on
+       prefers-reduced-motion loses the fade and keeps the fix. */
+    var typeHero = $('.hero--type');
+    var typeHeroBody = typeHero && typeHero.querySelector('.wrap');
 
     var chip = $('#chapter'), chipNo = $('#chapterNo'), chipName = $('#chapterName');
     var foot = $('.foot'), shownChapter = -1;
@@ -118,7 +154,14 @@
        the edges, i.e. cropping, which this grid deliberately avoids. */
     var shots = $$('#grid .shot__img');
     var links = $$('.nav__links a');
-    var secs = links.map(function (a) { return $(a.getAttribute('href')); });
+    /* Only in-page anchors have a section to track. course.html's bar points at
+       index.html#how and at course.html itself, and "index.html#how" is a legal
+       CSS selector (element index, class html, id how) that quietly matches
+       nothing — so this used to hand back a list of nulls. */
+    var secs = links.map(function (a) {
+      var href = a.getAttribute('href') || '';
+      return href.charAt(0) === '#' ? $(href) : null;
+    });
 
     var ticking = false;
     function frame() {
@@ -128,8 +171,8 @@
 
       if (bar) bar.style.width = (doc > 0 ? Math.min(1, y / doc) * 100 : 0) + '%';
 
-      if (nav && hero) {
-        var trip = hero.offsetHeight - 72;
+      if (nav && navTrip) {
+        var trip = navTrip.offsetHeight - 72;
         nav.classList.toggle('is-solid', y > trip);
       }
 
@@ -140,6 +183,12 @@
         var hp = Math.max(0, Math.min(1, y / (hero.offsetHeight || 1)));
         heroBody.style.opacity = (1 - hp * 0.9).toFixed(3);
         heroBody.style.transform = 'scale(' + (1 - hp * 0.05).toFixed(4) + ')';
+      }
+
+      if (typeHeroBody && typeHero && !calm) {
+        var tp = Math.max(0, Math.min(1, y / (typeHero.offsetHeight || 1)));
+        typeHeroBody.style.opacity = (1 - tp * 0.9).toFixed(3);
+        typeHeroBody.style.transform = 'scale(' + (1 - tp * 0.05).toFixed(4) + ')';
       }
 
       /* hero parallax — desktop only: on phones the photo sits in normal flow,
@@ -171,7 +220,13 @@
       secs.forEach(function (s, i) {
         if (s && s.offsetTop <= mid) best = i;
       });
-      links.forEach(function (a, i) { a.classList.toggle('is-here', i === best); });
+      /* aria-current marks a whole page, not a scroll position. course.html
+         ships is-here on 青年培訓 in the markup and this loop was stripping it
+         on the first frame, which left that link with no underline at all. */
+      links.forEach(function (a, i) {
+        if (a.getAttribute('aria-current') === 'page') return;
+        a.classList.toggle('is-here', i === best);
+      });
 
       /* chapter marker: hidden over the hero and once the footer arrives */
       if (chip) {
@@ -190,7 +245,21 @@
       }
     }
 
+    /* The marker is fixed to the bottom-left, so on a phone it sits permanently
+       on top of whatever is written there — it was covering the .stats__note
+       under the proof strip and the LINE panel's fine print. It is only useful
+       while the reader is travelling, so it now fades out once they stop and
+       comes back on the next scroll. */
+    var idleTimer = null;
+    function wake() {
+      if (!chip) return;
+      chip.classList.remove('is-idle');
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(function () { chip.classList.add('is-idle'); }, 1100);
+    }
+
     function onScroll() {
+      wake();
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(frame);
@@ -682,6 +751,7 @@
       }).join('／');
 
       var body = new URLSearchParams({
+        form_type: '據點合作洽詢',
         org: org.value.trim(),
         inviter: who.value.trim(),
         phone: phone.value.trim(),
@@ -729,6 +799,143 @@
         done.hidden = true;
         form.hidden = false;
         org.focus();
+      });
+    }
+  })();
+
+  /* ── 10a · 青年培訓報名表 (course.html) ────────────────────────
+     Deliberately bound to #applyForm, not #form. The 據點 handler above binds
+     to #form and reads 單位名稱 / 承辦人 / 地點, so if both forms shared an id
+     it would throw on whichever page it was not built for. Posts to the same
+     Make webhook with form_type set, so one scenario can route both. */
+  (function () {
+    var form = $('#applyForm'); if (!form) return;
+
+    var HOOK = 'https://hook.us2.make.com/n4mpjgv5wvijbfcgd2bj3efpc38n1p1s';
+
+    var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'),
+        sContact = $('#a-contact'), parent_ = $('#a-parent'), phone = $('#a-phone'),
+        why = $('#a-why'), exp = $('#a-exp'), trap = $('#a-trap'),
+        submit = $('#applySubmit'), done = $('#applyDone'),
+        recap = $('#applyRecap'), again = $('#applyAgain');
+
+    var RULES = [
+      { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。',
+        ok: function (v) { return v.trim().length >= 1; } },
+      { el: age,    err: '#ea-age',    msg: '請填寫年齡（本計畫招收 16–18 歲）。',
+        ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 14 && n <= 20; } },
+      { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。',
+        ok: function (v) { return v.trim().length >= 2; } },
+      { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。',
+        ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
+      { el: why,    err: '#ea-why',    msg: '請寫幾句話，這是書面甄選主要看的部分。',
+        ok: function (v) { return v.trim().length >= 10; } }
+    ];
+
+    function mark(rule, bad) {
+      var box = $(rule.err);
+      if (box) {
+        box.textContent = bad ? rule.msg : '';
+        box.classList.toggle('is-on', !!bad);
+      }
+      if (bad) rule.el.setAttribute('aria-invalid', 'true');
+      else rule.el.removeAttribute('aria-invalid');
+    }
+    function check(rule, quiet) {
+      var bad = !rule.ok(rule.el.value || '');
+      if (!quiet) mark(rule, bad);
+      return !bad;
+    }
+    RULES.forEach(function (r) {
+      r.el.addEventListener('blur', function () { check(r); });
+      r.el.addEventListener('input', function () {
+        if (r.el.getAttribute('aria-invalid')) check(r);
+      });
+    });
+
+    function send(body) {
+      return fetch(HOOK, { method: 'POST', body: body })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return true; })
+        .catch(function () {
+          return fetch(HOOK, { method: 'POST', mode: 'no-cors', body: body }).then(function () { return true; });
+        });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      $('#ea-form').classList.remove('is-on');
+      if (trap && trap.value) return;                    /* bot */
+
+      var bad = RULES.filter(function (r) { return !check(r); });
+      if (bad.length) {
+        bad[0].el.focus();
+        $('#ea-form').textContent = '還有 ' + bad.length + ' 個欄位需要補上。';
+        $('#ea-form').classList.add('is-on');
+        return;
+      }
+
+      var fields = {
+        '學生姓名': name_.value.trim(),
+        '年齡': age.value.trim(),
+        '學校年級': school.value.trim(),
+        '學生聯絡方式': sContact.value.trim(),
+        '家長姓名': parent_.value.trim(),
+        '家長電話': phone.value.trim(),
+        '為什麼想參加': why.value.trim(),
+        '運動或志工經驗': exp.value.trim()
+      };
+      var summary = Object.keys(fields).map(function (k) {
+        return k + '：' + (fields[k] || '（未填）');
+      }).join('／');
+
+      var body = new URLSearchParams({
+        form_type: '青年志工報名',
+        student: name_.value.trim(),
+        age: age.value.trim(),
+        school: school.value.trim(),
+        student_contact: sContact.value.trim(),
+        parent: parent_.value.trim(),
+        parent_phone: phone.value.trim(),
+        why: why.value.trim(),
+        experience: exp.value.trim(),
+        summary: summary,
+        submitted_at: new Date().toISOString(),
+        source: location.href
+      });
+
+      submit.disabled = true;
+      $('span', submit).textContent = '送出中…';
+
+      send(body).then(function () {
+        recap.innerHTML = '';
+        Object.keys(fields).forEach(function (k) {
+          if (!fields[k]) return;
+          var row = document.createElement('div');
+          var dt = document.createElement('dt'); dt.textContent = k;
+          var dd = document.createElement('dd'); dd.textContent = fields[k];
+          row.appendChild(dt); row.appendChild(dd); recap.appendChild(row);
+        });
+        form.hidden = true;
+        done.hidden = false;
+        done.setAttribute('tabindex', '-1');
+        done.focus();
+        done.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
+      }).catch(function () {
+        $('#ea-form').textContent = '送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。';
+        $('#ea-form').classList.add('is-on');
+      }).then(function () {
+        submit.disabled = false;
+        $('span', submit).textContent = '送出報名';
+      });
+    });
+
+    if (again) {
+      again.addEventListener('click', function () {
+        form.reset();
+        RULES.forEach(function (r) { mark(r, false); });
+        done.hidden = true;
+        form.hidden = false;
+        name_.focus();
       });
     }
   })();

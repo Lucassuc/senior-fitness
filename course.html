@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>青年健身教練培訓 · 健運動 — 16–18 歲，12 小時取得證照與服務時數</title>
+<meta name="description" content="全台首創「青年健身教練證照」。16–18 歲高中生／大一新生，4 小時學科 + 8 小時機構實作，通過測驗取得青年志工教練證與長照機構服務時數證明。每梯次限收 10–12 位。">
+<meta name="theme-color" content="#0d1a50">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="健運動">
+<meta property="og:title" content="青年健身教練培訓 · 健運動">
+<meta property="og:description" content="18 歲以下不能當運動志工 —— 所以我們做了一個。12 小時培訓，取得證照與長照機構服務時數證明。">
+<meta property="og:image" content="assets/img/hero-og-1200.jpg?v=45">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/icon-64.png?v=6" sizes="64x64">
+<link rel="icon" href="assets/img/icon-192.png?v=6" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png?v=6">
+
+<link rel="preload" href="assets/fonts/nm-text-400.woff2?v=6" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nm-text-500.woff2?v=6" as="font" type="font/woff2" crossorigin>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=54">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳至主要內容</a>
+<div class="progress" id="progress" aria-hidden="true"><i></i></div>
+
+<!-- ══ nav ══
+     Same shell as the main page. 課程 is marked current here; the pill points at
+     this page's own application form rather than the 據點 enquiry form. -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="健運動 — 回到首頁">
+    <img src="assets/img/mark-320-solid.png?v=41" alt="" width="34" height="34">
+    <span>健運動</span>
+  </a>
+
+  <!-- This page's own sections, in document order — the bar is a table of
+       contents for the page you are on, the same job it does on index.html.
+       It used to point at index.html#how / #story / #data, so every link in the
+       header threw the reader off the page they were deciding about, and it
+       repeated 青年培訓 that the pill on the right already marks. Routes back to
+       the main site are still here: the brand mark and the 合作 half of the
+       pill. Short labels; the menu carries the full section names. -->
+  <nav class="nav__links" aria-label="主要導覽">
+    <a href="#gap">為什麼</a>
+    <a href="#gain">你會得到</a>
+    <a href="#facts">報名資訊</a>
+    <a href="#syllabus">課程</a>
+    <a href="#who">誰在辦</a>
+    <!-- The form had no route from the header once you scrolled past the hero's
+         我要報名 — the pill on the right is 合作 / 青年培訓, and 青年培訓 marks
+         this page rather than doing anything.
+
+         Adding a sixth link put the bar at exactly the width available at 810px
+         and it wrapped to two rows, so 課程內容 lost its 內容 to pay for it. The
+         index bar carries six links at 810 without trouble because its labels
+         are mostly two characters; this page's run to four. The full names are
+         still in the fullscreen menu. -->
+    <a href="#apply">報名</a>
+  </nav>
+
+  <div class="nav__right">
+    <div class="navduo">
+      <a href="index.html#book">合作</a>
+      <a href="course.html" aria-current="page">青年培訓</a>
+    </div>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav class="menu__list" aria-label="全站選單">
+    <a href="#gap"><em>01</em><span>為什麼有這個計畫</span></a>
+    <a href="#gain"><em>02</em><span>你會得到什麼</span></a>
+    <a href="#facts"><em>03</em><span>報名資訊</span></a>
+    <a href="#syllabus"><em>04</em><span>課程內容</span></a>
+    <a href="#who"><em>05</em><span>誰在辦這個計畫</span></a>
+    <a href="#apply"><em>—</em><span>報名表單</span></a>
+  </nav>
+  <div class="menu__foot">
+    <span class="meta">健運動</span>
+    <a href="index.html">回到計畫首頁</a>
+    <span class="meta">Contact</span>
+    <a href="mailto:lucychi13450@gmail.com">lucychi13450@gmail.com</a>
+  </div>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══ 1 · HERO ══
+     A real 健運動 session: the 活力長青 十分鐘 video projected on the wall, 長輩
+     following it, and the coach standing at the right with the microphone.
+
+     An earlier frame of the same room was rejected — in that one the coach was
+     ~2–3% of the picture and hidden behind a participant, so the page read as a
+     class FOR 長輩, which is the main page's story rather than this one's. Here
+     he is unobstructed, full height, and the only standing figure on the right,
+     which is what a 16-year-old needs to see on a page about becoming one.
+
+     Three crops, because the hero box takes three shapes (~1.5 / ~1.1 / ~0.6),
+     and the <picture> switches on the viewport's SHAPE, not on min-width alone.
+     Keyed to width only, a 990×1140 window took the widest file and showed 63%
+     of it. Every crop is biased right so the coach survives all three; the
+     phone one keeps a sliver of the 活力長青 projection on its left edge. -->
+<section class="sec sec--navy hero--type" aria-label="青年健身教練培訓">
+  <div class="hero--type__media">
+    <picture>
+      <source media="(min-width:810px) and (min-aspect-ratio:3/2)" srcset="assets/img/course-hero-1786.jpg?v=55">
+      <source media="(min-width:600px)" srcset="assets/img/course-hero-tall-1297.jpg?v=55">
+      <img src="assets/img/course-hero-mobile-707.jpg?v=55"
+           alt="長照據點裡，長輩們跟著牆上投影的健運動十分鐘影片抬起雙手做動作，帶動的青年站在右側舉著麥克風一起做"
+           width="707" height="1179" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="hero--type__scrim" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <p class="hero--type__eyebrow" data-reveal>16–18 歲 · 高中生與大一新生</p>
+
+    <h1 class="hero--type__title">
+      <span class="mask"><i style="--d:0ms">青年</i></span>
+      <span class="mask"><i style="--d:90ms">健身教練</i></span>
+    </h1>
+
+    <p class="hero--type__lede" data-reveal style="--d:300ms">
+      全台首創的青年健身教練培訓 —— <strong>12 小時</strong>，拿到證照，也拿到長照機構的<strong>服務時數證明</strong>。
+    </p>
+
+    <div class="hero--type__act" data-reveal style="--d:400ms">
+      <a class="btn btn--solid-inv btn--big" href="#apply">我要報名</a>
+      <a class="hero--type__alt" href="#gain">先看看能得到什麼</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>青年健身教練</span><b>·</b><span class="ghost">16–18 歲</span><b>·</b><span>12 小時培訓</span><b>·</b><span class="ghost">每梯限收 10–12 位</span><b>·</b>
+    <span>青年健身教練</span><b>·</b><span class="ghost">16–18 歲</span><b>·</b><span>12 小時培訓</span><b>·</b><span class="ghost">每梯限收 10–12 位</span><b>·</b>
+  </div>
+</div>
+
+<!-- ══ 2 · 為什麼有這個計畫 ══
+     The gap is the single strongest thing on this page and nobody else can
+     claim it, so it opens. Everything after is the answer to it. -->
+<section class="sec sec--paper" id="gap">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>01</em>為什麼有這個計畫</p>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">想做運動指導的志工，通常要滿 18 歲。</p>
+
+    <h2 class="statement">
+      <span class="mask"><i style="--d:0ms">那 18 歲以前</i></span>
+      <span class="mask"><i style="--d:90ms">的你呢？</i></span>
+    </h2>
+
+    <blockquote class="pullout" data-reveal style="--d:200ms">
+      國際上目前沒有「青年健身教練」制度。有興趣的高中生，連受訓的機會都沒有 —— 所以我們自己做了一個。
+    </blockquote>
+
+    <ul class="pains">
+      <li class="pain" data-reveal>
+        <em class="pain__no">01</em>
+        <p>升學需要公益服務時數，但同學常常不知道能在長照機構做什麼。</p>
+      </li>
+      <li class="pain" data-reveal style="--d:70ms">
+        <em class="pain__no">02</em>
+        <p>想幫長輩，卻沒有方法 —— 運動指導是最自然的媒介。</p>
+      </li>
+      <li class="pain" data-reveal style="--d:140ms">
+        <em class="pain__no">03</em>
+        <p>申請醫護、物治、職治、運動相關科系時，需要拿得出手的實務經驗。</p>
+      </li>
+      <li class="pain" data-reveal style="--d:210ms">
+        <em class="pain__no">04</em>
+        <p>與其自己摸索，不如由團隊帶著做，並幫你留下服務紀錄與成果照片。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 3 · 你會得到什麼 ══
+     Placed before the syllabus on purpose: a parent decides on outcomes, not on
+     a timetable. The curriculum answers "is it real", but only after they want it. -->
+<section class="sec sec--tint" id="gain">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>02</em>你會得到什麼</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">結訓之後，</i></span>
+      <span class="mask"><i style="--d:100ms">你手上有什麼？</i></span>
+    </h2>
+
+    <ul class="cards">
+      <li class="card" data-reveal>
+        <em class="card__no">01</em>
+        <h3>青年志工教練證</h3>
+        <p>完成 12 小時培訓並通過測驗後取得，測驗包含成果發表。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">02</em>
+        <h3>服務時數證明</h3>
+        <p>進入長照機構實作，銜接社團法人中華長照協會的實習手冊。</p>
+      </li>
+      <li class="card" data-reveal style="--d:70ms">
+        <em class="card__no">03</em>
+        <h3>志工履歷與成果照片</h3>
+        <p>服務紀錄與照片由團隊幫你整理，申請學校時直接派得上用場。</p>
+      </li>
+      <li class="card" data-reveal style="--d:140ms">
+        <em class="card__no">04</em>
+        <h3>真的走進長照現場</h3>
+        <p>不是聽講座 —— 你會穿上長輩體驗裝，也會真的帶長輩運動。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 4 · 報名資訊 ══
+     Every objection a parent has, in one scannable block. Kept as a definition
+     list so it reads fast on a phone at 10pm, which is when this gets read.
+
+     Moved above 課程內容. It used to sit fifth, 4,414px down — screen 7 of 15 —
+     so 年齡、時數、費用、名額 arrived after a 1,769px syllabus. Those four are
+     the gates: a reader who fails one never needs the timetable, and a reader
+     who passes them reads the timetable properly. Same reasoning that already
+     puts 你會得到什麼 ahead of the syllabus, applied one step harder. -->
+<section class="sec sec--paper" id="facts">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>03</em>報名資訊</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">報名前，</i></span>
+      <span class="mask"><i style="--d:100ms">先看這些。</i></span>
+    </h2>
+
+    <dl class="facts" data-reveal style="--d:80ms">
+      <div class="fact"><dt>招收對象</dt><dd>16–18 歲高中生／大一新生。運動社團、健身愛好者，或準備申請國內外大學者尤其適合。</dd></div>
+      <div class="fact"><dt>每梯名額</dt><dd>10–12 位</dd></div>
+      <div class="fact"><dt>錄取方式</dt><dd>報名後由團隊進行書面資料甄選，錄取者另行通知。</dd></div>
+      <div class="fact"><dt>總時數</dt><dd>學科 4 小時 ＋ 機構實作 8 小時，共 12 小時</dd></div>
+      <!-- Two venues, not one. This row used to read 學科地點：捷運永安市場站 ·
+           永恩小作所, which attached the 實作 venue to the 學科 label — 永恩小作所
+           is where the 8 hours of 機構實作 happen; the 4 hours of 學科 are at
+           賦優適能. The business's full Google listing carries a string of
+           service keywords after 永秀店 (特殊族群訓練｜機能重建訓練｜銀髮專業訓練｜
+           教練友善空間); those are its SEO description, not its name, so the row
+           stops at the branch. -->
+      <div class="fact"><dt>學科地點</dt><dd>賦優適能 Feel Fitness 永秀店<br><span class="fact__fine">4 小時學科課程</span></dd></div>
+      <div class="fact"><dt>實作地點</dt><dd>捷運永安市場站 · 永恩小作所<br><span class="fact__fine">8 小時機構實作</span></dd></div>
+      <div class="fact"><dt>費用</dt><dd>NT$2,000（已含場地保險、學員保險與體驗材料費）<br><span class="fact__fine">錄取後另行通知繳費方式。</span></dd></div>
+      <div class="fact"><dt>保險</dt><dd>課程費用已包含場地保險及每位學員的保險。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══ 5 · 課程內容 ══ -->
+<section class="sec sec--tint" id="syllabus">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><em>04</em>課程內容</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">4 小時學科，</i></span>
+      <span class="mask"><i style="--d:100ms">8 小時真的做。</i></span>
+    </h2>
+
+    <p class="sec__intro" data-reveal style="--d:80ms">
+      學科採活潑互動的體驗式教學，不是坐著聽完就算了。
+    </p>
+
+    <ol class="syllabus">
+      <li class="syl" data-reveal>
+        <div class="syl__head">
+          <em class="syl__no">課程一</em>
+          <span class="syl__dur">30 分鐘</span>
+        </div>
+        <h3 class="syl__title">關於社會老化，你可以做的事</h3>
+        <p class="syl__body">介紹社會老化現象、長照資源與面臨的問題，以及為什麼要成為「青年健身教練」。</p>
+        <p class="syl__by">丁中怡 主任 · 穿戴長輩體驗裝執行指定任務</p>
+      </li>
+
+      <li class="syl" data-reveal style="--d:70ms">
+        <div class="syl__head">
+          <em class="syl__no">課程二</em>
+          <span class="syl__dur">2 小時</span>
+        </div>
+        <h3 class="syl__title">健身教學基礎</h3>
+        <p class="syl__body">體適能概論、基礎運動生理學、基礎人體解剖學、高齡者運動安全、延緩失能運動設計。</p>
+        <p class="syl__by">中華民國健身運動協會 資深健身教練</p>
+      </li>
+
+      <li class="syl" data-reveal style="--d:140ms">
+        <div class="syl__head">
+          <em class="syl__no">課程三</em>
+          <span class="syl__dur">1.5 小時</span>
+        </div>
+        <h3 class="syl__title">長照服務概論</h3>
+        <p class="syl__body">CPR 及 AED 安全概念、運動傷害處理。</p>
+        <p class="syl__by">游擊雨 · 含電子安妮實作</p>
+      </li>
+
+      <li class="syl syl--field" data-reveal style="--d:210ms">
+        <div class="syl__head">
+          <em class="syl__no">機構實作</em>
+          <span class="syl__dur">8 小時</span>
+        </div>
+        <h3 class="syl__title">分派機構，模擬實作</h3>
+        <p class="syl__body">由團隊分派到合作機構進行模擬實作，銜接社團法人中華長照協會的實習手冊。</p>
+        <p class="syl__by">結訓需通過測驗，測驗包含成果發表</p>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ══ 6 · 誰在辦這個計畫 ══
+     The credibility hand-off. A parent's real question is "who is this person",
+     and the answer is the main site — 17 months in the community, real data, and
+     the association's backing. This section exists to send them there. -->
+<section class="sec sec--navy" id="who">
+  <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <p class="eyebrow eyebrow--inv" data-reveal><em>05</em>誰在辦這個計畫</p>
+
+    <h2 class="h2 h2--inv">
+      <span class="mask"><i style="--d:0ms">健運動不是</i></span>
+      <span class="mask"><i style="--d:100ms">為了這堂課才成立的。</i></span>
+    </h2>
+
+    <p class="sec__note sec__note--inv" data-reveal>
+      健運動每天用 LINE 陪社區長輩運動，也到據點現場帶課。這個培訓計畫，是把同一套方法交給更年輕的人。
+    </p>
+
+    <div class="whocta" data-reveal style="--d:120ms">
+      <a class="btn btn--solid-inv" href="index.html">看健運動在做什麼</a>
+      <span class="whocta__by">支持單位 · 社團法人中華長照協會</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7 · 報名表單 ══
+     id="applyForm", not "form" — the main page's submit handler binds to #form
+     and expects the 據點 field set, so it must not attach here. site.js has a
+     separate block for this one. -->
+<section class="sec sec--paper" id="apply">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow" data-reveal>報名表單 · Apply</p>
+
+    <h2 class="h2">
+      <span class="mask"><i style="--d:0ms">填好這張表，</i></span>
+      <span class="mask"><i style="--d:100ms">就完成報名。</i></span>
+    </h2>
+
+    <p class="sec__intro" data-reveal style="--d:100ms">
+      送出後由團隊進行書面甄選，<strong>錄取者會另行通知</strong>。名額每梯次 10–12 位。
+    </p>
+
+    <p class="sec__note" data-reveal style="--d:140ms">未滿 18 歲需填寫家長聯絡方式，錄取後我們會先與家長確認。</p>
+
+    <form class="form" id="applyForm" novalidate data-reveal style="--d:180ms">
+      <p class="form__group">學生資料</p>
+
+      <div class="field">
+        <label for="a-name">學生姓名 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="a-name" name="student" type="text" required autocomplete="name"
+               placeholder="例：陳小明" aria-describedby="ea-name">
+        <p class="err" id="ea-name" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="a-age">年齡 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="a-age" name="age" type="text" required autocomplete="off"
+               inputmode="numeric" placeholder="例：17" aria-describedby="ea-age ha-age">
+        <p class="hint" id="ha-age">本計畫招收 16–18 歲。</p>
+        <p class="err" id="ea-age" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="a-school">就讀學校與年級 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="a-school" name="school" type="text" required autocomplete="off"
+               placeholder="例：康橋國際學校 11 年級" aria-describedby="ea-school">
+        <p class="err" id="ea-school" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="a-contact">學生聯絡方式 <span class="opt">選填</span></label>
+        <input id="a-contact" name="student_contact" type="text" autocomplete="email"
+               placeholder="Email 或 LINE ID" aria-describedby="ha-contact">
+        <p class="hint" id="ha-contact">方便的話留一個，錄取後我們也會直接通知你。</p>
+      </div>
+
+      <p class="form__group">家長聯絡方式</p>
+
+      <div class="field">
+        <label for="a-parent">家長姓名 <span class="opt">選填</span></label>
+        <input id="a-parent" name="parent" type="text" autocomplete="off" placeholder="例：陳先生／陳女士">
+      </div>
+
+      <div class="field">
+        <label for="a-phone">家長聯絡電話 <span class="req" aria-hidden="true">必填</span></label>
+        <input id="a-phone" name="parent_phone" type="tel" required autocomplete="tel"
+               placeholder="例：0912-345-678" aria-describedby="ea-phone ha-phone">
+        <p class="hint" id="ha-phone">未滿 18 歲，錄取後我們會先與家長確認。</p>
+        <p class="err" id="ea-phone" role="alert"></p>
+      </div>
+
+      <p class="form__group">甄選用</p>
+
+      <!-- This is the field the 書面甄選 actually runs on, so it is required and
+           sits last, where a considered answer is more likely. -->
+      <div class="field">
+        <label for="a-why">為什麼想參加？ <span class="req" aria-hidden="true">必填</span></label>
+        <textarea id="a-why" name="why" rows="5" required
+                  placeholder="幾句話就好 —— 你為什麼想學高齡運動指導？想從這 12 小時帶走什麼？"
+                  aria-describedby="ea-why ha-why"></textarea>
+        <p class="hint" id="ha-why">這是書面甄選主要看的部分，寫你真正想說的就好。</p>
+        <p class="err" id="ea-why" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="a-exp">運動或志工經驗 <span class="opt">選填</span></label>
+        <textarea id="a-exp" name="experience" rows="3"
+                  placeholder="例：校隊、健身習慣、之前做過的志工服務" aria-describedby="ha-exp"></textarea>
+        <p class="hint" id="ha-exp">沒有也完全沒關係，這不是錄取條件。</p>
+      </div>
+
+      <input type="text" name="_gotcha" id="a-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button class="btn btn--solid btn--big" type="submit" id="applySubmit">
+        <span>送出報名</span>
+      </button>
+
+      <p class="err err--form" id="ea-form" role="alert"></p>
+      <p class="form__fine">送出後我會收到通知，書面甄選結果會另行通知錄取者。</p>
+    </form>
+
+    <div class="done" id="applyDone" hidden>
+      <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
+      <h3>已收到你的報名</h3>
+      <p>我們會進行書面甄選，錄取者將另行通知。謝謝你想加入！</p>
+      <dl class="done__recap" id="applyRecap"></dl>
+      <button class="btn btn--ghost" type="button" id="applyAgain">再填一筆</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="sec__bg" data-bg="assets/img/tex-foot.jpg?v=6" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__cell" data-reveal>
+        <span class="meta">支持單位</span>
+        <div class="foot__logo">
+          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+        </div>
+        <p>本計畫由社團法人中華長照協會支持。</p>
+      </div>
+
+      <div class="foot__cell" data-reveal style="--d:80ms">
+        <span class="meta">健運動</span>
+        <a class="foot__mail" href="index.html">回到計畫首頁</a>
+        <p>每天陪社區長輩動十分鐘，讓據點看得見長輩的改變。</p>
+
+        <span class="meta">報名與聯絡</span>
+        <a class="foot__mail" href="mailto:lucychi13450@gmail.com">lucychi13450@gmail.com</a>
+        <p>課程、合作與任何問題，都歡迎來信。</p>
+      </div>
+    </div>
+
+    <div class="foot__bar">
+      <span class="meta">© <span id="yr">2026</span> 健運動 · 活力長青</span>
+      <a class="foot__up" href="#top">
+        回到頁首
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=54" defer></script>
+</body>
+</html>

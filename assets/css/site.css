@@ -624,13 +624,13 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .dash__bar .meta{font-size:.75rem;letter-spacing:.12em}
 .dash__hint{color:var(--label);opacity:.9;flex:none}
 
-/* The Tableau dashboard is authored on a fixed 1654×1169 canvas, so it can never
+/* The Tableau dashboard is authored on a fixed 1654×1400 canvas, so it can never
    reflow for a phone. Render it at native size and scale it down instead: on wide
    screens it scales to fit exactly; on phones it stays legible and the reader pans. */
 /* Height follows the scaled canvas so there is no vertical scroll to fight the page:
    a sideways swipe pans the dashboard, an up/down swipe scrolls the page. */
 .dash__frame{
-  --dz:.62; --dw:1654; --dh:1169;
+  --dz:.62; --dw:1654; --dh:1400;
   position:relative;background:var(--paper);
   overflow:hidden;
 }
@@ -647,7 +647,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 }
 /* never pans, never captures a swipe */
 .dash--fit .dash__frame{overflow:hidden}
-/* the workbook is English-only; give a Chinese reader the shape of it at least */
+/* the workbook is bilingual (Chinese primary, English secondary), so it needs no
+   per-language swap — data-src-en stays empty and the JS falls through to the one URL */
 .dash__cap{
   padding:var(--s4) var(--s5) var(--s5);border-top:1px solid rgba(13,26,80,.13);
   font-size:.875rem;line-height:1.85;color:rgba(13,26,80,.66);max-width:56ch;
@@ -1730,7 +1731,14 @@ main>.sec.hero--type{position:sticky;top:0;z-index:0}
    sitting a hair off the page's #0d1a50. Where the surface is light, CSS puts
    the disc back. One asset, correct in both. */
 .nav__brand img,.curtain__mark,.seal img{border-radius:50%}
-.nav.is-solid .nav__brand img{background:var(--navy)}
+/* The mark is a white glyph on transparency, so it needs its own ground or it
+   dissolves into whatever sits behind it. It used to get one only once the bar
+   turned solid — which held on a phone, where the hero crop under the logo is
+   the dark jacket, but on a laptop the wide crop puts sunlit foliage there and
+   the glyph vanished at the top of the page. The disc is unconditional now:
+   navy reads against both the photograph and the paper bar, so the mark is
+   legible at every scroll position and every breakpoint. */
+.nav__brand img{background:var(--navy)}
 
 
 /* ── English typography ───────────────────────────────────────

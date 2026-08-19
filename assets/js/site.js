@@ -930,7 +930,7 @@
         fail(t('送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。', 'Could not send. Please check your connection and try again, or email lucychi13450@gmail.com.'));
       }).then(function () {
         submit.disabled = false;
-        $('span', submit).textContent = t('送出洽詢', 'Send');
+        $('span', submit).textContent = t('送出洽詢', 'Send enquiry');
       });
     });
 

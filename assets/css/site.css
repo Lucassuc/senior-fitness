@@ -317,11 +317,11 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .nav.is-hidden{transform:translateY(-100%)}
 .nav{transition-property:background-color,color,border-color,transform}
 
-.nav__brand{display:flex;align-items:center;gap:10px;padding-block:8px}
+.nav__brand{display:flex;align-items:center;gap:10px;padding-block:8px;flex:0 0 auto}
 .nav__brand img{width:30px;height:auto;border-radius:6px;transition:transform .5s var(--ease-out)}
 .nav__brand span{
   font-family:var(--ff-display);font-weight:600;font-size:1.0625rem;
-  letter-spacing:.1em;line-height:1;
+  letter-spacing:.1em;line-height:1;white-space:nowrap;
 }
 
 .nav__links{display:none}
@@ -439,7 +439,9 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .ring text{
   fill:#fff;stroke:none;
   font-family:var(--ff-display);font-weight:500;
-  font-size:14px;letter-spacing:.06em;
+  /* sized so three repetitions come out near the path's own length — see the
+     textLength note in index.html; change one and re-check the other */
+  font-size:12px;letter-spacing:.06em;
 }
 .curtain--skip{display:none}
 @keyframes turn{to{transform:rotate(360deg)}}
@@ -1147,7 +1149,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .seal svg{grid-area:1/1;width:150px;height:150px;animation:turn 26s linear infinite}
 .seal svg text{
   fill:rgba(255,255,255,.62);stroke:none;
-  font-family:var(--ff-display);font-weight:500;font-size:13px;letter-spacing:.06em;
+  font-family:var(--ff-display);font-weight:500;font-size:12px;letter-spacing:.06em;
 }
 .seal img{grid-area:1/1;width:38px;height:auto;border-radius:9px;opacity:.9}
 @media (min-width:810px){ .seal{width:180px;height:180px} .seal svg{width:180px;height:180px} }
@@ -1670,3 +1672,77 @@ main>.sec.hero--type{position:sticky;top:0;z-index:0}
   .nav__brand span{display:none}
   .navduo a{padding:10px 12px}
 }
+
+/* ── menu: never clip the first item ──────────────────────────
+   It was `inset:0` + justify-content:center. In an in-app browser (LINE, IG)
+   the URL bar eats the top of the viewport, and a centred flex column that
+   overflows clips its FIRST child with no way to scroll to it — 01 was
+   unreachable. dvh follows the browser chrome, auto margins centre the list
+   only while there is room, and overflow-y makes the overflow case scrollable. */
+.menu{
+  height:100dvh;
+  justify-content:flex-start;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.menu__list{margin-block:auto}
+
+/* ── language toggle ────────────────────────────────────────── */
+.lang{
+  display:flex;align-items:center;justify-content:center;
+  min-width:44px;min-height:44px;padding:0 6px;
+  font-family:var(--ff-latin);font-size:.75rem;font-weight:500;
+  letter-spacing:.1em;line-height:1;color:inherit;
+  border:1px solid currentColor;border-radius:100px;
+  transition:background-color .3s var(--ease);
+}
+@media (hover:hover){
+  .lang:hover{background:rgba(255,255,255,.12)}
+  .nav.is-solid .lang:hover{background:rgba(13,26,80,.06)}
+}
+/* three controls plus the brand is tight on a phone — trim the segmented pill
+   before anything else, since its labels are the shortest */
+@media (max-width:429px){
+  .navduo a{padding:10px 10px;font-size:.75rem}
+  .lang{min-width:38px;padding:0 4px}
+  .nav__right{gap:8px}
+}
+@media (max-width:359px){
+  .nav__brand span{display:none}
+}
+
+/* the one line borrowed from the 大健康產業 framing — supporting, not a claim */
+.gap__era{
+  margin-top:var(--s6);
+  font-size:.9375rem;line-height:1.9;color:var(--ink-faint);
+  max-width:44ch;
+}
+
+/* four stats now (合作地點 added) — 2×2 on a phone, one row on desktop */
+@media (max-width:809px){ .stats{grid-template-columns:1fr 1fr;row-gap:var(--s6)} }
+@media (min-width:810px){ .stats{grid-template-columns:repeat(4,1fr)} }
+
+/* ── mark ─────────────────────────────────────────────────────
+   mark-320-glyph.png is the white glyph alone on transparency. On navy the
+   disc simply is not drawn, so there is no near-invisible circle edge reading
+   as a broken ring — which is what the filled version did, its #101a4d disc
+   sitting a hair off the page's #0d1a50. Where the surface is light, CSS puts
+   the disc back. One asset, correct in both. */
+.nav__brand img,.curtain__mark,.seal img{border-radius:50%}
+.nav.is-solid .nav__brand img{background:var(--navy)}
+
+
+/* ── English typography ───────────────────────────────────────
+   Keyed off the data-lang flag site.js writes on <html>. Latin display type
+   overruns at the Chinese sizes — 「18 歲以前，」 is six characters where
+   "Not yet 18." is eleven, so the course hero title went from two lines to
+   three at 830px and pushed its lede off the fold. Overriding the tokens
+   rather than the rules keeps every consumer in step, including any heading
+   added later. Body copy is unchanged: it already reads well in both. */
+:root[data-lang="en"]{
+  --t-stmt:clamp(1.75rem,7.6vw,3.5rem);
+  --t-h2:clamp(1.5rem,6vw,2.875rem);
+}
+:root[data-lang="en"] .hero--type__title{font-size:clamp(2.5rem,9.5vw,5.75rem)}
+:root[data-lang="en"] .foot__me{font-size:clamp(1.375rem,5.4vw,2.125rem)}

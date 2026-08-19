@@ -56,9 +56,122 @@
     });
 
     var stamp = $('#dataStamp');
-    if (stamp) {
-      stamp.textContent = '資料截至 ' + now.getFullYear() + ' 年 ' + (now.getMonth() + 1) + ' 月';
+    function paintStamp() {
+      if (!stamp) return;
+      var y = now.getFullYear(), m = now.getMonth();
+      var MON = ['January','February','March','April','May','June',
+                 'July','August','September','October','November','December'];
+      stamp.textContent = document.documentElement.getAttribute('data-lang') === 'en'
+        ? 'data as of ' + MON[m] + ' ' + y
+        : '資料截至 ' + y + ' 年 ' + (m + 1) + ' 月';
     }
+    paintStamp();
+    document.addEventListener('jyd:lang', paintStamp);
+  })();
+
+
+  /* ── i18n helper for strings that only exist in JS ───────────
+     Validation copy, button states and the submitted-summary labels are built
+     here, not in the DOM, so the data-en sweep cannot reach them. */
+  function isEN() { return document.documentElement.getAttribute('data-lang') === 'en'; }
+  function t(zh, en) { return isEN() ? en : zh; }
+
+  /* ── 1c · language toggle ────────────────────────────────────
+     Translations live on the elements themselves as data-en, not in a keyed
+     dictionary: a key map silently rots the moment someone edits copy, and this
+     site's copy changes constantly. The Chinese original is stashed into
+     data-zh on first switch, so the markup stays the single source of truth.
+     Masked headlines carry data-en on the inner <i>, never on the heading —
+     replacing the heading's innerHTML would destroy the .mask spans the reveal
+     animation depends on. */
+  (function () {
+    var btn = $('#langBtn'); if (!btn) return;
+    var KEY = 'jyd-lang';
+    var title = document.querySelector('title');
+
+    function apply(lang) {
+      var en = lang === 'en';
+      document.documentElement.lang = en ? 'en' : 'zh-Hant';
+
+      $$('[data-en]').forEach(function (el) {
+        if (el.dataset.zh === undefined) el.dataset.zh = el.innerHTML;
+        el.innerHTML = en ? el.dataset.en : el.dataset.zh;
+      });
+
+      /* Attributes are not innerHTML and were being missed: placeholders and
+         aria-labels stayed Chinese while every visible label around them had
+         switched. */
+      $$('[data-en-ph]').forEach(function (el) {
+        if (el.dataset.zhPh === undefined) el.dataset.zhPh = el.getAttribute('placeholder') || '';
+        el.setAttribute('placeholder', en ? el.dataset.enPh : el.dataset.zhPh);
+      });
+      $$('[data-en-aria]').forEach(function (el) {
+        if (el.dataset.zhAria === undefined) el.dataset.zhAria = el.getAttribute('aria-label') || '';
+        el.setAttribute('aria-label', en ? el.dataset.enAria : el.dataset.zhAria);
+      });
+      /* alt text is what a blind visitor is read instead of the photograph —
+         leaving 15 Chinese descriptions in an English page fails exactly the
+         reader who has no other way in. */
+      $$('[data-en-alt]').forEach(function (el) {
+        if (el.dataset.zhAlt === undefined) el.dataset.zhAlt = el.getAttribute('alt') || '';
+        el.setAttribute('alt', en ? el.dataset.enAlt : el.dataset.zhAlt);
+      });
+
+      if (title && title.dataset.en) {
+        if (title.dataset.zh === undefined) title.dataset.zh = title.textContent;
+        title.textContent = en ? title.dataset.en : title.dataset.zh;
+      }
+
+      /* The chapter chip is painted from a JS array, not from the DOM, so it
+         would otherwise stay Chinese in English mode. Flag the language and let
+         the scroll handler repaint on the next frame. */
+      document.documentElement.setAttribute('data-lang', en ? 'en' : 'zh');
+
+      /* Swap the embedded dashboard, if an English workbook is provided. The
+         iframe may already exist, so update both the pending src and the live
+         one. */
+      var box = $('#dashFrame');
+      if (box && box.getAttribute('data-src-en')) {
+        var want = en ? box.getAttribute('data-src-en') : box.getAttribute('data-src-zh');
+        if (want) {
+          box.setAttribute('data-src', want);
+          var live = box.querySelector('iframe');
+          if (live) {
+            live.src = want + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link';
+          }
+        }
+      }
+      /* Some links are a different URL per language rather than a different
+         label: the dashboard workbook, and the contact links, whose prefilled
+         subject and body have to be written in the language the reader is
+         reading. Generic sweep so any link can carry one. */
+      $$('[data-href-en]').forEach(function (el) {
+        if (el.dataset.zhHref === undefined) {
+          el.dataset.zhHref = el.getAttribute('data-href-zh') || el.getAttribute('href') || '';
+        }
+        el.setAttribute('href', en ? el.dataset.hrefEn : el.dataset.zhHref);
+      });
+
+      btn.textContent = en ? '中' : 'EN';
+      btn.setAttribute('aria-label', en ? 'Switch to Chinese' : '切換為英文');
+      btn.setAttribute('lang', en ? 'zh-Hant' : 'en');
+
+      try { localStorage.setItem(KEY, en ? 'en' : 'zh'); } catch (e) {}
+
+      /* Anything painted from JS rather than from the DOM has to be told. The
+         chapter chip listens for this; without it the chip kept the language it
+         had when its section was entered and only corrected itself on the next
+         scroll frame. */
+      document.dispatchEvent(new CustomEvent('jyd:lang', { detail: { en: en } }));
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    apply(saved === 'en' ? 'en' : 'zh');
+
+    btn.addEventListener('click', function () {
+      apply(document.documentElement.lang === 'en' ? 'zh' : 'en');
+    });
   })();
 
   /* ── 2 · reveal on scroll ────────────────────────────────── */
@@ -132,20 +245,22 @@
     var typeHeroBody = typeHero && typeHero.querySelector('.wrap');
 
     var chip = $('#chapter'), chipNo = $('#chapterNo'), chipName = $('#chapterName');
-    var foot = $('.foot'), shownChapter = -1;
+    var foot = $('.foot'), shownChapter = -1, shownLang = null;
     /* Keep these numbers in step with the section eyebrows and the menu — and
        keep the array in document order, since the loop below takes the last
        entry whose top has passed the threshold. */
+    /* en names alongside: this chip is painted from JS, so without them it
+       stayed Chinese while the rest of the page was English. */
     var CHAPTERS = [
-      { sel: '#gap',      no: '01', name: '問題' },
-      { sel: '#how',      no: '02', name: '怎麼運作' },
-      { sel: '#video',    no: '03', name: '每天十分鐘' },
-      { sel: '#story',    no: '04', name: '不只是運動' },
-      { sel: '#data',     no: '05', name: '成效' },
-      { sel: '#findings', no: '05', name: '基線評估' },
-      { sel: '#about',    no: '06', name: '關於這個專案' },
-      { sel: '#offer',    no: '07', name: '合作內容' },
-      { sel: '#book',     no: '—',  name: '合作洽詢' }
+      { sel: '#gap',      no: '01', name: '問題',       en: 'The problem' },
+      { sel: '#how',      no: '02', name: '怎麼運作',   en: 'How it works' },
+      { sel: '#video',    no: '03', name: '每天十分鐘', en: 'Ten minutes a day' },
+      { sel: '#story',    no: '04', name: '不只是運動', en: 'More than exercise' },
+      { sel: '#data',     no: '05', name: '成效',       en: 'Results' },
+      { sel: '#findings', no: '05', name: '基線評估',   en: 'Baseline' },
+      { sel: '#about',    no: '06', name: '關於這個專案', en: 'About' },
+      { sel: '#offer',    no: '07', name: '合作內容',   en: 'What you get' },
+      { sel: '#book',     no: '—',  name: '合作洽詢',   en: 'Partner with us' }
     ].map(function (c) { c.el = $(c.sel); return c; });
 
     /* Photo-grid drift. Applied to the frame, not the card: .shot carries
@@ -236,10 +351,14 @@
         });
         var footTop = foot ? foot.getBoundingClientRect().top : Infinity;
         var show = at >= 0 && footTop > window.innerHeight * 0.6;
-        if (show && at !== shownChapter) {
+        /* compare language too, so toggling repaints the chip instead of
+           leaving whichever language was current when the section was entered */
+        var lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+        if (at >= 0 && (at !== shownChapter || lang !== shownLang)) {
           chipNo.textContent = CHAPTERS[at].no;
-          chipName.textContent = CHAPTERS[at].name;
+          chipName.textContent = lang === 'en' ? (CHAPTERS[at].en || CHAPTERS[at].name) : CHAPTERS[at].name;
           shownChapter = at;
+          shownLang = lang;
         }
         chip.classList.toggle('is-on', show);
       }
@@ -265,6 +384,16 @@
       requestAnimationFrame(frame);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* Repaint the chapter chip the moment the language changes, rather than
+       waiting for the next scroll frame. frame() is called directly here on
+       purpose — routing through rAF would leave the chip stale in a background
+       tab, which is exactly where the language is often set. */
+    document.addEventListener('jyd:lang', function () {
+      shownChapter = -1;
+      shownLang = null;
+      frame();
+    });
     window.addEventListener('resize', onScroll, { passive: true });
     frame();
   })();
@@ -351,7 +480,7 @@
       var f = document.createElement('iframe');
       f.src = box.getAttribute('data-src')
         + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link';
-      f.title = '基線評估儀表板 — 永樂居 Elder Fitness Baseline Assessment（Tableau Public）';
+      f.title = t('基線評估儀表板（Tableau Public）', 'Baseline assessment dashboard (Tableau Public)');
       f.loading = 'lazy';
       f.setAttribute('allowfullscreen', '');
       f.addEventListener('load', function () {
@@ -486,7 +615,7 @@
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + id +
               '?autoplay=1&rel=0&modestbranding=1&playsinline=1&hl=zh-TW';
-      f.title = '健運動一分鐘介紹影片';
+      f.title = t('健運動一分鐘介紹影片', 'JianYunDong — one-minute introduction');
       f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       f.setAttribute('allowfullscreen', '');
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -579,6 +708,21 @@
         title: $('b', b).textContent.trim()
       };
     });
+    /* Captions are snapshotted from the DOM at load, so a language switch left
+       the lightbox showing the previous language. Rebuild on the event. */
+    function rebuild() {
+      shots = btns.map(function (b) {
+        var im = $('img', b);
+        return {
+          src: im.getAttribute('src').replace('-md.jpg', '-lg.jpg'),
+          alt: im.getAttribute('alt'),
+          date: $('em', b).textContent.trim(),
+          title: $('b', b).textContent.trim()
+        };
+      });
+    }
+    document.addEventListener('jyd:lang', rebuild);
+
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
     var i = 0, untrap = null, back = null;
 
@@ -660,22 +804,22 @@
         submit = $('#submit'), done = $('#done'), recap = $('#recap'), again = $('#again');
 
     var RULES = [
-      { el: org,     err: '#e-org',     msg: '請填寫單位或據點名稱。',
+      { el: org,     err: '#e-org',     msg: '請填寫單位或據點名稱。', en: 'Please enter your organisation or care station name.',
         ok: function (v) { return v.trim().length >= 2; } },
-      { el: who,     err: '#e-who',     msg: '請填寫承辦人姓名與職稱。',
+      { el: who,     err: '#e-who',     msg: '請填寫承辦人姓名與職稱。', en: 'Please enter your name and role.',
         ok: function (v) { return v.trim().length >= 1; } },
-      { el: phone,   err: '#e-phone',   msg: '請填寫聯絡電話。',
+      { el: phone,   err: '#e-phone',   msg: '請填寫聯絡電話。', en: 'Please enter a phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
-      { el: contact, err: '#e-contact', msg: '請填寫 Email 或 LINE ID。',
+      { el: contact, err: '#e-contact', msg: '請填寫 Email 或 LINE ID。', en: 'Please enter an email address or LINE ID.',
         ok: function (v) { return v.trim().length >= 3; } },
-      { el: place,   err: '#e-place',   msg: '請填寫據點地點。',
+      { el: place,   err: '#e-place',   msg: '請填寫據點地點。', en: 'Please tell us where you are.',
         ok: function (v) { return v.trim().length >= 2; } }
     ];
 
     function mark(rule, bad, text) {
       var box = $(rule.err);
       if (box) {
-        box.textContent = bad ? (text || rule.msg) : '';
+        box.textContent = bad ? (text || t(rule.msg, rule.en || rule.msg)) : '';
         box.classList.toggle('is-on', !!bad);
       }
       if (bad) rule.el.setAttribute('aria-invalid', 'true');
@@ -727,24 +871,22 @@
       var bad = RULES.filter(function (r) { return !check(r); });
       if (bad.length) {
         bad[0].el.focus();
-        fail('還有 ' + bad.length + ' 個欄位需要補上。');
+        fail(t('還有 ' + bad.length + ' 個欄位需要補上。', bad.length + ' field' + (bad.length>1?'s':'') + ' still needed.'));
         return;
       }
 
       /* The recap below is built from this map, so the order here is the order
          the reader sees it played back in. */
-      var fields = {
-        '單位／據點': org.value.trim(),
-        '承辦人': who.value.trim(),
-        '聯絡電話': phone.value.trim(),
-        'Email／LINE': contact.value.trim(),
-        '據點地點': place.value.trim(),
-        '長輩人數': count.value.trim(),
-        '長輩健康情形': cond.value,
-        '想先了解': need.value,
-        '期望開始時間': when.value.trim(),
-        '其他需求': note.value.trim()
-      };
+      var L = isEN()
+        ? ['Organisation','Contact person','Phone','Email / LINE','Location',
+           'Number of elders','General condition','Most interested in','Ideal start','Notes']
+        : ['單位／據點','承辦人','聯絡電話','Email／LINE','據點地點',
+           '長輩人數','長輩健康情形','想先了解','期望開始時間','其他需求'];
+      var V = [org.value.trim(), who.value.trim(), phone.value.trim(), contact.value.trim(),
+               place.value.trim(), count.value.trim(), cond.value, need.value,
+               when.value.trim(), note.value.trim()];
+      var fields = {};
+      L.forEach(function (k, i) { fields[k] = V[i]; });
 
       var summary = Object.keys(fields).map(function (k) {
         return k + '：' + (fields[k] || '（未填）');
@@ -768,7 +910,7 @@
       });
 
       submit.disabled = true;
-      $('span', submit).textContent = '送出中…';
+      $('span', submit).textContent = t('送出中…', 'Sending…');
 
       send(body).then(function () {
         recap.innerHTML = '';
@@ -785,10 +927,10 @@
         done.focus();
         done.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
       }).catch(function () {
-        fail('送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。');
+        fail(t('送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。', 'Could not send. Please check your connection and try again, or email lucychi13450@gmail.com.'));
       }).then(function () {
         submit.disabled = false;
-        $('span', submit).textContent = '送出洽詢';
+        $('span', submit).textContent = t('送出洽詢', 'Send');
       });
     });
 
@@ -820,22 +962,22 @@
         recap = $('#applyRecap'), again = $('#applyAgain');
 
     var RULES = [
-      { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。',
+      { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。', en: 'Please enter the student\'s name.',
         ok: function (v) { return v.trim().length >= 1; } },
-      { el: age,    err: '#ea-age',    msg: '請填寫年齡（本計畫招收 16–18 歲）。',
+      { el: age,    err: '#ea-age',    msg: '請填寫年齡（本計畫招收 16–18 歲）。', en: 'Please enter an age (this programme is for 16–18).',
         ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 14 && n <= 20; } },
-      { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。',
+      { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
-      { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。',
+      { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。', en: 'Please enter a parent or guardian phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
-      { el: why,    err: '#ea-why',    msg: '請寫幾句話，這是書面甄選主要看的部分。',
+      { el: why,    err: '#ea-why',    msg: '請寫幾句話，這是書面甄選主要看的部分。', en: 'Please write a few sentences — this is what the selection reads.',
         ok: function (v) { return v.trim().length >= 10; } }
     ];
 
     function mark(rule, bad) {
       var box = $(rule.err);
       if (box) {
-        box.textContent = bad ? rule.msg : '';
+        box.textContent = bad ? t(rule.msg, rule.en || rule.msg) : '';
         box.classList.toggle('is-on', !!bad);
       }
       if (bad) rule.el.setAttribute('aria-invalid', 'true');
@@ -869,21 +1011,20 @@
       var bad = RULES.filter(function (r) { return !check(r); });
       if (bad.length) {
         bad[0].el.focus();
-        $('#ea-form').textContent = '還有 ' + bad.length + ' 個欄位需要補上。';
+        $('#ea-form').textContent = t('還有 ' + bad.length + ' 個欄位需要補上。', bad.length + ' field' + (bad.length>1?'s':'') + ' still needed.');
         $('#ea-form').classList.add('is-on');
         return;
       }
 
-      var fields = {
-        '學生姓名': name_.value.trim(),
-        '年齡': age.value.trim(),
-        '學校年級': school.value.trim(),
-        '學生聯絡方式': sContact.value.trim(),
-        '家長姓名': parent_.value.trim(),
-        '家長電話': phone.value.trim(),
-        '為什麼想參加': why.value.trim(),
-        '運動或志工經驗': exp.value.trim()
-      };
+      var L = isEN()
+        ? ['Student name','Age','School and year','Student contact',
+           'Parent name','Parent phone','Why they want to join','Sport / volunteering experience']
+        : ['學生姓名','年齡','學校年級','學生聯絡方式',
+           '家長姓名','家長電話','為什麼想參加','運動或志工經驗'];
+      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), sContact.value.trim(),
+               parent_.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim()];
+      var fields = {};
+      L.forEach(function (k, i) { fields[k] = V[i]; });
       var summary = Object.keys(fields).map(function (k) {
         return k + '：' + (fields[k] || '（未填）');
       }).join('／');
@@ -904,7 +1045,7 @@
       });
 
       submit.disabled = true;
-      $('span', submit).textContent = '送出中…';
+      $('span', submit).textContent = t('送出中…', 'Sending…');
 
       send(body).then(function () {
         recap.innerHTML = '';
@@ -921,11 +1062,11 @@
         done.focus();
         done.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
       }).catch(function () {
-        $('#ea-form').textContent = '送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。';
+        $('#ea-form').textContent = t('送出失敗，請檢查網路後再試一次，或直接寄信到 lucychi13450@gmail.com。', 'Could not send. Please check your connection and try again, or email lucychi13450@gmail.com.');
         $('#ea-form').classList.add('is-on');
       }).then(function () {
         submit.disabled = false;
-        $('span', submit).textContent = '送出報名';
+        $('span', submit).textContent = t('送出報名', 'Submit application');
       });
     });
 

@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>健運動 · 陪長輩每天動十分鐘，讓據點看見成效</title>
-<meta name="description" content="健運動是給社區據點與長照站的長輩運動計畫：LINE 每天陪長輩動十分鐘、出席自動記錄，也到據點現場帶課。歡迎據點與機構洽詢合作。">
+<title data-en="JianYunDong · Moving with you, young again">健運動 · 陪你動，再青春</title>
+<meta name="description" content="健運動：陪你動，再青春。據點負責一堂課，健運動陪長輩生活中的每一天。給社區據點、長照站與關懷據點。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="健運動">
-<meta property="og:title" content="健運動 · 陪長輩每天動十分鐘，讓據點看見成效">
-<meta property="og:description" content="一週一堂課，剩下的六天呢？LINE 每天陪長輩動十分鐘，出席自動記錄。給社區據點與長照站。">
+<meta property="og:title" content="健運動 · 陪你動，再青春">
+<meta property="og:description" content="一個人很難一直動下去。據點負責一堂課，健運動陪您生活中的每一天，養成再青春的活力體質。">
 <meta property="og:image" content="assets/img/hero-og-1200.jpg?v=45">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=54">
+<link rel="stylesheet" href="assets/css/site.css?v=64">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -42,60 +42,43 @@
         <path id="ringPath" fill="none"
               d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
       </defs>
-      <text><textPath href="#ringPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
+      <text><textPath href="#ringPath" startOffset="0" textLength="465" lengthAdjust="spacing">健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · </textPath></text>
     </svg>
-    <img class="curtain__mark" src="assets/img/mark-320-solid.png?v=41" alt="" width="56" height="56">
+    <img class="curtain__mark" src="assets/img/mark-320-glyph.png?v=60" alt="" width="56" height="56">
   </div>
 </div>
 
-<a class="skip" href="#main">跳至主要內容</a>
+<a class="skip" href="#main" data-en="Skip to content">跳至主要內容</a>
 <div class="progress" id="progress" aria-hidden="true"><i></i></div>
 
-<!-- where-am-I marker for a 14,000px page, borrowed from the deso reference -->
 <div class="chapter" id="chapter" aria-hidden="true">
   <span class="chapter__no" id="chapterNo">01</span>
-  <span class="chapter__name" id="chapterName">問題</span>
+  <span class="chapter__name" id="chapterName" data-en="The problem">問題</span>
 </div>
 
 <!-- ══ nav ══ -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首">
-    <img src="assets/img/mark-320-solid.png?v=41" alt="" width="34" height="34">
+  <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首" data-en-aria="健運動 — back to top">
+    <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="34" height="34">
     <span>健運動</span>
   </a>
 
-  <!-- Short labels here, full section names in the fullscreen menu: a
-       horizontal bar has no room for 關於這個專案. The destinations must match
-       the menu's though — 合作 used to be reachable on a phone and not on a
-       laptop. site.js derives both the active state and the smooth scroll from
-       this list, so adding a link here is all that is needed.
-
-       In-page anchors only, and in document order — the scroll-spy takes the
-       last entry whose top has passed, so an out-of-order link would highlight
-       the wrong one. 青年培訓 used to sit at the end of this list as well as in
-       the pill on the right, which put the same destination in the bar twice;
-       the slot now goes to 關於, the one section a 承辦人 asks about (who is
-       actually running this) that the bar could not otherwise reach. -->
-  <nav class="nav__links" aria-label="主要導覽">
-    <a href="#how">介紹</a>
-    <a href="#video">影片</a>
-    <a href="#story">活動</a>
-    <a href="#data">成效</a>
-    <a href="#about">關於</a>
-    <a href="#offer">合作內容</a>
+  <nav class="nav__links" aria-label="主要導覽" data-en-aria="Main navigation">
+    <a href="#how" data-en="How">介紹</a>
+    <a href="#video" data-en="Video">影片</a>
+    <a href="#story" data-en="Moments">活動</a>
+    <a href="#data" data-en="Results">成效</a>
+    <a href="#offer" data-en="What you get">合作內容</a>
+    <a href="course.html" data-en="Youth">青年培訓</a>
   </nav>
 
-  <!-- Two topics, one control. Two separate pills measured 360px against 335px
-       of usable bar at 375px wide, so they could not both fit beside the brand.
-       A segmented pill costs one border and one set of paddings instead of two,
-       and it reads as "this site has two paths" rather than as two competing
-       CTAs. -->
   <div class="nav__right">
     <div class="navduo">
-      <a href="#book">合作</a>
-      <a href="course.html">青年培訓</a>
+      <a href="#book" data-en="Partner">合作</a>
+      <a href="course.html" data-en="Youth">青年培訓</a>
     </div>
-    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單">
+    <button class="lang" id="langBtn" type="button" lang="en" aria-label="Switch to English">EN</button>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單" data-en-aria="Open menu">
       <i></i><i></i>
     </button>
   </div>
@@ -103,22 +86,22 @@
 
 <!-- ══ fullscreen menu ══ -->
 <div class="menu" id="menu" hidden>
-  <nav class="menu__list" aria-label="全站選單">
-    <a href="#gap"><em>01</em><span>問題</span></a>
-    <a href="#how"><em>02</em><span>怎麼運作</span></a>
-    <a href="#video"><em>03</em><span>每天十分鐘</span></a>
-    <a href="#story"><em>04</em><span>不只是運動</span></a>
-    <a href="#data"><em>05</em><span>成效</span></a>
-    <a href="#about"><em>06</em><span>關於這個專案</span></a>
-    <a href="#offer"><em>07</em><span>合作內容</span></a>
-    <a href="#book"><em>—</em><span>合作洽詢</span></a>
-    <a href="course.html"><em>—</em><span>青年培訓</span></a>
+  <nav class="menu__list" aria-label="全站選單" data-en-aria="Site menu">
+    <a href="#gap"><em>01</em><span data-en="The problem">問題</span></a>
+    <a href="#how"><em>02</em><span data-en="How it works">怎麼運作</span></a>
+    <a href="#video"><em>03</em><span data-en="Ten minutes a day">每天十分鐘</span></a>
+    <a href="#story"><em>04</em><span data-en="More than exercise">不只是運動</span></a>
+    <a href="#data"><em>05</em><span data-en="Results">成效</span></a>
+    <a href="#about"><em>06</em><span data-en="About">關於這個專案</span></a>
+    <a href="#offer"><em>07</em><span data-en="What you get">合作內容</span></a>
+    <a href="#book"><em>—</em><span data-en="Partner with us">合作洽詢</span></a>
+    <a href="course.html"><em>—</em><span data-en="Youth programme">青年培訓</span></a>
   </nav>
   <div class="menu__foot">
     <span class="meta">LINE</span>
-    <a href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
+    <a href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener" data-en="Add our LINE account">加入健運動官方帳號</a>
     <span class="meta">Contact</span>
-    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" data-href-en="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20Partnership%20enquiry&amp;body=Hello%2C%20I%20am%20______%20%28organisation%20%2F%20role%29.%0A%0AI%20would%20like%20to%20find%20out%20how%20to%20bring%20%E5%81%A5%E9%81%8B%E5%8B%95%20to%20our%20care%20station.%20Could%20we%20arrange%20a%20time%20to%20talk%3F%0A%0AOrganisation%3A%0ALocation%3A%0APhone%3A%0ANumber%20of%20elders%3A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
   </div>
 </div>
 
@@ -126,31 +109,29 @@
 <span id="top"></span>
 
 <!-- ══ 1 · HERO ══ -->
-<section class="hero" aria-label="健運動">
-  <!-- same atmosphere recipe as #video so the two navies match exactly -->
+<section class="hero" aria-label="健運動" data-en-aria="健運動">
   <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
 
   <div class="hero__media">
     <picture>
       <source media="(min-width: 810px)" srcset="assets/img/hero-2093.jpg?v=45">
-      <img src="assets/img/hero-mobile-1400.jpg?v=45" alt="三位長輩與帶運動的青年在戶外扶欄旁高舉手臂，笑著一起活動身體" width="1400" height="933" fetchpriority="high" decoding="async">
+      <img src="assets/img/hero-mobile-1400.jpg?v=45" alt="長輩與帶運動的青年一起高舉手臂，笑著活動身體" data-en-alt="Three elders and the young coach raising their arms by an outdoor railing, laughing as they move together" width="1400" height="933" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="hero__scrim"></div>
 
   <div class="hero__body">
-    <!-- The eyebrow names the reader on sight. The old one described the
-         programme; a 據點承辦人 opening this page had to guess whether it was
-         for them, for their elders, or for nobody in particular. -->
-    <p class="hero__eyebrow" data-reveal>給社區據點 · 長照站 · 關懷據點</p>
-    <h1 class="hero__title" aria-label="健運動">
+    <p class="hero__eyebrow" data-reveal data-en="For community care stations &amp; long-term care centres">給社區據點 · 長照站 · 關懷據點</p>
+    <h1 class="hero__title" aria-label="健運動" data-en-aria="健運動">
       <span class="mask"><i style="--d:0ms">健</i></span><span class="mask"><i style="--d:90ms">運</i></span><span class="mask"><i style="--d:180ms">動</i></span>
     </h1>
-    <p class="hero__lede" data-reveal style="--d:420ms">每天陪長輩動十分鐘，<wbr>讓據點看得見長輩的改變。</p>
+    <!-- The director's line. It replaced a functional description; this one is
+         shorter, and it promises a feeling rather than a mechanism. -->
+    <p class="hero__lede" data-reveal style="--d:420ms" data-en="Moving with you — young again.">陪你動，再青春。</p>
 
     <p class="hero__by" data-reveal style="--d:540ms">
       <span class="meta">Supported by</span>
-      社團法人中華長照協會
+      <span data-en="China Long-Term Care Association">社團法人中華長照協會</span>
     </p>
   </div>
 
@@ -160,133 +141,108 @@
   </a>
 </section>
 
-<!-- ══ marquee ══ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span>活力長青</span><b>·</b><span class="ghost">動健康 10 分鐘計畫</span><b>·</b><span>每天十分鐘</span><b>·</b><span class="ghost">動出好體力</span><b>·</b>
-    <span>活力長青</span><b>·</b><span class="ghost">動健康 10 分鐘計畫</span><b>·</b><span>每天十分鐘</span><b>·</b><span class="ghost">動出好體力</span><b>·</b>
+    <span data-en="Moving with you">陪你動</span><b>·</b><span class="ghost" data-en="young again">再青春</span><b>·</b><span data-en="someone with you every day">每天都有人陪</span><b>·</b><span class="ghost" data-en="the energy to feel young">再青春的活力體質</span><b>·</b>
+    <span data-en="Moving with you">陪你動</span><b>·</b><span class="ghost" data-en="young again">再青春</span><b>·</b><span data-en="someone with you every day">每天都有人陪</span><b>·</b><span class="ghost" data-en="the energy to feel young">再青春的活力體質</span><b>·</b>
   </div>
 </div>
 
 <!-- ══ 2 · 問題 ══
-     The wedge. A 承辦人 books courses in 12-session terms, so opening with the
-     arithmetic of their own calendar earns the rest of the page. Everything
-     after this is an answer to the question asked here. -->
+     The director's words, used verbatim. The old version argued with
+     arithmetic (12 堂 = 12 小時); this one names the feeling instead, which is
+     what a 承辦人 actually recognises in their own elders. -->
 <section class="sec sec--paper" id="gap">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>01</em>問題</p>
+    <p class="eyebrow" data-reveal><em>01</em><span data-en="The problem">問題</span></p>
 
-    <p class="sec__intro" data-reveal style="--d:80ms">一期十二堂，一週一堂課。</p>
+    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Turn “one class a week” into “someone with you every day.”">把「一週一堂課」，變成「每天都有人陪」。</p>
 
     <h2 class="statement">
-      <span class="mask"><i style="--d:0ms">那剩下的</i></span>
-      <span class="mask"><i style="--d:90ms">六天呢？</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Alone, it is hard">一個人很難</i></span>
+      <span class="mask"><i style="--d:90ms" data-en="to keep moving.">一直動下去</i></span>
     </h2>
 
-    <blockquote class="pullout" data-reveal style="--d:200ms">
-      一整期加起來只有十二個小時。肌力不會從一週一次長出來 —— 真正決定長輩會不會變強的，是沒有人陪的那六天。
+    <blockquote class="pullout" data-reveal style="--d:200ms" data-en="The care station runs the class. 健運動 stays with them the other days — building the energy to feel young again.">
+      據點負責一堂課，<br>健運動陪您生活中的每一天，<br>養成再青春的活力體質。
     </blockquote>
+
   </div>
 </section>
 
 <!-- ══ 3 · 怎麼運作 ══ -->
 <section class="sec sec--tint" id="how">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>02</em>怎麼運作</p>
+    <p class="eyebrow" data-reveal><em>02</em><span data-en="How it works">怎麼運作</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">每天用 LINE 陪，</i></span>
-      <span class="mask"><i style="--d:100ms">每週到現場帶。</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="LINE keeps them company.">每天用 LINE 陪，</i></span>
+      <span class="mask"><i style="--d:100ms" data-en="I come and lead in person.">我到現場陪著做。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:80ms">
-健運動把兩件事接在一起：<strong>LINE 每天陪長輩動十分鐘</strong>，<strong>現場我親自到據點帶</strong>。長輩得到陪伴，據點看得到<strong>誰每天有動、誰連續在動</strong>。
-    </p>
+    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Elders get company. The care station gets a record.">長輩有人陪，據點看得見。</p>
 
     <ol class="flow">
       <li class="flow__step" data-reveal>
         <em class="flow__no">01</em>
-        <h3 class="flow__h">長輩加入 LINE</h3>
-        <p class="flow__p">用長輩原本就在用的 LINE，掃 QR code 就加入，不用再裝新的 App。</p>
+        <h3 class="flow__h" data-en="Join on LINE">長輩加入 LINE</h3>
+        <p class="flow__p" data-en="Scan a QR code. No new app to install.">掃 QR code 就好，不用裝新的 App。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:70ms">
         <em class="flow__no">02</em>
-        <h3 class="flow__h">每天提醒</h3>
-        <p class="flow__p">每天固定時間，提醒長輩動一動。</p>
+        <h3 class="flow__h" data-en="A daily nudge">每天有人叫你動</h3>
+        <p class="flow__p" data-en="Same time every day, someone remembers them.">固定時間，每天都有人記得他。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:140ms">
         <em class="flow__no">03</em>
-        <h3 class="flow__h">運動或拉伸十分鐘</h3>
-        <!-- Deliberately no weekday names. Naming days turns this into a
-             timetable a 長輩 can fail; a weekly target is something they aim at
-             and still choose their own way to. 就很好 keeps it praise-framed
-             rather than a requirement. -->
-        <p class="flow__p">運動、拉伸自己選，坐著站著都行。一週有 4 天做到運動就很好。</p>
+        <h3 class="flow__h" data-en="Ten minutes">動十分鐘</h3>
+        <p class="flow__p" data-en="Exercise or stretching, their choice. Sitting is fine.">運動、拉伸自己選，坐著也能做。</p>
       </li>
       <li class="flow__step" data-reveal style="--d:210ms">
         <em class="flow__no">04</em>
-        <h3 class="flow__h">按一下回報</h3>
-        <!-- Deliberately no prize count or item. Those change month to month and
-             would go stale on a page nobody remembers to edit; the 據點承辦人
-             only needs to know a motivation mechanic exists. Specifics belong
-             in the LINE account, where the 長輩 actually act on them. -->
-        <p class="flow__p">在 LINE 上按一下就完成。月底公布英雄榜，表揚持續在動的長輩。</p>
+        <h3 class="flow__h" data-en="One tap to check in">按一下回報</h3>
+        <p class="flow__p" data-en="Logged automatically — and on the honour roll at month end.">系統自動記錄，月底上英雄榜。</p>
       </li>
     </ol>
 
-    <!-- Proof strip. Placed here, not in the hero: the strongest figure is 17
-         個月 and the weakest is 8 位, so the small one has to travel with the
-         big ones or it reads thin on its own. Detailed findings stay in #data
-         where they have the context to land. Update the note's date whenever
-         these change. -->
-    <p class="stats__lead" data-reveal style="--d:60ms">這不是計畫書，是已經在跑的東西。</p>
+    <p class="stats__lead" data-reveal style="--d:60ms" data-en="Not a proposal. Already running.">這不是計畫書，是已經在跑的東西。</p>
 
     <ul class="stats" data-reveal style="--d:120ms">
-      <!-- data-since drives the number: site.js recomputes elapsed whole months
-           on every load, so these never go stale. The literal digits are only a
-           no-JS fallback — update them if you ever edit the start dates. -->
       <li class="stat">
-        <span class="stat__n" data-since="2025-03-01">17<span class="stat__u">個月</span></span>
-        <span class="stat__l">走進社區</span>
+        <span class="stat__n" data-since="2025-03-01">17<span class="stat__u" data-en=" months">個月</span></span>
+        <span class="stat__l" data-en="in the community">走進社區</span>
       </li>
       <li class="stat">
-        <span class="stat__n" data-since="2026-01-31">6<span class="stat__u">個月</span></span>
-        <span class="stat__l">健運動運作</span>
+        <span class="stat__n" data-since="2026-01-31">6<span class="stat__u" data-en=" months">個月</span></span>
+        <span class="stat__l" data-en="of 健運動">健運動運作</span>
       </li>
       <li class="stat">
-        <span class="stat__n">8<span class="stat__u">位</span></span>
-        <!-- 分析, not 檢測: the health check itself was run by the partner
-             organisation. What is Lucas's here is the analysis, so the label
-             has to say that. Swap this whole figure for a 回報率 or 連續天數
-             number once that data is available — it comes from his own LINE
-             system, so it is unambiguously his to claim. -->
-        <span class="stat__l">體能資料分析</span>
+        <span class="stat__n">4<span class="stat__u" data-en=" sites">個</span></span>
+        <span class="stat__l" data-en="in partnership">合作地點</span>
+      </li>
+      <li class="stat">
+        <span class="stat__n">8<span class="stat__u" data-en=" elders">位</span></span>
+        <span class="stat__l" data-en="fitness data analysed">體能資料分析</span>
       </li>
     </ul>
 
-    <!-- The two time figures must stay separately labelled. 健運動 opened
-         2026.01.31; the 10 months before that were volunteer work in the same
-         community, which is worth showing precisely because it proves he did
-         not parachute in — but merging them into one number would be a claim
-         he cannot defend if a 承辦人 asks. -->
-    <p class="stats__note" data-reveal style="--d:160ms">2025 年 3 月起以志工身分參與社區服務 · 健運動 2026 年 1 月開張 · <span id="dataStamp">資料截至 2026 年 8 月</span></p>
+    <!-- data-en must NOT sit on this <p>: swapping its innerHTML would destroy
+         #dataStamp, which site.js writes the live date into. Translate the
+         prose span only and leave the stamp to JS. -->
+    <p class="stats__note" data-reveal style="--d:160ms"><span data-en="Volunteering here since Mar 2025 · 健運動 launched Jan 2026 · ">2025 年 3 月起以志工身分參與社區服務 · 健運動 2026 年 1 月開張 · </span><span id="dataStamp"></span></p>
 
-    <!-- A bordered panel rather than a loose button: this is the one place the
-         reader leaves the site, so it needs to look like a defined object and
-         say exactly what it is. The fine print separates the two LINE routes —
-         the 長輩 account is not the channel a 承辦人 uses to arrange dates. -->
     <div class="linecard" data-reveal style="--d:200ms">
-      <p class="linecard__label">長輩用的官方帳號</p>
-      <p class="linecard__lede">每天的提醒、每次的回報，都在這個帳號上。加入後，你會收到和長輩一模一樣的訊息。</p>
+      <p class="linecard__label" data-en="The elders' LINE account">長輩用的官方帳號</p>
+      <p class="linecard__lede" data-en="Every reminder, every check-in lives here. Add it and you get exactly what they get.">每天的提醒、每次的回報，都在這裡。加入後，你會收到和長輩一樣的訊息。</p>
       <a class="btn btn--solid btn--big" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">
-        加入健運動 LINE 官方帳號
+        <span data-en="Add the LINE account">加入健運動 LINE 官方帳號</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
       </a>
-      <p class="linecard__fine">這個帳號只用來提醒長輩運動。<strong>課程時段不在這裡安排</strong> —— 那部分我會直接跟你聯繫。</p>
+      <p class="linecard__fine" data-en="This account only sends daily reminders. <strong>Scheduling is not arranged here</strong> — I contact you directly for that.">這個帳號只用來提醒長輩運動。<strong>課程時段不在這裡安排</strong> —— 那部分我直接跟你聯繫。</p>
     </div>
 
-    <p class="join__note" data-reveal style="--d:260ms">
-想把健運動帶進你的據點？<a href="#book">填寫合作洽詢</a>。
+    <p class="join__note" data-reveal style="--d:260ms" data-en="Want this at your care station? <a href=&quot;#book&quot;>Get in touch</a>.">
+想帶進你的據點？<a href="#book">填寫合作洽詢</a>。
     </p>
   </div>
 </section>
@@ -296,28 +252,24 @@
   <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
 
   <div class="wrap">
-    <p class="eyebrow eyebrow--inv" data-reveal><em>03</em>每天十分鐘</p>
+    <p class="eyebrow eyebrow--inv" data-reveal><em>03</em><span data-en="Ten minutes a day">每天十分鐘</span></p>
 
     <h2 class="h2 h2--inv">
-      <span class="mask"><i style="--d:0ms">每天十分鐘，</i></span>
-      <span class="mask"><i style="--d:100ms">動出好體力</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Ten minutes a day,">每天十分鐘，</i></span>
+      <span class="mask"><i style="--d:100ms" data-en="and the body remembers.">身體會記得。</i></span>
     </h2>
 
-    <p class="sec__note sec__note--inv" data-reveal>這就是長輩每天在 LINE 上收到的十分鐘。</p>
+    <p class="sec__note sec__note--inv" data-reveal data-en="This is what lands on their phone every day.">這就是長輩每天收到的十分鐘。</p>
 
     <div class="clips" id="shorts">
-      <!-- no captions: both clips are from the same session, they carry their own
-           burnt-in titles, and the three lines above already frame the section.
-           If one is ever added it must go inside the figure — anything outside the
-           pinned element scrolls up underneath the held frame. -->
       <article class="clip" data-reveal>
         <figure class="short">
           <div class="short__box">
             <video class="lazyvid" playsinline muted loop preload="none"
                    poster="assets/video/poster/short-1.jpg"
                    data-src="assets/video/short-1.mp4?v=6" data-end="12.8"
-                   aria-label="短片：運動後回報，就有機會登上每月英雄榜"></video>
-            <button class="short__tap" type="button" aria-label="播放或暫停短片一">
+                   aria-label="短片：運動後回報，就有機會登上每月英雄榜" data-en-aria="Short clip: check in after exercising for a place on the monthly honour roll"></video>
+            <button class="short__tap" type="button" aria-label="播放或暫停短片一" data-en-aria="Play or pause clip one">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </button>
           </div>
@@ -330,8 +282,8 @@
             <video class="lazyvid" playsinline muted loop preload="none"
                    poster="assets/video/poster/short-2.jpg"
                    data-src="assets/video/short-2.mp4?v=6" data-end="14.8"
-                   aria-label="短片：跟著一起做十分鐘運動"></video>
-            <button class="short__tap" type="button" aria-label="播放或暫停短片二">
+                   aria-label="短片：跟著一起做十分鐘運動" data-en-aria="Short clip: follow along with ten minutes of exercise"></video>
+            <button class="short__tap" type="button" aria-label="播放或暫停短片二" data-en-aria="Play or pause clip two">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </button>
           </div>
@@ -342,450 +294,412 @@
     <figure class="film" data-reveal>
       <div class="film__box" id="filmBox" data-yt="LlGhXdVetII">
         <img src="assets/video/poster/intro.jpg?v=6"
-             alt="影片封面：帶運動的青年與兩位長輩在長照據點一起做動作" loading="lazy" decoding="async">
-        <button class="film__play" type="button" id="filmPlay" aria-label="播放一分鐘介紹影片">
+             alt="影片封面：帶運動的青年與兩位長輩在長照據點一起做動作" data-en-alt="Video cover: a young coach and two elders exercising together at a care station" loading="lazy" decoding="async">
+        <button class="film__play" type="button" id="filmPlay" aria-label="播放一分鐘介紹影片" data-en-aria="Play the one-minute introduction">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          <span>一分鐘介紹</span>
+          <span data-en="One minute">一分鐘介紹</span>
         </button>
       </div>
-      <figcaption>想了解計畫怎麼運作？看這支就懂了。</figcaption>
+      <figcaption data-en="A minute is enough to see how it works.">想知道怎麼運作？看這支就懂。</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ══ 5 · 不只是運動 ══
-     Moved ahead of the data on purpose. These photos are the evidence that the
-     companionship is real and sustained — the meal deliveries and the 圍爐 are
-     not off-topic, they are the whole argument. Proof of relationship first,
-     proof of effect second. -->
+<!-- ══ 5 · 不只是運動 ══ -->
 <section class="sec sec--tint" id="story">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>04</em>不只是運動</p>
+    <p class="eyebrow" data-reveal><em>04</em><span data-en="More than exercise">不只是運動</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">陪伴不是一堂課，</i></span>
-      <span class="mask"><i style="--d:100ms">是一直都在。</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Company is not one class.">陪伴不是一堂課，</i></span>
+      <span class="mask"><i style="--d:100ms" data-en="It is being there.">是一直都在。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:80ms">
-送餐、圍爐、手作課、看展 —— 從攝影志工到健運動，這一年多來和長輩之間累積的，不只是運動。
-    </p>
+    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Meals, reunion dinners, craft classes, a museum trip — a year and a half of being around.">送餐、圍爐、手作課、看展 —— 這一年多累積的，不只是運動。</p>
 
-    <!-- Newest first. The lightbox builds its running order from the DOM order
-         of .shot button and swaps -md.jpg for -lg.jpg, so a new entry only needs
-         to sit in the right place and ship both files — the data-i attributes on
-         the older items are vestigial and nothing reads them. -->
     <ol class="grid" id="grid">
       <li class="shot" data-reveal>
         <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-08-05-improv2-md.jpg?v=6" alt="長輩圍成一圈坐在據點的椅子上，帶領者站在中間拿著麥克風、舉手示範動作" width="1000" height="668" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.08.05</em><b>即興創作課 · 圍成一圈一起來</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-08-05-improv2-md.jpg?v=6" alt="長輩圍成一圈坐在據點的椅子上，帶領者站在中間拿著麥克風、舉手示範動作" data-en-alt="Elders seated in a circle at the care station while the leader demonstrates a movement in the middle" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.08.05</em><b data-en="Everyone in a circle">即興創作課 · 圍成一圈一起來</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
         <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-07-28-tamsui-md.jpg?v=6" alt="長輩在淡水美術館一起看展，隔著玻璃櫃欣賞畫作" width="668" height="1000" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.07.28</em><b>淡水美術館 · 一起去看展</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-28-tamsui-md.jpg?v=6" alt="長輩在淡水美術館一起看展" data-en-alt="Elders viewing an exhibition together at the Tamsui art museum" width="668" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.28</em><b data-en="Museum trip together">淡水美術館 · 一起去看展</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
         <button type="button" data-i="0">
-          <span class="shot__img"><img src="assets/img/timeline/2026-07-21-dessert-md.jpg?v=6" alt="長輩圍著桌子動手做點心" width="1000" height="668" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.07.21</em><b>點心手作課 · 動手也動心</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-21-dessert-md.jpg?v=6" alt="長輩圍著桌子動手做點心" data-en-alt="Elders around a table making desserts by hand" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.21</em><b data-en="Baking class">點心手作課 · 動手也動心</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:60ms">
         <button type="button" data-i="1">
-          <span class="shot__img"><img src="assets/img/timeline/2026-07-15-improv-md.jpg?v=6" alt="長輩在即興創作課上一起動手玩創作" width="1000" height="668" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.07.15</em><b>即興創作課 · 一起開心玩</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-15-improv-md.jpg?v=6" alt="長輩在即興創作課上一起動手玩創作" data-en-alt="Elders making things together in an improvised craft class" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.15</em><b data-en="Improv craft class">即興創作課 · 一起開心玩</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:120ms">
         <button type="button" data-i="2">
-          <span class="shot__img"><img src="assets/img/timeline/2026-07-14-firedrill-md.jpg?v=6" alt="據點消防演習，長輩一起練習疏散" width="1000" height="668" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.07.14</em><b>消防演習 · 把安全一起練熟</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-14-firedrill-md.jpg?v=6" alt="據點消防演習，長輩一起練習疏散" data-en-alt="A fire drill at the care station, elders practising evacuation together" width="1000" height="668" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.07.14</em><b data-en="Fire drill practice">消防演習 · 把安全一起練熟</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:180ms">
         <button type="button" data-i="3">
-          <span class="shot__img"><img src="assets/img/timeline/2026-02-13-coach-md.jpg?v=6" alt="第一次擔任運動指導員，帶著兩位長輩一起向上伸展" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.02.13</em><b>第一次帶運動 · 從陪伴開始</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-13-coach-md.jpg?v=6" alt="第一次擔任運動指導員，帶著兩位長輩一起向上伸展" data-en-alt="Leading exercise for the first time, stretching upward with two elders" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.13</em><b data-en="First time leading">第一次帶運動 · 從陪伴開始</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:240ms">
         <button type="button" data-i="4">
-          <span class="shot__img"><img src="assets/img/timeline/2026-02-07-market-md.jpg?v=6" alt="在台北車站無家者市集推廣健運動" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.02.07</em><b>台北車站二手市集 · 街頭健運動推廣</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-07-market-md.jpg?v=6" alt="在台北車站無家者市集推廣健運動" data-en-alt="Introducing 健運動 at a street market at Taipei Main Station" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.07</em><b data-en="Taipei Station market">台北車站市集 · 街頭推廣</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:300ms">
         <button type="button" data-i="5">
-          <span class="shot__img"><img src="assets/img/timeline/2026-02-03-checkup-md.jpg?v=6" alt="健康檢查現場，用數據認識長輩的身體狀況" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.02.03</em><b>健康檢查 · 用數據認識身體</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-03-checkup-md.jpg?v=6" alt="健康檢查現場，用數據認識長輩的身體狀況" data-en-alt="At the health check, getting to know the elders' bodies through data" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.02.03</em><b data-en="Health check day">健康檢查 · 用數據認識身體</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
         <button type="button" data-i="6">
-          <span class="shot__img"><img src="assets/img/timeline/2026-01-31-launch-md.jpg?v=6" alt="健運動開張日，第一次向長輩介紹計畫" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.01.31</em><b>健運動開張 · 計畫的起點</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-01-31-launch-md.jpg?v=6" alt="健運動開張日，第一次向長輩介紹計畫" data-en-alt="Launch day — introducing the programme to the elders for the first time" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.01.31</em><b data-en="Launch day">健運動開張 · 計畫的起點</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:60ms">
         <button type="button" data-i="7">
-          <span class="shot__img"><img src="assets/img/timeline/2026-01-17-awards-md.jpg?v=7" alt="圍爐頒獎典禮上，志工團隊在台上接受表揚與獎狀" width="1000" height="666" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.01.17</em><b>圍爐頒獎 · 一年的努力被看見</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-01-17-awards-md.jpg?v=7" alt="圍爐頒獎典禮上，志工團隊在台上接受表揚" data-en-alt="Volunteers receiving recognition on stage at the reunion-dinner awards" width="1000" height="666" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.01.17</em><b data-en="Reunion dinner awards">圍爐頒獎 · 一年的努力被看見</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:120ms">
         <button type="button" data-i="8">
-          <span class="shot__img"><img src="assets/img/timeline/2025-12-27-meal-md.jpg?v=6" alt="志工在門口把熱食交到長輩手上" width="750" height="1000" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2025.12.27</em><b>永樂居送餐 · 送到長輩手上</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2025-12-27-meal-md.jpg?v=6" alt="志工在門口把熱食交到長輩手上" data-en-alt="A volunteer handing a hot meal to an elder at the door" width="750" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.12.27</em><b data-en="Meals to the door">永樂居送餐 · 送到長輩手上</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:180ms">
         <button type="button" data-i="9">
-          <span class="shot__img"><img src="assets/img/timeline/2025-12-13-xmas-md.jpg?v=6" alt="台北車站聖誕送餐場次，志工發送餐點" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2025.12.13</em><b>聖誕送餐 · 節日裡的溫暖</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2025-12-13-xmas-md.jpg?v=6" alt="台北車站聖誕送餐場次，志工發送餐點" data-en-alt="Christmas meal service at Taipei Main Station, volunteers handing out food" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.12.13</em><b data-en="Christmas meals">聖誕送餐 · 節日裡的溫暖</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:240ms">
         <button type="button" data-i="10">
-          <span class="shot__img"><img src="assets/img/timeline/2025-07-12-meal-md.jpg?v=6" alt="志工把熱食送到長輩家中，和阿公阿嬤一起合照" width="750" height="1000" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2025.07.12</em><b>社區送餐 · 把熱飯送到家</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2025-07-12-meal-md.jpg?v=6" alt="志工把熱食送到長輩家中，和阿公阿嬤一起合照" data-en-alt="Volunteers delivering hot meals to an elder's home, photographed together" width="750" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.07.12</em><b data-en="Hot meals delivered">社區送餐 · 把熱飯送到家</b></span>
         </button>
       </li>
       <li class="shot" data-reveal style="--d:300ms">
         <button type="button" data-i="11">
-          <span class="shot__img"><img src="assets/img/timeline/2025-06-13-towel-md.jpg?v=6" alt="夏日送餐並發送一百份涼感毛巾" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2025.06.13</em><b>夏日送暖 · 送餐與涼感毛巾</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2025-06-13-towel-md.jpg?v=6" alt="夏日送餐並發送一百份涼感毛巾" data-en-alt="Summer meal delivery, with a hundred cooling towels" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.06.13</em><b data-en="Summer care packages">夏日送暖 · 送餐與涼感毛巾</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
         <button type="button" data-i="12">
-          <span class="shot__img"><img src="assets/img/timeline/2025-03-14-street-md.jpg?v=6" alt="街頭送餐，把溫飽送到需要的人手上" width="668" height="1000" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2025.03.14</em><b>街頭送餐 · 把溫飽送到需要的人</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2025-03-14-street-md.jpg?v=6" alt="街頭送餐，把溫飽送到需要的人手上" data-en-alt="Street meal service, putting a warm meal into the hands of people who need it" width="668" height="1000" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2025.03.14</em><b data-en="Street meal service">街頭送餐 · 把溫飽送到需要的人</b></span>
         </button>
       </li>
     </ol>
   </div>
 </section>
 
-<!-- ══ 6 · 成效（statement） ══ -->
+<!-- ══ 6 · 成效 ══ -->
 <section class="sec sec--paper" id="data">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>05</em>成效</p>
+    <p class="eyebrow" data-reveal><em>05</em><span data-en="Results">成效</span></p>
 
-    <p class="sec__intro" data-reveal style="--d:80ms">2026 年 2 月，合作機構為長輩做了一次健康檢查。我取得資料後做了分析。</p>
+    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Feb 2026: our partner organisation ran a health check. I analysed the data.">2026 年 2 月，合作機構做了一次健康檢查。我取得資料後做了分析。</p>
 
     <h2 class="statement">
-      <span class="mask mask--q"><i style="--d:0ms">「有動」</i></span>
-      <span class="mask"><i style="--d:90ms">不等於「有力」，</i></span>
-      <span class="mask mask--q"><i style="--d:180ms">「年紀」</i></span>
-      <span class="mask"><i style="--d:270ms">也不代表「風險」。</i></span>
+      <span class="mask mask--q"><i style="--d:0ms" data-en="“Active”">「有動」</i></span>
+      <span class="mask"><i style="--d:90ms" data-en="is not “strong”.">不等於「有力」，</i></span>
+      <span class="mask mask--q"><i style="--d:180ms" data-en="“Old”">「年紀」</i></span>
+      <span class="mask"><i style="--d:270ms" data-en="is not “at risk”.">也不代表「風險」。</i></span>
     </h2>
-
   </div>
 </section>
 
-<!-- ══ 6b · 發現 + 儀表板 ══ -->
 <section class="sec sec--tint" id="findings" aria-labelledby="dash-h">
   <div class="wrap">
-    <p class="eyebrow" data-reveal>基線評估 · Findings</p>
+    <p class="eyebrow" data-reveal><span data-en="Baseline assessment · Findings">基線評估 · Findings</span></p>
 
-    <!-- readers said the numbers arrived before they knew what was measured -->
-    <p class="finding__intro" data-reveal>
-檢查裡有兩個數字最關鍵：<b>握力</b>，看肌少症；<b>五次坐站測試</b>，看跌倒風險。
+    <p class="finding__intro" data-reveal data-en="Two numbers matter most: <b>grip strength</b> for sarcopenia, and the <b>five-times sit-to-stand</b> for fall risk.">
+檢查裡兩個數字最關鍵：<b>握力</b>看肌少症，<b>五次坐站測試</b>看跌倒風險。
     </p>
 
-    <p class="finding__lead" data-reveal style="--d:80ms">
+    <p class="finding__lead" data-reveal style="--d:80ms" data-en="Of 8 elders, <b>4 were below the grip threshold</b>. Of 7 tested, <b>3 took over 12 seconds</b>.">
       8 位長輩中，<b>4 位握力低於標準</b>；7 位受測者中，<b>3 位坐站測試超過 12 秒</b>。
     </p>
 
-    <!-- The two thresholds carry the whole finding, so they get explained in
-         plain words here instead of sitting in the headline as bare jargon. -->
-    <p class="finding__fine" data-reveal style="--d:120ms">
+    <p class="finding__fine" data-reveal style="--d:120ms" data-en="<b>AWGS-2019</b> is the Asian Working Group for Sarcopenia standard — under 28 kg for men, 18 kg for women. The <b>five-times sit-to-stand</b> times five stands from a chair; over 12 seconds signals weak legs and higher fall risk.">
       <b>AWGS-2019</b> 是亞洲肌少症工作小組的診斷標準，握力男性低於 28 公斤、女性低於 18 公斤即偏弱。<b>五次坐站測試</b>是從椅子連續站起坐下五次，超過 12 秒代表下肢肌力不足、跌倒風險偏高。
     </p>
 
-    <p class="finding__turn" data-reveal style="--d:160ms">
+    <p class="finding__turn" data-reveal style="--d:160ms" data-en="The surprise: <b>65–74</b> were flagged more often than <b>75–84</b>.">
       更意外的是：<b>65–74 歲</b>被標記的風險，比 <b>75–84 歲</b>還多。
     </p>
 
-    <blockquote class="pullout" data-reveal style="--d:240ms">
+    <blockquote class="pullout" data-reveal style="--d:240ms" data-en="So the programme stopped being “one video for everyone”.">
       這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
     </blockquote>
 
     <div class="dash__head dash__head--spaced">
-      <h3 class="h3" id="dash-h" data-reveal style="--d:60ms">基線評估儀表板</h3>
-      <a class="btn btn--ghost" data-reveal style="--d:120ms"
+      <h3 class="h3" id="dash-h" data-reveal style="--d:60ms" data-en="Baseline dashboard">基線評估儀表板</h3>
+      <!-- To use the English workbook: paste its Tableau Public URL into
+           data-href-en here and data-src-en on .dash__frame below. Leave them
+           empty and the Chinese one is used in both languages. -->
+      <a class="btn btn--ghost" id="dashLink" data-reveal style="--d:120ms"
          href="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+         data-href-zh="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+         data-href-en=""
          target="_blank" rel="noopener">
-        新視窗開啟
+        <span data-en="Open in new tab">新視窗開啟</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
       </a>
     </div>
 
-    <!-- Do NOT put a deliverable promise here. An earlier draft said this
-         dashboard was "what a partner 據點 gets at the end of a term" — Lucas
-         has never produced an endline report and the underlying health check
-         was run by the partner organisation, not by him. -->
-    <p class="dash__intro" data-reveal style="--d:100ms">
+    <p class="dash__intro" data-reveal style="--d:100ms" data-en="Full results for all 8. On a phone, open it in a new tab.">
 8 位長輩的完整結果。手機上點「新視窗開啟」看更清楚。
     </p>
 
     <figure class="dash" data-reveal style="--d:160ms">
       <div class="dash__bar">
-        <span class="meta">基線評估</span>
-        <span class="meta dash__hint">完整互動版請開新視窗</span>
+        <span class="meta" data-en="Baseline assessment">基線評估</span>
+        <span class="meta dash__hint" data-en="Open in a new tab for the interactive version">完整互動版請開新視窗</span>
       </div>
       <div class="dash__frame" id="dashFrame"
-           data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1">
+           data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+           data-src-zh="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
+           data-src-en="">
         <div class="dash__zoom" id="dashZoom"></div>
-        <div class="dash__load"><i></i><span class="meta">載入儀表板…</span></div>
+        <div class="dash__load"><i></i><span class="meta" data-en="Loading dashboard…">載入儀表板…</span></div>
       </div>
-      <figcaption class="dash__cap">
+      <figcaption class="dash__cap" data-en="n=8, single baseline assessment (Feb 2026). Directional, not statistically powered.">
         n=8，單次基線評估（2026 年 2 月），結果為方向性參考。
       </figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ══ 7 · 關於這個專案 ══
-     The four cards that used to sit here said the same things the new 問題 and
-     合作內容 sections now say properly. What is left is the part only this
-     section can carry: who is on the other end of the form. -->
+<!-- ══ 7 · 關於這個專案 ══ -->
 <section class="sec sec--paper" id="about">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>06</em>關於這個專案</p>
+    <p class="eyebrow" data-reveal><em>06</em><span data-en="About">關於這個專案</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">一個高中生自學打造，</i></span>
-      <span class="mask"><i style="--d:90ms">用運動與數據</i></span>
-      <span class="mask"><i style="--d:180ms">陪伴社區長者。</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Built by a high-school student,">一個高中生自學打造，</i></span>
+      <span class="mask"><i style="--d:90ms" data-en="so nobody grows old alone.">讓長輩不再一個人變老。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms">
-我是 Lucas，高中生。2025 年 3 月開始在社區當<strong>攝影志工</strong>，跟著送餐、圍爐，慢慢認識了這裡的長輩。2026 年 1 月，<strong>健運動開張</strong> —— 從一個 LINE 官方帳號開始。
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="I am Lucas. I started as a <strong>photography volunteer</strong> here in March 2025 — meal runs, reunion dinners. In January 2026, <strong>健運動 opened</strong>, from one LINE account.">
+我是 Lucas。2025 年 3 月開始在社區當<strong>攝影志工</strong>，跟著送餐、圍爐。2026 年 1 月，<strong>健運動開張</strong> —— 從一個 LINE 官方帳號開始。
     </p>
 
-    <blockquote class="pullout" data-reveal style="--d:180ms">
+    <blockquote class="pullout" data-reveal style="--d:180ms" data-en="Self-built LINE official account, Make automation, Google Sheets and Notion — daily reminders out, every check-in recorded.">
       自建 LINE 官方帳號、Make 自動化、Google Sheet 與 Notion 資料庫，每天提醒長輩運動，並記錄每一次回報。
     </blockquote>
   </div>
 </section>
 
 <!-- ══ 8 · 合作內容 ══
-     The section the site was missing entirely: what a 據點 actually receives.
-     Four deliverables, priced-in-kind, with the last one aimed squarely at the
-     paperwork a 承辦人 has to produce at the end of a term. -->
+     Framed as the director asked: what the elder is given, and what the station
+     gets back. Two sides, one section. -->
 <section class="sec sec--tint" id="offer">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><em>07</em>合作內容</p>
+    <p class="eyebrow" data-reveal><em>07</em><span data-en="What you get">合作內容</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">合作的據點，</i></span>
-      <span class="mask"><i style="--d:100ms">會拿到什麼？</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="You give them company.">你給長輩陪伴，</i></span>
+      <span class="mask"><i style="--d:100ms" data-en="You get it in writing.">我給你看得見的紀錄。</i></span>
     </h2>
 
     <ul class="cards">
-      <!-- 01 and 03 both used to say 回報 and read as the same service. 01 is
-           now purely the reminder side, 03 purely the record side. -->
       <li class="card" data-reveal>
         <em class="card__no">01</em>
-        <h3>每天自動提醒</h3>
-        <p>固定時間發到長輩的 LINE，不用記、也不會忘。</p>
+        <h3 data-en="A daily reminder">每天有人記得他</h3>
+        <p data-en="Same time, every day, straight to their LINE.">固定時間發到長輩的 LINE，不用記、也不會忘。</p>
       </li>
       <li class="card" data-reveal style="--d:70ms">
         <em class="card__no">02</em>
-        <!-- 帶動, not 課程: Lucas holds no 體適能指導員 certificate and Taiwan's
-             預防延緩 programmes require one, so 課程 would imply a credential he
-             does not have. 與據點人員一起進行 signals he does not run a room
-             alone. Do NOT state 志工身分 here — this work is paid. -->
-        <h3>現場帶動</h3>
-        <p>我到據點帶十分鐘伸展與肌力，動作簡單、坐著也能做，與據點人員一起進行。</p>
+        <h3 data-en="I come in person">我到現場陪著動</h3>
+        <p data-en="Ten minutes of stretching and strength — simple, seated is fine — alongside your own staff.">十分鐘伸展與肌力，動作簡單、坐著也能做，與據點人員一起進行。</p>
       </li>
       <li class="card" data-reveal style="--d:70ms">
         <em class="card__no">03</em>
-        <h3>運動與拉伸紀錄</h3>
-        <p>長輩按下「運動」或「拉伸」，系統就分開記下來，月底整理成英雄榜。</p>
+        <h3 data-en="A record you can show">看得見的紀錄</h3>
+        <p data-en="They tap “exercise” or “stretch”; both are logged separately, with a monthly honour roll.">長輩按「運動」或「拉伸」，系統分開記下來，月底整理成英雄榜。</p>
       </li>
-      <!-- Not "I will assess your elders": Lucas has never administered the
-           fitness tests — the 2026-02 health check was the partner
-           organisation's and he analysed the data afterwards. The parenthetical
-           states that limit outright so nobody books him expecting testing. -->
       <li class="card" data-reveal style="--d:140ms">
         <em class="card__no">04</em>
-        <h3>資料分析</h3>
-        <p>你們已經有的健檢或出席資料，我幫忙找出裡面的重點。（檢測本身由據點或醫護執行）</p>
+        <h3 data-en="Making sense of your data">你的資料，我幫你讀懂</h3>
+        <p data-en="Health-check or attendance data you already hold — I find what matters in it. (Testing itself stays with your staff or clinicians.)">你們已經有的健檢或出席資料，我幫忙找出裡面的重點。（檢測本身由據點或醫護執行）</p>
       </li>
     </ul>
 
-    <blockquote class="pullout" data-reveal>
+    <blockquote class="pullout" data-reveal data-en="Pick one, or all of them. For a first collaboration, one month of LINE company is plenty — no contract, no full term to schedule.">
       這些不一定要一起做。第一次合作，先從一個月的 LINE 陪伴開始就好 —— 不用簽約，也不用排整期的課。
     </blockquote>
   </div>
 </section>
 
-<!-- ══ 9 · 合作洽詢 ══
-     The standalone navy 合作 banner that used to sit here was removed: it asked
-     the same question this section asks and then pointed at this form, so a
-     reader met the invitation twice. Its headline moved down here, where the
-     form can answer it immediately. -->
+<!-- ══ 9 · 合作洽詢 ══ -->
 <section class="sec sec--paper" id="book">
   <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-reveal>合作洽詢 · Contact</p>
+    <p class="eyebrow" data-reveal><span data-en="Partner with us · Contact">合作洽詢 · Contact</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms">想把健運動</i></span>
-      <span class="mask"><i style="--d:100ms">帶進你的據點嗎？</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Bring 健運動">想把健運動</i></span>
+      <span class="mask"><i style="--d:100ms" data-en="to your care station?">帶進你的據點嗎？</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms">
-填完這張表，我會在<strong>三個工作天內</strong>跟你聯繫，一起確認適合的合作方式。想先聊聊、或安排一次體驗，都可以。
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Fill this in and I will reply within <strong>three working days</strong>. Happy to just talk first, or arrange a trial session.">
+填完這張表，我會在<strong>三個工作天內</strong>跟你聯繫。想先聊聊、或安排一次體驗，都可以。
     </p>
 
-    <!-- The two LINE routes are genuinely separate and a 承辦人 will assume
-         otherwise, so this says it plainly at the point of doubt. -->
-    <p class="sec__note" data-reveal style="--d:140ms">這張表只是第一次接洽，<strong>不會直接排課</strong>。<strong>課程時段</strong>（哪天、幾點、幾堂）之後由我直接與你聯繫敲定，不走長輩那個官方帳號。</p>
+    <p class="sec__note" data-reveal style="--d:140ms" data-en="This is a first contact, <strong>not a booking</strong>. Dates and times are agreed with me directly afterwards — not through the elders' LINE account.">這張表只是第一次接洽，<strong>不會直接排課</strong>。<strong>課程時段</strong>之後由我直接與你聯繫敲定，不走長輩那個官方帳號。</p>
 
     <form class="form" id="form" novalidate data-reveal style="--d:180ms">
-      <p class="form__group">聯絡資訊</p>
+      <p class="form__group" data-en="Contact">聯絡資訊</p>
 
       <div class="field">
-        <label for="f-org">單位／據點名稱 <span class="req" aria-hidden="true">必填</span></label>
+        <label for="f-org"><span data-en="Organisation / care station">單位／據點名稱</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="f-org" name="org" type="text" required autocomplete="organization"
-               placeholder="例：永和永樂居關懷據點" aria-describedby="e-org h-org">
-        <p class="hint" id="h-org">請填寫完整名稱。</p>
+               placeholder="例：永和永樂居關懷據點" data-en-ph="e.g. Yongle Community Care Station" aria-describedby="e-org h-org">
+        <p class="hint" id="h-org" data-en="Full name, please.">請填寫完整名稱。</p>
         <p class="err" id="e-org" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-who">承辦人姓名與職稱 <span class="req" aria-hidden="true">必填</span></label>
+        <label for="f-who"><span data-en="Your name and role">承辦人姓名與職稱</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="f-who" name="inviter" type="text" required autocomplete="name"
-               placeholder="例：王小明 督導" aria-describedby="e-who h-who">
-        <p class="hint" id="h-who">我聯繫時要找的人。</p>
+               placeholder="例：王小明 督導" data-en-ph="e.g. Wang Xiao-ming, Supervisor" aria-describedby="e-who h-who">
+        <p class="hint" id="h-who" data-en="Who should I ask for?">我聯繫時要找的人。</p>
         <p class="err" id="e-who" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-phone">聯絡電話 <span class="req" aria-hidden="true">必填</span></label>
+        <label for="f-phone"><span data-en="Phone">聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="f-phone" name="phone" type="tel" required autocomplete="tel"
-               placeholder="例：0912-345-678" aria-describedby="e-phone h-phone">
-        <p class="hint" id="h-phone">市話請加區碼。</p>
+               placeholder="例：0912-345-678" data-en-ph="e.g. 0912-345-678" aria-describedby="e-phone h-phone">
+        <p class="hint" id="h-phone" data-en="Include the area code for landlines.">市話請加區碼。</p>
         <p class="err" id="e-phone" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-contact">Email 或 LINE ID <span class="req" aria-hidden="true">必填</span></label>
+        <label for="f-contact"><span data-en="Email or LINE ID">Email 或 LINE ID</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="f-contact" name="contact" type="text" required autocomplete="email"
-               placeholder="例：abc@gmail.com" aria-describedby="e-contact h-contact">
-        <p class="hint" id="h-contact">填 Email 或 LINE ID 都可以，我用你方便的那個聯繫。</p>
+               placeholder="例：abc@gmail.com" data-en-ph="e.g. abc@gmail.com" aria-describedby="e-contact h-contact">
+        <p class="hint" id="h-contact" data-en="Either is fine — I will use whichever suits you.">填 Email 或 LINE ID 都可以，我用你方便的那個聯繫。</p>
         <p class="err" id="e-contact" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="f-place">據點地點 <span class="req" aria-hidden="true">必填</span></label>
+        <label for="f-place"><span data-en="Where you are">據點地點</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="f-place" name="place" type="text" required autocomplete="off"
-               placeholder="例：新北市永和區" aria-describedby="e-place h-place">
-        <p class="hint" id="h-place">填到行政區就可以。</p>
+               placeholder="例：新北市永和區" data-en-ph="e.g. Yonghe District, New Taipei" aria-describedby="e-place h-place">
+        <p class="hint" id="h-place" data-en="District is enough.">填到行政區就可以。</p>
         <p class="err" id="e-place" role="alert"></p>
       </div>
 
-      <p class="form__group">長輩狀況</p>
+      <p class="form__group" data-en="About your elders">長輩狀況</p>
 
       <div class="field">
-        <label for="f-count">參與長輩人數 <span class="opt">選填</span></label>
+        <label for="f-count"><span data-en="How many elders">參與長輩人數</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="f-count" name="count" type="text" autocomplete="off"
-               placeholder="例：15 人" aria-describedby="h-count">
-        <p class="hint" id="h-count">大概的人數就可以。</p>
+               placeholder="例：15 人" data-en-ph="e.g. 15 people" aria-describedby="h-count">
+        <p class="hint" id="h-count" data-en="A rough number is fine.">大概的人數就可以。</p>
       </div>
 
       <div class="field">
-        <label for="f-cond">長輩健康情形 <span class="opt">選填</span></label>
+        <label for="f-cond"><span data-en="General condition">長輩健康情形</span> <span class="opt" data-en="optional">選填</span></label>
         <select id="f-cond" name="condition" aria-describedby="h-cond">
-          <option value="">請選擇</option>
-          <option>健康</option>
-          <option>亞健康</option>
-          <option>衰弱</option>
-          <option>輕度失智</option>
-          <option>中重度失智</option>
-          <option>混合，狀況不一</option>
+          <option value="" data-en="Please choose">請選擇</option>
+          <option data-en="Healthy">健康</option>
+          <option data-en="Pre-frail">亞健康</option>
+          <option data-en="Frail">衰弱</option>
+          <option data-en="Mild dementia">輕度失智</option>
+          <option data-en="Moderate to severe dementia">中重度失智</option>
+          <option data-en="Mixed — it varies">混合，狀況不一</option>
         </select>
-        <p class="hint" id="h-cond">這會影響課程強度。據點內狀況不一很正常，細節可以寫在下面的「其他需求」。</p>
+        <p class="hint" id="h-cond" data-en="This shapes the intensity. A mix is normal — add detail in the notes below.">這會影響課程強度。據點內狀況不一很正常，細節可以寫在下面的「其他需求」。</p>
       </div>
 
-      <p class="form__group">需求</p>
+      <p class="form__group" data-en="What you need">需求</p>
 
       <div class="field">
-        <label for="f-need">想先了解哪一項 <span class="opt">選填</span></label>
+        <label for="f-need"><span data-en="Most interested in">想先了解哪一項</span> <span class="opt" data-en="optional">選填</span></label>
         <select id="f-need" name="need" aria-describedby="h-need">
-          <option value="">請選擇</option>
-          <option>LINE 每日陪伴導入</option>
-          <option>現場十分鐘課程</option>
-          <option>出席紀錄</option>
-          <option>資料分析</option>
-          <option>都想了解</option>
-          <option>還不確定，想先聊聊</option>
+          <option value="" data-en="Please choose">請選擇</option>
+          <option data-en="Daily LINE companionship">LINE 每日陪伴導入</option>
+          <option data-en="Ten-minute on-site sessions">現場十分鐘課程</option>
+          <option data-en="Check-in records">回報紀錄</option>
+          <option data-en="Data analysis">資料分析</option>
+          <option data-en="All of them">都想了解</option>
+          <option data-en="Not sure yet — happy to talk">還不確定，想先聊聊</option>
         </select>
-        <p class="hint" id="h-need">不確定也沒關係，可以先聊聊。</p>
+        <p class="hint" id="h-need" data-en="Not sure is fine — we can just talk.">不確定也沒關係，可以先聊聊。</p>
       </div>
 
       <div class="field">
-        <label for="f-when">期望開始時間 <span class="opt">選填</span></label>
+        <label for="f-when"><span data-en="Ideal start">期望開始時間</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="f-when" name="when" type="text" autocomplete="off"
-               placeholder="例：2026 年 10 月，或下一期" aria-describedby="h-when">
-        <p class="hint" id="h-when">大概的時間就可以，細節之後在 LINE 上談。</p>
+               placeholder="例：2026 年 10 月，或下一期" data-en-ph="e.g. October 2026, or next term" aria-describedby="h-when">
+        <p class="hint" id="h-when" data-en="Roughly is fine.">大概的時間就可以。</p>
       </div>
 
       <div class="field">
-        <label for="f-note">其他需求 <span class="opt">選填</span></label>
+        <label for="f-note"><span data-en="Anything else">其他需求</span> <span class="opt" data-en="optional">選填</span></label>
         <textarea id="f-note" name="note" rows="4"
-                  placeholder="例：場地有椅子沒有器材；多數長輩坐輪椅；需要核銷用的報表"
+                  placeholder="例：場地有椅子沒有器材；多數長輩坐輪椅；需要核銷用的報表" data-en-ph="e.g. chairs but no equipment; most elders use wheelchairs; we need reports for reimbursement"
                   aria-describedby="h-note"></textarea>
-        <p class="hint" id="h-note">場地條件、經費來源、報表需求都可以寫在這裡。</p>
+        <p class="hint" id="h-note" data-en="Venue, funding source, reporting needs — anything.">場地條件、經費來源、報表需求都可以寫在這裡。</p>
       </div>
 
       <input type="text" name="_gotcha" id="f-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <button class="btn btn--solid btn--big" type="submit" id="submit">
-        <span>送出洽詢</span>
+        <span data-en="Send enquiry">送出洽詢</span>
       </button>
 
       <p class="err err--form" id="e-form" role="alert"></p>
-      <p class="form__fine">送出後我會收到通知，並在三個工作天內與你聯繫。</p>
+      <p class="form__fine" data-en="I am notified on submit and will reply within three working days.">送出後我會收到通知，並在三個工作天內與你聯繫。</p>
     </form>
 
     <div class="done" id="done" hidden>
       <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
-      <h3>已收到你的訊息</h3>
-      <p>我會在三個工作天內與你聯繫，謝謝！</p>
+      <h3 data-en="Message received">已收到你的訊息</h3>
+      <p data-en="I will be in touch within three working days. Thank you!">我會在三個工作天內與你聯繫，謝謝！</p>
       <dl class="done__recap" id="recap"></dl>
-      <button class="btn btn--ghost" type="button" id="again">再填一筆</button>
+      <button class="btn btn--ghost" type="button" id="again" data-en="Send another">再填一筆</button>
     </div>
   </div>
 </section>
 
-<!-- ══ 10 · 青年培訓入口 ══
-     The course lives on its own page so neither audience reads the other's
-     pitch. The cost of that is discovery: .nav__links is display:none on
-     phones, so 青年培訓 sits inside the burger where nobody finds it. This band
-     is the fix. Placed after the 據點 form on purpose — it interrupts nothing,
-     and it labels its own audience in the first line so a 承辦人 can skip it. -->
+<!-- ══ 10 · 青年培訓入口 ══ -->
 <section class="sec sec--tint" id="youth">
   <div class="wrap">
     <div class="crosslink">
-      <p class="crosslink__label">另一個計畫 · 給 16–18 歲</p>
+      <p class="crosslink__label" data-en="Another programme · ages 16–18">另一個計畫 · 給 16–18 歲</p>
 
-      <h2 class="crosslink__title">
+      <h2 class="crosslink__title" data-en="A high-schooler can be<br>an elder's coach too.">
         16–18 歲的高中生，<br>也可以成為長輩的教練。
       </h2>
 
-      <p class="crosslink__body">
-        全台首創的<strong>青年健身教練培訓</strong> —— 4 小時學科 ＋ 8 小時機構實作，通過測驗可取得青年志工教練證與長照機構的服務時數證明。每梯次限收 10–12 位。
+      <p class="crosslink__body" data-en="Taiwan's first <strong>youth fitness coach training</strong> — 4 hours of theory plus 8 hours in a care setting. Pass, and you earn a certificate and certified service hours. 10–12 places per cohort.">
+        全台首創的<strong>青年健身教練培訓</strong> —— 4 小時學科 ＋ 8 小時機構實作，通過測驗可取得青年志工教練證與服務時數證明。每梯次限收 10–12 位。
       </p>
 
       <a class="btn btn--solid btn--big" href="course.html">
-        看青年培訓計畫
+        <span data-en="See the youth programme">看青年培訓計畫</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </a>
     </div>
@@ -793,71 +707,68 @@
 </section>
 </main>
 
-<!-- ══ 11 · footer ══ -->
 <footer class="foot">
   <div class="sec__bg" data-bg="assets/img/tex-foot.jpg?v=6" aria-hidden="true"></div>
 
   <div class="wrap">
     <div class="foot__top">
-      <!-- same turning mark that opens the page, closing it -->
       <div class="seal" aria-hidden="true">
         <svg viewBox="0 0 200 200" role="presentation">
           <defs>
             <path id="sealPath" fill="none"
                   d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
           </defs>
-          <text><textPath href="#sealPath" startOffset="0">健運動 · 活力長青 · 動健康 10 分鐘 · 健運動 · 活力長青 · 動健康 10 分鐘 · </textPath></text>
+          <text><textPath href="#sealPath" startOffset="0" textLength="452" lengthAdjust="spacing">健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · </textPath></text>
         </svg>
-        <img src="assets/img/mark-320-solid.png?v=41" alt="" width="40" height="40" loading="lazy" decoding="async">
+        <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="40" height="40" loading="lazy" decoding="async">
       </div>
 
       <p class="eyebrow eyebrow--inv" data-reveal>About me</p>
       <p class="foot__me">
-        <span class="mask"><i style="--d:0ms">我是 Lucas，</i></span>
-        <span class="mask"><i style="--d:90ms">相信運動能陪伴長輩、</i></span>
-        <span class="mask"><i style="--d:180ms">也相信數據能帶來改變。</i></span>
+        <span class="mask"><i style="--d:0ms" data-en="I am Lucas.">我是 Lucas，</i></span>
+        <span class="mask"><i style="--d:90ms" data-en="I believe movement can keep elders company —">相信運動能陪伴長輩、</i></span>
+        <span class="mask"><i style="--d:180ms" data-en="and that data can change things.">也相信數據能帶來改變。</i></span>
       </p>
     </div>
 
     <div class="foot__grid">
       <div class="foot__cell" data-reveal>
-        <span class="meta">支持單位</span>
+        <span class="meta" data-en="Supported by">支持單位</span>
         <div class="foot__logo">
-          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
         </div>
-        <p>本計畫由社團法人中華長照協會支持。</p>
+        <p data-en="Supported by the China Long-Term Care Association.">本計畫由社團法人中華長照協會支持。</p>
       </div>
 
       <div class="foot__cell" data-reveal style="--d:80ms">
-        <span class="meta">加入 LINE</span>
-        <a class="foot__mail" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener">加入健運動官方帳號</a>
-        <p>每天提醒長輩動十分鐘，動完回報就自動記錄。</p>
+        <span class="meta" data-en="Add on LINE">加入 LINE</span>
+        <a class="foot__mail" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener" data-en="Add our LINE account">加入健運動官方帳號</a>
+        <p data-en="A daily nudge, and every check-in recorded.">每天提醒長輩動十分鐘，動完回報就自動記錄。</p>
 
-        <span class="meta">青年培訓</span>
-        <a class="foot__mail" href="course.html">16–18 歲青年健身教練培訓</a>
-        <p>高中生與大一新生，12 小時取得證照與服務時數證明。</p>
+        <span class="meta" data-en="Youth programme">青年培訓</span>
+        <a class="foot__mail" href="course.html" data-en="Youth fitness coach training, ages 16–18">16–18 歲青年健身教練培訓</a>
+        <p data-en="High-schoolers and first-years — 12 hours to a certificate and certified service hours.">高中生與大一新生，12 小時取得證照與服務時數證明。</p>
 
-        <span class="meta">合作與聯絡</span>
-        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
-        <p>歡迎據點、機構與想了解計畫的朋友來信。</p>
+        <span class="meta" data-en="Get in touch">合作與聯絡</span>
+        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" data-href-en="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20Partnership%20enquiry&amp;body=Hello%2C%20I%20am%20______%20%28organisation%20%2F%20role%29.%0A%0AI%20would%20like%20to%20find%20out%20how%20to%20bring%20%E5%81%A5%E9%81%8B%E5%8B%95%20to%20our%20care%20station.%20Could%20we%20arrange%20a%20time%20to%20talk%3F%0A%0AOrganisation%3A%0ALocation%3A%0APhone%3A%0ANumber%20of%20elders%3A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+        <p data-en="Care stations, organisations, and anyone curious — write any time.">歡迎據點、機構與想了解計畫的朋友來信。</p>
       </div>
     </div>
 
     <div class="foot__bar">
-      <span class="meta">© <span id="yr">2026</span> 健運動 · 活力長青</span>
+      <span class="meta">© <span id="yr">2026</span> 健運動 · <span data-en="Moving with you, young again">陪你動，再青春</span></span>
       <a class="foot__up" href="#top">
-        回到頁首
+        <span data-en="Back to top">回到頁首</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
       </a>
     </div>
   </div>
 </footer>
 
-<!-- ══ lightbox ══ -->
 <div class="lb" id="lb" hidden>
   <div class="lb__bar">
     <span class="meta" id="lbCount">01 / 13</span>
-    <button class="lb__x" type="button" id="lbClose" aria-label="關閉圖片檢視">
+    <button class="lb__x" type="button" id="lbClose" aria-label="關閉圖片檢視" data-en-aria="Close image viewer">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
   </div>
@@ -865,14 +776,14 @@
     <img id="lbImg" alt="" decoding="async">
     <figcaption><em id="lbDate"></em><b id="lbTitle"></b></figcaption>
   </figure>
-  <button class="lb__nav lb__nav--prev" type="button" id="lbPrev" aria-label="上一張">
+  <button class="lb__nav lb__nav--prev" type="button" id="lbPrev" aria-label="上一張" data-en-aria="Previous image">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
   </button>
-  <button class="lb__nav lb__nav--next" type="button" id="lbNext" aria-label="下一張">
+  <button class="lb__nav lb__nav--next" type="button" id="lbNext" aria-label="下一張" data-en-aria="Next image">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
   </button>
 </div>
 
-<script src="assets/js/site.js?v=54" defer></script>
+<script src="assets/js/site.js?v=64" defer></script>
 </body>
 </html>

@@ -1590,6 +1590,11 @@ main>.sec.hero--type{position:sticky;top:0;z-index:0}
 }
 .fact dd{color:var(--ink);line-height:1.85}
 .fact__fine{color:var(--ink-faint);font-size:.8125rem}
+/* Street address under the venue name. Same weight as .fact__fine — it is
+   supporting detail, not a second heading — but its own class because it is the
+   one line a reader copies into a map, so it may need to be tuned (wrapping,
+   selection) without dragging the hours line along with it. */
+.fact__addr{color:var(--ink-faint);font-size:.8125rem;line-height:1.7}
 @media (min-width:810px){
   .fact{grid-template-columns:180px 1fr;gap:var(--s5);align-items:baseline}
   .fact dt{padding-top:.2em}

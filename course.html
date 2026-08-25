@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=71">
+<link rel="stylesheet" href="assets/css/site.css?v=74">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -350,8 +350,8 @@
       <span class="mask"><i style="--d:100ms" data-en="and you have applied.">就完成報名。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Applications are reviewed in writing. <strong>Successful applicants are contacted.</strong> 10–12 places per cohort.">
-      送出後由團隊書面甄選，<strong>錄取者另行通知</strong>。每梯次 10–12 位。
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Applications are reviewed in writing. <strong>Successful applicants are contacted.</strong> 15 places per cohort.">
+      送出後由團隊書面甄選，<strong>錄取者另行通知</strong>。每梯次 15 位。
     </p>
 
     <p class="sec__note" data-reveal style="--d:140ms" data-en="Applicants under 18 need a parent or guardian contact — we confirm with them before anything starts.">未滿 18 歲需填家長聯絡方式，錄取後我們會先與家長確認。</p>
@@ -382,33 +382,34 @@
       </div>
 
       <div class="field">
-        <label for="a-contact"><span data-en="Your email">學生 Email</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="a-contact" name="student_email" type="email" required autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-contact ha-contact">
-        <p class="hint" id="ha-contact" data-en="Use the address you actually check — your result comes here, whichever way it goes.">用你平常會看的信箱，錄取與否都會寄到這裡。</p>
+        <p class="hint" id="ha-contact" data-en="The result is sent here, whichever way it goes.">錄取與否都會寄到這裡。</p>
         <p class="err" id="ea-contact" role="alert"></p>
       </div>
 
       <p class="form__group" data-en="Parent or guardian">家長聯絡方式</p>
 
       <div class="field">
-        <label for="a-parent"><span data-en="Parent's name">家長姓名</span> <span class="opt" data-en="optional">選填</span></label>
-        <input id="a-parent" name="parent" type="text" autocomplete="off" placeholder="例：陳先生／陳女士" data-en-ph="e.g. Mr. / Ms. Chen">
+        <label for="a-parent"><span data-en="Parent or guardian's name">家長姓名</span> <span class="opt" data-en="optional">選填</span></label>
+        <input id="a-parent" name="parent" type="text" autocomplete="off" placeholder="例：陳女士／王阿嬤" data-en-ph="e.g. Ms. Chen" aria-describedby="ha-parent">
+        <p class="hint" id="ha-parent" data-en="Only so we know how to address whoever picks up the phone.">電話接通時，我們知道怎麼稱呼就好。</p>
       </div>
 
       <div class="field">
-        <label for="a-pmail"><span data-en="Parent's email">家長 Email</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
-        <input id="a-pmail" name="parent_email" type="email" required autocomplete="email"
+        <label for="a-pmail"><span data-en="Parent or guardian's email">家長 Email</span> <span class="opt" data-en="optional">選填</span></label>
+        <input id="a-pmail" name="parent_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-pmail ha-pmail">
-        <p class="hint" id="ha-pmail" data-en="The acceptance letter carries the amount and the account number, so it has to reach whoever pays.">錄取通知信會寫金額與匯款帳號，所以要寄到付款的人手上。</p>
+        <p class="hint" id="ha-pmail" data-en="Leave one and the acceptance letter goes to a parent as well. It carries the amount and how to pay — who actually pays is up to you.">留了的話，錄取通知信會同時寄給家長。信裡有金額與匯款方式 —— 由誰匯款都可以。</p>
         <p class="err" id="ea-pmail" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="a-phone"><span data-en="Parent's phone">家長聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <label for="a-phone"><span data-en="Parent or guardian's phone">家長聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="a-phone" name="parent_phone" type="tel" required autocomplete="tel"
                placeholder="例：0912-345-678" data-en-ph="e.g. 0912-345-678" aria-describedby="ea-phone ha-phone">
-        <p class="hint" id="ha-phone" data-en="A backup if an email bounces. We only contact a parent once you are accepted.">備用聯絡方式，信件寄不到時才會用。錄取後才會與家長聯繫。</p>
+        <p class="hint" id="ha-phone" data-en="Under 18, so we need to be able to reach a parent. Payment details are only ever written in the letter — never discussed by phone.">未滿 18 歲，我們需要能聯絡到家長。匯款資訊只會寫在信裡，不會在電話裡談。</p>
         <p class="err" id="ea-phone" role="alert"></p>
       </div>
 
@@ -419,7 +420,7 @@
         <textarea id="a-why" name="why" rows="5" required
                   placeholder="你為什麼想學高齡運動指導？想從這 12 小時帶走什麼？" data-en-ph="A few sentences — why do you want to learn to coach older adults? What do you want to take away from these 12 hours?"
                   aria-describedby="ea-why ha-why"></textarea>
-        <p class="hint" id="ha-why" data-en="This is what the selection actually reads. Around 150–300 words — not an essay, just what you mean.">這是書面甄選主要看的部分。大約 100–300 字，不用寫成作文，寫你真正想說的就好。</p>
+        <p class="hint" id="ha-why" data-en="This is what the selection actually reads, and it should be the student's own words. Around 150–300 words — not an essay.">這是書面甄選主要看的部分，請由學生本人書寫。大約 100–300 字，不用寫成作文。</p>
         <p class="err" id="ea-why" role="alert"></p>
       </div>
 
@@ -506,6 +507,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=71" defer></script>
+<script src="assets/js/site.js?v=74" defer></script>
 </body>
 </html>

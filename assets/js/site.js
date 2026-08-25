@@ -974,10 +974,15 @@
         ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 14 && n <= 20; } },
       { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
+      { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
+        ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: sMail,  err: '#ea-contact', msg: '請填寫學生 Email，錄取結果會寄到這裡。', en: 'Please enter the student email — the result is sent there.',
         ok: MAIL },
-      { el: pMail,  err: '#ea-pmail',  msg: '請填寫家長 Email，錄取通知信會寄到這裡。', en: 'Please enter a parent email — the acceptance letter is sent there.',
-        ok: MAIL },
+      /* Optional, and only shape-checked when something was typed. A guessed
+         parent address is worse than an empty one: it misdelivers a letter
+         carrying an account number, and it fakes a record that a parent knew. */
+      { el: pMail,  err: '#ea-pmail',  msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
+        ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。', en: 'Please enter a parent or guardian phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
       /* The hint suggests 100–300 字; this floor is deliberately far below it.

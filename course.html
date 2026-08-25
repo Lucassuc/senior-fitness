@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=74">
+<link rel="stylesheet" href="assets/css/site.css?v=75">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -382,10 +382,10 @@
       </div>
 
       <div class="field">
-        <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
-        <input id="a-contact" name="student_email" type="email" required autocomplete="email"
+        <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="opt" data-en="optional">選填</span></label>
+        <input id="a-contact" name="student_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-contact ha-contact">
-        <p class="hint" id="ha-contact" data-en="The result is sent here, whichever way it goes.">錄取與否都會寄到這裡。</p>
+        <p class="hint" id="ha-contact" data-en="The result comes here, whichever way it goes. This one or the parent's — leave at least one, whichever inbox will handle the payment.">錄取與否都會寄到這裡。這個和家長 Email 至少要留一個 —— 會處理繳費的那個留一下就好。</p>
         <p class="err" id="ea-contact" role="alert"></p>
       </div>
 
@@ -401,7 +401,7 @@
         <label for="a-pmail"><span data-en="Parent or guardian's email">家長 Email</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-pmail" name="parent_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-pmail ha-pmail">
-        <p class="hint" id="ha-pmail" data-en="Leave one and the acceptance letter goes to a parent as well. It carries the amount and how to pay — who actually pays is up to you.">留了的話，錄取通知信會同時寄給家長。信裡有金額與匯款方式 —— 由誰匯款都可以。</p>
+        <p class="hint" id="ha-pmail" data-en="If it is filled in, the letter goes to a parent as well. It carries the amount and how to pay.">留了的話，通知信會同時寄給家長。信裡有金額與匯款方式。</p>
         <p class="err" id="ea-pmail" role="alert"></p>
       </div>
 
@@ -507,6 +507,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=74" defer></script>
+<script src="assets/js/site.js?v=75" defer></script>
 </body>
 </html>

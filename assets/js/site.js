@@ -976,11 +976,11 @@
         ok: function (v) { return v.trim().length >= 2; } },
       { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
-      { el: sMail,  err: '#ea-contact', msg: '請填寫學生 Email，錄取結果會寄到這裡。', en: 'Please enter the student email — the result is sent there.',
-        ok: MAIL },
-      /* Optional, and only shape-checked when something was typed. A guessed
-         parent address is worse than an empty one: it misdelivers a letter
-         carrying an account number, and it fakes a record that a parent knew. */
+      /* Both addresses are optional and only shape-checked when something was
+         typed. A guessed address is worse than an empty one: it misdelivers a
+         letter carrying an account number. The pair is enforced at submit. */
+      { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
+        ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: pMail,  err: '#ea-pmail',  msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。', en: 'Please enter a parent or guardian phone number.',
@@ -1032,6 +1032,17 @@
         bad[0].el.focus();
         $('#ea-form').textContent = t('還有 ' + bad.length + ' 個欄位需要補上。', bad.length + ' field' + (bad.length>1?'s':'') + ' still needed.');
         $('#ea-form').classList.add('is-on');
+        return;
+      }
+
+      /* Neither inbox is prescribed: the family decides which one handles this,
+         and the letter goes to whichever addresses exist. But it carries an
+         amount and an account number, so one of them has to be real. */
+      if (!MAIL(sMail.value) && !MAIL(pMail.value)) {
+        $('#ea-form').textContent = t('請至少留一個 Email —— 錄取通知信要寄到那裡。',
+                                      'Please leave at least one email — the acceptance letter has to go somewhere.');
+        $('#ea-form').classList.add('is-on');
+        (sMail.value.trim() ? sMail : pMail).focus();
         return;
       }
 

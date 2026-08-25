@@ -956,10 +956,16 @@
     var HOOK = 'https://hook.us2.make.com/n4mpjgv5wvijbfcgd2bj3efpc38n1p1s';
 
     var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'),
-        sContact = $('#a-contact'), parent_ = $('#a-parent'), phone = $('#a-phone'),
+        sMail = $('#a-contact'), parent_ = $('#a-parent'),
+        pMail = $('#a-pmail'), phone = $('#a-phone'),
         why = $('#a-why'), exp = $('#a-exp'), trap = $('#a-trap'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
+
+    /* Deliberately permissive: it only has to catch an empty or mistyped
+       address, not adjudicate RFC 5322. A false rejection here costs an
+       application, and there is a phone number as the fallback route. */
+    function MAIL(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
 
     var RULES = [
       { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。', en: 'Please enter the student\'s name.',
@@ -968,10 +974,18 @@
         ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 14 && n <= 20; } },
       { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
+      { el: sMail,  err: '#ea-contact', msg: '請填寫學生 Email，錄取結果會寄到這裡。', en: 'Please enter the student email — the result is sent there.',
+        ok: MAIL },
+      { el: pMail,  err: '#ea-pmail',  msg: '請填寫家長 Email，錄取通知信會寄到這裡。', en: 'Please enter a parent email — the acceptance letter is sent there.',
+        ok: MAIL },
       { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。', en: 'Please enter a parent or guardian phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
-      { el: why,    err: '#ea-why',    msg: '請寫幾句話，這是書面甄選主要看的部分。', en: 'Please write a few sentences — this is what the selection reads.',
-        ok: function (v) { return v.trim().length >= 10; } }
+      /* The hint suggests 100–300 字; this floor is deliberately far below it.
+         The number is guidance so an applicant knows when they are done — the
+         validator only has to stop an empty or one-word submission, because
+         rejecting a short honest answer costs more than reading one. */
+      { el: why,    err: '#ea-why',    msg: '請多寫幾句，這是書面甄選主要看的部分。', en: 'Please write a little more — this is what the selection reads.',
+        ok: function (v) { return v.trim().length >= 30; } }
     ];
 
     function mark(rule, bad) {
@@ -1017,12 +1031,12 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','School and year','Student contact',
-           'Parent name','Parent phone','Why they want to join','Sport / volunteering experience']
-        : ['學生姓名','年齡','學校年級','學生聯絡方式',
-           '家長姓名','家長電話','為什麼想參加','運動或志工經驗'];
-      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), sContact.value.trim(),
-               parent_.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim()];
+        ? ['Student name','Age','School and year','Student email',
+           'Parent name','Parent email','Parent phone','Why they want to join','Sport / volunteering experience']
+        : ['學生姓名','年齡','學校年級','學生 Email',
+           '家長姓名','家長 Email','家長電話','為什麼想參加','運動或志工經驗'];
+      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), sMail.value.trim(),
+               parent_.value.trim(), pMail.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim()];
       var fields = {};
       L.forEach(function (k, i) { fields[k] = V[i]; });
       var summary = Object.keys(fields).map(function (k) {
@@ -1034,8 +1048,9 @@
         student: name_.value.trim(),
         age: age.value.trim(),
         school: school.value.trim(),
-        student_contact: sContact.value.trim(),
+        student_email: sMail.value.trim(),
         parent: parent_.value.trim(),
+        parent_email: pMail.value.trim(),
         parent_phone: phone.value.trim(),
         why: why.value.trim(),
         experience: exp.value.trim(),

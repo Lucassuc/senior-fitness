@@ -884,6 +884,18 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .pullout + .finding__turn{margin-top:var(--s8)}
 .finding__turn + .finding__lead{margin-top:var(--s6)}
 
+/* Featured opener. Neither version of the assessment sheet works at both sizes,
+   so the grid is art-directed: on a phone the cell shows one cropped frame — an
+   elder holding her own result — because at 335px the twelve-cell sheet is mush;
+   from 810px up, where each cell finally reads, it becomes the whole sheet across
+   the full grid width. aspect-ratio is declared per plate so neither swap shifts
+   the layout while it loads. */
+.shot--feature .shot__img img{aspect-ratio:653/1000;object-fit:cover}
+@media (min-width:810px){
+  .shot--feature{grid-column:1 / -1}
+  .shot--feature .shot__img img{aspect-ratio:4/3}
+}
+
 /* ── photo grid ──────────────────────────────────────────────── */
 /* No uniform crop. These are group photos — a fixed 4:5 cell sliced people off
    the edges, so every frame now keeps its own aspect ratio. One column on a

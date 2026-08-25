@@ -624,13 +624,15 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .dash__bar .meta{font-size:.75rem;letter-spacing:.12em}
 .dash__hint{color:var(--label);opacity:.9;flex:none}
 
-/* The Tableau dashboard is authored on a fixed 1654×1400 canvas, so it can never
-   reflow for a phone. Render it at native size and scale it down instead: on wide
-   screens it scales to fit exactly; on phones it stays legible and the reader pans. */
+/* The workbook reflows to whatever width it is handed, so the embed pins it to one
+   authored width and scales that whole canvas down to fit. At --dw 1654 the pre/post
+   dashboard measures 2400px, plus Tableau's own 27px bottom toolbar — 2427 in total.
+   Re-measure --dh whenever the workbook gains or loses a chart, or the panel will
+   either clip the last chart or leave dead white space under it. */
 /* Height follows the scaled canvas so there is no vertical scroll to fight the page:
    a sideways swipe pans the dashboard, an up/down swipe scrolls the page. */
 .dash__frame{
-  --dz:.62; --dw:1654; --dh:1400;
+  --dz:.62; --dw:1654; --dh:2427;
   position:relative;background:var(--paper);
   overflow:hidden;
 }
@@ -874,6 +876,13 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   font-size:clamp(1.0625rem,4.4vw,1.375rem);line-height:1.8;
   max-width:46ch;
 }
+/* The post-test half opens on its display line, directly under the pre-test
+   pullout, and then drops to a lead. Neither seam is covered by the base rules:
+   .finding__turn only carries --s5, and .finding__lead carries no top margin at
+   all, so without these two the two halves collide and the numbers weld onto the
+   headline. Re-check both if the order of the 後測 blocks ever changes. */
+.pullout + .finding__turn{margin-top:var(--s8)}
+.finding__turn + .finding__lead{margin-top:var(--s6)}
 
 /* ── photo grid ──────────────────────────────────────────────── */
 /* No uniform crop. These are group photos — a fixed 4:5 cell sliced people off

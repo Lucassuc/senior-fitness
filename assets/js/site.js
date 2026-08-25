@@ -257,7 +257,7 @@
       { sel: '#video',    no: '03', name: '每天十分鐘', en: 'Ten minutes a day' },
       { sel: '#story',    no: '04', name: '不只是運動', en: 'More than exercise' },
       { sel: '#data',     no: '05', name: '成效',       en: 'Results' },
-      { sel: '#findings', no: '05', name: '基線評估',   en: 'Baseline' },
+      { sel: '#findings', no: '05', name: '前後測',     en: 'Pre & post' },
       { sel: '#about',    no: '06', name: '關於這個專案', en: 'About' },
       { sel: '#offer',    no: '07', name: '合作內容',   en: 'What you get' },
       { sel: '#book',     no: '—',  name: '合作洽詢',   en: 'Partner with us' }
@@ -480,7 +480,7 @@
       var f = document.createElement('iframe');
       f.src = box.getAttribute('data-src')
         + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link';
-      f.title = t('基線評估儀表板（Tableau Public）', 'Baseline assessment dashboard (Tableau Public)');
+      f.title = t('前後測儀表板（Tableau Public）', 'Pre- and post-test dashboard (Tableau Public)');
       f.loading = 'lazy';
       f.setAttribute('allowfullscreen', '');
       f.addEventListener('load', function () {

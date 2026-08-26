@@ -810,8 +810,8 @@
         ok: function (v) { return v.trim().length >= 1; } },
       { el: phone,   err: '#e-phone',   msg: '請填寫聯絡電話。', en: 'Please enter a phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
-      { el: contact, err: '#e-contact', msg: '請填寫 Email 或 LINE ID。', en: 'Please enter an email address or LINE ID.',
-        ok: function (v) { return v.trim().length >= 3; } },
+      { el: contact, err: '#e-contact', msg: '請留一個 Email —— 我的回覆會寄到那裡。', en: 'Please leave an email — my reply goes there.',
+        ok: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); } },
       { el: place,   err: '#e-place',   msg: '請填寫據點地點。', en: 'Please tell us where you are.',
         ok: function (v) { return v.trim().length >= 2; } }
     ];
@@ -983,7 +983,7 @@
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: pMail,  err: '#ea-pmail',  msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
-      { el: phone,  err: '#ea-phone',  msg: '請填寫家長聯絡電話。', en: 'Please enter a parent or guardian phone number.',
+      { el: phone,  err: '#ea-phone',  msg: '請填寫家長／監護人聯絡電話。', en: 'Please enter a parent or guardian phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
       /* The hint suggests 100–300 字; this floor is deliberately far below it.
          The number is guidance so an applicant knows when they are done — the
@@ -1348,6 +1348,76 @@
   (function () {
     var y = $('#yr');
     if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  /* ── 13 · come back to where you left the other page ─────────
+     The pill moves a reader between two long pages. Landing at the top of
+     whichever one they return to means scrolling all of it again — index is
+     ~27,000px, and the crosslink that sends them to the course page sits two
+     thirds of the way down it.
+
+     So each page records its own scroll position, and restores it when it is
+     re-entered FROM its sibling. Every other way in — a direct link, a search
+     result, a #hash, a fresh tab — still lands at the top, because restoring a
+     position someone never set is more confusing than not.
+
+     Position is re-applied once on load: images above the restore point settle
+     late and would otherwise leave the reader a few hundred pixels off. A real
+     scroll or keypress cancels that second pass, so it can never fight someone
+     who has already started reading. */
+  (function () {
+    var PAGES = ['index.html', 'course.html'];
+    function name(path) {
+      var f = (path.split('/').pop() || '').toLowerCase();
+      return f === '' ? 'index.html' : f;
+    }
+    var here = name(location.pathname);
+    if (PAGES.indexOf(here) < 0) return;
+    var KEY = 'jyd-scroll:' + here;
+
+    function store() {
+      try { sessionStorage.setItem(KEY, String(Math.round(window.pageYOffset))); } catch (e) {}
+    }
+
+    /* passive + rAF-gated: this runs on every scroll frame of a very long page */
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; store(); });
+    }, { passive: true });
+    /* bfcache and tab-close do not always fire scroll again */
+    window.addEventListener('pagehide', store);
+
+    var from = '';
+    try { from = document.referrer ? name(new URL(document.referrer).pathname) : ''; } catch (e) {}
+    /* only from the sibling page, and never over an explicit anchor */
+    if (from === here || PAGES.indexOf(from) < 0 || location.hash) return;
+
+    var y = 0;
+    try { y = parseInt(sessionStorage.getItem(KEY) || '0', 10); } catch (e) {}
+    if (!y || y < 200) return;                 /* nothing worth restoring */
+
+    /* the page sets scroll-behavior:smooth, which would animate a 20,000px
+       jump; put it back immediately so anchors still glide */
+    function jump(to) {
+      var html = document.documentElement, prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, to);
+      html.style.scrollBehavior = prev;
+    }
+
+    jump(y);
+
+    var touched = false;
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (ev) {
+      window.addEventListener(ev, function () { touched = true; }, { passive: true, once: true });
+    });
+    window.addEventListener('load', function () {
+      if (touched) return;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      jump(Math.min(y, Math.max(0, max)));
+    });
   })();
 
 })();

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title data-en="Youth Fitness Coach Training · JianYunDong">青年健身教練培訓 · 健運動</title>
-<meta name="description" content="全台首創「青年健身教練」培訓。16–18 歲高中生／大一新生，12 小時取得結業證明與長照機構服務時數。每梯次限收 15 位。">
+<meta name="description" content="全台首創「青年健身教練」培訓。16–18 歲高中生／大一新生，12 小時取得青年健身教練結業證明，以及中華長照協會核發、載明 8 小時實作服務時數的志工培訓證明。每梯次限收 15 位。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
 
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="健運動">
 <meta property="og:title" content="青年健身教練培訓 · 健運動">
-<meta property="og:description" content="18 歲以前，也可以是別人的教練。12 小時，拿到結業證明與長照機構服務時數。">
+<meta property="og:description" content="18 歲以前，也可以是別人的教練。12 小時，拿到青年健身教練結業證明與中華長照協會的志工培訓證明。">
 <meta property="og:image" content="assets/img/hero-og-1200.jpg?v=45">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=75">
+<link rel="stylesheet" href="assets/css/site.css?v=93">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -59,8 +59,10 @@
 
   <div class="nav__right">
     <div class="navduo">
-      <a href="index.html#book" data-en="Partner">合作</a>
-      <a href="course.html" aria-current="page" data-en="Youth">青年培訓</a>
+      <a href="index.html" data-en="Home">首頁</a>
+      <!-- On this page the right half would only reload the page you are on.
+           It becomes the thing a reader who has decided actually wants. -->
+      <a href="#apply" aria-current="page" data-en="Apply">報名</a>
     </div>
     <button class="lang" id="langBtn" type="button" lang="en" aria-label="Switch to English">EN</button>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單" data-en-aria="Open menu">
@@ -90,28 +92,27 @@
 <span id="top"></span>
 
 <!-- ══ 1 · HERO ══
-     A real 健運動 session: the 活力長青 十分鐘 video projected on the wall, 長輩
-     following it, and the coach standing at the right with the microphone.
-     An earlier frame of the same room was rejected — in that one the coach was
-     ~2–3% of the picture and hidden behind a participant, so the page read as a
-     class FOR 長輩, which is the main page's story rather than this one's. Here
-     he is unobstructed, full height, and the only standing figure on the right,
-     which is what a 16-year-old needs to see on a page about becoming one.
+     健運動 running at 永恩小作所: a room of 長輩 mid-movement with the coach on
+     the right, arms out, leading. Replaces an earlier frame of the projected
+     video — in that one the coach was a sliver at the edge and the page read as
+     a class FOR 長輩, which is the main page's story rather than this one's.
+     Here a 16-year-old sees a young person running the room, which is the thing
+     this page is asking them to become.
 
-     Three crops, because the hero box takes three shapes (~1.5 / ~1.1 / ~0.6),
-     and the <picture> switches on the viewport's SHAPE, not on min-width alone.
-     Keyed to width only, a 990×1140 window took the widest file and showed 63%
-     of it. Every crop is biased right so the coach survives all three; the
-     phone one keeps a sliver of the 活力長青 projection on its left edge. -->
+     Cropped from y=400 of the source so the ceiling and its light panels are
+     gone — the earlier version gave a third of the frame to an empty ceiling.
+     Three crops because the hero box takes three shapes (~2.1 / ~1.4 / ~0.97),
+     and <picture> switches on the viewport's SHAPE, not on min-width alone:
+     keyed to width only, a 990x1140 window took the widest file and showed 63%
+     of it. Each crop is biased right so the coach survives all three. -->
 <section class="sec sec--navy hero--type" aria-label="青年健身教練培訓" data-en-aria="Youth Fitness Coach Training">
   <div class="hero--type__media">
     <picture>
-      <source media="(min-width:810px) and (min-aspect-ratio:3/2)" srcset="assets/img/course-hero-1786.jpg?v=63">
-      <source media="(min-width:600px)" srcset="assets/img/course-hero-tall-1297.jpg?v=63">
-      <img src="assets/img/course-hero-mobile-707.jpg?v=63"
-           alt="長照據點裡，長輩們跟著牆上投影的健運動十分鐘影片抬起雙手做動作，帶動的青年站在右側舉著麥克風一起做"
-           data-en-alt="In a care station, elders raise their arms following the 健運動 ten-minute video projected on the wall, while the young coach leads from the right with a microphone"
-           width="707" height="1179" fetchpriority="high" decoding="async">
+      <source media="(min-width:810px)" srcset="assets/img/course-hero-1786.jpg?v=77">
+      <img src="assets/img/course-hero-mobile-707.jpg?v=77"
+           alt="長照據點的教室裡，一群長輩張開雙手跟著做動作，穿粉紅色上衣的青年站在右側帶著大家一起動"
+           data-en-alt="In a care-station activity room, a group of elders follow along with their arms outstretched while the young coach in pink leads from the right"
+           width="1200" height="730" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="hero--type__scrim" aria-hidden="true"></div>
@@ -124,8 +125,8 @@
       <span class="mask"><i style="--d:90ms" data-en="Already a coach.">也能當教練。</i></span>
     </h1>
 
-    <p class="hero--type__lede" data-reveal style="--d:300ms" data-en="Taiwan's first youth fitness coach training — <strong>12 hours</strong>, a completion certificate, and service hours at a long-term care institution.">
-      全台首創的青年健身教練培訓 —— <strong>12 小時</strong>，拿到結業證明，也拿到長照機構的<strong>服務時數</strong>。
+    <p class="hero--type__lede" data-reveal style="--d:300ms" data-en="Taiwan's first youth fitness coach training — <strong>12 hours</strong>, a Youth Fitness Coach completion certificate, and the association's volunteer certificate for your <strong>8 service hours</strong>.">
+      全台首創的青年健身教練培訓 —— <strong>12 小時</strong>，拿到青年健身教練結業證明，也拿到協會核發的<strong>志工培訓證明</strong>。
     </p>
 
     <div class="hero--type__act" data-reveal style="--d:400ms">
@@ -193,13 +194,13 @@
     <ul class="cards">
       <li class="card" data-reveal>
         <em class="card__no">01</em>
-        <h3 data-en="A completion certificate">結業證明</h3>
-        <p data-en="Handed to you at the closing session, once the four hours of coursework are done.">完成 4 小時學科，在結業式當場頒發。</p>
+        <h3 data-en="A Youth Fitness Coach completion certificate">青年健身教練結業證明</h3>
+        <p data-en="For the coursework half — handed to you at the closing session, once the four hours are done.">完成 4 小時學科，在結業式當場頒發。</p>
       </li>
       <li class="card" data-reveal style="--d:70ms">
         <em class="card__no">02</em>
-        <h3 data-en="Certified service hours">服務時數證明</h3>
-        <p data-en="Earned over the 8 hours you spend serving elders at a long-term care institution.">8 小時到長照機構服務長輩後取得。</p>
+        <h3 data-en="A volunteer certificate from the association">協會志工培訓證明</h3>
+        <p data-en="Issued by the China Long-Term Care Association once your 8 hours are done — the certificate names the 8 hours of placement service.">完成 8 小時實作後，由社團法人中華長照協會核發，證明上載明「實作服務時數 8 小時」。</p>
       </li>
       <li class="card" data-reveal style="--d:70ms">
         <em class="card__no">03</em>
@@ -233,21 +234,30 @@
 
     <dl class="facts" data-reveal style="--d:80ms">
       <div class="fact"><dt data-en="Who">招收對象</dt><dd data-en="Ages 16–18, high school or first-year students. Especially suited to sports-team members, gym regulars, and anyone applying to university at home or abroad.">16–18 歲高中生／大一新生。運動社團、健身愛好者，或準備申請國內外大學者尤其適合。</dd></div>
+      <div class="fact"><dt data-en="Dates">梯次時間</dt><dd data-en="Cohort 1 — Sat 17 Oct, 8:00–12:00<br>Cohort 2 — Sat 31 Oct, 8:00–12:00<br><span class='fact__fine'>Both are Saturday mornings · pick one · this is the 4-hour classroom day</span>">第一梯 10/17（六）8:00–12:00<br>第二梯 10/31（六）8:00–12:00<br><span class="fact__fine">兩梯都是週六上午，擇一即可 · 這是 4 小時學科的日子</span></dd></div>
       <div class="fact"><dt data-en="Places">每梯名額</dt><dd data-en="15 per cohort">15 位</dd></div>
-      <div class="fact"><dt data-en="Selection">錄取方式</dt><dd data-en="Written applications are reviewed; successful applicants are contacted.<br><span class='fact__fine'>Your place is only confirmed once you have the acceptance letter and have completed the transfer.</span>">書面資料甄選，錄取者另行通知。<br><span class="fact__fine">收到正式錄取信件並完成匯款，才算完成報名。</span></dd></div>
+      <div class="fact"><dt data-en="Selection">錄取方式</dt><dd data-en="Written applications are reviewed. Successful applicants receive an <strong>acceptance email</strong> — it carries the payment details and the programme's own booking LINE account.<br><span class='fact__fine'>Your place is confirmed once the acceptance email has reached you and the transfer is done.</span>">書面資料甄選，錄取者會收到<strong>錄取通知 email</strong> —— 信裡有繳費方式，以及本計畫<strong>預約專用的 LINE 官方帳號</strong>。<br><span class="fact__fine">收到正式錄取信並完成匯款，才算完成報名。</span></dd></div>
       <div class="fact"><dt data-en="Hours">總時數</dt><dd data-en="4 hours theory + 8 hours placement = 12 hours">學科 4 小時 ＋ 機構實作 8 小時，共 12 小時</dd></div>
-      <!-- Two venues, not one. Merged into a single row this read
-           學科地點：捷運永安市場站 · 永恩小作所, which pins the 實作 venue to the
-           學科 label — 永恩小作所 is where the 8 hours of 機構實作 happen; the 4
-           hours of 學科 are at 賦優適能. The gym's full Google listing carries a
-           string of service keywords after 永秀店 (特殊族群訓練｜機能重建訓練｜
-           銀髮專業訓練｜教練友善空間); that is its SEO description, not its name,
-           so the row stops at the branch. -->
+      <!-- Classroom and placement are two different things and must stay two
+           rows. The 4 hours of 學科 happen at 賦優適能; the 8 hours of 實作 do not
+           happen at a single address at all — they rotate across the 永樂居
+           apartments, which is why that row leads with 兩處場域輪替 rather than
+           with a venue name. 永恩小作所 was on this list and was removed at the
+           director's instruction; do not re-add it.
+           The gym's Google listing trails a string of service keywords after
+           永秀店 (特殊族群訓練｜機能重建訓練｜銀髮專業訓練｜教練友善空間) — that is
+           its SEO description, not its name, so the row stops at the branch. -->
       <div class="fact"><dt data-en="Classroom">學科地點</dt><dd data-en="Feel Fitness, Yongxiu branch<br><span class='fact__addr'>234, New Taipei City, Yonghe District, Xiulang Village, Lane 181, Section 2, Xiulang Rd, No. 8, 1F</span><br><span class='fact__fine'>4 hours of coursework</span>">賦優適能 Feel Fitness 永秀店<br><span class="fact__addr">234 新北市永和區秀朗里秀朗路二段181巷8號1樓</span><br><span class="fact__fine">4 小時學科課程</span></dd></div>
-      <div class="fact"><dt data-en="Placement">實作地點</dt><dd data-en="Yongan Market MRT · Yong-En Studio<br><span class='fact__addr'>234, New Taipei City, Yonghe District, Zhonghe Rd, No. 409, 3F</span><br><span class='fact__fine'>8 hours in a care setting</span>">捷運永安市場站 · 永恩小作所<br><span class="fact__addr">234 新北市永和區中和路409號3樓</span><br><span class="fact__fine">8 小時機構實作</span></dd></div>
+      <div class="fact"><dt data-en="Placement">實作場域</dt><dd data-en="Two sites in rotation — not one fixed address<br><span class='fact__addr'>Yongle Ju Senior Apartments (Zhonghe) · New Taipei City, Zhonghe District, Lane 127, Nanshan Rd<br>Yongle Ju Senior Apartments (Yonghe) · New Taipei City, Yonghe District, Lane 57, Fuhe Rd</span><br><span class='fact__fine'>8 hours in a care setting · likely to fall in the winter break, on weekday evenings or at weekends. After the 4-hour classroom day we ask everyone for their availability, then schedule and confirm over LINE.</span>">兩處場域輪替，不是固定一個地點<br><span class="fact__addr">永樂居 獨老公寓（中和）· 新北市中和區南山路127巷<br>永樂居 獨老公寓（永和）· 新北市永和區福和路57巷</span><br><span class="fact__fine">8 小時機構實作 · 時段可能落在寒假、平日傍晚或週末。4 小時學科結束後，我們會先問過大家可以的時間，再排定並用 LINE 通知</span></dd></div>
       <div class="fact"><dt data-en="Fee">費用</dt><dd data-en="NT$3,900<br><span class='fact__fine'>Please do not transfer anything until the acceptance letter reaches you; it carries the details.</span>">NT$3,900<br><span class="fact__fine">收到正式錄取信之前請先不要匯款，匯款資訊會寫在信裡。</span></dd></div>
       <div class="fact"><dt data-en="Insurance">保險</dt><dd data-en="Venue insurance is included in the fee.">課程費用已含場地保險。</dd></div>
     </dl>
+
+    <blockquote class="pullout" data-reveal style="--d:120ms" data-en="Why not one fixed place? Different elders live in the two apartments, and each of them asks something different of you — one more site is one more way of learning to be with someone.">
+      為什麼不固定在一個地方？兩處公寓裡住的長輩不一樣，相處的方式也不一樣 —— 多走一處，你就多學會一種相處。
+    </blockquote>
+
+    <p class="sec__note" data-reveal style="--d:160ms" data-en="A team member is with you the whole time — you never face the elders alone. What you do is accompany, lead movement and keep records. No bathing, feeding or transfers.">全程都有帶隊人員陪同，<strong>不會讓你單獨面對長輩</strong>。你做的是陪伴、帶動與紀錄，<strong>不包含沐浴、餵食、移位等身體照顧</strong>。</p>
   </div>
 </section>
 
@@ -298,8 +308,8 @@
         <div class="syl__head">
           <em class="syl__no" data-en="Closing">學科結業式</em>
         </div>
-        <h3 class="syl__title" data-en="Your certificate, and what comes next">結業證明與成果攝影</h3>
-        <p class="syl__body" data-en="Reflections and discussion, your completion certificate, and result photography — plus the briefing on the 8 hours ahead.">心得發表與交流、頒發結業證明與成果攝影，並說明接下來的 8 小時實作。</p>
+        <h3 class="syl__title" data-en="Your certificate, and what comes next">青年健身教練結業證明與成果攝影</h3>
+        <p class="syl__body" data-en="Reflections and discussion, your Youth Fitness Coach completion certificate, and result photography — plus the briefing on the 8 hours ahead.">心得發表與交流、頒發青年健身教練結業證明與成果攝影，並說明接下來的 8 小時實作。</p>
         <p class="syl__by" data-en="丁中怡, Director">丁中怡 主任</p>
       </li>
 
@@ -309,7 +319,7 @@
           <span class="syl__dur" data-en="8 hours">8 小時</span>
         </div>
         <h3 class="syl__title" data-en="You, in a real care setting">到長照據點，服務長輩</h3>
-        <p class="syl__body" data-en="The hours behind your service-hours certificate. The details are walked through at the closing session.">在長照據點服務長輩，取得服務時數證明。細節於結業式當天說明。</p>
+        <p class="syl__body" data-en="The hours the association's certificate records. Dates and sites are arranged after the 4-hour classroom day, once we know everyone's availability.">在長照據點服務長輩，這 8 小時就是協會證明上載明的時數。時間與場域在 4 小時學科結束後、問過大家可以的時段再安排。</p>
       </li>
     </ol>
   </div>
@@ -350,11 +360,11 @@
       <span class="mask"><i style="--d:100ms" data-en="and you have applied.">就完成報名。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Applications are reviewed in writing. <strong>Successful applicants are contacted.</strong> 15 places per cohort.">
-      送出後由團隊書面甄選，<strong>錄取者另行通知</strong>。每梯次 15 位。
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Applications are reviewed in writing. <strong>Successful applicants receive an email.</strong> 15 places per cohort.">
+      送出後由團隊書面甄選，<strong>錄取者會收到 email 通知</strong>。每梯次 15 位。
     </p>
 
-    <p class="sec__note" data-reveal style="--d:140ms" data-en="Applicants under 18 need a parent or guardian contact — we confirm with them before anything starts.">未滿 18 歲需填家長聯絡方式，錄取後我們會先與家長確認。</p>
+    <p class="sec__note" data-reveal style="--d:140ms" data-en="Every applicant leaves a parent or guardian contact — we confirm with them before anything starts.">每位報名者都要留一位家長／監護人的聯絡方式，錄取後我們會先與他確認。</p>
 
     <form class="form" id="applyForm" novalidate data-reveal style="--d:180ms">
       <p class="form__group" data-en="About you">學生資料</p>
@@ -385,14 +395,14 @@
         <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-contact" name="student_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-contact ha-contact">
-        <p class="hint" id="ha-contact" data-en="The result comes here, whichever way it goes. This one or the parent's — leave at least one, whichever inbox will handle the payment.">錄取與否都會寄到這裡。這個和家長 Email 至少要留一個 —— 會處理繳費的那個留一下就好。</p>
+        <p class="hint" id="ha-contact" data-en="Leave at least one of this and the parent's. Every address you leave gets the letter — it carries the payment details and the LINE account.">這個和家長 Email 至少留一個。留了的都會收到通知信，裡面有繳費方式與聯絡用的 LINE 帳號。</p>
         <p class="err" id="ea-contact" role="alert"></p>
       </div>
 
-      <p class="form__group" data-en="Parent or guardian">家長聯絡方式</p>
+      <p class="form__group" data-en="Parent or guardian">家長／監護人聯絡方式</p>
 
       <div class="field">
-        <label for="a-parent"><span data-en="Parent or guardian's name">家長姓名</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-parent"><span data-en="Parent or guardian's name">家長／監護人姓名</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-parent" name="parent" type="text" autocomplete="off" placeholder="例：陳女士／王阿嬤" data-en-ph="e.g. Ms. Chen" aria-describedby="ha-parent">
         <p class="hint" id="ha-parent" data-en="Only so we know how to address whoever picks up the phone.">電話接通時，我們知道怎麼稱呼就好。</p>
       </div>
@@ -401,15 +411,15 @@
         <label for="a-pmail"><span data-en="Parent or guardian's email">家長 Email</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-pmail" name="parent_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-pmail ha-pmail">
-        <p class="hint" id="ha-pmail" data-en="If it is filled in, the letter goes to a parent as well. It carries the amount and how to pay.">留了的話，通知信會同時寄給家長。信裡有金額與匯款方式。</p>
+        <p class="hint" id="ha-pmail" data-en="Leave it and a parent gets the same letter too.">留了的話，家長也會收到同一封信。</p>
         <p class="err" id="ea-pmail" role="alert"></p>
       </div>
 
       <div class="field">
-        <label for="a-phone"><span data-en="Parent or guardian's phone">家長聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <label for="a-phone"><span data-en="Parent or guardian's phone">家長／監護人聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="a-phone" name="parent_phone" type="tel" required autocomplete="tel"
                placeholder="例：0912-345-678" data-en-ph="e.g. 0912-345-678" aria-describedby="ea-phone ha-phone">
-        <p class="hint" id="ha-phone" data-en="Under 18, so we need to be able to reach a parent. Payment details are only ever written in the letter — never discussed by phone.">未滿 18 歲，我們需要能聯絡到家長。匯款資訊只會寫在信裡，不會在電話裡談。</p>
+        <p class="hint" id="ha-phone" data-en="Required whatever your age — this is the emergency contact during the placement. Payment details are only ever written in the letter, never discussed by phone.">不論是否滿 18 歲都要留 —— 這是實作期間的緊急聯絡人。匯款資訊只寫在信裡，不會在電話裡談。</p>
         <p class="err" id="ea-phone" role="alert"></p>
       </div>
 
@@ -438,13 +448,13 @@
       </button>
 
       <p class="err err--form" id="ea-form" role="alert"></p>
-      <p class="form__fine" data-en="I am notified on submit. Selection results go to successful applicants.">送出後我會收到通知，甄選結果會通知錄取者。</p>
+      <p class="form__fine" data-en="I am notified on submit. Successful applicants get an acceptance email carrying the payment details and the LINE account we use from then on.">送出後我會收到通知。錄取者會收到 email，裡面有繳費方式與之後聯絡用的 LINE 官方帳號。</p>
     </form>
 
     <div class="done" id="applyDone" hidden>
       <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
       <h3 data-en="Application received">已收到你的報名</h3>
-      <p data-en="We will review it and contact successful applicants. Thank you for wanting to join!">我們會進行書面甄選，錄取者將另行通知。謝謝你想加入！</p>
+      <p data-en="We review every application in writing. Successful applicants get an email with the payment details and the LINE account we use from then on. Thank you for wanting to join!">我們會進行書面甄選，錄取者會收到 email，裡面有繳費方式與之後聯絡用的 LINE 官方帳號。謝謝你想加入！</p>
       <dl class="done__recap" id="applyRecap"></dl>
       <button class="btn btn--ghost" type="button" id="applyAgain" data-en="Submit another">再填一筆</button>
     </div>
@@ -479,14 +489,6 @@
 
     <div class="foot__grid">
       <div class="foot__cell" data-reveal>
-        <span class="meta" data-en="Supported by">支持單位</span>
-        <div class="foot__logo">
-          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
-        </div>
-        <p data-en="Supported by the China Long-Term Care Association.">本計畫由社團法人中華長照協會支持。</p>
-      </div>
-
-      <div class="foot__cell" data-reveal style="--d:80ms">
         <span class="meta">健運動</span>
         <a class="foot__mail" href="index.html" data-en="Back to the main programme">回到計畫首頁</a>
         <p data-en="Ten minutes a day with community elders, so a care station can see them change.">每天陪社區長輩動十分鐘，讓據點看得見長輩的改變。</p>
@@ -494,6 +496,16 @@
         <span class="meta" data-en="Applications &amp; questions">報名與聯絡</span>
         <a class="foot__mail" href="mailto:lucychi13450@gmail.com">lucychi13450@gmail.com</a>
         <p data-en="Questions about the course or collaboration — write any time.">課程、合作與任何問題，都歡迎來信。</p>
+      </div>
+
+      <div class="foot__cell foot__cell--wide" data-reveal style="--d:160ms">
+        <span class="meta" data-en="Supported by">支持單位</span>
+        <div class="foot__logos">
+          <img src="assets/img/association-logo-mono.png?v=41" style="--h:44px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+          <img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:56px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async">
+          <img src="assets/img/partner-icare-mono.png?v=90" style="--h:70px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async">
+        </div>
+        <p data-en="The volunteer certificate is issued by the China Long-Term Care Association.">志工培訓證明由社團法人中華長照協會核發。</p>
       </div>
     </div>
 
@@ -507,6 +519,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=75" defer></script>
+<script src="assets/js/site.js?v=93" defer></script>
 </body>
 </html>

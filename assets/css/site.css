@@ -498,7 +498,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   font-size:.9375rem;color:rgba(255,255,255,.88);
 }
 .hero__by .meta{color:var(--label)}
-@keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.16)}}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.08)}}
 
 @media (min-width:810px){
   /* full-bleed overlay — the wide crop already shows the whole group here.
@@ -1185,7 +1185,14 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   margin-top:var(--s9);display:grid;gap:var(--s8);
   padding-top:var(--s7);border-top:1px solid var(--rule-inv);
 }
-@media (min-width:810px){ .foot__grid{grid-template-columns:1fr 1fr;gap:var(--s7)} }
+@media (min-width:810px){
+  .foot__grid{grid-template-columns:1fr 1fr;gap:var(--s7)}
+  /* The supporter marks are the credibility signal a parent checks, and three
+     lockups of different proportions cannot be read at a legible size inside a
+     half-width column — at 497px they were already exactly at the wrap point.
+     Giving them the full width is what lets them be sized properly. */
+  .foot__cell--wide{grid-column:1 / -1}
+}
 .foot__cell{display:flex;flex-direction:column;gap:var(--s4);align-items:flex-start}
 .foot__cell .meta{color:var(--label)}
 .foot__cell p{font-size:.9375rem;color:rgba(255,255,255,.66);line-height:1.85;max-width:34ch}
@@ -1198,6 +1205,16 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   width:100%;max-width:300px;margin-block:var(--s3);
 }
 .foot__logo img{width:100%;height:auto}
+/* More than one supporter now, and their proportions are nothing alike — the
+   association wordmark is 6.4:1, Feel Fitness 3.2:1. Sizing them all to the
+   same WIDTH would make the squarer ones tower over the long one, so each gets
+   an optical height instead, passed in as --h the way --d and --span already
+   are elsewhere in this file. */
+.foot__logos{
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:var(--s5) var(--s6);margin-block:var(--s4);
+}
+.foot__logos img{width:auto;height:var(--h,32px);max-width:100%;opacity:.94}
 .foot__mail{
   font-family:var(--ff-latin);font-size:clamp(1.0625rem,4.6vw,1.5rem);
   line-height:1.4;word-break:break-all;padding-block:10px;
@@ -1466,48 +1483,69 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
    Built on .sec--navy so it inherits the inverted ink/rule/fill tokens and the
    grain overlay; the photograph and its scrim sit behind the content on
    negative z-indexes, inside the stacking context .hero--type already opens. */
+/* ── PHONE + TABLET: the photo is a plate, the type sits below ──
+   Same reasoning as .hero on index.html. A 1.64 group shot cropped into a
+   9:19.5 viewport keeps about a third of the room — the earlier attempt showed
+   a chair, half a coach and a stranger's shoulder, and a reader could not tell
+   what was happening. Below 810 the picture therefore keeps its own aspect and
+   the type gets the navy underneath it. Full-bleed overlay returns at 810. */
 .hero--type{
-  min-height:78svh;display:flex;align-items:center;
-  padding-block:var(--s9);
-  isolation:isolate;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  /* not var(--navy): see .marquee — the dark bands on this site are the
+     composited navy (#0b1235), not the raw token, and a hero on raw --navy
+     reads a shade lighter than everything around it */
+  background-color:#0b1235;overflow:hidden;isolation:isolate;
+  padding-block:0 var(--s9);
 }
-.hero--type__media{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero--type__media picture{display:block;width:100%;height:100%}
+.hero--type__media{
+  position:relative;flex:none;overflow:hidden;
+  /* clears the fixed bar so no face sits under the wordmark */
+  padding-top:calc(env(safe-area-inset-top) + 74px);
+}
+.hero--type__media picture{display:block}
 .hero--type__media img{
-  width:100%;height:100%;object-fit:cover;
-  /* every file is already cropped to its own shape, so this only needs to hold
-     the frame a little high — the raised arms matter more than the floor */
-  object-position:50% 42%;
-  /* the same slow breath the index hero takes, so the two pages move alike */
-  transform:scale(1.05);
-  animation:kb 34s ease-in-out infinite alternate;
-  will-change:transform;
+  width:100%;height:auto;aspect-ratio:1200/730;object-fit:cover;
+  /* no Ken Burns on the plate: a drifting zoom on a static-height block
+     reveals its own edges */
+  transform:none;animation:none;
 }
-@media (min-width:810px){ .hero--type__media img{object-position:54% 46%} }
-/* The room is bright — the photograph averages 141–187 luminance behind the
-   text — and the type over it is white, so it needs a scrim. How much was
-   measured rather than guessed: sampling the actual pixels under each element
-   and compositing candidate alphas gives 4.68:1 at .45, 5.53 at .55 and 7.06
-   at .70 for the weakest element (the lede). .55 is the knee — everything
-   clears AA with real margin and roughly half the photograph still reads. A
-   first pass at .78–.96 met the contrast bar and showed almost nothing, which
-   defeats the point of putting a photograph there at all. */
-.hero--type__scrim{
-  position:absolute;inset:0;z-index:-1;
-  background:
-    linear-gradient(to top,rgba(6,11,36,.66) 0%,rgba(8,14,44,.58) 45%,rgba(10,18,58,.50) 100%),
-    linear-gradient(to right,rgba(6,11,36,.14),rgba(6,11,36,0) 65%);
+/* the photo dissolves into the navy so the headline rises out of it */
+.hero--type__media::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:130px;
+  background:linear-gradient(to bottom,rgba(11,18,53,0),rgba(11,18,53,.82) 58%,#0b1235 100%);
+  pointer-events:none;
 }
-/* Pinned, like the index hero. Not for the reveal — the marquee that slides up
-   over it is #0b1235 against this section's #0d1a50, a luminance ratio of 1.11,
-   so on this page that transition is invisible either way. It is pinned because
-   in normal flow the hero type scrolled straight up behind a transparent nav
-   bar: between roughly 30 and 100px of scroll the eyebrow passed behind the
-   健運動 wordmark with 96px of horizontal overlap. Sticky makes that
-   structurally impossible instead of tuning paddings against it.
-   Beats `main>.sec{position:relative;z-index:1}` on specificity. */
-main>.sec.hero--type{position:sticky;top:0;z-index:0}
-.hero--type .wrap{width:100%;position:relative;z-index:2}
+.hero--type__scrim{display:none}
+.hero--type .wrap{
+  position:relative;z-index:2;width:100%;
+  margin-top:-56px;                 /* type overlaps the dissolve */
+}
+
+@media (min-width:810px){
+  /* full-bleed overlay — the wide crop shows the whole room at this size.
+     66svh rather than 78: the wide file is a 2.42 band cropped to the people,
+     so a taller box would only add floor back under them. */
+  main>.sec.hero--type{position:sticky;top:0;z-index:0}
+  .hero--type{
+    min-height:70svh;display:flex;flex-direction:row;align-items:center;
+    padding-block:var(--s9);
+  }
+  .hero--type__media{position:absolute;inset:0;z-index:-2;padding-top:0}
+  .hero--type__media::after{display:none}
+  .hero--type__media picture,.hero--type__media img{width:100%;height:100%}
+  .hero--type__media img{
+    aspect-ratio:auto;object-fit:cover;object-position:56% 50%;
+    transform:scale(1.02);
+    animation:kb 34s ease-in-out infinite alternate;
+  }
+  .hero--type__scrim{
+    display:block;position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(to top,rgba(6,11,36,.66) 0%,rgba(8,14,44,.58) 45%,rgba(10,18,58,.50) 100%),
+      linear-gradient(to right,rgba(6,11,36,.14),rgba(6,11,36,0) 65%);
+  }
+  .hero--type .wrap{margin-top:0}
+}
 .hero--type__eyebrow{
   font-family:var(--ff-body);font-size:.8125rem;font-weight:500;
   letter-spacing:.16em;color:var(--ink-soft);margin-bottom:var(--s6);
@@ -1644,7 +1682,11 @@ main>.sec.hero--type{position:sticky;top:0;z-index:0}
   background:var(--paper);            /* same reasoning as .linecard above */
   padding:var(--s6) var(--s5) var(--s7);
 }
-@media (min-width:810px){ .crosslink{padding:var(--s8);max-width:44rem} }
+/* max-width without an auto margin pinned the card to the left of a 1200px
+   wrap, so on tablet and desktop it sat in the left two-thirds with dead space
+   beside it. The card is a standalone object addressed at a different audience
+   — it should sit on the page's centre line. */
+@media (min-width:810px){ .crosslink{padding:var(--s8);max-width:44rem;margin-inline:auto} }
 .crosslink__label{
   font-family:var(--ff-latin);font-weight:500;
   font-size:.75rem;letter-spacing:.2em;color:var(--label);

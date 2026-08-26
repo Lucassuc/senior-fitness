@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=75">
+<link rel="stylesheet" href="assets/css/site.css?v=93">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -131,7 +131,14 @@
 
     <p class="hero__by" data-reveal style="--d:540ms">
       <span class="meta">Supported by</span>
-      <span data-en="China Long-Term Care Association">社團法人中華長照協會</span>
+      <!-- 等3家 is doing real work. Naming one of three supporters read as a
+           roster with two names missing, which invites "where are the others?"
+           from a reader and "why not me?" from a partner. 等 is the standard
+           Chinese et-al. construction: it names the lead credential without
+           diluting it, and states on the face of the line that the set has
+           three members — so the other two read as deferred to the footer,
+           not omitted. One extra character, no extra attention. -->
+      <span data-en="China Long-Term Care Association and two others">社團法人中華長照協會 等 3 家單位</span>
     </p>
   </div>
 
@@ -238,7 +245,7 @@
         <span data-en="Add the LINE account">加入健運動 LINE 官方帳號</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg>
       </a>
-      <p class="linecard__fine" data-en="This account only sends daily reminders. <strong>Scheduling is not arranged here</strong> — I contact you directly for that.">這個帳號只用來提醒長輩運動。<strong>課程時段不在這裡安排</strong> —— 那部分我直接跟你聯繫。</p>
+      <p class="linecard__fine" data-en="This account only sends daily reminders. <strong>Scheduling is not arranged here</strong> — I get in touch by email for that.">這個帳號只用來提醒長輩運動。<strong>課程時段不在這裡安排</strong> —— 那部分我會先用 email 跟你聯繫。</p>
     </div>
 
     <p class="join__note" data-reveal style="--d:260ms" data-en="Want this at your care station? <a href=&quot;#book&quot;>Get in touch</a>.">
@@ -318,6 +325,12 @@
     <p class="sec__intro" data-reveal style="--d:80ms" data-en="Meal runs, reunion dinners, craft classes, museum trips, then every 健運動 class and assessment — the whole way here, and it was never only exercise.">送餐、圍爐、手作課、看展，到健運動的每一堂課與每一次檢測 —— 一路走來，累積的不只是運動。</p>
 
     <ol class="grid" id="grid">
+      <li class="shot" data-reveal>
+        <button type="button">
+          <span class="shot__img"><img src="assets/img/timeline/2026-08-26-promo-md.jpg?v=1" alt="上課前的教室裡，帶運動的青年站在投影幕旁拿著手機介紹健運動，長輩們坐著聽" data-en-alt="Before a class begins, the young coach stands beside the projection introducing 健運動 while the elders listen" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.08.26</em><b data-en="Introducing 健運動 before class">課前介紹健運動 · 邀請長輩一起動</b></span>
+        </button>
+      </li>
       <li class="shot shot--feature" data-reveal>
         <button type="button">
           <span class="shot__img"><picture>
@@ -331,18 +344,6 @@
         <button type="button">
           <span class="shot__img"><img src="assets/img/timeline/2026-08-19-class-md.jpg?v=6" alt="據點活動室裡，一群長輩跟著帶運動的青年一起伸展手臂" data-en-alt="A room full of elders stretching their arms alongside the young coach at the care station" width="1000" height="750" loading="lazy" decoding="async"></span>
           <span class="shot__meta"><em>2026.08.19</em><b data-en="A full room">健運動上課 · 整間一起動起來</b></span>
-        </button>
-      </li>
-      <li class="shot" data-reveal>
-        <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-08-05-improv2-md.jpg?v=6" alt="長輩圍成一圈坐在據點的椅子上，帶領者站在中間拿著麥克風、舉手示範動作" data-en-alt="Elders seated in a circle at the care station while the leader demonstrates a movement in the middle" width="1000" height="668" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.08.05</em><b data-en="Everyone in a circle">即興創作課 · 圍成一圈一起來</b></span>
-        </button>
-      </li>
-      <li class="shot" data-reveal>
-        <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-08-05-screening-md.jpg?v=6" alt="長輩站在投影幕前，跟著健運動十分鐘影片一起舉手做動作" data-en-alt="Elders standing in front of a projection, following the ten-minute 健運動 video with their arms raised" width="1000" height="549" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.08.05</em><b data-en="Following the video">跟著影片做 · 十分鐘一起來</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
@@ -479,16 +480,16 @@
       這讓計畫從「一支影片大家跟」，改成依個別狀況調整強度。
     </blockquote>
 
-    <p class="finding__turn" data-reveal data-en="Some got faster, some got slower. <b>The difference was turning up.</b>">
-      有人變快，有人變慢 —— <b>差別在到課</b>。
+    <p class="finding__turn" data-reveal data-en="On the sit-to-stand, <b>fewer seconds is better</b>. Some got faster, some got slower — <b>the difference was turning up.</b>">
+      坐站秒數<b>越短越好</b>。有人變快，有人變慢 —— <b>差別在到課</b>。
     </p>
 
-    <p class="finding__lead" data-reveal style="--d:80ms" data-en="<b>Post-test, Aug 2026.</b> <b>20+ classes</b> averaged <b>1.15 s faster</b>; under 5 classes, <b>1.51 s slower</b>.">
-      <b>後測，2026 年 8 月。</b>到課 <b>20 堂以上的平均快 1.15 秒</b>；不到 5 堂的，<b>慢了 1.51 秒</b>。
+    <p class="finding__lead" data-reveal style="--d:80ms" data-en="<b>Post-test, Aug 2026.</b> <b>Five-times sit-to-stand</b>: 20+ classes averaged <b>1.15 s faster</b>; under 5 classes, <b>1.51 s slower</b>.">
+      <b>後測，2026 年 8 月。</b><b>五次坐站</b>：到課 <b>20 堂以上的平均快 1.15 秒</b>；不到 5 堂的，<b>慢了 1.51 秒</b>。
     </p>
 
-    <p class="finding__fine" data-reveal style="--d:160ms" data-en="Of the 7 with both tests, 4 got faster, 3 got slower (E02 had surgery, no pre-test, so n=7). It can run the other way too: the elders already declining are the least able to come. <b>Grip</b> went 4 better, 4 worse — the classes trained legs, not grip. On <b>nutrition</b>, 5 of 7 improved.">
-      7 位有前後測，4 位變快、3 位變慢（E02 術後無前測，n=7）。也可能是反過來的：本來就在退步的長輩，更來不了。<b>握力</b> 4 進 4 退 —— 課程練下肢，沒練握力。<b>營養</b> 7 位中 5 位進步。
+    <p class="finding__fine" data-reveal style="--d:160ms" data-en="Of the 7 with both tests, 4 got faster on the sit-to-stand and 3 got slower (E02 had surgery, no pre-test, so n=7). It can run the other way too: the elders already declining are the least able to come. <b>Grip</b> went 4 better, 4 worse — the classes trained legs, not grip. On <b>nutrition</b>, 5 of 7 improved.">
+      7 位有前後測，坐站秒數 <b>4 位變快、3 位變慢</b>（E02 術後無前測，n=7）。也可能是反過來的：本來就在退步的長輩，更來不了。<b>握力</b> 4 進 4 退 —— 課程練下肢，沒練握力。<b>營養</b> 7 位中 5 位進步。
     </p>
 
     <div class="dash__head dash__head--spaced">
@@ -600,11 +601,11 @@
       <span class="mask"><i style="--d:100ms" data-en="to your care station?">帶進你的據點嗎？</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Fill this in and I will reply within <strong>three working days</strong>. Happy to just talk first, or arrange a trial session.">
-填完這張表，我會在<strong>三個工作天內</strong>跟你聯繫。想先聊聊、或安排一次體驗，都可以。
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Fill this in and I will reply <strong>by email within three working days</strong>. Happy to just talk first, or arrange a trial session.">
+填完這張表，我會在<strong>三個工作天內用 email 回覆</strong>你。想先聊聊、或安排一次體驗，都可以。
     </p>
 
-    <p class="sec__note" data-reveal style="--d:140ms" data-en="This is a first contact, <strong>not a booking</strong>. Dates and times are agreed with me directly afterwards — not through the elders' LINE account.">這張表只是第一次接洽，<strong>不會直接排課</strong>。<strong>課程時段</strong>之後由我直接與你聯繫敲定，不走長輩那個官方帳號。</p>
+    <p class="sec__note" data-reveal style="--d:140ms" data-en="This is a first contact, <strong>not a booking</strong>. I get in touch by email first — that email carries the <strong>booking LINE account</strong>, and we go through the details there.">這張表只是第一次接洽，<strong>不會直接排課</strong>。我會先用 email 與你聯繫，信裡會附上<strong>預約專用的 LINE 官方帳號</strong>，詳細內容在那邊談。</p>
 
     <form class="form" id="form" novalidate data-reveal style="--d:180ms">
       <p class="form__group" data-en="Contact">聯絡資訊</p>
@@ -634,10 +635,10 @@
       </div>
 
       <div class="field">
-        <label for="f-contact"><span data-en="Email or LINE ID">Email 或 LINE ID</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
-        <input id="f-contact" name="contact" type="text" required autocomplete="email"
+        <label for="f-contact"><span data-en="Email">Email</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <input id="f-contact" name="contact" type="email" required autocomplete="email"
                placeholder="例：abc@gmail.com" data-en-ph="e.g. abc@gmail.com" aria-describedby="e-contact h-contact">
-        <p class="hint" id="h-contact" data-en="Either is fine — I will use whichever suits you.">填 Email 或 LINE ID 都可以，我用你方便的那個聯繫。</p>
+        <p class="hint" id="h-contact" data-en="My reply goes here.">我的回覆會寄到這裡。</p>
         <p class="err" id="e-contact" role="alert"></p>
       </div>
 
@@ -710,13 +711,13 @@
       </button>
 
       <p class="err err--form" id="e-form" role="alert"></p>
-      <p class="form__fine" data-en="I am notified on submit and will reply within three working days.">送出後我會收到通知，並在三個工作天內與你聯繫。</p>
+      <p class="form__fine" data-en="I am notified on submit and reply by email within three working days.">送出後我會收到通知，並在三個工作天內用 email 回覆你。</p>
     </form>
 
     <div class="done" id="done" hidden>
       <svg class="done__tick" viewBox="0 0 40 40" aria-hidden="true"><path d="M11 20.5 17.5 27 29 14"/></svg>
       <h3 data-en="Message received">已收到你的訊息</h3>
-      <p data-en="I will be in touch within three working days. Thank you!">我會在三個工作天內與你聯繫，謝謝！</p>
+      <p data-en="I will email you within three working days, and we carry on from there. Thank you!">我會在三個工作天內用 email 回覆你，之後就從那裡聯絡。謝謝！</p>
       <dl class="done__recap" id="recap"></dl>
       <button class="btn btn--ghost" type="button" id="again" data-en="Send another">再填一筆</button>
     </div>
@@ -733,8 +734,8 @@
         16–18 歲的高中生，<br>也可以成為長輩的教練。
       </h2>
 
-      <p class="crosslink__body" data-en="Taiwan's first <strong>youth fitness coach training</strong> — 4 hours of theory plus 8 hours in a care setting. Pass, and you earn a certificate and certified service hours. 10–12 places per cohort.">
-        全台首創的<strong>青年健身教練培訓</strong> —— 4 小時學科 ＋ 8 小時機構實作，通過測驗可取得青年志工教練證與服務時數證明。每梯次限收 10–12 位。
+      <p class="crosslink__body" data-en="Taiwan's first <strong>youth fitness coach training</strong> — 4 hours of theory plus 8 hours in a care setting. You earn a Youth Fitness Coach completion certificate for the coursework, and the China Long-Term Care Association's volunteer certificate recording your 8 service hours. 15 places per cohort.">
+        全台首創的<strong>青年健身教練培訓</strong> —— 4 小時學科 ＋ 8 小時機構實作，可取得青年健身教練結業證明，以及中華長照協會核發、載明 8 小時實作服務時數的志工培訓證明。每梯次限收 15 位。
       </p>
 
       <a class="btn btn--solid btn--big" href="course.html">
@@ -772,25 +773,26 @@
 
     <div class="foot__grid">
       <div class="foot__cell" data-reveal>
-        <span class="meta" data-en="Supported by">支持單位</span>
-        <div class="foot__logo">
-          <img src="assets/img/association-logo-mono.png?v=41" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
-        </div>
-        <p data-en="Supported by the China Long-Term Care Association.">本計畫由社團法人中華長照協會支持。</p>
-      </div>
-
-      <div class="foot__cell" data-reveal style="--d:80ms">
         <span class="meta" data-en="Add on LINE">加入 LINE</span>
         <a class="foot__mail" href="https://line.me/R/ti/p/@217xlrbb" target="_blank" rel="noopener" data-en="Add our LINE account">加入健運動官方帳號</a>
         <p data-en="A daily nudge, and every check-in recorded.">每天提醒長輩動十分鐘，動完回報就自動記錄。</p>
 
         <span class="meta" data-en="Youth programme">青年培訓</span>
         <a class="foot__mail" href="course.html" data-en="Youth fitness coach training, ages 16–18">16–18 歲青年健身教練培訓</a>
-        <p data-en="High-schoolers and first-years — 12 hours to a certificate and certified service hours.">高中生與大一新生，12 小時取得證照與服務時數證明。</p>
+        <p data-en="High-schoolers and first-years — 12 hours to a Youth Fitness Coach completion certificate and the association’s volunteer certificate.">高中生與大一新生，12 小時取得青年健身教練結業證明與協會志工培訓證明。</p>
 
         <span class="meta" data-en="Get in touch">合作與聯絡</span>
         <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%20______%EF%BC%88%E5%96%AE%E4%BD%8D%EF%BC%8F%E8%81%B7%E7%A8%B1%EF%BC%89%E3%80%82%0A%0A%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%A6%82%E4%BD%95%E6%8A%8A%E3%80%8C%E5%81%A5%E9%81%8B%E5%8B%95%E3%80%8D%E5%B8%B6%E9%80%B2%E6%88%91%E5%80%91%E7%9A%84%E6%93%9A%E9%BB%9E%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%AE%89%E6%8E%92%E6%99%82%E9%96%93%E8%81%8A%E8%81%8A%E5%97%8E%EF%BC%9F%0A%0A%E5%96%AE%E4%BD%8D%E5%90%8D%E7%A8%B1%EF%BC%9A%0A%E6%89%80%E5%9C%A8%E5%9C%B0%E9%BB%9E%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%E9%95%B7%E8%BC%A9%E4%BA%BA%E6%95%B8%EF%BC%9A%0A" data-href-en="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com&amp;su=%E5%81%A5%E9%81%8B%E5%8B%95%20%C2%B7%20Partnership%20enquiry&amp;body=Hello%2C%20I%20am%20______%20%28organisation%20%2F%20role%29.%0A%0AI%20would%20like%20to%20find%20out%20how%20to%20bring%20%E5%81%A5%E9%81%8B%E5%8B%95%20to%20our%20care%20station.%20Could%20we%20arrange%20a%20time%20to%20talk%3F%0A%0AOrganisation%3A%0ALocation%3A%0APhone%3A%0ANumber%20of%20elders%3A%0A" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
         <p data-en="Care stations, organisations, and anyone curious — write any time.">歡迎據點、機構與想了解計畫的朋友來信。</p>
+      </div>
+
+      <div class="foot__cell foot__cell--wide" data-reveal style="--d:160ms">
+        <span class="meta" data-en="Supported by">支持單位</span>
+        <div class="foot__logos">
+          <img src="assets/img/association-logo-mono.png?v=41" style="--h:44px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+          <img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:56px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async">
+          <img src="assets/img/partner-icare-mono.png?v=90" style="--h:70px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async">
+        </div>
       </div>
     </div>
 
@@ -823,6 +825,6 @@
   </button>
 </div>
 
-<script src="assets/js/site.js?v=75" defer></script>
+<script src="assets/js/site.js?v=93" defer></script>
 </body>
 </html>

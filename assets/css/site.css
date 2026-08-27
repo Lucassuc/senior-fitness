@@ -1654,6 +1654,15 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
    one line a reader copies into a map, so it may need to be tuned (wrapping,
    selection) without dragging the hours line along with it. */
 .fact__addr{color:var(--ink-faint);font-size:.8125rem;line-height:1.7}
+/* Addresses open in Maps. Underlined rather than coloured: the row is already
+   the quietest thing in the block and a link colour here would out-shout the
+   venue name above it. */
+.fact__addr a{
+  color:inherit;text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:1px;text-decoration-color:var(--rule-2);
+  transition:text-decoration-color .3s var(--ease),color .3s var(--ease);
+}
+@media (hover:hover){ .fact__addr a:hover{color:var(--ink);text-decoration-color:currentColor} }
 @media (min-width:810px){
   .fact{grid-template-columns:180px 1fr;gap:var(--s5);align-items:baseline}
   .fact dt{padding-top:.2em}

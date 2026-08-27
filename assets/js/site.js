@@ -958,7 +958,7 @@
     var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'),
         sMail = $('#a-contact'), parent_ = $('#a-parent'),
         pMail = $('#a-pmail'), phone = $('#a-phone'),
-        why = $('#a-why'), exp = $('#a-exp'), trap = $('#a-trap'),
+        why = $('#a-why'), exp = $('#a-exp'), work = $('#a-work'), trap = $('#a-trap'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
 
@@ -983,6 +983,8 @@
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: pMail,  err: '#ea-pmail',  msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
+      { el: work,   err: '#ea-work',   msg: '這個連結看起來不太對，要以 http:// 或 https:// 開頭。', en: 'That link does not look right — it should start with http:// or https://.',
+        ok: function (v) { return v.trim() === '' || /^https?:\/\/\S+$/i.test(v.trim()); } },
       { el: phone,  err: '#ea-phone',  msg: '請填寫家長／監護人聯絡電話。', en: 'Please enter a parent or guardian phone number.',
         ok: function (v) { return v.replace(/[^0-9]/g, '').length >= 8; } },
       /* The hint suggests 100–300 字; this floor is deliberately far below it.
@@ -1048,11 +1050,12 @@
 
       var L = isEN()
         ? ['Student name','Age','School and year','Student email',
-           'Parent name','Parent email','Parent phone','Why they want to join','Sport / volunteering experience']
+           'Parent name','Parent email','Parent phone','Why they want to join','Sport / volunteering experience','CV / portfolio link']
         : ['學生姓名','年齡','學校年級','學生 Email',
-           '家長姓名','家長 Email','家長電話','為什麼想參加','運動或志工經驗'];
+           '家長姓名','家長 Email','家長電話','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
       var V = [name_.value.trim(), age.value.trim(), school.value.trim(), sMail.value.trim(),
-               parent_.value.trim(), pMail.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim()];
+               parent_.value.trim(), pMail.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim(),
+               work.value.trim()];
       var fields = {};
       L.forEach(function (k, i) { fields[k] = V[i]; });
       var summary = Object.keys(fields).map(function (k) {
@@ -1070,6 +1073,7 @@
         parent_phone: phone.value.trim(),
         why: why.value.trim(),
         experience: exp.value.trim(),
+        portfolio: work.value.trim(),
         summary: summary,
         submitted_at: new Date().toISOString(),
         source: location.href

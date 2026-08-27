@@ -1800,6 +1800,20 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 /* four stats now (合作地點 added) — 2×2 on a phone, one row on desktop */
 @media (max-width:809px){ .stats{grid-template-columns:1fr 1fr;row-gap:var(--s6)} }
 @media (min-width:810px){ .stats{grid-template-columns:repeat(4,1fr)} }
+/* Centred in their own cells. Left-aligned, four figures of different digit
+   widths (17 / 6 / 4 / 8) left ragged gaps and the 2×2 phone layout looked
+   like two columns that had drifted apart. Centring makes the dividing rules
+   read as a measure rather than as edges the content failed to reach.
+   The first/last-child padding resets go with it: they existed to flush the
+   row against the section edge, which only matters while the content is
+   left-aligned. */
+.stat{text-align:center}
+.stat:first-child{padding-left:var(--s3)}
+.stat:last-child{padding-right:var(--s3)}
+@media (min-width:810px){
+  .stat:first-child{padding-left:var(--s5)}
+  .stat:last-child{padding-right:var(--s5)}
+}
 
 /* ── mark ─────────────────────────────────────────────────────
    mark-320-glyph.png is the white glyph alone on transparency. On navy the

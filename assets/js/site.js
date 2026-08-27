@@ -955,7 +955,7 @@
 
     var HOOK = 'https://hook.us2.make.com/n4mpjgv5wvijbfcgd2bj3efpc38n1p1s';
 
-    var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'),
+    var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'), batch = $('#a-batch'),
         sMail = $('#a-contact'), parent_ = $('#a-parent'),
         pMail = $('#a-pmail'), phone = $('#a-phone'),
         why = $('#a-why'), exp = $('#a-exp'), work = $('#a-work'), trap = $('#a-trap'),
@@ -983,6 +983,8 @@
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
       { el: pMail,  err: '#ea-pmail',  msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
         ok: function (v) { return v.trim() === '' || MAIL(v); } },
+      { el: batch,  err: '#ea-batch',  msg: '請選擇想報名的梯次。', en: 'Please choose a cohort.',
+        ok: function (v) { return v.trim() !== ''; } },
       { el: work,   err: '#ea-work',   msg: '這個連結看起來不太對，要以 http:// 或 https:// 開頭。', en: 'That link does not look right — it should start with http:// or https://.',
         ok: function (v) { return v.trim() === '' || /^https?:\/\/\S+$/i.test(v.trim()); } },
       { el: phone,  err: '#ea-phone',  msg: '請填寫家長／監護人聯絡電話。', en: 'Please enter a parent or guardian phone number.',
@@ -1049,11 +1051,11 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','School and year','Student email',
+        ? ['Student name','Age','School and year','Cohort','Student email',
            'Parent name','Parent email','Parent phone','Why they want to join','Sport / volunteering experience','CV / portfolio link']
-        : ['學生姓名','年齡','學校年級','學生 Email',
+        : ['學生姓名','年齡','學校年級','報名梯次','學生 Email',
            '家長姓名','家長 Email','家長電話','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
-      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), sMail.value.trim(),
+      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), batch.value.trim(), sMail.value.trim(),
                parent_.value.trim(), pMail.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim(),
                work.value.trim()];
       var fields = {};
@@ -1067,6 +1069,7 @@
         student: name_.value.trim(),
         age: age.value.trim(),
         school: school.value.trim(),
+        batch: batch.value.trim(),
         student_email: sMail.value.trim(),
         parent: parent_.value.trim(),
         parent_email: pMail.value.trim(),

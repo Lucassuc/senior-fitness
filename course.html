@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=96">
+<link rel="stylesheet" href="assets/css/site.css?v=99">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -108,11 +108,10 @@
 <section class="sec sec--navy hero--type" aria-label="青年健身教練培訓" data-en-aria="Youth Fitness Coach Training">
   <div class="hero--type__media">
     <picture>
-      <source media="(min-width:810px)" srcset="assets/img/course-hero-1786.jpg?v=77">
-      <img src="assets/img/course-hero-mobile-707.jpg?v=77"
+      <img src="assets/img/course-hero-mobile-707.jpg?v=99"
            alt="長照據點的教室裡，一群長輩張開雙手跟著做動作，穿粉紅色上衣的青年站在右側帶著大家一起動"
            data-en-alt="In a care-station activity room, a group of elders follow along with their arms outstretched while the young coach in pink leads from the right"
-           width="1200" height="730" fetchpriority="high" decoding="async">
+           width="1240" height="1120" fetchpriority="high" decoding="async">
     </picture>
   </div>
   <div class="hero--type__scrim" aria-hidden="true"></div>
@@ -391,6 +390,23 @@
         <p class="err" id="ea-school" role="alert"></p>
       </div>
 
+      <!-- Sherry spotted this: the form never asked which cohort. It is a hard
+           gate — a family that can make neither morning does not need to write
+           the essay — so it sits directly after the school field, before any of
+           the effort. 兩梯都可以 exists because it makes the rota easier to
+           solve, and a student who offers it should be able to say so. -->
+      <div class="field">
+        <label for="a-batch"><span data-en="Which cohort">想報名的梯次</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <select id="a-batch" name="batch" required aria-describedby="ea-batch ha-batch">
+          <option value="" data-en="Please choose">請選擇</option>
+          <option data-en="Sat 17 Oct, 8:00–12:00">10/17（六）8:00–12:00</option>
+          <option data-en="Sat 31 Oct, 8:00–12:00">10/31（六）8:00–12:00</option>
+          <option data-en="Either works for me">兩梯都可以</option>
+        </select>
+        <p class="hint" id="ha-batch" data-en="This is the 4-hour classroom morning. Choosing 「either」 makes you easier to place.">這是 4 小時學科的那個上午。選「兩梯都可以」比較好安排。</p>
+        <p class="err" id="ea-batch" role="alert"></p>
+      </div>
+
       <div class="field">
         <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-contact" name="student_email" type="email" autocomplete="email"
@@ -517,9 +533,15 @@
       <div class="foot__cell foot__cell--wide" data-reveal style="--d:160ms">
         <span class="meta" data-en="Supported by">支持單位</span>
         <div class="foot__logos">
-          <img src="assets/img/association-logo-mono.png?v=41" style="--h:44px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
-          <img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:56px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async">
-          <img src="assets/img/partner-icare-mono.png?v=90" style="--h:70px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async">
+          <a href="https://www.clc.org.tw/index.php" target="_blank" rel="noopener">
+            <img src="assets/img/association-logo-mono.png?v=41" style="--h:44px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
+          </a>
+          <a href="https://feelfitness.tw/" target="_blank" rel="noopener">
+            <img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:56px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async">
+          </a>
+          <a href="https://www.facebook.com/iCareCafe/?locale=zh_TW" target="_blank" rel="noopener">
+            <img src="assets/img/partner-icare-mono.png?v=90" style="--h:70px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async">
+          </a>
         </div>
         <p data-en="The volunteer certificate is issued by the China Long-Term Care Association.">志工培訓證明由社團法人中華長照協會核發。</p>
       </div>
@@ -535,6 +557,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=96" defer></script>
+<script src="assets/js/site.js?v=99" defer></script>
 </body>
 </html>

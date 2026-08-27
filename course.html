@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=99">
+<link rel="stylesheet" href="assets/css/site.css?v=100">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -363,7 +363,14 @@
       送出後由團隊書面甄選，<strong>錄取者會收到 email 通知</strong>。每梯次 15 位。
     </p>
 
-    <p class="sec__note" data-reveal style="--d:140ms" data-en="Every applicant leaves a parent or guardian contact — we confirm with them before anything starts.">每位報名者都要留一位家長／監護人的聯絡方式，錄取後我們會先與他確認。</p>
+    <!-- Says only what the form actually enforces. The earlier version implied a
+     parent had to be the point of contact for everything, when the rule is
+     narrower: a guardian PHONE is always required as the placement emergency
+     contact, while the acceptance email can go to the student, a parent, or
+     both — whoever is handling payment. The email rule lives on the email
+     fields; this line exists to stop someone starting the form without a
+     number to hand. -->
+    <p class="sec__note" data-reveal style="--d:140ms" data-en="You will need a parent or guardian's phone number — worth having it to hand before you start.">表單裡需要一位家長／監護人的電話，開始填之前先準備好會比較順。</p>
 
     <form class="form" id="applyForm" novalidate data-reveal style="--d:180ms">
       <p class="form__group" data-en="About you">學生資料</p>
@@ -557,6 +564,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=99" defer></script>
+<script src="assets/js/site.js?v=100" defer></script>
 </body>
 </html>

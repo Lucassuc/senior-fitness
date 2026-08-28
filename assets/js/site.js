@@ -464,11 +464,22 @@
     var loaded = false;
     var CANVAS = 1654;   /* the dashboard's authored width */
 
-    /* Always scale the whole canvas to fit the container. It used to stay at 62%
-       and pan sideways, which turned the dashboard into a scroll trap — and this
-       is not where anyone wants to be held up. It is a glanceable panel now; the
-       interactive version is one tap away in a new window. */
+    /* Two states, split at the site's own 810px breakpoint. Wide: pin the canvas
+       and scale it to fit — it used to stay at 62% and pan sideways, which turned
+       the dashboard into a scroll trap. Narrow: do not pin it at all. Scaling
+       1654px into a phone put the workbook at about a fifth of its authored size,
+       which no one can read, so the phone gets the real width and Tableau reflows
+       the workbook into a column (see .dash--flow in the stylesheet). Neither
+       state scrolls internally, so an up/down swipe always scrolls the page. */
+    var narrow = window.matchMedia('(max-width: 809px)');
+
     function fit() {
+      if (narrow.matches) {
+        fig.classList.remove('dash--fit');
+        fig.classList.add('dash--flow');
+        return;
+      }
+      fig.classList.remove('dash--flow');
       var dz = Math.min(1, box.clientWidth / CANVAS);
       box.style.setProperty('--dz', dz.toFixed(4));
       fig.classList.add('dash--fit');
@@ -492,6 +503,11 @@
 
     fit();
     window.addEventListener('resize', fit, { passive: true });
+    /* A rotation fires resize, but the breakpoint itself is the thing that has to
+       be caught, and a coalesced resize can miss it. addListener is the old
+       spelling, still the only one on iOS before 14. */
+    if (narrow.addEventListener) narrow.addEventListener('change', fit);
+    else if (narrow.addListener) narrow.addListener(fit);
 
     if (!('IntersectionObserver' in window)) { load(); return; }
     var io = new IntersectionObserver(function (en) {

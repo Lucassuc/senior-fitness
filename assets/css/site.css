@@ -632,7 +632,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 /* Height follows the scaled canvas so there is no vertical scroll to fight the page:
    a sideways swipe pans the dashboard, an up/down swipe scrolls the page. */
 .dash__frame{
-  --dz:.62; --dw:1654; --dh:2427;
+  --dz:.62; --dw:1654; --dh:2427; --dfh:2827;
   position:relative;background:var(--paper);
   overflow:hidden;
 }
@@ -649,6 +649,20 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 }
 /* never pans, never captures a swipe */
 .dash--fit .dash__frame{overflow:hidden}
+
+/* Below the 810px breakpoint the pinned canvas was being scaled to a fifth of its
+   authored size — the labels are unreadable at that size, and iOS still has to
+   composite the full 1654×2427 cross-origin layer to draw them, which is what kept
+   killing and reloading the frame on an iPhone. So on a phone the canvas is not
+   pinned at all: Tableau is handed the real width and reflows the workbook into a
+   single readable column. --dfh is that reflowed height, measured at 300, 333 and
+   430px wide — it comes out at the same 2827 for every phone width. Re-measure it
+   whenever the workbook gains or loses a chart, exactly as for --dh above, or the
+   panel will clip the last chart or leave dead white space under it. */
+.dash--flow .dash__zoom{width:100%;height:calc(var(--dfh) * 1px)}
+.dash--flow .dash__frame iframe{
+  width:100%;height:100%;transform:none;
+}
 /* the workbook is bilingual (Chinese primary, English secondary), so it needs no
    per-language swap — data-src-en stays empty and the JS falls through to the one URL */
 .dash__cap{

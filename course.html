@@ -54,7 +54,6 @@
     <a href="#facts" data-en="Details">報名資訊</a>
     <a href="#syllabus" data-en="Course">課程</a>
     <a href="#who" data-en="Who">誰在辦</a>
-    <a href="#apply" data-en="Apply">報名</a>
   </nav>
 
   <div class="nav__right">
@@ -72,13 +71,15 @@
 </header>
 
 <div class="menu" id="menu" hidden>
+  <!-- Shortlist, not an index. The pill in the header already carries both
+       calls to action, so neither belongs here as well, and the numbers went
+       with the cut sections — a list reading 02 / 05 / 06 / 07 looks broken.
+       The running chapter chip still numbers every section as you scroll. -->
   <nav class="menu__list" aria-label="全站選單" data-en-aria="Site menu">
-    <a href="#gap"><em>01</em><span data-en="Why this exists">為什麼有這個計畫</span></a>
-    <a href="#gain"><em>02</em><span data-en="What you walk away with">你會得到什麼</span></a>
-    <a href="#facts"><em>03</em><span data-en="The details">報名資訊</span></a>
-    <a href="#syllabus"><em>04</em><span data-en="What you learn">課程內容</span></a>
-    <a href="#who"><em>05</em><span data-en="Who runs it">誰在辦這個計畫</span></a>
-    <a href="#apply"><em>—</em><span data-en="Apply">報名表單</span></a>
+    <a href="#gain"><span data-en="What you walk away with">你會得到什麼</span></a>
+    <a href="#facts"><span data-en="The details">報名資訊</span></a>
+    <a href="#syllabus"><span data-en="What you learn">課程內容</span></a>
+    <a href="#who"><span data-en="Who runs it">誰在辦這個計畫</span></a>
   </nav>
   <div class="menu__foot">
     <span class="meta">健運動</span>

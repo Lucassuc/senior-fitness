@@ -632,7 +632,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 /* Height follows the scaled canvas so there is no vertical scroll to fight the page:
    a sideways swipe pans the dashboard, an up/down swipe scrolls the page. */
 .dash__frame{
-  --dz:.62; --dw:1654; --dh:2427; --dfh:2827;
+  --dz:.62; --dw:1654; --dh:2427;
   position:relative;background:var(--paper);
   overflow:hidden;
 }
@@ -650,19 +650,25 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 /* never pans, never captures a swipe */
 .dash--fit .dash__frame{overflow:hidden}
 
-/* Below the 810px breakpoint the pinned canvas was being scaled to a fifth of its
-   authored size — the labels are unreadable at that size, and iOS still has to
-   composite the full 1654×2427 cross-origin layer to draw them, which is what kept
-   killing and reloading the frame on an iPhone. So on a phone the canvas is not
-   pinned at all: Tableau is handed the real width and reflows the workbook into a
-   single readable column. --dfh is that reflowed height, measured at 300, 333 and
-   430px wide — it comes out at the same 2827 for every phone width. Re-measure it
-   whenever the workbook gains or loses a chart, exactly as for --dh above, or the
-   panel will clip the last chart or leave dead white space under it. */
-.dash--flow .dash__zoom{width:100%;height:calc(var(--dfh) * 1px)}
-.dash--flow .dash__frame iframe{
-  width:100%;height:100%;transform:none;
+/* Below the 810px breakpoint, fitting the canvas to the screen put the workbook at
+   a fifth of its authored size, and handing Tableau the phone's real width made it
+   reflow into a column that clips its own KPI tiles. Neither keeps the dashboard
+   the reader would see on a desktop. So the phone gets the canvas at 1:1 — same
+   layout, same type size, nothing re-laid-out — and pans sideways to reach the rest
+   of it. Only the horizontal axis scrolls: overflow-y stays hidden so an up/down
+   swipe still scrolls the page rather than being swallowed here. */
+.dash--pan .dash__frame{
+  overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
 }
+/* At --dz 1 the scale is a no-op, and dropping it avoids compositing the whole
+   1654×2427 surface as one layer — the frame tiles it as it pans instead. */
+.dash--pan .dash__frame iframe{transform:none}
+/* the sideways swipe needs saying, but only where there is one */
+.dash__hint--pan{display:none}
+.dash--pan .dash__hint--still{display:none}
+.dash--pan .dash__hint--pan{display:inline}
 /* the workbook is bilingual (Chinese primary, English secondary), so it needs no
    per-language swap — data-src-en stays empty and the JS falls through to the one URL */
 .dash__cap{

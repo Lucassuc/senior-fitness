@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=101">
+<link rel="stylesheet" href="assets/css/site.css?v=102">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -513,14 +513,15 @@
       </a>
     </div>
 
-    <p class="dash__intro" data-reveal style="--d:100ms" data-en="Full pre- and post-test results for all 8. Open it in a new tab to filter and hover.">
-8 位長輩的前後測完整結果。想篩選、看細節，可以開新視窗。
+    <p class="dash__intro" data-reveal style="--d:100ms" data-en="Full pre- and post-test results for all 8. On a phone, swipe the panel sideways.">
+8 位長輩的前後測完整結果。手機上可以左右滑動看完整圖表。
     </p>
 
     <figure class="dash" data-reveal style="--d:160ms">
       <div class="dash__bar">
         <span class="meta" data-en="Pre-test → post-test">前測 → 後測</span>
-        <span class="meta dash__hint" data-en="Open in a new tab for the interactive version">完整互動版請開新視窗</span>
+        <span class="meta dash__hint dash__hint--still" data-en="Open in a new tab for the interactive version">完整互動版請開新視窗</span>
+        <span class="meta dash__hint dash__hint--pan" data-en="Swipe sideways · new tab for the interactive version">左右滑動看完整圖表 · 互動版請開新視窗</span>
       </div>
       <div class="dash__frame" id="dashFrame"
            data-src="https://public.tableau.com/views/ElderFitnessBaselineAssessment/Dashboard1"
@@ -834,6 +835,6 @@
   </button>
 </div>
 
-<script src="assets/js/site.js?v=101" defer></script>
+<script src="assets/js/site.js?v=102" defer></script>
 </body>
 </html>

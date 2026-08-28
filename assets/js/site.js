@@ -464,22 +464,21 @@
     var loaded = false;
     var CANVAS = 1654;   /* the dashboard's authored width */
 
-    /* Two states, split at the site's own 810px breakpoint. Wide: pin the canvas
-       and scale it to fit — it used to stay at 62% and pan sideways, which turned
-       the dashboard into a scroll trap. Narrow: do not pin it at all. Scaling
-       1654px into a phone put the workbook at about a fifth of its authored size,
-       which no one can read, so the phone gets the real width and Tableau reflows
-       the workbook into a column (see .dash--flow in the stylesheet). Neither
-       state scrolls internally, so an up/down swipe always scrolls the page. */
+    /* Two states, split at the site's own 810px breakpoint. Wide: scale the canvas
+       down to fit the column, as before. Narrow: leave it at 1:1 and let the panel
+       pan sideways, so a phone gets the same dashboard a desktop does rather than a
+       shrunken or re-laid-out one. Neither state scrolls vertically inside the
+       frame, so an up/down swipe always belongs to the page. */
     var narrow = window.matchMedia('(max-width: 809px)');
 
     function fit() {
       if (narrow.matches) {
         fig.classList.remove('dash--fit');
-        fig.classList.add('dash--flow');
+        fig.classList.add('dash--pan');
+        box.style.setProperty('--dz', '1');
         return;
       }
-      fig.classList.remove('dash--flow');
+      fig.classList.remove('dash--pan');
       var dz = Math.min(1, box.clientWidth / CANVAS);
       box.style.setProperty('--dz', dz.toFixed(4));
       fig.classList.add('dash--fit');

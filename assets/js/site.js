@@ -137,7 +137,7 @@
           box.setAttribute('data-src', want);
           var live = box.querySelector('iframe');
           if (live) {
-            live.src = want + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link';
+            live.src = want + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link&:device=desktop';
           }
         }
       }
@@ -489,7 +489,7 @@
       loaded = true;
       var f = document.createElement('iframe');
       f.src = box.getAttribute('data-src')
-        + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link';
+        + '?:embed=y&:showVizHome=no&:tabs=no&:toolbar=bottom&:display_count=n&:origin=viz_share_link&:device=desktop';
       f.title = t('前後測儀表板（Tableau Public）', 'Pre- and post-test dashboard (Tableau Public)');
       f.loading = 'lazy';
       f.setAttribute('allowfullscreen', '');
@@ -958,6 +958,24 @@
         org.focus();
       });
     }
+  })();
+
+  /* ── 10 · 額滿的梯次 ──────────────────────────────────────────
+     To close a cohort, put data-full on its <option> in course.html and
+     nothing else. The （已額滿）suffix and the disabling both happen here, so
+     the two labels can never disagree and the mark survives a language switch
+     — the sweep above repaints options from data-en / dataset.zh, so a suffix
+     typed straight into the markup would vanish the moment anyone pressed EN. */
+  (function () {
+    var sel = $('#a-batch'); if (!sel) return;
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (!o.hasAttribute('data-full')) return;
+      o.disabled = true;
+      if (o.dataset.zh === undefined) o.dataset.zh = o.innerHTML;
+      o.dataset.zh += '（已額滿）';
+      if (o.dataset.en) o.dataset.en += ' (full)';
+      o.innerHTML = isEN() && o.dataset.en ? o.dataset.en : o.dataset.zh;
+    });
   })();
 
   /* ── 10a · 青年培訓報名表 (course.html) ────────────────────────

@@ -1451,7 +1451,13 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
   background:var(--paper);
   padding:var(--s5) var(--s5) var(--s6);
 }
-@media (min-width:810px){ .linecard{padding:var(--s6);max-width:34rem} }
+/* The card stops being full-width here, so this is also where it starts
+   sitting on the page's centre line — same treatment as .crosslink below.
+   Leaving it hard left put ~250px of dead space beside it on iPad. */
+@media (min-width:810px){
+  .linecard{padding:var(--s6);max-width:34rem;margin-inline:auto}
+  .linecard + .join__note{max-width:34rem;margin-inline:auto}
+}
 .linecard__label{
   font-family:var(--ff-latin);font-weight:500;
   font-size:.75rem;letter-spacing:.2em;color:var(--label);
@@ -1478,26 +1484,15 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 .finding__fine b{color:var(--ink);font-weight:500}
 .linecard + .join__note{margin-top:var(--s5)}
 
-/* ── centred panels on desktop ─────────────────────────────────
-   Lucas's call. The rest of the page hangs off one left edge, so these two
-   bordered panels are deliberate exceptions — on a wide screen a 544px card
-   sitting hard left under a full-width stats row left a lot of dead space to
-   its right, and centring reads as a choice rather than a leftover.
-
-   1100px rather than the usual 810px: 810 would also catch iPad portrait
-   (820/834) and iPad Pro portrait (1024), and the brief was desktop only.
-   Phones and tablets keep the left-aligned layout exactly as it was. Not a new
-   breakpoint — the photo grid already goes three-up at 1100px.
+/* Centring for these bordered panels now lives with each panel's own
+   max-width rule at 810px (.linecard above, .crosslink below), so a card
+   is centred from the moment it stops filling the column — tablets
+   included. This used to be a desktop-only block at 1100px, which left
+   the LINE card pinned to the left edge on every iPad. Lucas's call.
 
    .join__note rides along with the card. It sits directly beneath it as one
    unit, so leaving it hard left while the card centred would break the pair —
    it takes the card's width so their left edges still line up. */
-@media (min-width:1100px){
-  .linecard,
-  .linecard + .join__note{margin-inline:auto}
-  .linecard + .join__note{max-width:34rem}
-  .crosslink{margin-inline:auto}
-}
 
 /* ═══════════════════════════════════════════════════════════════
    青年培訓頁 (course.html)

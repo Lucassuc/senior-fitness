@@ -1003,8 +1003,13 @@
     var RULES = [
       { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。', en: 'Please enter the student\'s name.',
         ok: function (v) { return v.trim().length >= 1; } },
-      { el: age,    err: '#ea-age',    msg: '請填寫年齡（本計畫招收 16–18 歲）。', en: 'Please enter an age (this programme is for 16–18).',
-        ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 14 && n <= 20; } },
+      /* 16–18 is a recommendation, not a gate, and the copy says 其他年齡也歡迎 in
+         both places a reader checks. So the field must not enforce a floor the
+         page never states — a silent block is a broken promise. Applications are
+         read by a person anyway; too young is a reply, not a validation error.
+         Only checks that a real number was typed. */
+      { el: age,    err: '#ea-age',    msg: '請填寫年齡。', en: 'Please enter your age.',
+        ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 1 && n <= 120; } },
       { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
       { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',

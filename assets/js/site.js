@@ -1003,7 +1003,7 @@
     var RULES = [
       { el: name_,  err: '#ea-name',   msg: '請填寫學生姓名。', en: 'Please enter the student\'s name.',
         ok: function (v) { return v.trim().length >= 1; } },
-      /* 16–18 is a recommendation, not a gate, and the copy says 其他年齡也歡迎 in
+      /* 16–18 is a recommendation, not a gate, and the copy says 任何年紀都歡迎 in
          both places a reader checks. So the field must not enforce a floor the
          page never states — a silent block is a broken promise. Applications are
          read by a person anyway; too young is a reply, not a validation error.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-en="JianYunDong · Moving with you, young again">健運動 · 陪你動，再青春</title>
+<title data-en="Daily Ten · Moving with you, young again">健運動 · 陪你動，再青春</title>
 <meta name="description" content="健運動：陪你動，再青春。據點負責一堂課，健運動陪長輩生活中的每一天。給社區據點、長照站與關懷據點。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
 <!-- bump ?v= whenever you edit the css/js so browsers don't serve a stale copy -->
-<link rel="stylesheet" href="assets/css/site.css?v=105">
+<link rel="stylesheet" href="assets/css/site.css?v=106">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -58,9 +58,9 @@
 
 <!-- ══ nav ══ -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首" data-en-aria="健運動 — back to top">
+  <a class="nav__brand" href="#top" aria-label="健運動 — 回到頁首" data-en-aria="Daily Ten — back to top">
     <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="34" height="34">
-    <span>健運動</span>
+    <span data-en="Daily Ten">健運動</span>
   </a>
 
   <!-- Section index only. 青年培訓 used to sit at the end of this row and was
@@ -110,7 +110,7 @@
 <span id="top"></span>
 
 <!-- ══ 1 · HERO ══ -->
-<section class="hero" aria-label="健運動" data-en-aria="健運動">
+<section class="hero" aria-label="健運動" data-en-aria="Daily Ten">
   <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
 
   <div class="hero__media">
@@ -123,7 +123,11 @@
 
   <div class="hero__body">
     <p class="hero__eyebrow" data-reveal data-en="For community care stations &amp; long-term care centres">給社區據點 · 長照站 · 關懷據點</p>
-    <h1 class="hero__title" aria-label="健運動" data-en-aria="健運動">
+    <!-- The English wordmark is nine letters where the Chinese is three glyphs, so
+         it stacks onto two lines rather than shrinking to fit one. Both versions
+         keep the per-word mask reveal. -->
+    <h1 class="hero__title" aria-label="健運動" data-en-aria="Daily Ten"
+        data-en='<span class="mask"><i style="--d:0ms">Daily</i></span><span class="mask"><i style="--d:90ms">Ten</i></span>'>
       <span class="mask"><i style="--d:0ms">健</i></span><span class="mask"><i style="--d:90ms">運</i></span><span class="mask"><i style="--d:180ms">動</i></span>
     </h1>
     <!-- The director's line. It replaced a functional description; this one is
@@ -171,7 +175,7 @@
       <span class="mask"><i style="--d:90ms" data-en="to keep moving.">一直動下去</i></span>
     </h2>
 
-    <blockquote class="pullout" data-reveal style="--d:200ms" data-en="The care station runs the class. 健運動 stays with them the other days — building the energy to feel young again.">
+    <blockquote class="pullout" data-reveal style="--d:200ms" data-en="The care station runs the class. Daily Ten stays with them the other days — building the energy to feel young again.">
       據點負責一堂課，<br>健運動陪您生活中的每一天，<br>養成再青春的活力體質。
     </blockquote>
 
@@ -222,7 +226,7 @@
       </li>
       <li class="stat">
         <span class="stat__n" data-since="2026-01-31">6<span class="stat__u" data-en=" months">個月</span></span>
-        <span class="stat__l" data-en="of 健運動">健運動運作</span>
+        <span class="stat__l" data-en="of Daily Ten">健運動運作</span>
       </li>
       <li class="stat">
         <span class="stat__n">4<span class="stat__u" data-en=" sites">個</span></span>
@@ -237,7 +241,7 @@
     <!-- data-en must NOT sit on this <p>: swapping its innerHTML would destroy
          #dataStamp, which site.js writes the live date into. Translate the
          prose span only and leave the stamp to JS. -->
-    <p class="stats__note" data-reveal style="--d:160ms"><span data-en="Volunteering here since Mar 2025 · 健運動 launched Jan 2026 · ">2025 年 3 月起以志工身分參與社區服務 · 健運動 2026 年 1 月開張 · </span><span id="dataStamp"></span></p>
+    <p class="stats__note" data-reveal style="--d:160ms"><span data-en="Volunteering here since Mar 2025 · Daily Ten launched Jan 2026 · ">2025 年 3 月起以志工身分參與社區服務 · 健運動 2026 年 1 月開張 · </span><span id="dataStamp"></span></p>
 
     <div class="linecard" data-reveal style="--d:200ms">
       <p class="linecard__label" data-en="The elders' LINE account">長輩用的官方帳號</p>
@@ -323,7 +327,7 @@
       <span class="mask"><i style="--d:100ms" data-en="It is being there.">是一直都在。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Meal runs, reunion dinners, craft classes, museum trips, then every 健運動 class and assessment — the whole way here, and it was never only exercise.">送餐、圍爐、手作課、看展，到健運動的每一堂課與每一次檢測 —— 一路走來，累積的不只是運動。</p>
+    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Meal runs, reunion dinners, craft classes, museum trips, then every Daily Ten class and assessment — the whole way here, and it was never only exercise.">送餐、圍爐、手作課、看展，到健運動的每一堂課與每一次檢測 —— 一路走來，累積的不只是運動。</p>
 
     <ol class="grid" id="grid">
       <li class="shot shot--feature" data-reveal>
@@ -337,8 +341,8 @@
       </li>
       <li class="shot" data-reveal>
         <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-08-25-promo-md.jpg?v=1" alt="上課前的教室裡，帶運動的青年站在投影幕旁拿著手機介紹健運動，長輩們坐著聽" data-en-alt="Before a class begins, the young coach stands beside the projection introducing 健運動 while the elders listen" width="1000" height="750" loading="lazy" decoding="async"></span>
-          <span class="shot__meta"><em>2026.08.25</em><b data-en="Introducing 健運動 before class">課前健運動推廣 · 邀請長輩一起動</b></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-08-25-promo-md.jpg?v=1" alt="上課前的教室裡，帶運動的青年站在投影幕旁拿著手機介紹健運動，長輩們坐著聽" data-en-alt="Before a class begins, the young coach stands beside the projection introducing Daily Ten while the elders listen" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__meta"><em>2026.08.25</em><b data-en="Introducing Daily Ten before class">課前健運動推廣 · 邀請長輩一起動</b></span>
         </button>
       </li>
       <li class="shot" data-reveal>
@@ -361,7 +365,7 @@
       </li>
       <li class="shot" data-reveal>
         <button type="button">
-          <span class="shot__img"><img src="assets/img/timeline/2026-07-25-filming-md.jpg?v=6" alt="在白色攝影棚裡，帶運動的青年和兩位長輩一起舉手，正在拍攝健運動示範影片" data-en-alt="In a white studio, a young coach and two elders raise their arms together while filming a 健運動 demonstration video" width="1000" height="568" loading="lazy" decoding="async"></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-07-25-filming-md.jpg?v=6" alt="在白色攝影棚裡，帶運動的青年和兩位長輩一起舉手，正在拍攝健運動示範影片" data-en-alt="In a white studio, a young coach and two elders raise their arms together while filming a Daily Ten demonstration video" width="1000" height="568" loading="lazy" decoding="async"></span>
           <span class="shot__meta"><em>2026.07.25</em><b data-en="Filming day">健運動拍片日 · 長輩自己當主角</b></span>
         </button>
       </li>
@@ -391,7 +395,7 @@
       </li>
       <li class="shot" data-reveal style="--d:240ms">
         <button type="button" data-i="4">
-          <span class="shot__img"><img src="assets/img/timeline/2026-02-07-market-md.jpg?v=6" alt="在台北車站無家者市集推廣健運動" data-en-alt="Introducing 健運動 at a street market at Taipei Main Station" width="1000" height="750" loading="lazy" decoding="async"></span>
+          <span class="shot__img"><img src="assets/img/timeline/2026-02-07-market-md.jpg?v=6" alt="在台北車站無家者市集推廣健運動" data-en-alt="Introducing Daily Ten at a street market at Taipei Main Station" width="1000" height="750" loading="lazy" decoding="async"></span>
           <span class="shot__meta"><em>2026.02.07</em><b data-en="Taipei Station market">台北車站市集 · 街頭推廣</b></span>
         </button>
       </li>
@@ -548,7 +552,7 @@
       <span class="mask"><i style="--d:90ms" data-en="so nobody grows old alone.">讓長輩不再一個人變老。</i></span>
     </h2>
 
-    <p class="sec__intro" data-reveal style="--d:100ms" data-en="I am Lucas. I started as a <strong>photography volunteer</strong> here in March 2025 — meal runs, reunion dinners. In January 2026, <strong>健運動 opened</strong>, from one LINE account.">
+    <p class="sec__intro" data-reveal style="--d:100ms" data-en="I am Lucas. I started as a <strong>photography volunteer</strong> here in March 2025 — meal runs, reunion dinners. In January 2026, <strong>Daily Ten opened</strong>, from one LINE account.">
 我是 Lucas。2025 年 3 月開始在社區當<strong>攝影志工</strong>，跟著送餐、圍爐。2026 年 1 月，<strong>健運動開張</strong> —— 從一個 LINE 官方帳號開始。
     </p>
 
@@ -605,7 +609,7 @@
     <p class="eyebrow" data-reveal><span data-en="Partner with us · Contact">合作洽詢 · Contact</span></p>
 
     <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="Bring 健運動">想把健運動</i></span>
+      <span class="mask"><i style="--d:0ms" data-en="Bring Daily Ten">想把健運動</i></span>
       <span class="mask"><i style="--d:100ms" data-en="to your care station?">帶進你的據點嗎？</i></span>
     </h2>
 
@@ -817,7 +821,7 @@
     </div>
 
     <div class="foot__bar">
-      <span class="meta">© <span id="yr">2026</span> 健運動 · <span data-en="Moving with you, young again">陪你動，再青春</span></span>
+      <span class="meta">© <span id="yr">2026</span> <span data-en="Daily Ten">健運動</span> · <span data-en="Moving with you, young again">陪你動，再青春</span></span>
       <a class="foot__up" href="#top">
         <span data-en="Back to top">回到頁首</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
@@ -845,6 +849,6 @@
   </button>
 </div>
 
-<script src="assets/js/site.js?v=105" defer></script>
+<script src="assets/js/site.js?v=106" defer></script>
 </body>
 </html>

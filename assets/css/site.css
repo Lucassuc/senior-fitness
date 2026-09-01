@@ -1331,6 +1331,11 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 }
 .mask>i{display:block;font-style:inherit}
 .hero__title .mask{display:inline-block}
+/* 健運動 is three glyphs that sit happily on one line at 27vw. "Daily Ten" is
+   nine letters and would run off a phone at that size, so the English wordmark
+   stacks instead of shrinking — same vertical weight, still legible at 375px. */
+:root[data-lang="en"] .hero__title{flex-direction:column;align-items:flex-start}
+:root[data-lang="en"] .hero__title .mask{display:block}
 .js .is-in>.mask>i,.js .mask.is-in>i{transform:none}
 
 /* ── reduced motion ─────────────────────────────────────────── */

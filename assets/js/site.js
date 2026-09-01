@@ -630,7 +630,7 @@
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + id +
               '?autoplay=1&rel=0&modestbranding=1&playsinline=1&hl=zh-TW';
-      f.title = t('健運動一分鐘介紹影片', 'JianYunDong — one-minute introduction');
+      f.title = t('健運動一分鐘介紹影片', 'Daily Ten — one-minute introduction');
       f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       f.setAttribute('allowfullscreen', '');
       f.referrerPolicy = 'strict-origin-when-cross-origin';

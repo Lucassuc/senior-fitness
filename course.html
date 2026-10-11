@@ -234,7 +234,7 @@
 
     <dl class="facts" data-reveal style="--d:80ms">
       <div class="fact"><dt data-en="Who">招收對象</dt><dd data-en="Whether or not you are 18 yet, anyone can apply. Especially suited to sports-team members, gym regulars, and anyone applying to university at home or abroad."><strong>無論是否滿 18 歲，任何人都可以報名。</strong>運動社團、運動愛好者，或準備申請國內外大學者尤其適合。</dd></div>
-      <div class="fact"><dt data-en="Dates">梯次時間</dt><dd data-en="Cohort 1 — Sat 17 Oct, 8:00–12:00<br>Cohort 2 — Sat 31 Oct, 8:00–12:00<br><span class='fact__fine'>Both are Saturday mornings · pick one · this is the 4-hour classroom day</span>">第一梯 10/17（六）8:00–12:00<br>第二梯 10/31（六）8:00–12:00<br><span class="fact__fine">兩梯都是週六上午，擇一即可 · 這是 4 小時學科的日子</span></dd></div>
+      <div class="fact"><dt data-en="Dates">梯次時間</dt><dd data-en="Cohort 1 — Sat 17 Oct · full<br>Cohort 2 — Sat 19 Dec, 8:00–12:00 · open<br><span class='fact__fine'>Cohort 2 moved from 31 Oct to 19 Dec · Saturday morning · this is the 4-hour classroom day</span>">第一梯 10/17（六）已額滿<br>第二梯 12/19（六）8:00–12:00 開放報名中<br><span class="fact__fine">第二梯原訂 10/31，已改期至 12/19 · 週六上午 · 這是 4 小時學科的日子</span></dd></div>
       <div class="fact"><dt data-en="Places">每梯名額</dt><dd data-en="15 per cohort, until full">15 位，額滿為止</dd></div>
       <div class="fact"><dt data-en="Selection">錄取方式</dt><dd data-en="Written applications are reviewed. Successful applicants receive an <strong>acceptance email</strong> — it carries the payment details and the programme's own booking LINE account.<br><span class='fact__fine'>Your place is confirmed once the acceptance email has reached you and the transfer is done.</span>">書面資料甄選，錄取者會收到<strong>錄取通知 email</strong> —— 信裡有繳費方式，以及本計畫<strong>預約專用的 LINE 官方帳號</strong>。<br><span class="fact__fine">收到錄取信並完成匯款，才算完成報名。</span></dd></div>
       <div class="fact"><dt data-en="Hours">總時數</dt><dd data-en="4 hours theory + 8 hours placement = 12 hours">學科 4 小時 ＋ 機構實作 8 小時，共 12 小時</dd></div>
@@ -406,8 +406,10 @@
       <!-- Sherry spotted this: the form never asked which cohort. It is a hard
            gate — a family that can make neither morning does not need to write
            the essay — so it sits directly after the school field, before any of
-           the effort. 兩梯都可以 exists because it makes the rota easier to
-           solve, and a student who offers it should be able to say so. -->
+           the effort. 10/17 filled and was taken out of the list, and 兩梯都可以
+           went with it — with one open cohort it meant nothing. 12/19 is
+           preselected so nobody has to pick the only choice; drop `selected`
+           and bring both back when two cohorts are open again. -->
       <div class="field">
         <label for="a-batch"><span data-en="Which cohort">想報名的梯次</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <!-- Full cohort? Add data-full to that <option> and change nothing else —
@@ -415,11 +417,9 @@
              the option unselectable. Delete the attribute to reopen it. -->
         <select id="a-batch" name="batch" required aria-describedby="ea-batch ha-batch">
           <option value="" data-en="Please choose">請選擇</option>
-          <option data-en="Sat 17 Oct, 8:00–12:00">10/17（六）8:00–12:00</option>
-          <option data-en="Sat 31 Oct, 8:00–12:00">10/31（六）8:00–12:00</option>
-          <option data-en="Either works for me">兩梯都可以</option>
+          <option data-en="Sat 19 Dec, 8:00–12:00" selected>12/19（六）8:00–12:00</option>
         </select>
-        <p class="hint" id="ha-batch" data-en="This is the 4-hour classroom morning. Choosing 「either」 makes you easier to place. A cohort that has filled up is marked and cannot be picked — take the other one.">這是 4 小時學科的那個上午。選「兩梯都可以」比較好安排。額滿的梯次會標示「已額滿」且不能選，直接選另一梯就可以。</p>
+        <p class="hint" id="ha-batch" data-en="This is the 4-hour classroom morning. 17 Oct is full; 19 Dec is the cohort open now.">這是 4 小時學科的那個上午。10/17 已額滿，目前只開放 12/19 這一梯。</p>
         <p class="err" id="ea-batch" role="alert"></p>
       </div>
 

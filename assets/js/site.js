@@ -990,7 +990,7 @@
 
     var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'), batch = $('#a-batch'),
         sMail = $('#a-contact'), parent_ = $('#a-parent'),
-        pMail = $('#a-pmail'), phone = $('#a-phone'),
+        pMail = $('#a-pmail'), phone = $('#a-phone'), pJoin = $('#a-pjoin'),
         why = $('#a-why'), exp = $('#a-exp'), work = $('#a-work'), trap = $('#a-trap'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
@@ -1089,12 +1089,13 @@
 
       var L = isEN()
         ? ['Student name','Age','School and year','Cohort','Student email',
-           'Parent name','Parent email','Parent phone','Why they want to join','Sport / volunteering experience','CV / portfolio link']
+           'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Sport / volunteering experience','CV / portfolio link']
         : ['學生姓名','年齡','學校年級','報名梯次','學生 Email',
-           '家長姓名','家長 Email','家長電話','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
+           '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
       var V = [name_.value.trim(), age.value.trim(), school.value.trim(), batch.value.trim(), sMail.value.trim(),
-               parent_.value.trim(), pMail.value.trim(), phone.value.trim(), why.value.trim(), exp.value.trim(),
-               work.value.trim()];
+               parent_.value.trim(), pMail.value.trim(), phone.value.trim(),
+               (pJoin ? pJoin.value.trim() : '0') + t(' 人', pJoin && pJoin.value.trim() === '1' ? ' person' : ' people'),
+               why.value.trim(), exp.value.trim(), work.value.trim()];
       var fields = {};
       L.forEach(function (k, i) { fields[k] = V[i]; });
       var summary = Object.keys(fields).map(function (k) {
@@ -1111,6 +1112,7 @@
         parent: parent_.value.trim(),
         parent_email: pMail.value.trim(),
         parent_phone: phone.value.trim(),
+        parent_join: pJoin ? pJoin.value.trim() : '0',
         why: why.value.trim(),
         experience: exp.value.trim(),
         portfolio: work.value.trim(),

@@ -259,6 +259,11 @@ email notification. `summary` is a single pre-formatted line
 (`邀請人：… ／日期：… ／時間：…`) if you would rather drop one value into the
 email body.
 
+The course form additionally sends `parent_join` (家長全程陪同人數, 0–2). It is
+mapped in the Make scenario's 青年 branch to the Notion number property
+家長全程陪同人數 as `{{parseNumber(ifempty(2.parent_join; "0"))}}`, and it is in
+the notification email. Verified end to end on 2026-11-01 with a real POST.
+
 `inviter` is free text, not a fixed list, so it covers any kind of partner rather
 than only 督導. Five fields total, four of them required — the form is short
 enough to finish on a phone in under a minute, which matters more here than
@@ -388,6 +393,70 @@ Prompt used, if you want variations:
 > subject and no focal point, shadows falling to near-black in the left third,
 > fine natural film grain, monochromatic midnight blue, cinematic and quiet,
 > wide establishing shot
+
+## Adding a cohort
+
+Three places carry a cohort, and all three are lists rather than prose about
+one of them, because there will keep being more. When 12/19 has run:
+
+1. **`#syllabus`** — the open cohort's timetable is the `<ol class="syllabus">`
+   under `.eyebrow--batch`. Replace it with the next cohort's, and move 12/19
+   down into `<ul class="pastlist">` as one more `<li>` (newest first): a label
+   and the subjects, one line.
+2. **`#result`** — copy `<article class="run">`, give it its own film and five
+   photographs, and put it **above** the existing one. `.run + .run` draws the
+   rule between them; nothing in the CSS counts cohorts.
+3. **`#facts`** — 梯次時間, 總時數 and 費用 each name both cohorts explicitly.
+
+Nothing in the copy says "the first cohort" or "this has run once" — the
+headings are 歷梯紀錄 and 辦過的，都在這裡，which stay true at any number.
+
+## 歷梯紀錄（course.html `#result`）
+
+**The film is portrait.** `-Ob2MOWIhyo` was shot on a phone at 9:16, so
+`.film--tall` overrides the 16:9 box `.film` uses on index.html. Given a 16:9
+box it would sit pillarboxed between two black bars. It shares its row with the
+one portrait photograph (`長輩體驗`) and the section's own copy, so a tall video
+does not leave a column of white beside it. The poster is the centre 9:16 crop
+of YouTube's own `maxresdefault.jpg` — the full thumbnail is that frame padded
+into 16:9 with blurred side bars, which is not what you want on the page.
+
+**The mosaic started as 21st's `olewandowski1/gallery-4`** and then lost both
+of that pattern's defining moves, for reasons worth keeping:
+
+- *Greyscale-until-hover is gone.* This design system's one source of warmth is
+  the photographs — see the palette table above — and greyscaling them removed
+  exactly that, leaving a wall of grey teenagers that read as an archive rather
+  than as somewhere to sign up. Colour at rest, a slow 1.04 push-in on hover.
+- *The 2 × 2 lead cell is gone.* In a 4 × 2 grid that cell is square, and the
+  group photograph is 3:2 — it took a third off each end, which on the one
+  frame whose entire point is that everyone is in it is the worst possible
+  crop. The mosaic is now two rows: `.mosaic__lead` holds the two frames that
+  carry the feeling at half width each, `.mosaic__rest` the four context tiles
+  across. **Every cell is 3:2, which is these photographs' own ratio, so
+  nothing is cropped at all.** Give any photo you add a 3:2 crop first.
+
+The top row is the celebration at the end of 課程三 and then the group
+photograph. That order is deliberate: the high-five is the only frame in the
+set that answers *will this be fun*, and the certificates read as the payoff
+after it. The four tiles below cover 課程一 and 課程二, wide shot and speaker
+each.
+
+Captions sit on a navy gradient scrim inside each frame rather than under it.
+The four context tiles are ~274px wide, so a sentence there wraps to two lines
+and covers half the photograph: those show the short `em` label only, and the
+`b` sentence stays in the DOM because the lightbox reads it from there.
+
+**`.shot` carries `grid-row-end:span var(--span,40)` from the 首頁 masonry and
+that selector is not scoped to `#grid`.** Any new grid of `.shot`s must reset
+`grid-row-end:auto`, or every tile claims 40 rows and the explicit rows collapse
+to 0px. This cost an hour; both `.mosaic .shot` and `.run__tall .shot` do it.
+
+The five photographs reuse `.shot` markup so **the existing lightbox picks them
+up with no new JS** — it binds to `.shot button`, reads `em`/`b` out of
+`.shot__meta`, and swaps `-md.jpg` for `-lg.jpg`. That is why `#lb` had to be
+copied into course.html, and why the captions are visually hidden rather than
+deleted: the lightbox reads them from the DOM.
 
 ## Known trade-offs
 

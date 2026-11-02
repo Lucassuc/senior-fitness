@@ -1871,3 +1871,111 @@ svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-l
 }
 :root[data-lang="en"] .hero--type__title{font-size:clamp(2.5rem,9.5vw,5.75rem)}
 :root[data-lang="en"] .foot__me{font-size:clamp(1.375rem,5.4vw,2.125rem)}
+
+/* ── 第一梯成果（#result）──────────────────────────────────
+   One .run per cohort, newest first; adding 12/19 is a copy of the markup.
+   Nothing here counts cohorts or hardcodes a mode. */
+.run{margin-top:var(--s8)}
+.run + .run{margin-top:var(--s9);padding-top:var(--s9);border-top:1px solid var(--rule)}
+.run > .eyebrow{margin-bottom:var(--s5)}
+
+.run__top{display:grid;gap:var(--s4)}
+.run__say p{max-width:46ch}
+.run__fine{margin-top:var(--s3);font-size:var(--t-meta);letter-spacing:.04em;color:var(--ink-faint)}
+.run__tall{list-style:none;margin:0;padding:0}
+
+/* The film is 9:16 — a phone video. A 16:9 box would pillarbox it in black. */
+.film--tall .film__box{aspect-ratio:9/16}
+.film--tall .film__box img{width:100%;height:100%;object-fit:cover}
+
+/* Every cell is 3:2, which is these photographs' own ratio, so nothing is
+   cropped. A lead spanning 2×2 of a 4×2 grid is square and took a third off
+   each end of the group photograph — the whole point of that frame is that
+   everyone is in it. Hence lead | 2×2 rather than one grid with a big cell. */
+.mosaic{display:grid;gap:var(--s2);margin-top:var(--s5)}
+.mosaic ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.mosaic__lead{grid-template-columns:1fr}
+.mosaic__rest{grid-template-columns:1fr 1fr}
+.mosaic .shot{grid-row-end:auto}      /* see the note below */
+.mosaic .shot__img{border-radius:var(--r)}
+.mosaic .shot__img img{aspect-ratio:3/2;object-fit:cover;width:100%;height:auto}
+
+/* .shot carries `grid-row-end:span var(--span,40)` from the 首頁 masonry and
+   that selector is not scoped to #grid — without the reset above every tile
+   claims 40 rows and the explicit rows collapse to 0px. */
+
+/* Colour, not greyscale. The design system's one source of warmth is the
+   photographs ("Warmth comes entirely from the photographs"), and a wall of
+   grey teenagers reads as an archive rather than as somewhere to sign up.
+   The hover is a slow push-in instead, and the caption sits on the frame so
+   each photograph says what it is without being opened — on a phone, where
+   there is no hover at all, that label is the only thing explaining it. */
+.mosaic .shot button,.run__tall .shot button{position:relative;display:block}
+.mosaic .shot__img img{transition:transform .8s var(--ease-out)}
+.mosaic .shot__meta,.run__tall .shot__meta{
+  position:absolute;left:0;right:0;bottom:0;margin:0;
+  padding:var(--s6) var(--s4) var(--s3);
+  background:linear-gradient(to top,rgba(6,11,36,.82),rgba(6,11,36,.45) 45%,rgba(6,11,36,0));
+  border-radius:0 0 var(--r) var(--r);
+  pointer-events:none;
+}
+.mosaic .shot__meta em,.run__tall .shot__meta em{
+  color:#fff;font-size:var(--t-meta);letter-spacing:.08em;margin-bottom:4px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
+}
+.mosaic .shot__meta b,.run__tall .shot__meta b{
+  color:#fff;font-size:.9375rem;line-height:1.45;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
+}
+/* The four context tiles are ~165px wide on a phone — a sentence there covers
+   half the photograph. They show the short label only, and the sentence stays
+   in the DOM because the lightbox reads it from there. */
+.mosaic__rest .shot__meta{padding:var(--s5) var(--s3) var(--s3)}
+.mosaic__rest .shot__meta em{margin-bottom:0;letter-spacing:.04em}
+.mosaic__rest .shot__meta b{display:none}
+/* #9099c3 is the system's label colour, but on a scrim laid over an unknown
+   photograph it lands around 4.6:1 — too close to the floor for small text.
+   A light tint of the same hue clears it with room to spare. */
+.mosaic__lead .shot__meta em,.run__tall .shot__meta em{color:#ccd2ea}
+@media (hover:hover){
+  .mosaic .shot button:hover .shot__img img,
+  .mosaic .shot button:focus-visible .shot__img img{transform:scale(1.04)}
+}
+
+@media (min-width:700px){
+  /* text · film · portrait photo — one row, so the tall film has company its
+     own height instead of a column of white beside it. */
+  .run__top{grid-template-columns:1fr minmax(0,0.78fr) minmax(0,0.78fr);gap:var(--s4);align-items:stretch}
+  .run__say{align-self:center}
+  .run__tall .shot{grid-row-end:auto}
+  .run__tall .shot,.run__tall .shot button,.run__tall .shot__img{height:100%}
+  .run__tall .shot__img img{height:100%;aspect-ratio:auto;object-fit:cover}
+
+  /* Two rows: the two frames that carry the feeling at half width each, then
+     the four context tiles across. Every cell stays 3:2, so still no crop. */
+  .mosaic__lead{grid-template-columns:1fr 1fr}
+  .mosaic__rest{grid-template-columns:repeat(4,1fr)}
+}
+
+/* A cohort label sitting above a .syllabus drew its own bottom rule while the
+   first .syl drew a top rule, with both margins stacked between them — two
+   bars with a band of nothing in between. The list below the label supplies
+   the only rule it needs. */
+.eyebrow--batch{border-bottom:none;padding-bottom:0;margin-bottom:var(--s4)}
+.eyebrow--batch + .syllabus,.eyebrow--batch + .pastlist{margin-top:0}
+
+/* 前幾梯上過什麼. One <li> per finished cohort, newest first — this is where
+   12/19 moves to once it has run. It follows .syl--field, a filled card with
+   its own margin, so it carries the top padding that keeps it off that edge. */
+.pastlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.pastlist li{padding-block:var(--s5);border-top:1px solid var(--rule)}
+.pastlist li:last-child{border-bottom:1px solid var(--rule)}
+.pastlist em{
+  display:block;font-family:var(--ff-latin);font-style:normal;font-weight:500;
+  font-size:var(--t-meta);letter-spacing:.14em;color:var(--label);margin-bottom:6px;
+}
+.pastlist span{display:block;color:var(--ink-soft)}
+@media (min-width:700px){
+  .pastlist li{display:grid;grid-template-columns:minmax(0,18rem) 1fr;gap:var(--s4);align-items:baseline}
+  .pastlist em{margin-bottom:0}
+}

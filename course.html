@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title data-en="Youth Sports Coach Training · Daily Ten">青年運動教練培訓 · 健運動</title>
-<meta name="description" content="全台首創「青年運動教練」培訓。18 歲以前也能當教練，任何年紀都歡迎報名。學科課程取得青年運動教練結業證明，再以 8 小時機構實作取得中華長照協會核發、載明服務時數的志工培訓證明。第二梯 12/19（六）9:00–12:30，每梯次限收 15 位。">
+<meta name="description" content="全台首創「青年運動教練」培訓。18 歲以前也能當教練，任何年紀都歡迎報名。學科課程取得青年運動教練結業證明，再以 8 小時機構實作取得中華長照協會核發、載明服務時數的志工培訓證明。第二梯 12/19（六）9:00–13:00，早鳥價 NT$3,900 至 11/30，每梯次限收 15 位。">
 <meta name="theme-color" content="#0d1a50">
 <meta name="format-detection" content="telephone=no">
 
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="健運動">
 <meta property="og:title" content="青年運動教練培訓 · 健運動">
 <meta property="og:description" content="18 歲以前，也能當教練 —— 全台首創，任何年紀都歡迎報名。學科課程加 8 小時機構實作，拿到青年運動教練結業證明與中華長照協會的志工培訓證明。">
-<meta property="og:image" content="assets/img/hero-og-1200.jpg?v=45">
+<meta property="og:image" content="assets/img/c1/11-cpr-lg.jpg?v=1">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/icon-64.png?v=6" sizes="64x64">
@@ -26,481 +26,236 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=123">
+<!-- This page does NOT load site.css. v2.css is the chrome it shares with
+     index.html (bar, first screen, button, dock, footer); course2.css is the
+     rest of this page. site.js still runs here for the EN toggle and the
+     application form — every id it reads (#langBtn, #applyForm, #a-*, #ea-*,
+     #applySubmit, #applyDone, #applyRecap, #applyAgain, #yr) is kept. -->
+<link rel="stylesheet" href="assets/css/v2.css?v=3">
+<link rel="stylesheet" href="assets/css/course2.css?v=2">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
 <a class="skip" href="#main" data-en="Skip to content">跳至主要內容</a>
-<div class="progress" id="progress" aria-hidden="true"><i></i></div>
 
-<header class="nav" id="nav">
-  <a class="nav__brand" href="index.html" aria-label="健運動 — 回到首頁" data-en-aria="Daily Ten — back to home">
-    <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="34" height="34">
-    <span data-en="Daily Ten">健運動</span>
-  </a>
-
-  <!-- This page's own sections, in document order — the bar is a table of
-       contents for the page you are on, the same job it does on index.html.
-       It must not point at index.html#how / #story / #data: that throws the
-       reader off the page they are deciding about, and repeats the 青年培訓
-       the pill on the right already marks. Routes back to the main site are
-       still here — the brand mark and the 合作 half of the pill.
-       Six links sit at exactly the width available at 810px, so the labels
-       stay short in both languages; the full section names are in the menu. -->
-  <nav class="nav__links" aria-label="主要導覽" data-en-aria="Main navigation">
-    <a href="#gap" data-en="Why">為什麼</a>
-    <a href="#gain" data-en="What you get">你會得到</a>
-    <a href="#facts" data-en="Details">報名資訊</a>
-    <a href="#syllabus" data-en="Course">課程</a>
-    <a href="#who" data-en="Who">誰在辦</a>
-    <a href="#result" data-en="Results">成果</a>
-  </nav>
-
-  <div class="nav__right">
-    <div class="navduo">
+<header class="bar">
+  <div class="vwrap">
+    <a class="brand" href="#top" aria-label="健運動 — 回到頁首" data-en-aria="Daily Ten — back to top">
+      <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="28" height="28">
+      <span data-en="Daily Ten">健運動</span>
+    </a>
+    <nav class="bar__links" aria-label="本頁導覽" data-en-aria="On this page">
+      <a href="#facts" data-en="Details">報名資訊</a>
+      <a href="#gain" data-en="What you get">你會得到</a>
+      <a href="#syllabus" data-en="Course">課程內容</a>
+      <a href="#story" data-en="Our story">我們的故事</a>
+      <a href="#result" data-en="Photos">回顧照片</a>
+    </nav>
+    <!-- The page switch. Same control, same place, on both pages; the page
+         you are on is the filled half. -->
+    <nav class="seg" aria-label="切換頁面" data-en-aria="Switch page">
       <a href="index.html" data-en="Home">首頁</a>
-      <!-- On this page the right half would only reload the page you are on.
-           It becomes the thing a reader who has decided actually wants. -->
-      <a href="#apply" aria-current="page" data-en="Apply">報名</a>
-    </div>
-    <button class="lang" id="langBtn" type="button" lang="en" aria-label="Switch to English">EN</button>
-    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="開啟選單" data-en-aria="Open menu">
-      <i></i><i></i>
-    </button>
+      <a href="course.html" aria-current="page" data-en="Youth course">青年培訓</a>
+    </nav>
+    <button class="langbtn" id="langBtn" type="button" lang="en" aria-label="Switch to English">EN</button>
+    <a class="vbtn vbtn--sm" href="#apply" data-en="Apply">報名</a>
   </div>
 </header>
-
-<div class="menu" id="menu" hidden>
-  <!-- Shortlist, not an index. The pill in the header already carries both
-       calls to action, so neither belongs here as well, and the numbers went
-       with the cut sections — a list reading 02 / 05 / 06 / 07 looks broken.
-       The running chapter chip still numbers every section as you scroll. -->
-  <nav class="menu__list" aria-label="全站選單" data-en-aria="Site menu">
-    <a href="#gain"><span data-en="What you walk away with">你會得到什麼</span></a>
-    <a href="#facts"><span data-en="The details">報名資訊</span></a>
-    <a href="#syllabus"><span data-en="What you learn">課程內容</span></a>
-    <a href="#who"><span data-en="Who runs it">誰在辦這個計畫</span></a>
-    <a href="#result"><span data-en="Every cohort so far">歷梯紀錄</span></a>
-  </nav>
-  <div class="menu__foot">
-    <span class="meta" data-en="Daily Ten">健運動</span>
-    <a href="index.html" data-en="Back to the main programme">回到計畫首頁</a>
-    <span class="meta">Contact</span>
-    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
-  </div>
-</div>
 
 <main id="main">
 <span id="top"></span>
 
-<!-- ══ 1 · HERO ══
-     健運動 running at 永恩小作所: a room of 長輩 mid-movement with the coach on
-     the right, arms out, leading. Replaces an earlier frame of the projected
-     video — in that one the coach was a sliver at the edge and the page read as
-     a class FOR 長輩, which is the main page's story rather than this one's.
-     Here a 16-year-old sees a young person running the room, which is the thing
-     this page is asking them to become.
-
-     Cropped from y=400 of the source so the ceiling and its light panels are
-     gone — the earlier version gave a third of the frame to an empty ceiling.
-     Three crops because the hero box takes three shapes (~2.1 / ~1.4 / ~0.97),
-     and <picture> switches on the viewport's SHAPE, not on min-width alone:
-     keyed to width only, a 990x1140 window took the widest file and showed 63%
-     of it. Each crop is biased right so the coach survives all three. -->
-<section class="sec sec--navy hero--type" aria-label="青年運動教練培訓" data-en-aria="Youth Sports Coach Training">
-  <div class="hero--type__media">
-    <picture>
-      <img src="assets/img/course-hero-mobile-707.jpg?v=99"
-           alt="長照據點的教室裡，一群長輩張開雙手跟著做動作，穿粉紅色上衣的青年站在右側帶著大家一起動"
-           data-en-alt="In a care-station activity room, a group of elders follow along with their arms outstretched while the young coach in pink leads from the right"
-           width="1240" height="1120" fetchpriority="high" decoding="async">
-    </picture>
-  </div>
-  <div class="hero--type__scrim" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <p class="hero--type__eyebrow" data-reveal data-en="A Taiwan first · applicants of any age welcome">全台首創 · 任何年紀都歡迎報名</p>
-
-    <h1 class="hero--type__title">
-      <span class="mask"><i style="--d:0ms" data-en="Not yet 18.">18 歲以前，</i></span>
-      <span class="mask"><i style="--d:90ms" data-en="Already a coach.">也能當教練。</i></span>
-    </h1>
-
-    <p class="hero--type__lede" data-reveal style="--d:300ms" data-en="Youth senior fitness coach training — <strong>the classroom course</strong> for a Youth Sports Coach completion certificate, then <strong>8 service hours</strong> for the association's volunteer certificate.">
-      青年運動教練培訓 —— <strong>學科課程</strong>，拿到青年運動教練結業證明，再以 <strong>8 小時實作</strong>拿到協會核發的志工培訓證明。
-    </p>
-
-    <div class="hero--type__act" data-reveal style="--d:400ms">
-      <a class="btn btn--solid-inv btn--big" href="#apply" data-en="Apply now">我要報名</a>
-      <a class="hero--type__alt" href="#gain" data-en="See what you get first">先看看能得到什麼</a>
+<!-- ══ 1 · 第一眼：回顧影片 + 什麼課、何時、多少錢、報名 ══
+     The cover is the director's 主視覺 (#11): a coach on his knees beside a
+     child doing compressions. It answers the parent's first question —
+     will anyone actually teach my kid — before a word is read. -->
+<section class="vhero" aria-label="青年運動教練培訓" data-en-aria="Youth Sports Coach Training">
+  <div class="vwrap">
+    <div class="vhero__text">
+      <p class="vhero__eyebrow" data-en="A Taiwan first · applicants of any age welcome">全台首創 · 任何年紀都歡迎報名</p>
+      <h1 data-en="Youth Sports Coach Training">青年運動教練培訓</h1>
+      <p class="status"><i aria-hidden="true"></i><span data-en="Cohort 2 · open now · early-bird price until 30 Nov">第二梯 · 開放報名中 · 早鳥價至 11/30</span></p>
+      <p class="vhero__lede" data-en="<strong>A morning in the classroom</strong> plus <strong>8 hours on placement</strong> — you leave with a Youth Sports Coach completion certificate and the China Long-Term Care Association's volunteer certificate."><strong>半天學科</strong>加 <strong>8 小時機構實作</strong>，拿到青年運動教練結業證明與中華長照協會的志工培訓證明。</p>
+      <dl class="quick">
+        <div><dt data-en="When">時間</dt><dd data-en="Sat 19 Dec<small>9:00–13:00</small>">12/19（六）<small>9:00–13:00</small></dd></div>
+        <div><dt data-en="Where">地點</dt><dd data-en="Yonghe, New Taipei<small>Feel Fitness Yongxiu</small>">新北永和<small>賦優適能永秀店</small></dd></div>
+        <div><dt data-en="Fee">費用</dt><dd data-en="NT$3,900<small>early bird, to 30 Nov</small>">NT$3,900<small>早鳥價 · 至 11/30</small></dd></div>
+      </dl>
+      <div class="vhero__act">
+        <a class="vbtn" id="heroCta" href="#apply"><span data-en="Apply now">立即報名</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="vhero__alt" href="#facts" data-en="See the details first">先看報名資訊</a>
+      </div>
     </div>
+
+    <a class="vhero__media" href="https://www.youtube.com/watch?v=6vL4GhiBuoA" target="_blank" rel="noopener" data-yt="6vL4GhiBuoA" aria-label="播放第一梯回顧影片" data-en-aria="Play the cohort one recap film" style="--pos:58% 42%">
+      <img src="assets/img/c1/11-cpr-lg.jpg?v=1"
+           alt="教練跪在學員身旁，看著他的手，一下一下教他怎麼做 CPR 按壓"
+           data-en-alt="A coach kneels beside a trainee, watching his hands and guiding each CPR compression"
+           width="2000" height="1333" fetchpriority="high" decoding="async">
+      <span class="vhero__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="vhero__cap"><b data-en="Watch the cohort 1 recap film">看第一梯回顧影片</b><span>2026.10.17</span></span>
+    </a>
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span data-en="Coaching before 18">18 歲以前也能當教練</span><b>·</b><span class="ghost" data-en="Classroom + 8 hours on site">學科 ＋ 8 小時實作</span><b>·</b><span data-en="15 places per cohort">每梯限收 15 位</span><b>·</b>
-    <span data-en="Coaching before 18">18 歲以前也能當教練</span><b>·</b><span class="ghost" data-en="Classroom + 8 hours on site">學科 ＋ 8 小時實作</span><b>·</b><span data-en="15 places per cohort">每梯限收 15 位</span><b>·</b>
+<nav class="jump" aria-label="快速前往" data-en-aria="Jump to">
+  <div class="vwrap">
+    <a href="#facts"><span data-en="Details &amp; prices">報名資訊與費用</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+    <a href="#syllabus"><span data-en="Course">課程內容</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+    <a href="#story"><span data-en="Our story">我們的故事</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+    <a href="#result"><span data-en="Photos">回顧照片</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
   </div>
-</div>
+</nav>
 
-<!-- ══ 2 · 為什麼有這個計畫 ══ -->
-<section class="sec sec--paper" id="gap">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>01</em><span data-en="Why this exists">為什麼有這個計畫</span></p>
-
-    <p class="sec__intro" data-reveal style="--d:80ms" data-en="To be a fitness coach, you usually have to be 18.">想當運動教練，通常要滿 18 歲。</p>
-
-    <h2 class="statement">
-      <span class="mask"><i style="--d:0ms" data-en="So what about you,">那 18 歲以前</i></span>
-      <span class="mask"><i style="--d:90ms" data-en="before you turn 18?">的你呢？</i></span>
-    </h2>
-
-    <blockquote class="pullout" data-reveal style="--d:200ms" data-en="There is no “youth sports coach” anywhere in the world. Students who want this cannot even get trained — so we built the training.">
-      國際上沒有「青年運動教練」制度，<br>想做的高中生連受訓的機會都沒有 ——<br>所以我們自己做了一個。
-    </blockquote>
-
-    <ul class="pains">
-      <li class="pain" data-reveal>
-        <em class="pain__no">01</em>
-        <p data-en="You need service hours for university — and you do not want to just clock them up.">升學要服務時數，但你不想只是去湊時數。</p>
-      </li>
-      <li class="pain" data-reveal style="--d:70ms">
-        <em class="pain__no">02</em>
-        <p data-en="You want to help elders and have no idea how to start.">你想幫長輩，卻不知道能做什麼。</p>
-      </li>
-      <li class="pain" data-reveal style="--d:140ms">
-        <em class="pain__no">03</em>
-        <p data-en="Medicine, PT, OT, sports science — all want real experience.">醫護、物治、職治、運動科系，都看實務經驗。</p>
-      </li>
-      <li class="pain" data-reveal style="--d:210ms">
-        <em class="pain__no">04</em>
-        <p data-en="We keep the record and the photos for you.">服務紀錄與成果照片，我們幫你留下來。</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══ 3 · 你會得到什麼 ══
-     Before the syllabus: a parent decides on outcomes, not on a timetable. -->
-<section class="sec sec--tint" id="gain">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>02</em><span data-en="What you walk away with">你會得到什麼</span></p>
-
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="You give an elder company.">你給長輩陪伴，</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="You leave with proof.">你帶走一份履歷。</i></span>
-    </h2>
-
-    <ul class="cards">
-      <li class="card" data-reveal>
-        <em class="card__no">01</em>
-        <h3 data-en="A Youth Sports Coach completion certificate">青年運動教練結業證明</h3>
-        <p data-en="Cohort 2 earns the Youth Sports Coach certificate in Sports Nutrition &amp; Health Management, issued by Feel Fitness and handed over at the closing session.">第二梯拿到的是「青年運動教練 · 運動營養與健康管理培訓課程」結業證書，由賦優適能核發，結業式當場頒發。</p>
-      </li>
-      <li class="card" data-reveal style="--d:70ms">
-        <em class="card__no">02</em>
-        <h3 data-en="A volunteer certificate from the association">協會志工培訓證明</h3>
-        <p data-en="Issued by the China Long-Term Care Association once your 8 hours are done — the certificate names the 8 hours of placement service.">完成 8 小時實作後，由社團法人中華長照協會核發，證明上載明「實作服務時數 8 小時」。</p>
-      </li>
-      <li class="card" data-reveal style="--d:70ms">
-        <em class="card__no">03</em>
-        <h3 data-en="A volunteering record you can submit">志工履歷與成果照片</h3>
-        <p data-en="We keep the record and the photos, ready for your application.">服務紀錄與照片我們幫你整理好。</p>
-      </li>
-      <li class="card" data-reveal style="--d:140ms">
-        <em class="card__no">04</em>
-        <h3 data-en="Something that changes you">真的走進長照現場</h3>
-        <p data-en="Not a lecture — you wear the ageing simulation suit, and you lead real elders.">不是聽講座 —— 你會穿上長輩體驗裝，也會真的帶長輩動。</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══ 4 · 報名資訊 ══
-     Every objection a parent has, in one scannable block, and deliberately
-     ABOVE 課程內容. 年齡、時數、費用、名額 are the gates: a reader who fails one
-     never needs the timetable, and a reader who passes them reads it properly.
-     When this sat below the syllabus those four arrived ~1,700px later, on
-     screen 7 of 15. Same reasoning that puts 你會得到什麼 ahead of the
-     syllabus, applied one step harder. -->
-<section class="sec sec--paper" id="facts">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>03</em><span data-en="The details">報名資訊</span></p>
-
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="Before you apply,">報名前，</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="the practical bits.">先看這些。</i></span>
-    </h2>
-
-    <dl class="facts" data-reveal style="--d:80ms">
-      <div class="fact"><dt data-en="Who">招收對象</dt><dd data-en="Whether or not you are 18 yet, anyone can apply. Especially suited to sports-team members, gym regulars, and anyone applying to university at home or abroad."><strong>無論是否滿 18 歲，任何人都可以報名。</strong>運動社團、運動愛好者，或準備申請國內外大學者尤其適合。</dd></div>
-      <div class="fact"><dt data-en="Dates">梯次時間</dt><dd data-en="Cohort 1 — Sat 17 Oct · full<br>Cohort 2 — Sat 19 Dec, 9:00–12:30 · open<br><span class='fact__fine'>Cohort 2 moved from 31 Oct to 19 Dec · three units from 9:00 to 11:30, then the closing session and Christmas lunch — you are free to leave at 12:00</span>">第一梯 10/17（六）已額滿<br>第二梯 12/19（六）9:00–12:30 開放報名中<br><span class="fact__fine">第二梯原訂 10/31，已改期至 12/19 · 9:00–11:30 三個單元，11:30 起是結業式與聖誕餐會，有事可以 12:00 先離開</span></dd></div>
-      <div class="fact"><dt data-en="Places">每梯名額</dt><dd data-en="15 per cohort, until full">15 位，額滿為止</dd></div>
-      <div class="fact"><dt data-en="Selection">錄取方式</dt><dd data-en="Written applications are reviewed. Successful applicants receive an <strong>acceptance email</strong> — it carries the payment details and the programme's own booking LINE account.<br><span class='fact__fine'>Your place is confirmed once the acceptance email has reached you and the transfer is done.</span>">書面資料甄選，錄取者會收到<strong>錄取通知 email</strong> —— 信裡有繳費方式，以及本計畫<strong>預約專用的 LINE 官方帳號</strong>。<br><span class="fact__fine">收到錄取信並完成匯款，才算完成報名。</span></dd></div>
-      <div class="fact"><dt data-en="Hours">總時數</dt><dd data-en="Cohort 2 — 3.5 hours of coursework (19 Dec, 9:00–12:30)<br>Cohort 1 — 4 hours<br>Both followed by 8 hours of placement">第二梯 學科 3.5 小時（12/19 9:00–12:30）<br>第一梯 學科 4 小時<br>兩梯之後都再加機構實作 8 小時</dd></div>
-      <!-- Classroom and placement are two different things and must stay two
-           rows. The 4 hours of 學科 happen at 賦優適能; the 8 hours of 實作 do not
-           happen at a single address at all — they rotate across the two 永樂居
-           apartments and iCare Cafe, which is why that row leads with 三處場域輪替
-           rather than with a venue name. 永恩小作所 was on this list and was removed
-           at the director's instruction; do not re-add it.
-           永樂居 is a sheltered facility and is deliberately absent from Google Maps,
-           so those two links query the street address. iCare Cafe and the gym have
-           real listings, so theirs query the business name — that lands on the shop
-           card with its reviews.
-           The gym's Google listing trails a string of service keywords after
-           永秀店 (特殊族群訓練｜機能重建訓練｜銀髮專業訓練｜教練友善空間) — that is
-           its SEO description, not its name, so the row stops at the branch. -->
-      <div class="fact"><dt data-en="Classroom">學科地點</dt><dd data-en="Feel Fitness, Yongxiu branch<br><span class='fact__addr'><a href='https://www.google.com/maps/search/?api=1&amp;query=%E8%B3%A6%E5%84%AA%E9%81%A9%E8%83%BD%20Feel%20Fitness%20%E6%B0%B8%E7%A7%80%E5%BA%97%7C%E7%89%B9%E6%AE%8A%E6%97%8F%E7%BE%A4%E8%A8%93%E7%B7%B4%7C%E6%A9%9F%E8%83%BD%E9%87%8D%E5%BB%BA%E8%A8%93%E7%B7%B4%7C%E9%8A%80%E9%AB%AE%E5%B0%88%E6%A5%AD%E8%A8%93%E7%B7%B4%7C%E6%95%99%E7%B7%B4%E5%8F%8B%E5%96%84%E7%A9%BA%E9%96%93' target='_blank' rel='noopener'>234, New Taipei City, Yonghe District, Xiulang Village, Lane 181, Section 2, Xiulang Rd, No. 8, 1F</a></span><br><span class='fact__fine'>The classroom course</span>">賦優適能 Feel Fitness 永秀店<br><span class="fact__addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B3%A6%E5%84%AA%E9%81%A9%E8%83%BD%20Feel%20Fitness%20%E6%B0%B8%E7%A7%80%E5%BA%97%7C%E7%89%B9%E6%AE%8A%E6%97%8F%E7%BE%A4%E8%A8%93%E7%B7%B4%7C%E6%A9%9F%E8%83%BD%E9%87%8D%E5%BB%BA%E8%A8%93%E7%B7%B4%7C%E9%8A%80%E9%AB%AE%E5%B0%88%E6%A5%AD%E8%A8%93%E7%B7%B4%7C%E6%95%99%E7%B7%B4%E5%8F%8B%E5%96%84%E7%A9%BA%E9%96%93" target="_blank" rel="noopener">234 新北市永和區秀朗里秀朗路二段181巷8號1樓</a></span><br><span class="fact__fine">學科課程在這裡上</span></dd></div>
-      <div class="fact"><dt data-en="Placement">實作場域</dt><dd data-en="Three sites in rotation — not one fixed address<br><span class='fact__addr'><a href='https://www.google.com/maps/search/?api=1&amp;query=iCare%20Cafe%20%E9%95%B7%E7%85%A7%E5%92%96%E5%95%A1%E9%A4%A8' target='_blank' rel='noopener'>iCare Cafe · New Taipei City, Yonghe District, No. 155, Wenhua Rd, 1F</a><br><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%8D%97%E5%B1%B1%E8%B7%AF127%E5%B7%B7' target='_blank' rel='noopener'>Yongle Ju Senior Apartments (Zhonghe) · New Taipei City, Zhonghe District, Lane 127, Nanshan Rd</a><br><a href='https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80%E7%A6%8F%E5%92%8C%E8%B7%AF57%E5%B7%B7' target='_blank' rel='noopener'>Yongle Ju Senior Apartments (Yonghe) · New Taipei City, Yonghe District, Lane 57, Fuhe Rd</a></span><br><span class='fact__fine'>8 hours in a care setting · likely to fall in the winter break, on weekday evenings or at weekends. After the classroom course we ask everyone for their availability, then schedule and confirm over the programme LINE account.</span>">三處場域輪替，不是固定一個地點<br><span class="fact__addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=iCare%20Cafe%20%E9%95%B7%E7%85%A7%E5%92%96%E5%95%A1%E9%A4%A8" target="_blank" rel="noopener">iCare Cafe 長照咖啡館 · 新北市永和區文化路155號1樓</a><br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%8D%97%E5%B1%B1%E8%B7%AF127%E5%B7%B7" target="_blank" rel="noopener">永樂居 獨老公寓（中和）· 新北市中和區南山路127巷</a><br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80%E7%A6%8F%E5%92%8C%E8%B7%AF57%E5%B7%B7" target="_blank" rel="noopener">永樂居 獨老公寓（永和）· 新北市永和區福和路57巷</a></span><br><span class="fact__fine">8 小時機構實作 · 時段可能落在寒假、平日傍晚或週末。學科結束後，我們會先問過大家可以的時間，再排定並用 LINE 官方帳號通知</span></dd></div>
-      <div class="fact"><dt data-en="Fee">費用</dt><dd data-en="Cohort 2, 19 Dec — <strong>NT$2,900</strong> per person (a single one-off training fee, covering both certificates, result photography and video, course materials and equipment, and so on)<br>A parent staying for the whole session — <strong>NT$300</strong> per person (Christmas food and drinks, venue cleaning, and the activities on the day)<br><span class='fact__fine'>Cohort 1 on 17 Oct was NT$3,900. Nothing further is charged at any point. The transfer details are in the acceptance email — please do not send anything before it arrives.</span>">第二梯 12/19 培訓費 <strong>NT$2,900</strong>／人（一次性收費，含證書、影音成果、教材道具等）<br>家長全程陪同參與費 <strong>NT$300</strong>／人（含聖誕餐點與飲品、現場清潔與現場活動體驗）<br><span class="fact__fine">第一梯 10/17 為 NT$3,900。課程期間不會再收取任何費用。匯款資訊會寫在錄取信裡，收到之前請先不要匯款。</span></dd></div>
-      <div class="fact"><dt data-en="Insurance">保險</dt><dd data-en="Venue insurance is included in the fee.">課程費用已含場地保險。</dd></div>
-    </dl>
-
-    <blockquote class="pullout" data-reveal style="--d:120ms" data-en="Why not one fixed place? The elders differ across the three sites, and each of them asks something different of you — one more site is one more way of learning to be with someone.">
-      為什麼不固定在一個地方？三處場域裡的長輩不一樣，相處的方式也不一樣 —— 多走一處，你就多學會一種相處。
-    </blockquote>
-
-    <p class="sec__note" data-reveal style="--d:160ms" data-en="A team member is with you the whole time — you never face the elders alone. What you do is accompany, lead exercise and keep records. No bathing, feeding or transfers.">全程都有帶隊人員陪同，<strong>不會讓你單獨面對長輩</strong>。你做的是陪伴、帶動與紀錄，<strong>不包含沐浴、餵食、移位等身體照顧</strong>。</p>
-  </div>
-</section>
-
-<!-- ══ 5 · 課程內容 ══ -->
-<section class="sec sec--tint" id="syllabus">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>04</em><span data-en="What you learn">課程內容</span></p>
-
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="Learn in the classroom,">教室裡學，</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="Do it for real.">現場真的做。</i></span>
-    </h2>
-
-    <p class="sec__intro" data-reveal style="--d:80ms" data-en="Hands-on and interactive — not a lecture you sit through.">學科採互動體驗式教學，不是坐著聽完就算。</p>
-
-    <!-- Two cohorts, two different mornings, and the open one leads. 12/19 is
-         what a reader can still apply for; 10/17 ran with a different syllabus
-         and is kept below as a record rather than deleted. If a third cohort
-         opens, the same pattern: newest open cohort first, the rest beneath. -->
-    <p class="eyebrow eyebrow--batch" data-reveal style="--d:100ms"><span data-en="Cohort 2 · Sat 19 Dec · open">第二梯 · 12/19（六）· 開放報名中</span></p>
-
-    <ol class="syllabus">
-      <li class="syl" data-reveal>
-        <div class="syl__head">
-          <em class="syl__no" data-en="Unit 1">單元一</em>
-          <span class="syl__dur">9:00–10:00</span>
-        </div>
-        <h3 class="syl__title" data-en="Fuelling an athlete">運動營養補給策略</h3>
-        <p class="syl__body" data-en="A scene played out in the room · nutrition basics (the three macronutrients) · water and electrolytes · what to eat before, during and after exercise · choosing in a convenience store · myths broken">情境劇、營養基礎（三大營養素）、水份與電解質、運動前中後怎麼吃、超商如何選擇、迷思破解。</p>
-      </li>
-
-      <li class="syl" data-reveal style="--d:70ms">
-        <div class="syl__head">
-          <em class="syl__no" data-en="Unit 2">單元二</em>
-          <span class="syl__dur">10:00–10:30</span>
-        </div>
-        <h3 class="syl__title" data-en="Managing yourself as an athlete">運動員自我管理學</h3>
-        <p class="syl__body" data-en="Sleep and recovery · recognising fatigue · time management · a seven-day plan of your own">睡眠恢復、疲勞辨識、時間管理、七日管理計劃。</p>
-      </li>
-
-      <li class="syl" data-reveal style="--d:140ms">
-        <div class="syl__head">
-          <em class="syl__no" data-en="Unit 3">單元三</em>
-          <span class="syl__dur">10:30–11:30</span>
-        </div>
-        <h3 class="syl__title" data-en="Recovering after exercise">運動後放鬆</h3>
-        <p class="syl__body" data-en="Why recovery matters · hot and cold compresses · the foam roller · stretching · practice in small groups on real situations">放鬆的重要性、冷熱敷觀念、筋膜滾筒、伸展、情境分組練習。</p>
-      </li>
-
-      <li class="syl" data-reveal style="--d:210ms">
-        <div class="syl__head">
-          <em class="syl__no" data-en="Closing">結業式</em>
-          <span class="syl__dur">11:30–12:30</span>
-        </div>
-        <h3 class="syl__title" data-en="Certificates, and a Christmas table">頒發結業證明與聖誕餐會</h3>
-        <p class="syl__body" data-en="Certificates handed out and a group photograph, then the athlete's nutrition-plate card game built around the Christmas lunch — the playing cards matched against real food. Anyone who needs to go, or is not eating, is free to leave at 12:00.">結業式頒發「青年運動教練 · 運動營養與健康管理」結業證書合影、結合聖誕大餐的運動員營養餐盤桌遊（遊戲卡牌與真實食物的結合）。有事的、不吃的可以 12:00 先走。</p>
-      </li>
-
-      <li class="syl syl--field" data-reveal style="--d:280ms">
-        <div class="syl__head">
-          <em class="syl__no" data-en="Placement">機構實作</em>
-          <span class="syl__dur" data-en="8 hours">8 小時</span>
-        </div>
-        <h3 class="syl__title" data-en="You, in a real care setting">到長照據點，服務長輩</h3>
-        <p class="syl__body" data-en="The hours the association's certificate records. Dates and sites are arranged after the classroom course, once we know everyone's availability.">在長照據點服務長輩，這 8 小時就是協會證明上載明的時數。時間與場域在學科結束後、問過大家可以的時段再安排。</p>
-      </li>
-    </ol>
-
-    <!-- Every cohort has taught something slightly different, so this is a list
-         rather than a sentence about one of them: when 12/19 is over, it moves
-         down here as one more <li> and the open cohort's timetable stays above.
-         Newest first. -->
-    <p class="eyebrow eyebrow--batch" data-reveal style="--d:100ms"><span data-en="What earlier cohorts covered">前幾梯學科上過什麼</span></p>
-
-    <ul class="pastlist" data-reveal style="--d:140ms">
-      <li>
-        <em data-en="Cohort 1 · Sat 17 Oct · full">第一梯 · 10/17（六）· 已額滿</em>
-        <span data-en="An ageing society · fitness fundamentals for older adults · first aid and injury">社會老化、銀髮族體適能、急救與傷害概論</span>
-      </li>
-    </ul>
-
-  </div>
-</section>
-
-<!-- ══ 6 · 誰在辦這個計畫 ══ -->
-<section class="sec sec--navy" id="who">
-  <div class="sec__bg" data-bg="assets/img/tex-video.jpg?v=6" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <p class="eyebrow eyebrow--inv" data-reveal><em>05</em><span data-en="Who runs it">誰在辦這個計畫</span></p>
-
-    <h2 class="h2 h2--inv">
-      <span class="mask"><i style="--d:0ms" data-en="We did not start">健運動不是</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="this for a course.">為了這堂課才有的。</i></span>
-    </h2>
-
-    <p class="sec__note sec__note--inv" data-reveal data-en="Daily Ten keeps community elders moving every day on LINE, and leads sessions at care stations in person. This training hands that same method to younger people.">
-      健運動每天用 LINE 陪社區長輩運動，也到據點現場帶。這個培訓，是把同一套方法交給更年輕的人。
-    </p>
-
-    <div class="whocta" data-reveal style="--d:120ms">
-      <a class="btn btn--solid-inv" href="index.html" data-en="See what Daily Ten does">看健運動在做什麼</a>
-      <span class="whocta__by" data-en="Supported by the China Long-Term Care Association">支持單位 · 社團法人中華長照協會</span>
+<!-- ══ 2 · 報名資訊 ══
+     Every gate a parent checks, in one scannable block, ahead of everything
+     else. Classroom and placement stay two separate answers: 學科 happens at
+     賦優適能; the 8 hours rotate across iCare Cafe and the two 永樂居
+     apartments. 永恩小作所 was removed at the director's instruction — do
+     not re-add it. 永樂居 is deliberately absent from Google Maps, so those
+     two links query the street address. -->
+<section class="sec" id="facts">
+  <div class="vwrap split">
+    <div class="split__head">
+      <p class="label" data-en="The details">報名資訊</p>
+      <h2 class="h2" data-en="Before you apply,<br>the practical bits.">報名前，<br>先看這些。</h2>
     </div>
-  </div>
-</section>
+    <div>
+      <dl class="facts">
+        <div class="fact"><dt data-en="Who">對象</dt><dd data-en="<strong>Whether or not you are 18 yet, anyone can apply.</strong><span class='fine'>Especially suited to sports-team members, gym regulars, and anyone applying to university at home or abroad.</span>"><strong>無論是否滿 18 歲，任何人都可以報名。</strong><span class="fine">運動社團、運動愛好者，或準備申請國內外大學者尤其適合。</span></dd></div>
+        <div class="fact"><dt data-en="When">時間</dt><dd data-en="Cohort 2 — <strong>Sat 19 Dec, 9:00–13:00</strong><span class='fine'>Three units and the closing session run 9:00–12:00. 12:00–13:00 is the athlete's-plate card game over food and drinks — you are free to leave early.</span>">第二梯 <strong>12/19（六）9:00–13:00</strong><span class="fine">9:00–12:00 是三個單元與結業式；12:00–13:00 是搭配桌遊、吃吃喝喝的運動員餐盤時間，可以提早離開。</span></dd></div>
+        <div class="fact"><dt data-en="Where">地點</dt><dd data-en="Feel Fitness, Yongxiu branch<span class='fine'><a href='https://www.google.com/maps/search/?api=1&amp;query=%E8%B3%A6%E5%84%AA%E9%81%A9%E8%83%BD%20Feel%20Fitness%20%E6%B0%B8%E7%A7%80%E5%BA%97' target='_blank' rel='noopener'>No. 8, 1F, Lane 181, Section 2, Xiulang Rd, Yonghe District, New Taipei City 234</a> · the classroom course is held here</span>">賦優適能 Feel Fitness 永秀店<span class="fine"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B3%A6%E5%84%AA%E9%81%A9%E8%83%BD%20Feel%20Fitness%20%E6%B0%B8%E7%A7%80%E5%BA%97" target="_blank" rel="noopener">234 新北市永和區秀朗里秀朗路二段181巷8號1樓</a> · 學科課程在這裡上</span></dd></div>
+        <div class="fact"><dt data-en="Hours">時數</dt><dd data-en="A morning of coursework + 8 hours on placement">學科半天 ＋ 機構實作 8 小時</dd></div>
+        <div class="fact"><dt data-en="Places">名額</dt><dd data-en="15 per cohort, until full">每梯 15 位，額滿為止</dd></div>
+        <div class="fact"><dt data-en="Selection">錄取</dt><dd data-en="Written applications are reviewed; successful applicants receive an <strong>acceptance email</strong><span class='fine'>Your place is confirmed once the acceptance email has reached you and the transfer is done.</span>">書面資料甄選，錄取者會收到<strong>錄取通知 email</strong><span class="fine">收到錄取信並完成匯款，才算完成報名。</span></dd></div>
+      </dl>
 
-<!-- ══ 6b · 第一梯成果 ══
-     Evidence, placed after 誰在辦 and before the form: a reader who has just
-     been told who runs this wants to see that it already happened once.
-     Built per cohort — one <article class="run"> each, newest first. Adding
-     12/19 later is a copy of this block with its own film and five photos;
-     nothing in the CSS counts cohorts.
-     The film is PORTRAIT (9:16, shot on a phone), so it is NOT given a 16:9
-     box — that would letterbox it with black down both sides. It shares a row
-     with the one portrait photograph instead, and the section's own copy fills
-     the third column, so the row has no dead space.
-     The five photographs reuse .shot markup so site.js's existing lightbox
-     picks them up with no new JS — it reads em/b out of .shot__meta and swaps
-     -md.jpg for -lg.jpg. #lb below is required for that. -->
-<section class="sec sec--tint" id="result">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><em>06</em><span data-en="Every cohort so far">歷梯紀錄</span></p>
+      <!-- Prices, 2026-11-13, the director's final list. The 舊生 price sits
+           below both what cohort 1 paid (3,900) and the cheapest new-student
+           price (3,600 = early bird + pair), so it reads as a thank-you and a
+           returning student is never dearer than a new one. The worked
+           example exists because 「各減 300」 is the line people mis-add. -->
+      <div class="prices" id="prices">
+        <h3 class="prices__h" data-en="Fees · cohort 2">費用 · 第二梯</h3>
+        <p class="prices__sub" data-en="A single one-off fee: both certificates, result photos and film, course materials and equipment, and venue insurance. Nothing further is charged during the course.">一次性收費，含兩張證書、影音成果、教材道具與場地保險。課程期間不會再收取任何費用。</p>
+        <ul class="plist">
+          <li class="is-now"><b><span data-en="Early bird">早鳥價</span><em class="tag" data-en="now">現在</em></b><span data-en="Apply and complete the transfer by 30 Nov">11/30 前送出報名並完成匯款</span><div class="amt">NT$3,900</div></li>
+          <li><b data-en="Standard">原價</b><span data-en="Applications sent 1–12 Dec">12/01–12/12 送出報名</span><div class="amt">NT$4,500</div></li>
+          <li><b data-en="Returning student">舊生 · 續修價</b><span data-en="For anyone who completed cohort 1">第一梯結業者</span><div class="amt">NT$3,300</div></li>
+          <li><b data-en="Two applying together">兩人同行</b><span data-en="Once per person; cannot be combined with an assisted place">每人限折 1 次，不與獎助併用</span><div class="amt" data-en="−NT$300 <small>each</small>">各減 NT$300</div></li>
+          <li><b data-en="A parent staying">家長陪同</b><span data-en="Food and drinks, venue cleaning and the activities on the day">含餐點與飲品、現場清潔與現場活動體驗</span><div class="amt" data-en="NT$300 <small>each</small>">NT$300 <small>／人</small></div></li>
+          <li><b data-en="Assisted places">獎助名額</b><span data-en="Two places, at half the fee">2 位，補助半價</span><div class="amt" data-en="Half fee">半價</div></li>
+        </ul>
+        <p class="eg" data-en="<b>Coming as a pair?</b> A cohort 1 graduate who brings a friend pays 3,300 − 300 = <b>NT$3,000</b>; the friend, on the early-bird price, pays 3,900 − 300 = <b>NT$3,600</b>."><b>兩人同行怎麼算？</b>第一梯舊生帶一位新朋友：舊生 3,300 − 300 = <b>NT$3,000</b>；新朋友早鳥 3,900 − 300 = <b>NT$3,600</b>。</p>
+        <span class="fine" data-en="The transfer details are written only in the acceptance email — please do not send anything before it arrives. The early-bird price goes by the date the transfer is completed, so the sooner the application is in, the better.">匯款資訊只寫在錄取信裡，收到之前請先不要匯款。早鳥價以完成匯款的日期為準，愈早送出報名愈好。</span>
+      </div>
 
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="What we have run,">辦過的，</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="all of it is here.">都在這裡。</i></span>
-    </h2>
+      <div class="cta-row">
+        <a class="vbtn" href="#apply" data-en="Fill in the application">填寫報名表</a>
+        <a class="vbtn vbtn--line" href="#syllabus" data-en="See the course">看課程內容</a>
+      </div>
 
-    <article class="run" data-reveal style="--d:80ms">
-      <p class="eyebrow"><span data-en="Cohort 1 · Sat 17 Oct 2026">第一梯次 · 2026.10.17（六）</span></p>
-
-      <div class="run__top">
-        <div class="run__say">
-          <p data-en="A full room, and everyone left with a certificate. The film is the day in short; the photographs below are the parts of it.">滿滿一間教室，每個人都帶著結業證明離開。影片是那天的縮影，下面的照片是其中幾段。</p>
-          <p class="run__fine" data-en="Filmed on the day at Feel Fitness, Yongxiu branch.">影片拍攝於當天的賦優適能永秀店。</p>
-        </div>
-
-        <figure class="film film--tall">
-          <div class="film__box" id="filmBox" data-yt="6vL4GhiBuoA">
-            <img src="assets/img/result/film-poster.jpg?v=2"
-                 alt="影片封面：教練跪在安妮旁邊，手上拿著 AED 電極片講解"
-                 data-en-alt="Video cover: the coach kneels beside the CPR manikin holding an AED pad as he explains"
-                 width="720" height="1280" loading="lazy" decoding="async">
-            <button class="film__play" type="button" aria-label="播放第一梯成果影片" data-en-aria="Play the cohort one film">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              <span data-en="The day">那一天</span>
-            </button>
+      <div class="qa" aria-label="家長常問的問題" data-en-aria="Questions parents ask">
+        <details>
+          <summary><span data-en="Where and when are the 8 placement hours?">8 小時實作在哪裡、什麼時候？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
+          <div class="qa__body">
+            <p data-en="<strong>Three sites in rotation — not one fixed address.</strong>"><strong>三處場域輪替，不是固定一個地點。</strong></p>
+            <ul>
+              <li><a href="https://www.google.com/maps/search/?api=1&amp;query=iCare%20Cafe%20%E9%95%B7%E7%85%A7%E5%92%96%E5%95%A1%E9%A4%A8" target="_blank" rel="noopener" data-en="iCare Cafe · No. 155, 1F, Wenhua Rd, Yonghe District, New Taipei City">iCare Cafe 長照咖啡館 · 新北市永和區文化路155號1樓</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%8D%97%E5%B1%B1%E8%B7%AF127%E5%B7%B7" target="_blank" rel="noopener" data-en="Yongle Ju Senior Apartments (Zhonghe) · Lane 127, Nanshan Rd, Zhonghe District, New Taipei City">永樂居 獨老公寓（中和）· 新北市中和區南山路127巷</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%B0%B8%E5%92%8C%E5%8D%80%E7%A6%8F%E5%92%8C%E8%B7%AF57%E5%B7%B7" target="_blank" rel="noopener" data-en="Yongle Ju Senior Apartments (Yonghe) · Lane 57, Fuhe Rd, Yonghe District, New Taipei City">永樂居 獨老公寓（永和）· 新北市永和區福和路57巷</a></li>
+            </ul>
+            <p data-en="The hours are likely to fall in the winter break, on weekday evenings or at weekends. After the classroom course we ask everyone for their availability, then schedule and confirm over the programme's LINE account.">時段可能落在寒假、平日傍晚或週末。學科結束後，我們會先問過大家可以的時間，再排定並用 LINE 官方帳號通知。</p>
+            <p data-en="Why not one fixed place? The elders differ across the three sites, and each asks something different of you — one more site is one more way of learning to be with someone.">為什麼不固定在一個地方？三處場域裡的長輩不一樣，相處的方式也不一樣，多走一處，你就多學會一種相處。</p>
           </div>
-        </figure>
-
-        <ul class="run__tall">
-          <li class="shot">
-            <button type="button">
-              <span class="shot__img"><img src="assets/img/result/suit-md.jpg?v=1" alt="學員手腳綁上裝水的寶特瓶，彎著身體在地上移動，模擬長輩關節僵硬的樣子" data-en-alt="A trainee moves across the floor with water bottles strapped to wrists and ankles, simulating an older adult's stiff joints" width="1000" height="1496" loading="lazy" decoding="async"></span>
-              <span class="shot__meta"><em data-en="Ageing simulation">長輩體驗</em><b data-en="Water bottles on wrists and ankles — stiff joints and lost muscle, felt">手腳綁上水瓶，體驗關節僵硬與肌力流失</b></span>
-            </button>
-          </li>
-        </ul>
+        </details>
+        <details>
+          <summary><span data-en="What will my child actually do on placement? Is it safe?">實作時孩子要做什麼？安全嗎？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
+          <div class="qa__body">
+            <p data-en="A team member is there the whole time — <strong>you never face the elders alone</strong>. What you do is accompany, lead exercise and keep records; <strong>no bathing, feeding or transfers</strong>.">全程都有帶隊人員陪同，<strong>不會讓你單獨面對長輩</strong>。你做的是陪伴、帶動與紀錄，<strong>不包含沐浴、餵食、移位等身體照顧</strong>。</p>
+            <p data-en="Venue insurance is included in the fee.">課程費用已含場地保險。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span data-en="How does selection work, and how do we pay?">怎麼錄取、怎麼繳費？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
+          <div class="qa__body">
+            <p data-en="Once the form is in, the team reviews it in writing. Successful applicants receive an <strong>acceptance email</strong> carrying the payment details and the programme's <strong>own booking LINE account</strong>.">送出報名表後由團隊書面甄選。錄取者會收到<strong>錄取通知 email</strong>，信裡有繳費方式，以及本計畫<strong>預約專用的 LINE 官方帳號</strong>。</p>
+            <p data-en="The transfer details are written only in the acceptance email — please do not send anything before it arrives. Your place is confirmed once the email has reached you and the transfer is done.">匯款資訊只寫在錄取信裡，收到之前請先不要匯款。收到錄取信並完成匯款，才算完成報名。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span data-en="Can a parent come along?">家長可以一起來嗎？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
+          <div class="qa__body">
+            <p data-en="Yes. A parent staying for the whole session is <strong>NT$300</strong> per person, covering the Christmas food and drinks, venue cleaning and the activities on the day. Put the number in the form; it is settled together with the course fee in the acceptance email.">可以。家長全程陪同參與費 <strong>NT$300</strong>／人，含聖誕餐點與飲品、現場清潔與現場活動體驗。報名表裡可以填陪同人數，錄取信會與培訓費一起結算。</p>
+          </div>
+        </details>
+        <details>
+          <summary><span data-en="How do cohort 1 and cohort 2 differ?">第一梯和第二梯有什麼不同？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
+          <div class="qa__body">
+            <p data-en="<strong>Cohort 1, Sat 17 Oct — full.</strong> Four hours of coursework on an ageing society, fitness fundamentals for older adults, and first aid and injury. The fee was NT$3,900."><strong>第一梯 10/17（六）已額滿。</strong>學科 4 小時，內容是社會老化、銀髮族體適能、急救與傷害概論，培訓費 NT$3,900。</p>
+            <p data-en="<strong>Cohort 2, Sat 19 Dec — open now.</strong> The theme is sports nutrition and health management, a different syllabus from cohort 1 — which is why cohort 1 graduates can come back at the returning-student price. Originally planned for 31 Oct and moved to 19 Dec."><strong>第二梯 12/19（六）開放報名中。</strong>主題是運動營養與健康管理，課表和第一梯不一樣，所以第一梯結業的同學可以用續修價再來。原訂 10/31，已改期至 12/19。</p>
+            <p data-en="Both are followed by 8 hours of placement.">兩梯之後都再加機構實作 8 小時。</p>
+          </div>
+        </details>
       </div>
-
-      <!-- 21st's gallery-4 mosaic, rebuilt in the site's own CSS: 4 × 2 cells,
-           the group photograph taking the 2 × 2 block, everything greyscale
-           until hover. Greyscale is only lifted on devices that really hover —
-           on a phone there is no hover, so the tiles simply stay in colour. -->
-      <div class="mosaic">
-        <ul class="mosaic__lead">
-        <li class="shot shot--lead">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/cpr-md.jpg?v=1" alt="急救課結束後，學員們兩兩互相擊掌大笑，地上還放著 CPR 安妮" data-en-alt="After the first-aid session, trainees high-five each other laughing, with the CPR manikins still on the floor" width="1000" height="666" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="Session 3 · First aid">課程三 · 急救與傷害</em><b data-en="CPR and AED safety concepts, handling exercise injuries — hands-on with Resusci Anne and an AED">CPR 及 AED 安全概念、運動傷害處理 —— 安妮與 AED 實際操作</b></span>
-          </button>
-        </li>
-        <li class="shot shot--lead">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/group-md.jpg?v=1" alt="第一梯全體學員與工作人員在窗邊合照，學員手上拿著結業證明" data-en-alt="The whole first cohort and the team by the window, trainees holding their certificates" width="1000" height="667" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="Cohort 1 · 17 Oct 2026">第一梯 · 2026.10.17</em><b data-en="Everyone, with their certificates">結業合照 —— 每個人都拿到證明</b></span>
-          </button>
-        </li>
-        </ul>
-        <ul class="mosaic__rest">
-        <li class="shot">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/class1-wide-md.jpg?v=1" alt="整間教室的學員坐在地上與跳箱上聽課，丁中怡主任站在右側說明" data-en-alt="The room of trainees seated on the floor and on plyo boxes while the director explains from the right" width="1000" height="668" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="Session 1 · Ageing">課程一 · 社會老化</em><b data-en="Ageing, and what you can do about it">關於社會老化，你可以做的事</b></span>
-          </button>
-        </li>
-        <li class="shot">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/class2-wide-md.jpg?v=1" alt="教室裡學員坐成一片聽課，賦優適能的教練站在前方布條旁" data-en-alt="Trainees fill the room while the Feel Fitness coach presents from beside the banner" width="1000" height="668" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="Session 2 · Fitness">課程二 · 銀髮族體適能</em><b data-en="Fitness fundamentals for older adults">銀髮族體適能基礎概論</b></span>
-          </button>
-        </li>
-        <li class="shot">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/class1-md.jpg?v=1" alt="丁中怡主任站在螢幕旁講解，螢幕上是社會老化的資料圖表" data-en-alt="The director presents beside a screen showing charts on an ageing society" width="1000" height="668" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="丁中怡, Director">丁中怡 主任授課</em><b data-en="How society is ageing, and what long-term care faces">社會老化現象、長照資源與問題</b></span>
-          </button>
-        </li>
-        <li class="shot">
-          <button type="button">
-            <span class="shot__img"><img src="assets/img/result/class2-md.jpg?v=1" alt="賦優適能教練在螢幕前授課，螢幕上寫著賦優適能青年運動教練培訓" data-en-alt="The Feel Fitness coach teaches in front of a screen reading Feel Fitness Youth Sports Coach Training" width="1000" height="668" loading="lazy" decoding="async"></span>
-            <span class="shot__meta"><em data-en="Feel Fitness studio">賦優適能運動工作室</em><b data-en="Health promotion, risk-aware prescription, cueing the basics">健康促進、風險運動處方與基礎動作指導</b></span>
-          </button>
-        </li>
-        </ul>
-      </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- ══ 7 · 報名表單 ══
-     id="applyForm", not "form": the main page's handler binds to #form and reads
-     the 據點 field set, so it must not attach here. -->
-<section class="sec sec--paper" id="apply">
-  <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-reveal><span data-en="Apply">報名表單 · Apply</span></p>
+<!-- ══ 3 · 你會得到什麼 ══ -->
+<section class="sec sec--tint" id="gain">
+  <div class="vwrap">
+    <p class="label" data-en="What you walk away with">你會得到什麼</p>
+    <h2 class="h2" data-en="You give an elder company.<br>You leave with proof.">你給長輩陪伴，<br>你帶走一份履歷。</h2>
+    <ul class="gain">
+      <li><h3 data-en="A Youth Sports Coach completion certificate">青年運動教練結業證明</h3><p data-en="Cohort 2 earns the Youth Sports Coach certificate in Sports Nutrition &amp; Health Management, issued by Feel Fitness and handed over at the closing session.">第二梯拿到的是「青年運動教練 · 運動營養與健康管理培訓課程」結業證書，由賦優適能核發，結業式當場頒發。</p></li>
+      <li><h3 data-en="A volunteer certificate from the association">協會志工培訓證明</h3><p data-en="Issued by the China Long-Term Care Association once your 8 hours are done — the certificate names the 8 hours of placement service.">完成 8 小時實作後，由社團法人中華長照協會核發，證明上載明「實作服務時數 8 小時」。</p></li>
+      <li><h3 data-en="A volunteering record you can submit">志工履歷與成果照片</h3><p data-en="We keep the record and the photos, ready for your application.">服務紀錄與照片我們幫你整理好。</p></li>
+      <li><h3 data-en="Something that changes you">真的走進長照現場</h3><p data-en="Not a lecture — you wear the ageing simulation suit, and you lead real elders.">不是聽講座。你會穿上長輩體驗裝，也會真的帶長輩動。</p></li>
+    </ul>
+  </div>
+</section>
 
-    <h2 class="h2">
-      <span class="mask"><i style="--d:0ms" data-en="Fill this in,">填好這張表，</i></span>
-      <span class="mask"><i style="--d:100ms" data-en="and you have applied.">就完成報名。</i></span>
-    </h2>
+<!-- ══ 4 · 課程內容 ══
+     The open cohort's timetable leads; earlier cohorts are a line beneath.
+     When 12/19 is over it moves down and the next open cohort takes its place. -->
+<section class="sec" id="syllabus">
+  <div class="vwrap split">
+    <div class="split__head">
+      <p class="label" data-en="What you learn">課程內容</p>
+      <h2 class="h2" data-en="Learn in the classroom,<br>do it for real.">教室裡學，<br>現場真的做。</h2>
+      <p class="intro" data-en="Hands-on and interactive — not a lecture you sit through.">學科採互動體驗式教學，不是坐著聽完就算。</p>
+    </div>
+    <div>
+      <p class="batch" data-en="Cohort 2 · Sat 19 Dec · open">第二梯 · 12/19（六）· 開放報名中</p>
+      <ol class="syl">
+        <li><time>9:00–10:00<small data-en="Unit 1">單元一</small></time><div><h3 data-en="Fuelling an athlete">運動營養補給策略</h3><p data-en="A scene played out in the room · nutrition basics (the three macronutrients) · water and electrolytes · what to eat before, during and after exercise · choosing in a convenience store · myths broken">情境劇、營養基礎（三大營養素）、水份與電解質、運動前中後怎麼吃、超商如何選擇、迷思破解。</p></div></li>
+        <li><time>10:00–10:30<small data-en="Unit 2">單元二</small></time><div><h3 data-en="Managing yourself as an athlete">運動員自我管理學</h3><p data-en="Sleep and recovery · recognising fatigue · time management · a seven-day plan of your own">睡眠恢復、疲勞辨識、時間管理、七日管理計劃。</p></div></li>
+        <li><time>10:30–11:30<small data-en="Unit 3">單元三</small></time><div><h3 data-en="Recovering after exercise">運動後放鬆</h3><p data-en="Why recovery matters · hot and cold compresses · the foam roller · stretching · practice in small groups on real situations">放鬆的重要性、冷熱敷觀念、筋膜滾筒、伸展、情境分組練習。</p></div></li>
+        <li><time>11:30–12:00<small data-en="Closing">結業式</small></time><div><h3 data-en="Certificates and a group photograph">頒發結業證明與合影</h3><p data-en="The Youth Sports Coach certificate in Sports Nutrition &amp; Health Management is handed out, followed by a group photograph.">頒發「青年運動教練 · 運動營養與健康管理」結業證書並合影。</p></div></li>
+        <li><time>12:00–13:00<small data-en="Lunch">餐盤時間</small></time><div><h3 data-en="The athlete's plate, over a Christmas table">運動員營養餐盤桌遊與聖誕餐會</h3><p data-en="The athlete's nutrition-plate card game built around the Christmas lunch — the playing cards matched against real food. Anyone who needs to go, or is not eating, is free to leave early.">結合聖誕大餐的運動員營養餐盤桌遊（遊戲卡牌與真實食物的結合），邊玩邊吃吃喝喝。有事的、不吃的可以提早離開。</p></div></li>
+        <li class="is-field"><span class="dur"><span data-en="8 hours">8 小時</span><small data-en="Placement">機構實作</small></span><div><h3 data-en="You, in a real care setting">到長照據點，服務長輩</h3><p data-en="The hours the association's certificate records. Dates and sites are arranged after the classroom course, once we know everyone's availability.">這 8 小時就是協會證明上載明的時數。時間與場域在學科結束後、問過大家可以的時段再安排。</p></div></li>
+      </ol>
+      <p class="past" data-en="<b>Cohort 1, 17 Oct (full) covered:</b> an ageing society · fitness fundamentals for older adults · first aid and injury."><b>第一梯 10/17（已額滿）上過：</b>社會老化、銀髮族體適能、急救與傷害概論。</p>
+    </div>
+  </div>
+</section>
 
-    <p class="sec__intro" data-reveal style="--d:100ms" data-en="Applications are reviewed in writing. <strong>Successful applicants receive an email.</strong> 15 places per cohort, until full.">
-      送出後由團隊書面甄選，<strong>錄取者會收到 email 通知</strong>。每梯次 15 位，額滿為止。
-    </p>
+<!-- ══ 5 · 報名表單 ══
+     id="applyForm", not "form": the main page's handler binds to #form and
+     reads the 據點 field set, so it must not attach here. A guardian PHONE is
+     always required (placement emergency contact); the acceptance email can
+     go to the student, a parent, or both. -->
+<section class="sec sec--tint" id="apply">
+  <div class="vwrap wrap--narrow">
+    <p class="label" data-en="Apply">報名表單</p>
+    <h2 class="h2" data-en="Fill this in,<br>and you have applied.">填好這張表，<br>就完成報名。</h2>
+    <p class="intro" data-en="Applications are reviewed in writing. <strong>Successful applicants receive an email.</strong> 15 places per cohort, until full. You will need a parent or guardian's phone number — worth having it to hand before you start.">送出後由團隊書面甄選，<strong>錄取者會收到 email 通知</strong>。每梯次 15 位，額滿為止。表單裡需要一位家長／監護人的電話，開始填之前先準備好會比較順。</p>
 
-    <!-- Says only what the form actually enforces. The earlier version implied a
-     parent had to be the point of contact for everything, when the rule is
-     narrower: a guardian PHONE is always required as the placement emergency
-     contact, while the acceptance email can go to the student, a parent, or
-     both — whoever is handling payment. The email rule lives on the email
-     fields; this line exists to stop someone starting the form without a
-     number to hand. -->
-    <p class="sec__note" data-reveal style="--d:140ms" data-en="You will need a parent or guardian's phone number — worth having it to hand before you start.">表單裡需要一位家長／監護人的電話，開始填之前先準備好會比較順。</p>
-
-    <form class="form" id="applyForm" novalidate data-reveal style="--d:180ms">
+    <form class="form" id="applyForm" novalidate>
       <p class="form__group" data-en="About you">學生資料</p>
 
       <div class="field">
@@ -525,24 +280,37 @@
         <p class="err" id="ea-school" role="alert"></p>
       </div>
 
-      <!-- Sherry spotted this: the form never asked which cohort. It is a hard
-           gate — a family that can make neither morning does not need to write
-           the essay — so it sits directly after the school field, before any of
-           the effort. 10/17 filled and was taken out of the list, and 兩梯都可以
-           went with it — with one open cohort it meant nothing. 12/19 is
-           preselected so nobody has to pick the only choice; drop `selected`
-           and bring both back when two cohorts are open again. -->
+      <!-- Full cohort? Add data-full to that <option> and change nothing else —
+           site.js appends （已額滿）in whichever language is showing and makes
+           the option unselectable. 12/19 is preselected so nobody has to pick
+           the only choice. -->
       <div class="field">
         <label for="a-batch"><span data-en="Which cohort">想報名的梯次</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
-        <!-- Full cohort? Add data-full to that <option> and change nothing else —
-             site.js appends （已額滿）in whichever language is showing and makes
-             the option unselectable. Delete the attribute to reopen it. -->
         <select id="a-batch" name="batch" required aria-describedby="ea-batch ha-batch">
           <option value="" data-en="Please choose">請選擇</option>
-          <option data-en="Sat 19 Dec, 9:00–12:30" selected>12/19（六）9:00–12:30</option>
+          <option data-en="Sat 19 Dec, 9:00–13:00" selected>12/19（六）9:00–13:00</option>
         </select>
         <p class="hint" id="ha-batch" data-en="This is the classroom day. 17 Oct is full; 19 Dec is the cohort open now.">這是學科課程的那個上午。10/17 已額滿，目前只開放 12/19 這一梯。</p>
         <p class="err" id="ea-batch" role="alert"></p>
+      </div>
+
+      <!-- New with the 2026-11 price list: without these two the team cannot
+           tell which price an applicant is asking for. Both optional, both
+           sent to Make as `plan` / `buddy` and repeated inside `summary`. -->
+      <div class="field">
+        <label for="a-plan"><span data-en="Which price applies to you">報名身分</span> <span class="opt" data-en="optional">選填</span></label>
+        <select id="a-plan" name="plan" aria-describedby="ha-plan">
+          <option selected data-en="New applicant">一般報名</option>
+          <option data-en="Cohort 1 graduate — returning-student price">第一梯結業 · 舊生續修價</option>
+          <option data-en="Applying for an assisted place (half fee)">申請獎助名額（半價）</option>
+        </select>
+        <p class="hint" id="ha-plan" data-en="Early bird or standard is decided by the date, so there is nothing to choose for that. Assisted places: two per cohort.">早鳥或原價看的是日期，不用選。獎助名額每梯 2 位。</p>
+      </div>
+
+      <div class="field">
+        <label for="a-buddy"><span data-en="Applying with a friend? Their name">兩人同行的同伴姓名</span> <span class="opt" data-en="optional">選填</span></label>
+        <input id="a-buddy" name="buddy" type="text" autocomplete="off" placeholder="例：王小華" data-en-ph="e.g. Wang Xiao-hua" aria-describedby="ha-buddy">
+        <p class="hint" id="ha-buddy" data-en="Each of you fills in a form and names the other; NT$300 comes off each fee. Once per person, and not together with an assisted place.">兩個人各填一張表、互相寫上對方的名字，兩人各減 NT$300。每人限折 1 次，不與獎助併用。</p>
       </div>
 
       <div class="field">
@@ -573,13 +341,10 @@
         <label for="a-phone"><span data-en="Parent or guardian's phone">家長／監護人聯絡電話</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="a-phone" name="parent_phone" type="tel" required autocomplete="tel"
                placeholder="例：0912-345-678" data-en-ph="e.g. 0912-345-678" aria-describedby="ea-phone ha-phone">
-        <p class="hint" id="ha-phone" data-en="Required whatever your age — this is the emergency contact during the placement. Payment details are only ever written in the letter, never discussed by phone.">不論是否滿 18 歲都要留 —— 這是實作期間的緊急聯絡人。匯款資訊只寫在信裡，不會在電話裡談。</p>
+        <p class="hint" id="ha-phone" data-en="Required whatever your age — this is the emergency contact during the placement. Payment details are only ever written in the letter, never discussed by phone.">不論是否滿 18 歲都要留，這是實作期間的緊急聯絡人。匯款資訊只寫在信裡，不會在電話裡談。</p>
         <p class="err" id="ea-phone" role="alert"></p>
       </div>
 
-      <!-- 第二梯 only, but the field is harmless on any cohort: 0 is the default
-           and nothing downstream requires it. The fee lives in the hint rather
-           than the label so the label stays a question, like every other one. -->
       <div class="field">
         <label for="a-pjoin"><span data-en="Parents staying for the whole session">家長全程陪同人數</span> <span class="opt" data-en="optional">選填</span></label>
         <select id="a-pjoin" name="parent_join" aria-describedby="ha-pjoin">
@@ -608,13 +373,9 @@
         <p class="hint" id="ha-exp" data-en="None is completely fine — this is not a requirement.">沒有也完全沒關係，這不是錄取條件。</p>
       </div>
 
-      <!-- The director wanted somewhere to attach a 履歷 or 學習歷程 and could not
-           find one. This form posts as application/x-www-form-urlencoded to a
-           Make webhook, so a real file would have to be base64'd into a URL
-           parameter — fragile for a 20MB 學習歷程 PDF sent from a phone, and it
-           would fail silently. A link is what actually survives: 學習歷程 already
-           lives in a school system or a Drive, the reviewer can open it without
-           downloading anything, and it costs the applicant one paste. -->
+      <!-- A link, not an upload: the form posts urlencoded to a Make webhook,
+           so a real file would have to be base64'd into a parameter — fragile
+           for a 20MB 學習歷程 PDF from a phone, and it would fail silently. -->
       <div class="field">
         <label for="a-work"><span data-en="Link to a CV or portfolio">履歷或學習歷程連結</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-work" name="portfolio" type="url" autocomplete="off"
@@ -626,7 +387,7 @@
 
       <input type="text" name="_gotcha" id="a-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-      <button class="btn btn--solid btn--big" type="submit" id="applySubmit">
+      <button class="vbtn" type="submit" id="applySubmit">
         <span data-en="Submit application">送出報名</span>
       </button>
 
@@ -639,98 +400,155 @@
       <h3 data-en="Application received">已收到你的報名</h3>
       <p data-en="We review every application in writing. Successful applicants get an email with the payment details and the LINE account we use from then on. Thank you for wanting to join!">我們會進行書面甄選，錄取者會收到 email，裡面有繳費方式與之後聯絡用的 LINE 官方帳號。謝謝你想加入！</p>
       <dl class="done__recap" id="applyRecap"></dl>
-      <button class="btn btn--ghost" type="button" id="applyAgain" data-en="Submit another">再填一筆</button>
+      <button class="vbtn vbtn--line" type="button" id="applyAgain" data-en="Submit another">再填一筆</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · 我們的故事 ══
+     The story the old page opened with, kept whole, after the form. The
+     photograph is 健運動 at a care station: a room of 長輩 mid-movement with
+     the young coach leading — the thing this page asks a reader to become. -->
+<section class="sec sec--navy story" id="story">
+  <div class="vwrap">
+    <div class="story__top">
+      <div>
+        <p class="label" data-en="Our story · why this exists">我們的故事 · 為什麼有這個計畫</p>
+        <h2 class="statement" data-en="Not yet 18.<br>Already a coach.">18 歲以前，<br>也能當教練。</h2>
+        <p class="story__lead" data-en="To be a fitness coach, you usually have to be 18. <strong>So what about you, before you turn 18?</strong>">想當運動教練，通常要滿 18 歲。<strong>那 18 歲以前的你呢？</strong></p>
+        <blockquote class="pull" data-en="There is no “youth sports coach” anywhere in the world. Students who want this cannot even get trained — so we built the training.">國際上沒有「青年運動教練」制度，想做的高中生連受訓的機會都沒有，所以我們自己做了一個。</blockquote>
+      </div>
+      <!-- A 3:2 card, shown whole. It used to run edge to edge at 1500×560,
+           which stretched a 1044px file across a 2000px window and cut the
+           room to a strip. This crop keeps the coach in the middle of it. -->
+      <figure class="story__fig">
+        <img src="assets/img/course-hero-tall-1297.jpg?v=99" alt="長照據點的教室裡，一群長輩張開雙手跟著做動作，穿粉紅色上衣的青年站在中間帶著大家一起動" data-en-alt="In a care-station activity room, a group of elders follow along with their arms outstretched while the young coach in pink leads from the middle" width="1044" height="680" loading="lazy" decoding="async">
+        <figcaption data-en="Daily Ten at a care station — the young coach in pink is leading the room.">健運動在長照據點：穿粉紅色上衣的青年，正在帶整間教室的長輩動。</figcaption>
+      </figure>
+    </div>
+    <ul class="pains">
+      <li data-en="You need service hours for university — and you do not want to just clock them up.">升學要服務時數，但你不想只是去湊時數。</li>
+      <li data-en="You want to help elders and have no idea how to start.">你想幫長輩，卻不知道能做什麼。</li>
+      <li data-en="Medicine, PT, OT, sports science — all want real experience.">醫護、物治、職治、運動科系，都看實務經驗。</li>
+      <li data-en="We keep the record and the photos for you.">服務紀錄與成果照片，我們幫你留下來。</li>
+    </ul>
+
+    <div class="who" id="who">
+      <p class="label" data-en="Who runs it">誰在辦這個計畫</p>
+      <h3 data-en="We did not start this for a course.">健運動不是為了這堂課才有的。</h3>
+      <p data-en="Daily Ten keeps community elders moving every day on LINE, and leads sessions at care stations in person. This training hands that same method to younger people.">健運動每天用 LINE 陪社區長輩運動，也到據點現場帶。這個培訓，是把同一套方法交給更年輕的人。</p>
+      <a class="vbtn vbtn--inv" href="index.html" data-en="See what Daily Ten does">看健運動在做什麼</a>
+      <small data-en="Supported by the China Long-Term Care Association">支持單位 · 社團法人中華長照協會</small>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7 · 歷梯紀錄 ══
+     One <article class="run"> per cohort, newest first. The cohort 1 frames
+     are the director's selection (2026-11-13), captions hers verbatim; the
+     five stage names are hers too. #17 (這個笑容，就是答案) is the one frame
+     of her ten not yet in — add it as a .tile.is-tall before the last tile. -->
+<section class="sec" id="result">
+  <div class="vwrap">
+    <p class="label" data-en="Every cohort so far">歷梯紀錄</p>
+    <h2 class="h2" data-en="What we have run,<br>all of it is here.">辦過的，<br>都在這裡。</h2>
+    <p class="intro" data-en="After each cohort its film and photographs go here, newest first.">每一梯結束後，影片和照片都會放在這裡，最新的在最上面。</p>
+
+    <article class="run run--next">
+      <div class="run__head"><h3 data-en="Cohort 2 · Sat 19 Dec 2026">第二梯 · 2026.12.19（六）</h3></div>
+      <p data-en="Open for applications. Its film and photographs will go here afterwards.">開放報名中。結束後，這一梯的影片與照片會放在這裡。</p>
+    </article>
+
+    <article class="run">
+      <div class="run__head">
+        <h3 data-en="Cohort 1 · Sat 17 Oct 2026">第一梯 · 2026.10.17（六）</h3>
+        <a class="run__film" href="https://www.youtube.com/watch?v=6vL4GhiBuoA" target="_blank" rel="noopener" data-yt="6vL4GhiBuoA" data-en="Watch this cohort's recap film">看這一梯的回顧影片</a>
+      </div>
+      <p data-en="A full room, and everyone left with a certificate. The morning ran in the order below — tap any photograph to enlarge it.">滿滿一間教室，每個人都帶著結業證明離開。那個上午照著下面的順序走，照片可以點開放大。</p>
+
+      <ol class="stages" aria-label="那個上午的順序" data-en-aria="The order of the morning">
+        <li data-en="Class">上課</li><li data-en="Assessment">身體評估</li><li data-en="Ageing experience">長輩體驗</li><li data-en="Movement">動作訓練</li><li data-en="First aid">急救實作</li><li data-en="Graduation">結業</li>
+      </ol>
+
+      <div class="showbox">
+      <ul class="show" id="show">
+        <li class="tile is-lead"><button type="button" style="--pos:58% 42%"><img src="assets/img/c1/11-cpr-md.jpg?v=1" alt="教練跪在學員身旁，看著他的手，一下一下教他怎麼做 CPR 按壓" data-en-alt="A coach kneels beside a trainee, watching his hands and guiding each CPR compression" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="First aid">急救實作</em><b data-en="A coach right beside him, one compression at a time">教練就在身邊，一下一下教</b><i data-en="The coach kneels next to the child, watches his hands and tells him how to press.">教練蹲在孩子身旁，看著他的手、告訴他怎麼壓才對。</i></span></button></li>
+        <li class="tile is-tall"><button type="button" style="--pos:50% 35%"><img src="assets/img/c1/03-notes-md.jpg?v=1" alt="兩位學員坐在椅子上專心聽課，腿上放著講義" data-en-alt="Two trainees listen closely with their handouts on their laps" width="800" height="1200" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Class">上課</em><b data-en="Listening, and writing it down">認真聽、認真記</b><i data-en="Taking notes as they listen — fully in from the first session.">孩子邊聽邊寫筆記，第一堂課就很投入。</i></span></button></li>
+        <li class="tile is-tall"><button type="button" style="--pos:50% 30%"><img src="assets/img/c1/04-bp-md.jpg?v=1" alt="學員坐在桌前量血壓，對著鏡頭微笑" data-en-alt="A trainee smiles at the camera while having her blood pressure taken" width="800" height="1200" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="It starts with a blood-pressure cuff">從量血壓開始認識自己</b><i data-en="Knowing your own body before you move is a coach's first lesson.">運動前先了解身體狀況，是成為教練的第一課。</i></span></button></li>
+        <li class="tile is-lead"><button type="button" style="--pos:35% 18%"><img src="assets/img/c1/05-fit-md.jpg?v=1" alt="教練蹲下來，親手幫學員把測量裝置固定在腿上" data-en-alt="A coach crouches to fix a measuring device to a trainee's leg himself" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="The coach crouches down, one child at a time">教練蹲下來，一個一個看</b><i data-en="He fixes the measuring device on every child himself — no detail skipped.">教練親手幫每個孩子把測量裝置固定好，細節都不放過。</i></span></button></li>
+        <li class="tile is-tall"><button type="button" style="--pos:50% 40%"><img src="assets/img/c1/06-talk-md.jpg?v=1" alt="講師彎下腰，和坐著的學員面對面說明" data-en-alt="An instructor bends down to talk a seated trainee through it face to face" width="724" height="1084" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="One to one, until it lands">一對一說明，聽懂了再往下</b><i data-en="The instructor bends down to talk it through, making sure everyone is keeping up.">講師彎下腰和孩子面對面討論，確定每個人都跟上。</i></span></button></li>
+        <li class="tile is-tall"><button type="button" style="--pos:62% 72%"><img src="assets/img/result/suit-md.jpg?v=1" alt="學員手腳綁上裝水的寶特瓶，彎著身體在地上移動，模擬長輩關節僵硬的樣子" data-en-alt="A trainee moves across the floor with water bottles strapped to wrists and ankles, simulating an older adult's stiff joints" width="1000" height="1496" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Ageing experience">長輩體驗</em><b data-en="Feel it first, then teach it">先體驗變老，才知道怎麼教</b><i data-en="Water bottles on wrists and ankles — stiff joints and lost muscle, felt.">手腳綁上水瓶，體驗關節僵硬與肌力流失。</i></span></button></li>
+        <li class="tile"><button type="button" style="--pos:55% 40%"><img src="assets/img/c1/08-band-md.jpg?v=1" alt="學員們拉著彈力帶練習，學習控制力量與姿勢" data-en-alt="Trainees working with resistance bands, learning to control force and posture" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Movement">動作訓練</em><b data-en="One band, a steadier core">一條彈力帶，練出穩定的核心</b><i data-en="Pulling a resistance band, learning to control force and posture.">孩子拉著彈力帶，學習控制力量與姿勢。</i></span></button></li>
+        <li class="tile"><button type="button" style="--pos:50% 45%"><img src="assets/img/c1/14-team-md.jpg?v=1" alt="三位學員圍著安妮，分工操作 CPR 與 AED" data-en-alt="Three trainees around the manikin, sharing out CPR and the AED" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="First aid">急救實作</em><b data-en="Three people, one rescue">三個人，一起完成一次救援</b><i data-en="Sharing out CPR and the AED, and learning to work as a team.">孩子分工操作 CPR 與 AED，學會團隊合作。</i></span></button></li>
+        <li class="tile is-wide"><button type="button" style="--pos:50% 38%"><img src="assets/img/c1/19-cert-md.jpg?v=1" alt="學員手持結業證書，和兩位教練一起比讚合照" data-en-alt="A trainee holds his certificate between two coaches, thumbs up" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Graduation">結業</em><b data-en="The certificate, handed over in person">親手接下結業證書</b><i data-en="Training complete — the certificate comes from the coach's own hands.">完成培訓，由教練親自頒發證書。</i></span></button></li>
+      </ul>
+      </div>
+    </article>
+
+    <div class="again">
+      <a class="vbtn" href="#apply" data-en="Apply for cohort 2">我要報名第二梯</a>
     </div>
   </div>
 </section>
 </main>
 
-<footer class="foot">
-  <div class="sec__bg" data-bg="assets/img/tex-foot.jpg?v=6" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <!-- .foot has ~96–150px of top padding that .foot__top is meant to fill.
-         Without it the course page opened its footer with a void. -->
-    <div class="foot__top">
-      <div class="seal" aria-hidden="true">
-        <svg viewBox="0 0 200 200" role="presentation">
-          <defs>
-            <path id="sealPath" fill="none"
-                  d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
-          </defs>
-          <text><textPath href="#sealPath" startOffset="0" textLength="452" lengthAdjust="spacing">健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · 健運動 · 陪你動，再青春 · </textPath></text>
-        </svg>
-        <img src="assets/img/mark-320-glyph.png?v=60" alt="" width="40" height="40" loading="lazy" decoding="async">
+<footer class="vfoot">
+  <div class="vwrap">
+    <p class="vfoot__me" data-en="You don't have to grow up first —<br>someone already needs you.">不用等到長大，<br>就有人需要你。</p>
+    <div class="vfoot__grid">
+      <div class="vfoot__col">
+        <div>
+          <h4 data-en="Call us · Vivi">諮詢專線 · Vivi 老師</h4>
+          <a class="vfoot__big" href="tel:+886977350169">0977350169</a>
+          <p data-en="Any question, just call.">任何問題都可以直接打來。</p>
+        </div>
+        <div>
+          <h4 data-en="Applications &amp; questions">報名與聯絡</h4>
+          <a class="vfoot__big" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
+          <p data-en="The course, collaboration, supporting the programme, or any other question — write any time.">課程、合作、支持計畫，任何問題都歡迎來信。</p>
+        </div>
+        <div>
+          <h4 data-en="Daily Ten">健運動</h4>
+          <a class="vfoot__big" href="index.html" data-en="Back to the main programme">回到計畫首頁</a>
+          <p data-en="Ten minutes a day with community elders, so a care station can see them change.">每天陪社區長輩動十分鐘，讓據點看得見長輩的改變。</p>
+        </div>
       </div>
-
-      <p class="eyebrow eyebrow--inv" data-reveal data-en="Why this programme">為什麼做這個計畫</p>
-      <p class="foot__me">
-        <span class="mask"><i style="--d:0ms" data-en="You don't have to grow up first —">不用等到長大，</i></span>
-        <span class="mask"><i style="--d:90ms" data-en="someone already needs you.">就有人需要你。</i></span>
-      </p>
-    </div>
-
-    <div class="foot__grid">
-      <div class="foot__cell" data-reveal>
-        <span class="meta" data-en="Daily Ten">健運動</span>
-        <a class="foot__mail" href="index.html" data-en="Back to the main programme">回到計畫首頁</a>
-        <p data-en="Ten minutes a day with community elders, so a care station can see them change.">每天陪社區長輩動十分鐘，讓據點看得見長輩的改變。</p>
-
-        <span class="meta" data-en="Applications &amp; questions">報名與聯絡</span>
-        <a class="foot__mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lucychi13450%40gmail.com" target="_blank" rel="noopener">lucychi13450@gmail.com</a>
-        <p data-en="The course, collaboration, supporting the programme, or any other question — write any time.">課程、合作、支持計畫，任何問題都歡迎來信。</p>
-
-        <span class="meta" data-en="Call us">諮詢專線</span>
-        <a class="foot__mail" href="tel:+886977350169">☎ 0977350169</a>
-        <p data-en="Vivi — any question, just call.">Vivi 老師 · 任何問題都可以直接打來。</p>
-      </div>
-
-      <div class="foot__cell foot__cell--wide" data-reveal style="--d:160ms">
-        <span class="meta" data-en="Supported by">支持單位</span>
-        <div class="foot__logos">
-          <a href="https://www.clc.org.tw/index.php" target="_blank" rel="noopener">
-            <img src="assets/img/association-logo-mono.png?v=41" style="--h:44px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async">
-          </a>
-          <a href="https://feelfitness.tw/" target="_blank" rel="noopener">
-            <img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:56px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async">
-          </a>
-          <a href="https://www.facebook.com/iCareCafe/?locale=zh_TW" target="_blank" rel="noopener">
-            <img src="assets/img/partner-icare-mono.png?v=90" style="--h:70px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async">
-          </a>
+      <div>
+        <h4 data-en="Supported by">支持單位</h4>
+        <div class="vfoot__logos">
+          <a href="https://www.clc.org.tw/index.php" target="_blank" rel="noopener"><img src="assets/img/association-logo-mono.png?v=41" style="--h:40px" alt="社團法人中華長照協會 China Long-Term Care Association" data-en-alt="China Long-Term Care Association" width="832" height="130" loading="lazy" decoding="async"></a>
+          <a href="https://feelfitness.tw/" target="_blank" rel="noopener"><img src="assets/img/partner-feelfitness-mono.png?v=88" style="--h:50px" alt="賦優適能 Feel Fitness" data-en-alt="Feel Fitness" width="900" height="278" loading="lazy" decoding="async"></a>
+          <a href="https://www.facebook.com/iCareCafe/?locale=zh_TW" target="_blank" rel="noopener"><img src="assets/img/partner-icare-mono.png?v=90" style="--h:62px" alt="iCare Cafe 長照咖啡館" data-en-alt="iCare Cafe" width="760" height="289" loading="lazy" decoding="async"></a>
         </div>
         <p data-en="The volunteer certificate is issued by the China Long-Term Care Association.">志工培訓證明由社團法人中華長照協會核發。</p>
       </div>
     </div>
-
-    <div class="foot__bar">
-      <span class="meta">© <span id="yr">2026</span> <span data-en="Daily Ten">健運動</span> · <span data-en="Moving with you, young again">陪你動，再青春</span></span>
-      <a class="foot__up" href="#top">
-        <span data-en="Back to top">回到頁首</span>
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
-      </a>
-    </div>
+    <div class="vfoot__bar"><span>© <span id="yr">2026</span> <span data-en="Daily Ten">健運動</span> · <span data-en="Moving with you, young again">陪你動，再青春</span></span><a href="#top" data-en="Back to top">回到頁首</a></div>
   </div>
 </footer>
 
-<div class="lb" id="lb" hidden>
-  <div class="lb__bar">
-    <span class="meta" id="lbCount">01 / 06</span>
-    <button class="lb__x" type="button" id="lbClose" aria-label="關閉圖片檢視" data-en-aria="Close image viewer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-  </div>
-  <figure class="lb__fig">
-    <img id="lbImg" alt="" decoding="async">
-    <figcaption><em id="lbDate"></em><b id="lbTitle"></b></figcaption>
-  </figure>
-  <button class="lb__nav lb__nav--prev" type="button" id="lbPrev" aria-label="上一張" data-en-aria="Previous image">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-  </button>
-  <button class="lb__nav lb__nav--next" type="button" id="lbNext" aria-label="下一張" data-en-aria="Next image">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-  </button>
+<div class="dock" id="dock">
+  <p><b data-en="Early bird NT$3,900 · to 30 Nov">早鳥 NT$3,900 · 至 11/30</b><span data-en="Cohort 2 · Sat 19 Dec · open">12/19（六）第二梯報名中</span></p>
+  <a class="vbtn" href="#apply" data-en="Apply">立即報名</a>
 </div>
 
-<script src="assets/js/site.js?v=115" defer></script>
+<dialog id="view" aria-label="照片檢視" data-en-aria="Photo viewer">
+  <figure class="view">
+    <button class="view__x" type="button" data-close data-en="Close">關閉</button>
+    <img id="viewImg" alt="">
+    <figcaption><em id="viewTag"></em><b id="viewTitle"></b><span id="viewText"></span></figcaption>
+    <div class="view__nav"><button type="button" id="viewPrev" data-en="Previous">上一張</button><span id="viewCount"></span><button type="button" id="viewNext" data-en="Next">下一張</button></div>
+  </figure>
+</dialog>
+
+<dialog id="player" aria-label="第一梯回顧影片" data-en-aria="Cohort one recap film">
+  <div class="player">
+    <button class="view__x" type="button" data-close data-en="Close">關閉</button>
+    <div class="player__box" id="playerBox"></div>
+  </div>
+</dialog>
+
+<script src="assets/js/site.js?v=117" defer></script>
+<script src="assets/js/v2.js?v=1" defer></script>
 </body>
 </html>

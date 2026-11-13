@@ -499,3 +499,53 @@ paragraphs and a reader pushed back — they do not want that level of detail
 standing between them and the page. The 怎麼運作 intro is one line, each flow step
 is a fragment, each form hint is a short phrase, and the findings lead-in is one
 sentence. If you add copy here, cut something else.
+
+---
+
+## v2 layout (2026-11-13) — read this before touching either page
+
+The director asked for a registration-first course page (busy parents, film and
+報名 on screen one) and Lucas asked for 首頁 to match it. Both pages now share
+one chrome, and the split between files is deliberate:
+
+| File | Loaded by | Holds |
+|---|---|---|
+| `assets/css/v2.css` | both pages | bar, page switch (`.seg`), gold action (`.vbtn`), first screen (`.vhero`, `.quick`), jump row, dock, footer (`.vfoot`) |
+| `assets/css/course2.css` | `course.html` only | everything else on the course page — it does **not** load `site.css` |
+| `assets/css/home2.css` | `index.html` only, after `site.css` and `v2.css` | re-points `site.css` tokens at the course page's scale; adds no components |
+| `assets/js/v2.js` | both pages, after `site.js` | dock, film dialog, photo viewer, the home grid's 看全部 |
+
+- **`v2.css` class names must stay unique to it.** `site.css` owns `.nav`,
+  `.hero`, `.btn`, `.foot`; reusing one of those in `v2.css` breaks 首頁.
+- **`site.js` still runs on both pages** for the EN toggle and both forms. It is
+  null-guarded throughout, which is why the old nav, menu, curtain and marquee
+  could be removed from the markup without touching it.
+- **Gold is the one accent and it means "the action"**: 報名 on the course page,
+  合作洽詢 on 首頁. Do not use it for anything else.
+- **The first screen is sized to keep the button visible** at 375×667 and
+  1280×620. If you add a line to `.vhero__text`, re-check both.
+- **Course prices** are the director's 2026-11-13 list (早鳥 3,900 → 11/30,
+  原價 4,500, 舊生 3,300, 兩人同行各減 300, 家長 300, 獎助 2 位半價). They
+  appear in four places: the hero `.quick`, `#prices`, the FAQ and the dock.
+- **The form gained two optional fields**, `plan` and `buddy`, posted to Make
+  under those names and repeated inside `summary`. The Make scenario does not
+  map them yet; until it does they are readable in `summary`.
+- **Cohort 1 photographs** (`assets/img/c1/`) are the director's selection and
+  captions, verbatim. Her #17 (這個笑容，就是答案) is still missing.
+- 首頁's photo grid shows six frames until 看全部 is pressed; all 20 remain in
+  the page and in the viewer.
+- **首頁 section order (2026-11-13, second pass):** 問題 → 合作內容 → 怎麼運作 →
+  成效 → 影片 → 活動 → 關於 → 合作洽詢. A 承辦人 asks "what do I get" before
+  "how does it work". The bar links, the phone jump row and `CHAPTERS` in
+  `site.js` must stay in this same order.
+- **The one-minute film stays in the 影片 section**, capped at 720px — it was
+  considered for the first screen and left out: a first screen has about three
+  seconds, and a still photograph plus three facts reads faster than a film
+  nobody has pressed yet.
+- **Below 900px the first-screen picture is sized from the screen's height**
+  (`25svh`), not from its own width, and a phone held sideways gets the
+  side-by-side layout. Checked with the button on screen at 320×500, 375×550,
+  540×660, 768×1024, 844×390, 1024×600, 1280×620 and 1920×1000.
+- **Cohort 1's 跳起來 frame was replaced** by the 長輩體驗 frame (water bottles
+  strapped on): the jump was part of the ageing experience, not 動作訓練, and
+  its caption misdescribed it. `09-jump-*.jpg` is still in `assets/img/c1/`.

@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* ═══════════════════════════════════════════════════════════════
+   首頁 · v2 layer (index.html only; after site.css and v2.css)
+   site.css still draws every section of this page — the flow, the clips,
+   the photo grid, the dashboard, the form. This file only re-points its
+   tokens at the scale course.html uses, so the two pages read as one site:
+   same type sizes, same section rhythm, same radius, same gold action.
+   Nothing here adds a component; if a rule below starts to grow, the
+   component belongs in site.css.
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --navy:#0d1a50; --tint:#f3f5f9;
+  --ff-display:"NM Text","Noto Serif TC","Songti TC","PMingLiU",serif;
+  /* course.html's scale: an h2 tops out at 2.6rem, a statement at 4.4rem */
+  --t-stmt:clamp(2.1rem, 9.4vw, 3.6rem);
+  --t-h2:clamp(1.7rem, 7vw, 2.6rem);
+  --t-body:1rem;
+  --sec-y:56px;
+  --maxw:1120px;
+  --r:14px;
+}
+@media (min-width:810px){
+  :root{--sec-y:88px; --t-body:1.0625rem}
+}
+html{scroll-padding-top:calc(var(--bar) + 20px)}
+body{line-height:1.75}
+.h2,.statement{font-weight:700; letter-spacing:.02em}
+.h2{line-height:1.28}
+
+/* The opening curtain and the marquee are gone from the markup; the running
+   chapter chip is off too: the bar now marks the section you are in, and the
+   chip floated over the cards at the bottom-left. */
+.curtain,.marquee{display:none !important}
+.chapter{display:none !important}
+
+/* The first section used to follow a full-height hero; it now follows the
+   jump row, so it needs no extra lead-in. */
+#gap{padding-top:var(--sec-y)}
+
+/* One gold action per page: here it is 合作洽詢, so the form's submit carries
+   it too. The LINE and 青年培訓 buttons stay navy — they are not the ask. */
+#book .btn--solid{background:var(--gold); color:var(--v-navy); font-weight:700}
+@media (hover:hover){ #book .btn--solid:hover{background:var(--gold-deep); color:var(--v-navy)} }
+
+/* media and cards pick up the 14px radius through --r; the photo grid frames
+   and the clips set their own, so match them here */
+.shot__img,.short__box,.film__box{border-radius:var(--r); overflow:hidden}
+
+/* room for the dock under the last section on phones is in .vfoot itself */
+
+/* photo grid: six, then the rest on request (v2.js) */
+.grid.is-short>.shot:nth-child(n+7){display:none}
+.more{display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; margin-top:20px; border:0; border-radius:999px; background:transparent; box-shadow:inset 0 0 0 1.5px var(--v-rule-strong); color:var(--v-ink); font:500 15px/1.2 var(--v-body); letter-spacing:.06em; cursor:pointer}
+.more:hover{background:var(--v-paper)}
+@media (min-width:900px){ .more{width:auto; padding:0 28px; margin-inline:auto} }
+
+/* The one-minute film ran the full 1120px and filled a laptop screen on its
+   own. A cover is a doorway, not a hero: cap it and centre it. */
+.film{max-width:720px; margin-inline:auto}
+.film figcaption{margin-inline:auto; text-align:center}
+
+/* bar: underline the section you are in (site.js sets .is-here on .nav__links a) */
+.bar__links a.is-here{color:var(--v-on); text-decoration:underline; text-underline-offset:8px}

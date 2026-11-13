@@ -253,13 +253,13 @@
        stayed Chinese while the rest of the page was English. */
     var CHAPTERS = [
       { sel: '#gap',      no: '01', name: '問題',       en: 'The problem' },
-      { sel: '#how',      no: '02', name: '怎麼運作',   en: 'How it works' },
-      { sel: '#video',    no: '03', name: '每天十分鐘', en: 'Ten minutes a day' },
-      { sel: '#story',    no: '04', name: '不只是運動', en: 'More than exercise' },
-      { sel: '#data',     no: '05', name: '成效',       en: 'Results' },
-      { sel: '#findings', no: '05', name: '前後測',     en: 'Pre & post' },
-      { sel: '#about',    no: '06', name: '關於這個專案', en: 'About' },
-      { sel: '#offer',    no: '07', name: '合作內容',   en: 'What you get' },
+      { sel: '#offer',    no: '02', name: '合作內容',   en: 'What you get' },
+      { sel: '#how',      no: '03', name: '怎麼運作',   en: 'How it works' },
+      { sel: '#data',     no: '04', name: '成效',       en: 'Results' },
+      { sel: '#findings', no: '04', name: '前後測',     en: 'Pre & post' },
+      { sel: '#video',    no: '05', name: '每天十分鐘', en: 'Ten minutes a day' },
+      { sel: '#story',    no: '06', name: '不只是運動', en: 'More than exercise' },
+      { sel: '#about',    no: '07', name: '關於這個專案', en: 'About' },
       { sel: '#book',     no: '—',  name: '合作洽詢',   en: 'Partner with us' }
     ].map(function (c) { c.el = $(c.sel); return c; });
 
@@ -992,6 +992,9 @@
         sMail = $('#a-contact'), parent_ = $('#a-parent'),
         pMail = $('#a-pmail'), phone = $('#a-phone'), pJoin = $('#a-pjoin'),
         why = $('#a-why'), exp = $('#a-exp'), work = $('#a-work'), trap = $('#a-trap'),
+        /* 2026-11 price list: which price, and the pair partner. Optional on the
+           page and null-guarded here, so an older course.html still submits. */
+        plan = $('#a-plan'), buddy = $('#a-buddy'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
 
@@ -1088,11 +1091,12 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','School and year','Cohort','Student email',
+        ? ['Student name','Age','School and year','Cohort','Applying as','Applying with','Student email',
            'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Sport / volunteering experience','CV / portfolio link']
-        : ['學生姓名','年齡','學校年級','報名梯次','學生 Email',
+        : ['學生姓名','年齡','學校年級','報名梯次','報名身分','兩人同行同伴','學生 Email',
            '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
-      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), batch.value.trim(), sMail.value.trim(),
+      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), batch.value.trim(),
+               plan ? plan.value.trim() : '', buddy ? buddy.value.trim() : '', sMail.value.trim(),
                parent_.value.trim(), pMail.value.trim(), phone.value.trim(),
                (pJoin ? pJoin.value.trim() : '0') + t(' 人', pJoin && pJoin.value.trim() === '1' ? ' person' : ' people'),
                why.value.trim(), exp.value.trim(), work.value.trim()];
@@ -1108,6 +1112,8 @@
         age: age.value.trim(),
         school: school.value.trim(),
         batch: batch.value.trim(),
+        plan: plan ? plan.value.trim() : '',
+        buddy: buddy ? buddy.value.trim() : '',
         student_email: sMail.value.trim(),
         parent: parent_.value.trim(),
         parent_email: pMail.value.trim(),

@@ -32,7 +32,7 @@
      application form — every id it reads (#langBtn, #applyForm, #a-*, #ea-*,
      #applySubmit, #applyDone, #applyRecap, #applyAgain, #yr) is kept. -->
 <link rel="stylesheet" href="assets/css/v2.css?v=3">
-<link rel="stylesheet" href="assets/css/course2.css?v=2">
+<link rel="stylesheet" href="assets/css/course2.css?v=3">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -141,16 +141,32 @@
       <div class="prices" id="prices">
         <h3 class="prices__h" data-en="Fees · cohort 2">費用 · 第二梯</h3>
         <p class="prices__sub" data-en="A single one-off fee: both certificates, result photos and film, course materials and equipment, and venue insurance. Nothing further is charged during the course.">一次性收費，含兩張證書、影音成果、教材道具與場地保險。課程期間不會再收取任何費用。</p>
+        <!-- 2026-11-14: rebuilt as three steps because the flat list left people
+             asking which lines stack. Rule, and the Notion 應繳金額 formula, match:
+             1 基本價 pick exactly one; 2 at most ONE discount (同行 −300 or 獎助
+             半價 of the base); 3 家長 add-on, never discounted. -->
+        <p class="pstep"><i>1</i><span data-en="Base price — exactly one of these">基本價 · 三選一</span></p>
         <ul class="plist">
-          <li class="is-now"><b><span data-en="Early bird">早鳥價</span><em class="tag" data-en="now">現在</em></b><span data-en="Apply and complete the transfer by 30 Nov">11/30 前送出報名並完成匯款</span><div class="amt">NT$3,900</div></li>
-          <li><b data-en="Standard">原價</b><span data-en="Applications sent 1–12 Dec">12/01–12/12 送出報名</span><div class="amt">NT$4,500</div></li>
-          <li><b data-en="Returning student">舊生 · 續修價</b><span data-en="For anyone who completed cohort 1">第一梯結業者</span><div class="amt">NT$3,300</div></li>
-          <li><b data-en="Two applying together">兩人同行</b><span data-en="Once per person; cannot be combined with an assisted place">每人限折 1 次，不與獎助併用</span><div class="amt" data-en="−NT$300 <small>each</small>">各減 NT$300</div></li>
-          <li><b data-en="A parent staying">家長陪同</b><span data-en="Food and drinks, venue cleaning and the activities on the day">含餐點與飲品、現場清潔與現場活動體驗</span><div class="amt" data-en="NT$300 <small>each</small>">NT$300 <small>／人</small></div></li>
-          <li><b data-en="Assisted places">獎助名額</b><span data-en="Two places, at half the fee">2 位，補助半價</span><div class="amt" data-en="Half fee">半價</div></li>
+          <li class="is-now"><b><span data-en="Early bird">早鳥價</span><em class="tag" data-en="now">現在</em></b><span data-en="Application sent by 23:59, 30 Nov">11/30 23:59 前送出報名</span><div class="amt">NT$3,900</div></li>
+          <li><b data-en="Standard">原價</b><span data-en="Application sent 1–12 Dec">12/1–12/12 送出報名</span><div class="amt">NT$4,500</div></li>
+          <li><b data-en="Returning student">舊生價</b><span data-en="Completed cohort 1. Same price whatever the date — it is already below early bird.">第一梯結業者。不分報名日期，已比早鳥便宜，不再另算早鳥</span><div class="amt">NT$3,300</div></li>
         </ul>
-        <p class="eg" data-en="<b>Coming as a pair?</b> A cohort 1 graduate who brings a friend pays 3,300 − 300 = <b>NT$3,000</b>; the friend, on the early-bird price, pays 3,900 − 300 = <b>NT$3,600</b>."><b>兩人同行怎麼算？</b>第一梯舊生帶一位新朋友：舊生 3,300 − 300 = <b>NT$3,000</b>；新朋友早鳥 3,900 − 300 = <b>NT$3,600</b>。</p>
-        <span class="fine" data-en="The transfer details are written only in the acceptance email — please do not send anything before it arrives. The early-bird price goes by the date the transfer is completed, so the sooner the application is in, the better.">匯款資訊只寫在錄取信裡，收到之前請先不要匯款。早鳥價以完成匯款的日期為準，愈早送出報名愈好。</span>
+        <p class="pstep"><i>2</i><span data-en="Discount — at most one, they do not stack">折扣 · 最多用一個，不能疊加</span></p>
+        <ul class="plist">
+          <li><b data-en="Two applying together">兩人同行</b><span data-en="You each send a form and name the other. Each of you gets it once.">兩人各填一張表、互填對方姓名，兩人各減一次</span><div class="amt" data-en="−NT$300">−NT$300</div></li>
+          <li><b data-en="Assisted place">獎助名額</b><span data-en="Two per cohort, by application and approved by the team. Halves your base price; as the biggest discount, it replaces the pair discount rather than adding to it.">每梯 2 位，需申請並經團隊核准。基本價打五折；這已是最大優惠，所以不再加減兩人同行</span><div class="amt" data-en="Half">半價</div></li>
+        </ul>
+        <p class="pstep"><i>3</i><span data-en="Add-on — never discounted">加購 · 不打折</span></p>
+        <ul class="plist">
+          <li><b data-en="A parent staying all session">家長全程陪同</b><span data-en="Christmas food and drinks, venue cleaning and the activities on the day">含聖誕餐點與飲品、現場清潔與現場活動體驗</span><div class="amt" data-en="+NT$300 <small>each</small>">+NT$300 <small>／人</small></div></li>
+        </ul>
+        <div class="eg">
+          <p data-en="<b>How it adds up:</b> base price → one discount, if any → add parents."><b>怎麼算：</b>基本價 → 折扣（有的話，一個）→ 加上家長陪同。</p>
+          <p data-en="Early bird, applying with a friend: 3,900 − 300 = <b>NT$3,600</b>">早鳥＋兩人同行：3,900 − 300 = <b>NT$3,600</b></p>
+          <p data-en="Returning student with a friend, one parent staying: 3,300 − 300 + 300 = <b>NT$3,300</b>">舊生＋兩人同行＋1 位家長：3,300 − 300 + 300 = <b>NT$3,300</b></p>
+          <p data-en="Early bird with an approved assisted place, one parent staying: 3,900 ÷ 2 + 300 = <b>NT$2,250</b>">早鳥＋獲得獎助＋1 位家長：3,900 ÷ 2 + 300 = <b>NT$2,250</b></p>
+        </div>
+        <span class="fine" data-en="<strong>You do not need to work it out.</strong> The acceptance email states the total you pay, how it was worked out, and the date to pay by. The price is fixed the moment you apply: send the form by 23:59 on 30 Nov and the early-bird price is yours, however long the selection takes. Please do not transfer anything before the email arrives."><strong>不用自己算。</strong>錄取信會寫明你要繳的總金額、計算方式和繳費期限。價格在你送出報名的那一刻就決定了：11/30 23:59 前送出就是早鳥價，不會因為甄選花了幾天而改變。收到錄取信之前，請先不要匯款。</span>
       </div>
 
       <div class="cta-row">
@@ -183,7 +199,7 @@
           <summary><span data-en="How does selection work, and how do we pay?">怎麼錄取、怎麼繳費？</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6 8 10.5 12.5 6"/></svg></summary>
           <div class="qa__body">
             <p data-en="Once the form is in, the team reviews it in writing. Successful applicants receive an <strong>acceptance email</strong> carrying the payment details and the programme's <strong>own booking LINE account</strong>.">送出報名表後由團隊書面甄選。錄取者會收到<strong>錄取通知 email</strong>，信裡有繳費方式，以及本計畫<strong>預約專用的 LINE 官方帳號</strong>。</p>
-            <p data-en="The transfer details are written only in the acceptance email — please do not send anything before it arrives. Your place is confirmed once the email has reached you and the transfer is done.">匯款資訊只寫在錄取信裡，收到之前請先不要匯款。收到錄取信並完成匯款，才算完成報名。</p>
+            <p data-en="The acceptance email states your exact amount — early bird or standard, decided by when you sent the form — and the date to pay by. The transfer details are written only in that email, so please do not send anything before it arrives. Your place is confirmed once you have paid by that date.">錄取信會寫明你要繳的金額（早鳥或原價，看的是你送出報名的時間）和繳費期限。匯款資訊只寫在錄取信裡，收到之前請先不要匯款。在期限內完成匯款，才算完成報名。</p>
           </div>
         </details>
         <details>
@@ -273,6 +289,20 @@
         <p class="err" id="ea-age" role="alert"></p>
       </div>
 
+      <!-- Added 2026-11-13 at Lucas's request. Sent to Make as `gender` and
+           written to the Notion 性別 select, so keep these three values in step
+           with that select's options. -->
+      <div class="field">
+        <label for="a-gender"><span data-en="Gender">性別</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
+        <select id="a-gender" name="gender" required aria-describedby="ea-gender">
+          <option value="" selected data-en="Please choose">請選擇</option>
+          <option value="男" data-en="Male">男</option>
+          <option value="女" data-en="Female">女</option>
+          <option value="其他／不便透露" data-en="Other / prefer not to say">其他／不便透露</option>
+        </select>
+        <p class="err" id="ea-gender" role="alert"></p>
+      </div>
+
       <div class="field">
         <label for="a-school"><span data-en="School and year">就讀學校與年級</span> <span class="req" aria-hidden="true" data-en="required">必填</span></label>
         <input id="a-school" name="school" type="text" required autocomplete="off"
@@ -298,13 +328,25 @@
            tell which price an applicant is asking for. Both optional, both
            sent to Make as `plan` / `buddy` and repeated inside `summary`. -->
       <div class="field">
-        <label for="a-plan"><span data-en="Which price applies to you">報名身分</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-plan"><span data-en="Which base price applies to you">報名身分</span> <span class="opt" data-en="optional">選填</span></label>
         <select id="a-plan" name="plan" aria-describedby="ha-plan">
-          <option selected data-en="New applicant">一般報名</option>
-          <option data-en="Cohort 1 graduate — returning-student price">第一梯結業 · 舊生續修價</option>
-          <option data-en="Applying for an assisted place (half fee)">申請獎助名額（半價）</option>
+          <option value="一般報名" selected data-en="New applicant">一般報名</option>
+          <option value="第一梯結業 · 舊生續修價" data-en="Cohort 1 graduate — returning-student price">第一梯結業 · 舊生價</option>
         </select>
-        <p class="hint" id="ha-plan" data-en="Early bird or standard is decided by the date, so there is nothing to choose for that. Assisted places: two per cohort.">早鳥或原價看的是日期，不用選。獎助名額每梯 2 位。</p>
+        <p class="hint" id="ha-plan" data-en="New applicants: early bird or standard goes by when you send this form (by 30 Nov = early bird), so there is nothing to choose for that.">一般報名的早鳥或原價，看的是你送出這張表的時間（11/30 前＝早鳥），不用選。</p>
+      </div>
+
+      <!-- Split out of 報名身分 on 2026-11-14 so a returning student can apply for
+           aid too. Sent to Make as aid=true/false → Notion 申請獎助 checkbox.
+           Applying is not approval: the half price only applies once 獎學金 is
+           ticked in Notion. -->
+      <div class="field">
+        <label for="a-aid"><span data-en="Assisted place">申請獎助名額</span> <span class="opt" data-en="optional">選填</span></label>
+        <select id="a-aid" name="aid" aria-describedby="ha-aid">
+          <option value="false" selected data-en="Not applying">不申請</option>
+          <option value="true" data-en="Yes, I would like to apply (half price)">我想申請（半價）</option>
+        </select>
+        <p class="hint" id="ha-aid" data-en="Two places per cohort, decided by the team. The acceptance email tells you whether you got one. An assisted place replaces the pair discount.">每梯 2 位，由團隊決定，結果會寫在錄取信裡。拿到獎助就不再加減兩人同行。</p>
       </div>
 
       <div class="field">
@@ -477,7 +519,7 @@
         <li class="tile is-tall"><button type="button" style="--pos:50% 30%"><img src="assets/img/c1/04-bp-md.jpg?v=1" alt="學員坐在桌前量血壓，對著鏡頭微笑" data-en-alt="A trainee smiles at the camera while having her blood pressure taken" width="800" height="1200" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="It starts with a blood-pressure cuff">從量血壓開始認識自己</b><i data-en="Knowing your own body before you move is a coach's first lesson.">運動前先了解身體狀況，是成為教練的第一課。</i></span></button></li>
         <li class="tile is-lead"><button type="button" style="--pos:35% 18%"><img src="assets/img/c1/05-fit-md.jpg?v=1" alt="教練蹲下來，親手幫學員把測量裝置固定在腿上" data-en-alt="A coach crouches to fix a measuring device to a trainee's leg himself" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="The coach crouches down, one child at a time">教練蹲下來，一個一個看</b><i data-en="He fixes the measuring device on every child himself — no detail skipped.">教練親手幫每個孩子把測量裝置固定好，細節都不放過。</i></span></button></li>
         <li class="tile is-tall"><button type="button" style="--pos:50% 40%"><img src="assets/img/c1/06-talk-md.jpg?v=1" alt="講師彎下腰，和坐著的學員面對面說明" data-en-alt="An instructor bends down to talk a seated trainee through it face to face" width="724" height="1084" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Assessment">身體評估</em><b data-en="One to one, until it lands">一對一說明，聽懂了再往下</b><i data-en="The instructor bends down to talk it through, making sure everyone is keeping up.">講師彎下腰和孩子面對面討論，確定每個人都跟上。</i></span></button></li>
-        <li class="tile is-tall"><button type="button" style="--pos:62% 72%"><img src="assets/img/result/suit-md.jpg?v=1" alt="學員手腳綁上裝水的寶特瓶，彎著身體在地上移動，模擬長輩關節僵硬的樣子" data-en-alt="A trainee moves across the floor with water bottles strapped to wrists and ankles, simulating an older adult's stiff joints" width="1000" height="1496" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Ageing experience">長輩體驗</em><b data-en="Feel it first, then teach it">先體驗變老，才知道怎麼教</b><i data-en="Water bottles on wrists and ankles — stiff joints and lost muscle, felt.">手腳綁上水瓶，體驗關節僵硬與肌力流失。</i></span></button></li>
+        <li class="tile is-tall"><button type="button" style="--pos:62% 72%"><img src="assets/img/result/suit-md.jpg?v=1" alt="學員手腳綁上裝水的寶特瓶，彎著身體在地上移動，模擬長輩行動吃力的感覺" data-en-alt="A trainee moves across the floor with water bottles strapped to wrists and ankles, simulating how heavy movement feels for an older adult" width="1000" height="1496" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Ageing experience">長輩體驗</em><b data-en="Feel how hard it is for them, then learn to coach">先體會長輩的吃力，再學怎麼帶</b><i data-en="Water-filled bottles on wrists and ankles: every step becomes as heavy as it is for an older adult.">手腳綁上裝水的寶特瓶，親身感受長輩每一步有多費力。</i></span></button></li>
         <li class="tile"><button type="button" style="--pos:55% 40%"><img src="assets/img/c1/08-band-md.jpg?v=1" alt="學員們拉著彈力帶練習，學習控制力量與姿勢" data-en-alt="Trainees working with resistance bands, learning to control force and posture" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Movement">動作訓練</em><b data-en="One band, a steadier core">一條彈力帶，練出穩定的核心</b><i data-en="Pulling a resistance band, learning to control force and posture.">孩子拉著彈力帶，學習控制力量與姿勢。</i></span></button></li>
         <li class="tile"><button type="button" style="--pos:50% 45%"><img src="assets/img/c1/14-team-md.jpg?v=1" alt="三位學員圍著安妮，分工操作 CPR 與 AED" data-en-alt="Three trainees around the manikin, sharing out CPR and the AED" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="First aid">急救實作</em><b data-en="Three people, one rescue">三個人，一起完成一次救援</b><i data-en="Sharing out CPR and the AED, and learning to work as a team.">孩子分工操作 CPR 與 AED，學會團隊合作。</i></span></button></li>
         <li class="tile is-wide"><button type="button" style="--pos:50% 38%"><img src="assets/img/c1/19-cert-md.jpg?v=1" alt="學員手持結業證書，和兩位教練一起比讚合照" data-en-alt="A trainee holds his certificate between two coaches, thumbs up" width="1000" height="667" loading="lazy" decoding="async"><span class="tile__meta"><em data-en="Graduation">結業</em><b data-en="The certificate, handed over in person">親手接下結業證書</b><i data-en="Training complete — the certificate comes from the coach's own hands.">完成培訓，由教練親自頒發證書。</i></span></button></li>
@@ -548,7 +590,7 @@
   </div>
 </dialog>
 
-<script src="assets/js/site.js?v=117" defer></script>
+<script src="assets/js/site.js?v=119" defer></script>
 <script src="assets/js/v2.js?v=1" defer></script>
 </body>
 </html>

@@ -66,6 +66,12 @@ button{font:inherit; color:inherit}
 .eg{margin-top:14px; padding:14px 16px; border-radius:10px; background:var(--tint); font-size:14.5px; line-height:1.7; color:var(--ink-soft)}
 .eg b{color:var(--ink); font-weight:700}
 .prices .fine{margin-top:12px}
+/* 2026-11-14 three-step price list: a numbered label above each group */
+.pstep{display:flex; align-items:center; gap:10px; margin:26px 0 6px; font-size:14px; font-weight:700; color:var(--ink-soft); letter-spacing:.02em}
+.pstep:first-of-type{margin-top:6px}
+.pstep i{display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--ink); color:var(--paper,#fff); font-style:normal; font-size:12.5px; font-variant-numeric:tabular-nums}
+.eg p + p{margin-top:4px}
+.eg p:first-child{margin-bottom:6px}
 
 /* q&a */
 .qa{margin-top:36px; border-top:1px solid var(--rule-strong)}

@@ -988,13 +988,13 @@
 
     var HOOK = 'https://hook.us2.make.com/n4mpjgv5wvijbfcgd2bj3efpc38n1p1s';
 
-    var name_ = $('#a-name'), age = $('#a-age'), school = $('#a-school'), batch = $('#a-batch'),
+    var name_ = $('#a-name'), age = $('#a-age'), gender = $('#a-gender'), school = $('#a-school'), batch = $('#a-batch'),
         sMail = $('#a-contact'), parent_ = $('#a-parent'),
         pMail = $('#a-pmail'), phone = $('#a-phone'), pJoin = $('#a-pjoin'),
         why = $('#a-why'), exp = $('#a-exp'), work = $('#a-work'), trap = $('#a-trap'),
         /* 2026-11 price list: which price, and the pair partner. Optional on the
            page and null-guarded here, so an older course.html still submits. */
-        plan = $('#a-plan'), buddy = $('#a-buddy'),
+        plan = $('#a-plan'), buddy = $('#a-buddy'), aid = $('#a-aid'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
 
@@ -1012,6 +1012,8 @@
          not a validation error. Only checks that a real number was typed. */
       { el: age,    err: '#ea-age',    msg: '請填寫年齡。', en: 'Please enter your age.',
         ok: function (v) { var n = parseInt(v, 10); return !isNaN(n) && n >= 1 && n <= 120; } },
+      { el: gender, err: '#ea-gender',  msg: '請選擇性別。', en: 'Please choose a gender option.',
+        ok: function (v) { return v.trim() !== ''; } },
       { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
       { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
@@ -1091,12 +1093,14 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','School and year','Cohort','Applying as','Applying with','Student email',
+        ? ['Student name','Age','Gender','School and year','Cohort','Applying as','Assisted place','Applying with','Student email',
            'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Sport / volunteering experience','CV / portfolio link']
-        : ['學生姓名','年齡','學校年級','報名梯次','報名身分','兩人同行同伴','學生 Email',
+        : ['學生姓名','年齡','性別','學校年級','報名梯次','報名身分','申請獎助','兩人同行同伴','學生 Email',
            '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
-      var V = [name_.value.trim(), age.value.trim(), school.value.trim(), batch.value.trim(),
-               plan ? plan.value.trim() : '', buddy ? buddy.value.trim() : '', sMail.value.trim(),
+      var V = [name_.value.trim(), age.value.trim(), gender.value.trim(), school.value.trim(), batch.value.trim(),
+               plan ? plan.options[plan.selectedIndex].text.trim() : '',
+               aid && aid.value === 'true' ? t('是', 'Yes') : t('否', 'No'),
+               buddy ? buddy.value.trim() : '', sMail.value.trim(),
                parent_.value.trim(), pMail.value.trim(), phone.value.trim(),
                (pJoin ? pJoin.value.trim() : '0') + t(' 人', pJoin && pJoin.value.trim() === '1' ? ' person' : ' people'),
                why.value.trim(), exp.value.trim(), work.value.trim()];
@@ -1110,9 +1114,11 @@
         form_type: '青年志工報名',
         student: name_.value.trim(),
         age: age.value.trim(),
+        gender: gender.value.trim(),
         school: school.value.trim(),
         batch: batch.value.trim(),
         plan: plan ? plan.value.trim() : '',
+        aid: aid && aid.value === 'true' ? 'true' : 'false',
         buddy: buddy ? buddy.value.trim() : '',
         student_email: sMail.value.trim(),
         parent: parent_.value.trim(),
@@ -1124,6 +1130,10 @@
         portfolio: work.value.trim(),
         summary: summary,
         submitted_at: new Date().toISOString(),
+        /* 報名時間 in Taiwan time, for reading at a glance. Notion's 報名時間 and
+           the 早鳥 flag are stamped by Make with its own clock, so a wrong clock
+           on the applicant's phone cannot change the early-bird decision. */
+        submitted_at_tw: new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Taipei', hour12: false }).slice(0, 16),
         source: location.href
       });
 

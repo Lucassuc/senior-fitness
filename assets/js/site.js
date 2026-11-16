@@ -995,6 +995,7 @@
         /* 2026-11 price list: which price, and the pair partner. Optional on the
            page and null-guarded here, so an older course.html still submits. */
         plan = $('#a-plan'), buddy = $('#a-buddy'), aid = $('#a-aid'),
+        aidWhy = $('#a-aidwhy'), aidBox = $('#aidWhyField'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
 
@@ -1038,6 +1039,19 @@
       { el: why,    err: '#ea-why',    msg: '請多寫幾句，這是書面甄選主要看的部分。', en: 'Please write a little more — this is what the selection reads.',
         ok: function (v) { return v.trim().length >= 30; } }
     ];
+
+    /* 清寒獎助 reason: its box appears only when 申請 is chosen, and only then
+       is it required. Absent on an older page, so everything is null-guarded. */
+    function aidOn() { return !!(aid && aid.value === 'true'); }
+    if (aid && aidBox) {
+      var syncAid = function () {
+        aidBox.hidden = !aidOn();
+        if (!aidOn() && aidWhy) { aidWhy.removeAttribute('aria-invalid'); var e = $('#ea-aidwhy'); if (e) { e.textContent = ''; e.classList.remove('is-on'); } }
+      };
+      aid.addEventListener('change', syncAid); syncAid();
+    }
+    if (aidWhy) RULES.push({ el: aidWhy, err: '#ea-aidwhy', msg: '請簡單說明申請原因。', en: 'Please add a short reason.',
+      ok: function (v) { return !aidOn() || v.trim().length >= 5; } });
 
     function mark(rule, bad) {
       var box = $(rule.err);
@@ -1093,17 +1107,17 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','Gender','School and year','Cohort','Applying as','Assisted place','Applying with','Student email',
-           'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Sport / volunteering experience','CV / portfolio link']
-        : ['學生姓名','年齡','性別','學校年級','報名梯次','報名身分','申請獎助','兩人同行同伴','學生 Email',
-           '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','運動或志工經驗','履歷／學習歷程連結'];
+        ? ['Student name','Age','Gender','School and year','Cohort','Applying as','Need-based place','Applying with','Student email',
+           'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Need-based place: reason','Sport / volunteering experience','CV / portfolio link']
+        : ['學生姓名','年齡','性別','學校年級','報名梯次','報名身分','申請清寒獎助','兩人同行同伴','學生 Email',
+           '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','清寒獎助申請說明','運動或志工經驗','履歷／學習歷程連結'];
       var V = [name_.value.trim(), age.value.trim(), gender.value.trim(), school.value.trim(), batch.value.trim(),
                plan ? plan.options[plan.selectedIndex].text.trim() : '',
                aid && aid.value === 'true' ? t('是', 'Yes') : t('否', 'No'),
                buddy ? buddy.value.trim() : '', sMail.value.trim(),
                parent_.value.trim(), pMail.value.trim(), phone.value.trim(),
                (pJoin ? pJoin.value.trim() : '0') + t(' 人', pJoin && pJoin.value.trim() === '1' ? ' person' : ' people'),
-               why.value.trim(), exp.value.trim(), work.value.trim()];
+               why.value.trim(), aidOn() && aidWhy ? aidWhy.value.trim() : '', exp.value.trim(), work.value.trim()];
       var fields = {};
       L.forEach(function (k, i) { fields[k] = V[i]; });
       var summary = Object.keys(fields).map(function (k) {
@@ -1119,6 +1133,7 @@
         batch: batch.value.trim(),
         plan: plan ? plan.value.trim() : '',
         aid: aid && aid.value === 'true' ? 'true' : 'false',
+        aid_reason: aidOn() && aidWhy ? aidWhy.value.trim() : '',
         buddy: buddy ? buddy.value.trim() : '',
         student_email: sMail.value.trim(),
         parent: parent_.value.trim(),

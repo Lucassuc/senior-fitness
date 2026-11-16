@@ -91,6 +91,20 @@ button{font:inherit; color:inherit}
 .gain h3{font-family:var(--ff-display); font-size:1.2rem; font-weight:700; line-height:1.4; margin-bottom:4px}
 .gain p{color:var(--ink-soft); font-size:15.5px}
 
+/* pathway — two levels, one line between them. Level 2 sits on paper so the
+   eye lands on the goal, not the starting point. */
+.path{margin-top:40px}
+.path__k{font-size:13px; letter-spacing:.14em; color:var(--ink-faint); margin-bottom:6px}
+.path__h{font-family:var(--ff-display); font-size:clamp(1.4rem, 5.6vw, 1.9rem); font-weight:700; line-height:1.35; margin-bottom:16px}
+.path ol{display:grid; gap:10px}
+.path li{padding:18px 20px; border-radius:12px; border:1px solid var(--rule-strong)}
+.path li:last-child{background:var(--paper); border-color:transparent; box-shadow:0 1px 0 var(--rule-strong)}
+.path__lv{display:block; font-size:12px; font-weight:500; letter-spacing:.1em; color:var(--ink-faint); white-space:nowrap}
+.path b{display:block; margin-bottom:2px; font-family:var(--ff-display); font-size:1.2rem; font-weight:700; line-height:1.4}
+.path p{color:var(--ink-soft); font-size:15px; line-height:1.7}
+.path strong{color:var(--ink); font-weight:700}
+@media (min-width:900px){ .path ol{grid-template-columns:1fr 1fr} }
+
 /* syllabus */
 .batch{font-size:14px; letter-spacing:.1em; color:var(--ink-faint); margin-bottom:6px}
 .syl{border-top:1px solid var(--rule-strong)}
@@ -232,3 +246,9 @@ dialog::backdrop{background:rgba(6,11,36,.92)}
   html{scroll-behavior:auto}
   *{transition:none !important}
 }
+
+/* 2026-11-16: hidden form fields must stay hidden even though .field sets display */
+.field[hidden]{display:none}
+.syl .field-link{margin-top:10px; font-size:14.5px; color:var(--ink-soft)}
+.syl .field-link a{font-weight:500; text-underline-offset:4px}
+.syl .field-link span{display:block; font-size:13px; color:var(--ink-faint)}

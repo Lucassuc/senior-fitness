@@ -549,3 +549,17 @@ one chrome, and the split between files is deliberate:
 - **Cohort 1's 跳起來 frame was replaced** by the 長輩體驗 frame (water bottles
   strapped on): the jump was part of the ageing experience, not 動作訓練, and
   its caption misdescribed it. `09-jump-*.jpg` is still in `assets/img/c1/`.
+- **2026-11-16 · director's second pass, plus a whole-page word cut.** Course
+  page only. 獎助 is now **清寒獎助**; you apply by choosing it in the form
+  and explaining why under 為什麼想參加. 家長陪同 is capped at **2** because
+  the room is small. 你會得到 has three items: 長輩體驗裝 was cohort 1
+  content and is not in cohort 2. A two-level **pathway** sits under it
+  (`#path`: 學員 → 助教 after three certificates, courses free from then on).
+  There is deliberately no 講師 level until one has an entry rule. The syllabus
+  heading is now cohort 2's 頂尖運動員的自我養成. 永恩小作所 is back as the
+  fourth placement site. The director's placement Google Form is linked from
+  the 8-hour row and the FAQ, labelled look-only (students fill it in after
+  the classroom day). Choosing 清寒獎助 reveals a required reason box,
+  posted as `aid_reason` and repeated in `summary`. **Make does not map
+  `aid_reason` yet.**
+

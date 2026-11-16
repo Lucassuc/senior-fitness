@@ -1017,8 +1017,6 @@
         ok: function (v) { return v.trim() !== ''; } },
       { el: school, err: '#ea-school', msg: '請填寫就讀學校與年級。', en: 'Please enter your school and year.',
         ok: function (v) { return v.trim().length >= 2; } },
-      { el: sMail,  err: '#ea-contact', msg: '這個 Email 看起來不太對，再確認一下。', en: 'That email does not look right — worth a second look.',
-        ok: function (v) { return v.trim() === '' || MAIL(v); } },
       /* Both addresses are optional and only shape-checked when something was
          typed. A guessed address is worse than an empty one: it misdelivers a
          letter carrying an account number. The pair is enforced at submit. */
@@ -1052,6 +1050,18 @@
     }
     if (aidWhy) RULES.push({ el: aidWhy, err: '#ea-aidwhy', msg: '請簡單說明申請原因。', en: 'Please add a short reason.',
       ok: function (v) { return !aidOn() || v.trim().length >= 5; } });
+
+    /* Clear the either/or email message as soon as one address is valid. */
+    [sMail, pMail].forEach(function (el) {
+      el.addEventListener('input', function () {
+        if (MAIL(sMail.value) || MAIL(pMail.value)) {
+          ['#ea-contact', '#ea-pmail'].forEach(function (id) {
+            var b = $(id); if (b && /至少填一個|at least one/.test(b.textContent)) { b.textContent = ''; b.classList.remove('is-on'); }
+          });
+          var f = $('#ea-form'); if (f) { f.textContent = ''; f.classList.remove('is-on'); }
+        }
+      });
+    });
 
     function mark(rule, bad) {
       var box = $(rule.err);
@@ -1088,21 +1098,29 @@
       if (trap && trap.value) return;                    /* bot */
 
       var bad = RULES.filter(function (r) { return !check(r); });
-      if (bad.length) {
-        bad[0].el.focus();
-        $('#ea-form').textContent = t('還有 ' + bad.length + ' 個欄位需要補上。', bad.length + ' field' + (bad.length>1?'s':'') + ' still needed.');
-        $('#ea-form').classList.add('is-on');
-        return;
-      }
 
       /* Neither inbox is prescribed: the family decides which one handles this,
          and the letter goes to whichever addresses exist. But it carries an
-         amount and an account number, so one of them has to be real. */
-      if (!MAIL(sMail.value) && !MAIL(pMail.value)) {
-        $('#ea-form').textContent = t('請至少留一個 Email —— 錄取通知信要寄到那裡。',
-                                      'Please leave at least one email — the acceptance letter has to go somewhere.');
+         amount and an account number, so one of them has to be real. Checked in
+         the same pass as every other field, so one submit lists everything. */
+      var noMail = !MAIL(sMail.value) && !MAIL(pMail.value);
+      if (noMail) {
+        ['#ea-contact', '#ea-pmail'].forEach(function (id) {
+          var b = $(id);
+          /* Keep a shape error ("does not look right") if one is showing. */
+          if (b && !b.classList.contains('is-on')) { b.textContent = t('學生或家長 Email 至少填一個。', 'Please fill in at least one of the two emails.'); b.classList.add('is-on'); }
+        });
+      }
+
+      var n = bad.length + (noMail ? 1 : 0);
+      if (n) {
+        var first = bad.length ? bad[0].el : (sMail.value.trim() ? sMail : pMail);
+        /* RULES is in field order except the late-added aid reason; if the
+           email pair sits above the first bad field on the page, go there. */
+        if (noMail && bad.length && (sMail.compareDocumentPosition(first) & Node.DOCUMENT_POSITION_FOLLOWING)) first = sMail;
+        first.focus();
+        $('#ea-form').textContent = t('還有 ' + n + ' 個欄位需要補上。', n + ' field' + (n>1?'s':'') + ' still needed.');
         $('#ea-form').classList.add('is-on');
-        (sMail.value.trim() ? sMail : pMail).focus();
         return;
       }
 

@@ -294,7 +294,7 @@
   <div class="vwrap wrap--narrow">
     <p class="label" data-en="Apply">報名表單</p>
     <h2 class="h2" data-en="Fill this in,<br>and you have applied.">填好這張表，<br>就完成報名。</h2>
-    <p class="intro" data-en="About five minutes. Have a parent's phone number ready. <strong>Successful applicants get an email.</strong>">大約 5 分鐘，先準備好一位家長的電話。<strong>錄取者會收到 email 通知。</strong></p>
+    <p class="intro" data-en="About five minutes. Have a parent's phone number and at least one email address ready. <strong>Successful applicants get an email.</strong>">大約 5 分鐘，先準備好一位家長的電話和至少一個 Email。<strong>錄取者會收到 email 通知。</strong></p>
 
     <form class="form" id="applyForm" novalidate>
       <p class="form__group" data-en="About you">學生資料</p>
@@ -353,12 +353,12 @@
            tell which price an applicant is asking for. Both optional, both
            sent to Make as `plan` / `buddy` and repeated inside `summary`. -->
       <div class="field">
-        <label for="a-plan"><span data-en="Which base price applies to you">報名身分</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-plan"><span data-en="Which base price applies to you">報名身分</span></label>
         <select id="a-plan" name="plan" aria-describedby="ha-plan">
           <option value="一般報名" selected data-en="New applicant">一般報名</option>
           <option value="第一梯結業 · 舊生續修價" data-en="Cohort 1 graduate — returning-student price">第一梯結業 · 舊生價</option>
         </select>
-        <p class="hint" id="ha-plan" data-en="Early bird is automatic if you send this by 30 Nov.">11/30 前送出，自動算早鳥價。</p>
+        <p class="hint" id="ha-plan" data-en="Finished cohort 1? Choose the returning-student price. Everyone else: leave it — sending by 30 Nov counts as early bird automatically.">第一梯結業請改選「舊生價」。其他人不用改，11/30 前送出自動算早鳥價。</p>
       </div>
 
       <!-- Split out of 報名身分 on 2026-11-14 so a returning student can apply for
@@ -366,12 +366,12 @@
            Applying is not approval: the half price only applies once 獎學金 is
            ticked in Notion. -->
       <div class="field">
-        <label for="a-aid"><span data-en="Need-based place">申請清寒獎助</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-aid"><span data-en="Need-based place">申請清寒獎助</span></label>
         <select id="a-aid" name="aid" aria-describedby="ha-aid">
           <option value="false" selected data-en="Not applying">不申請</option>
           <option value="true" data-en="Yes, I would like to apply (half price)">我想申請清寒獎助（半價）</option>
         </select>
-        <p class="hint" id="ha-aid" data-en="2 per cohort. The acceptance email tells you the result.">每梯 2 位，結果會寫在錄取信裡。</p>
+        <p class="hint" id="ha-aid" data-en="Not applying? Leave it. 2 places per cohort; the acceptance email tells you the result.">不申請就不用改。每梯 2 位，結果會寫在錄取信裡。</p>
       </div>
 
       <!-- 2026-11-16: its own box rather than a line inside 為什麼想參加, so the
@@ -389,14 +389,14 @@
       <div class="field">
         <label for="a-buddy"><span data-en="Applying with a friend? Their name">兩人同行的同伴姓名</span> <span class="opt" data-en="optional">選填</span></label>
         <input id="a-buddy" name="buddy" type="text" autocomplete="off" placeholder="例：王小華" data-en-ph="e.g. Wang Xiao-hua" aria-describedby="ha-buddy">
-        <p class="hint" id="ha-buddy" data-en="You each fill in a form and name the other: NT$300 off each.">兩人各填一張、互寫對方名字，各減 NT$300。</p>
+        <p class="hint" id="ha-buddy" data-en="You each fill in a form and name the other: NT$300 off each. Cannot be combined with a need-based place.">兩人各填一張、互寫對方名字，各減 NT$300。不與清寒獎助併用。</p>
       </div>
 
       <div class="field">
-        <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-contact"><span data-en="Student's email">學生 Email</span> <span class="req" aria-hidden="true" data-en="this or parent's">與家長 Email 二擇一</span></label>
         <input id="a-contact" name="student_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-contact ha-contact">
-        <p class="hint" id="ha-contact" data-en="Leave this or the parent's email, or both — every address gets the letter.">這個和家長 Email 至少留一個，留了的都會收到通知信。</p>
+        <p class="hint" id="ha-contact" data-en="Fill in this one, the parent's, or both. Every address you leave gets the acceptance email.">學生或家長 Email 至少填一個，兩個都填也可以。填了的都會收到錄取信。</p>
         <p class="err" id="ea-contact" role="alert"></p>
       </div>
 
@@ -409,10 +409,10 @@
       </div>
 
       <div class="field">
-        <label for="a-pmail"><span data-en="Parent or guardian's email">家長 Email</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-pmail"><span data-en="Parent or guardian's email">家長 Email</span> <span class="req" aria-hidden="true" data-en="this or student's">與學生 Email 二擇一</span></label>
         <input id="a-pmail" name="parent_email" type="email" autocomplete="email"
                placeholder="example@gmail.com" data-en-ph="example@gmail.com" aria-describedby="ea-pmail ha-pmail">
-        <p class="hint" id="ha-pmail" data-en="Leave it and a parent gets the same letter too.">留了的話，家長也會收到同一封信。</p>
+        <p class="hint" id="ha-pmail" data-en="Fill in this one, the student's, or both.">學生或家長 Email 至少填一個。</p>
         <p class="err" id="ea-pmail" role="alert"></p>
       </div>
 
@@ -425,13 +425,13 @@
       </div>
 
       <div class="field">
-        <label for="a-pjoin"><span data-en="Parents staying for the whole session">家長全程陪同人數</span> <span class="opt" data-en="optional">選填</span></label>
+        <label for="a-pjoin"><span data-en="Parents staying for the whole session">家長全程陪同人數</span></label>
         <select id="a-pjoin" name="parent_join" aria-describedby="ha-pjoin">
           <option value="0" selected data-en="0 — nobody staying">0 人 · 不陪同</option>
           <option value="1" data-en="1 person">1 人</option>
           <option value="2" data-en="2 people">2 人</option>
         </select>
-        <p class="hint" id="ha-pjoin" data-en="NT$300 each, including the Christmas food. Up to 2 people — the room is small.">NT$300／人，含聖誕餐點與活動。因場地空間有限，上限 2 人。</p>
+        <p class="hint" id="ha-pjoin" data-en="No parent staying? Leave it at 0. NT$300 each, including the Christmas food; up to 2 — the room is small.">沒有家長陪同就不用改。NT$300／人，含聖誕餐點與活動；場地有限，上限 2 人。</p>
       </div>
 
       <p class="form__group" data-en="The part we read closely">甄選用</p>
@@ -441,7 +441,7 @@
         <textarea id="a-why" name="why" rows="5" required
                   placeholder="你為什麼想學高齡運動指導？想從這堂課帶走什麼？" data-en-ph="A few sentences — why do you want to learn to coach older adults? What do you want to take away from it?"
                   aria-describedby="ea-why ha-why"></textarea>
-        <p class="hint" id="ha-why" data-en="The part we read most closely, in the student's own words. 150–300 words is plenty.">甄選最主要看這裡，請學生本人寫，100–300 字就好。</p>
+        <p class="hint" id="ha-why" data-en="The part we read most closely, in the student's own words. A short paragraph is plenty.">甄選最主要看這裡，請學生本人寫，100–300 字就好。</p>
         <p class="err" id="ea-why" role="alert"></p>
       </div>
 
@@ -624,7 +624,7 @@
   </div>
 </dialog>
 
-<script src="assets/js/site.js?v=121" defer></script>
+<script src="assets/js/site.js?v=123" defer></script>
 <script src="assets/js/v2.js?v=1" defer></script>
 </body>
 </html>

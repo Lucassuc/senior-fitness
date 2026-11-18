@@ -113,6 +113,8 @@ button{font:inherit; color:inherit}
 .syl small{display:block; font-size:12.5px; letter-spacing:.1em; color:var(--ink-faint); font-weight:400}
 .syl h3{font-family:var(--ff-display); font-size:1.15rem; font-weight:700; line-height:1.45; margin-bottom:4px}
 .syl p{color:var(--ink-soft); font-size:15px; line-height:1.7}
+.syl .by{margin-top:8px; font-size:13.5px; color:var(--ink-faint); letter-spacing:.02em}
+.syl .by b{color:var(--ink); font-weight:500; white-space:nowrap}
 .syl .is-field{background:var(--paper); margin-inline:-12px; padding-inline:12px; border-radius:10px; border-bottom:0; margin-top:10px}
 .past{margin-top:22px; font-size:14.5px; color:var(--ink-soft)}
 .past b{color:var(--ink); font-weight:500}

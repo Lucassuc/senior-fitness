@@ -996,6 +996,8 @@
            page and null-guarded here, so an older course.html still submits. */
         plan = $('#a-plan'), buddy = $('#a-buddy'), aid = $('#a-aid'),
         aidWhy = $('#a-aidwhy'), aidBox = $('#aidWhyField'),
+        /* 2026-11-20 如何知道報名資訊 → Make `referral` → Notion 從哪裡知道報名資訊. */
+        ref = $('#a-ref'),
         submit = $('#applySubmit'), done = $('#applyDone'),
         recap = $('#applyRecap'), again = $('#applyAgain');
 
@@ -1037,6 +1039,10 @@
       { el: why,    err: '#ea-why',    msg: '請多寫幾句，這是書面甄選主要看的部分。', en: 'Please write a little more — this is what the selection reads.',
         ok: function (v) { return v.trim().length >= 30; } }
     ];
+
+    /* Required, but null-guarded: inserted after 性別 so one submit lists fields in page order. */
+    if (ref) RULES.splice(3, 0, { el: ref, err: '#ea-ref', msg: '請選擇你是從哪裡知道報名資訊的。', en: 'Please tell us how you heard about the course.',
+      ok: function (v) { return v.trim() !== ''; } });
 
     /* 清寒獎助 reason: its box appears only when 申請 is chosen, and only then
        is it required. Absent on an older page, so everything is null-guarded. */
@@ -1125,11 +1131,12 @@
       }
 
       var L = isEN()
-        ? ['Student name','Age','Gender','School and year','Cohort','Applying as','Need-based place','Applying with','Student email',
+        ? ['Student name','Age','Gender','How they heard','School and year','Cohort','Applying as','Need-based place','Applying with','Student email',
            'Parent name','Parent email','Parent phone','Parents staying for the whole session','Why they want to join','Need-based place: reason','Sport / volunteering experience','CV / portfolio link']
-        : ['學生姓名','年齡','性別','學校年級','報名梯次','報名身分','申請清寒獎助','兩人同行同伴','學生 Email',
+        : ['學生姓名','年齡','性別','如何知道報名資訊','學校年級','報名梯次','報名身分','申請清寒獎助','兩人同行同伴','學生 Email',
            '家長姓名','家長 Email','家長電話','家長全程陪同人數','為什麼想參加','清寒獎助申請說明','運動或志工經驗','履歷／學習歷程連結'];
-      var V = [name_.value.trim(), age.value.trim(), gender.value.trim(), school.value.trim(), batch.value.trim(),
+      var V = [name_.value.trim(), age.value.trim(), gender.value.trim(),
+               ref ? ref.options[ref.selectedIndex].text.trim() : '', school.value.trim(), batch.value.trim(),
                plan ? plan.options[plan.selectedIndex].text.trim() : '',
                aid && aid.value === 'true' ? t('是', 'Yes') : t('否', 'No'),
                buddy ? buddy.value.trim() : '', sMail.value.trim(),
@@ -1147,6 +1154,7 @@
         student: name_.value.trim(),
         age: age.value.trim(),
         gender: gender.value.trim(),
+        referral: ref ? ref.value.trim() : '',
         school: school.value.trim(),
         batch: batch.value.trim(),
         plan: plan ? plan.value.trim() : '',

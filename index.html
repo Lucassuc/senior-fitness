@@ -39,7 +39,7 @@
      button, dock, footer) and the layer that brings the sections below into
      the same scale. Order matters: site.css, then v2, then home2. -->
 <link rel="stylesheet" href="assets/css/v2.css?v=3">
-<link rel="stylesheet" href="assets/css/home2.css?v=2">
+<link rel="stylesheet" href="assets/css/home2.css?v=4">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -109,13 +109,16 @@
       <p class="vhero__by"><span data-en="Supported by the China Long-Term Care Association and two others">支持單位 · 社團法人中華長照協會 等 3 家單位</span></p>
     </div>
 
-    <div class="vhero__media vhero__media--plain" style="--pos:50% 30%">
+    <!-- The photo is the poster for a vertical YouTube Short (same pattern as
+         the course hero): v2.js plays it in #player, which is set to 9:16. -->
+    <a class="vhero__media" href="https://www.youtube.com/shorts/NmujPtonDwo" target="_blank" rel="noopener" data-yt="NmujPtonDwo" data-yt-title="健運動影片" data-en-yt-title="Daily Ten film" aria-label="播放健運動影片" data-en-aria="Play the Daily Ten film" style="--pos:50% 30%">
       <picture>
         <source media="(min-width: 900px)" srcset="assets/img/hero-2093.jpg?v=45">
         <img src="assets/img/hero-mobile-1400.jpg?v=45" alt="長輩與帶運動的青年一起高舉手臂，笑著活動身體" data-en-alt="Three elders and the young coach raising their arms by an outdoor railing, laughing as they move together" width="1400" height="933" fetchpriority="high" decoding="async">
       </picture>
-      <span class="vhero__cap"><b data-en="Someone with you every day">每天都有人陪</b></span>
-    </div>
+      <span class="vhero__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="vhero__cap"><b data-en="Someone with you every day">每天都有人陪</b><span data-en="Watch the film">看影片</span></span>
+    </a>
   </div>
 </section>
 
@@ -805,7 +808,14 @@
   </button>
 </div>
 
+<dialog id="player" aria-label="健運動影片" data-en-aria="Daily Ten film">
+  <div class="player player--tall">
+    <button class="view__x" type="button" data-close data-en="Close">關閉</button>
+    <div class="player__box" id="playerBox"></div>
+  </div>
+</dialog>
+
 <script src="assets/js/site.js?v=123" defer></script>
-<script src="assets/js/v2.js?v=1" defer></script>
+<script src="assets/js/v2.js?v=2" defer></script>
 </body>
 </html>

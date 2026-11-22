@@ -61,3 +61,13 @@ body{line-height:1.75}
 
 /* bar: underline the section you are in (site.js sets .is-here on .nav__links a) */
 .bar__links a.is-here{color:var(--v-on); text-decoration:underline; text-underline-offset:8px}
+
+/* hero film player — the course page draws these in course2.css; the home
+   page needs them too now that its hero plays a vertical Short (9:16). */
+dialog#player{margin:auto; border:0; padding:0; background:transparent; color:#fff; max-width:100vw; max-height:100vh}
+dialog#player::backdrop{background:rgba(6,11,36,.92)}
+.view__x{justify-self:end; min-width:44px; min-height:44px; border:0; border-radius:999px; background:rgba(255,255,255,.14); color:#fff; font-size:14px; cursor:pointer; padding:0 16px}
+.player{display:grid; gap:12px}
+.player--tall{width:min(92vw, calc((100svh - 96px) * 9 / 16))}
+.player__box{aspect-ratio:9/16; background:#000; border-radius:12px; overflow:hidden}
+.player iframe{width:100%; height:100%; border:0; display:block}

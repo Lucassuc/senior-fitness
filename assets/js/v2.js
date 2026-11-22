@@ -50,7 +50,7 @@
         if (!canEmbed || !player.showModal) return;
         ev.preventDefault();
         box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') +
-          '?autoplay=1&playsinline=1&rel=0" title="' + (isEN() ? 'Recap film' : '回顧影片') +
+          '?autoplay=1&playsinline=1&rel=0" title="' + (isEN() ? (a.getAttribute('data-en-yt-title') || 'Recap film') : (a.getAttribute('data-yt-title') || '回顧影片')) +
           '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
         player.showModal();
       });

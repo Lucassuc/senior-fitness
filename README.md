@@ -557,9 +557,20 @@ one chrome, and the split between files is deliberate:
   (`#path`: 學員 → 助教 after three certificates, courses free from then on).
   There is deliberately no 講師 level until one has an entry rule. The syllabus
   heading is now cohort 2's 頂尖運動員的自我養成. 永恩小作所 is back as the
-  fourth placement site. The director's placement Google Form is linked from
-  the 8-hour row and the FAQ, labelled look-only (students fill it in after
-  the classroom day). Choosing 清寒獎助 reveals a required reason box,
+  fourth placement site. The director's placement Google Form was linked from
+  the 8-hour row and the FAQ (look-only) until 2026-11-25, when every link
+  to it was removed while she edits it; re-link only on Lucas's word. Choosing 清寒獎助 reveals a required reason box,
   posted as `aid_reason` and repeated in `summary`. **Make does not map
   `aid_reason` yet.**
 
+- **2026-11-25 · 青年樂齡 rename, 實習 and 師資.** The course is now
+  **青年樂齡運動教練培訓** on both pages (EN: Youth Senior Fitness Coach); the
+  8 hours are **青年樂齡運動教練實習** and earn the **實習證明** (still stated as
+  issued by the 協會 — confirm with the director). `#intern` writes out the
+  director's 實習課程表 (image kept at `assets/img/internship-schedule.webp`,
+  linked, not shown: unreadable on a phone). It replaces the old "帶 10 分鐘
+  再陪伴、煮飯、烏克麗麗" description. Her 「升學加分」 is deliberately not on
+  the page. `#team` lists 宋國峰, 廖貫廷 and 丁中怡 as text — no photos yet.
+  Play buttons on every video poster now appear only on hover/focus; a small
+  ▶ by the caption marks the video at rest and on phones.
+- **2026-11-25 · 4＋8.** Lucas: the course is 4 小時學科 ＋ 8 小時實習 (4 場 × 2 小時), not 半天. Every place that said 半天/a morning, or just 學科課程, now says 4 小時; the 時數 fact adds 共 12 小時.

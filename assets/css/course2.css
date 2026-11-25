@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* ═══════════════════════════════════════════════════════════════
-   青年運動教練培訓 · course.html only (with v2.css, without site.css)
+   青年樂齡運動教練培訓 · course.html only (with v2.css, without site.css)
    Registration first: one screen answers 什麼課／何時／多少錢／去哪報名 with
    the recap film beside it; facts, prices, syllabus and the form follow in
    the order a parent asks; the story and the first cohort's photographs sit
@@ -254,3 +254,39 @@ dialog::backdrop{background:rgba(6,11,36,.92)}
 .syl .field-link{margin-top:10px; font-size:14.5px; color:var(--ink-soft)}
 .syl .field-link a{font-weight:500; text-underline-offset:4px}
 .syl .field-link span{display:block; font-size:13px; color:var(--ink-faint)}
+
+/* 2026-11-25 · 實習 (#intern) and 師資 (#team), under the timetable.
+   Same plain rules-and-type language as .syl; no new colour. */
+.kick{margin-top:48px; font-size:13px; letter-spacing:.14em; color:var(--ink-faint)}
+.kick__h{margin:4px 0 10px; font-family:var(--ff-display); font-size:1.45rem; font-weight:700; line-height:1.4}
+.syl .is-field p a{font-weight:500; text-underline-offset:4px; white-space:nowrap}
+.intern__lede{color:var(--ink-soft); font-size:15.5px}
+.intern__sub{margin:26px 0 8px; font-weight:700; font-size:15.5px}
+.flow{border-top:1px solid var(--rule-strong)}
+.flow li{display:grid; grid-template-columns:4.2em 1fr; gap:12px; padding-block:12px; border-bottom:1px solid var(--rule)}
+.flow time{font-variant-numeric:tabular-nums; font-size:14.5px; font-weight:500; line-height:1.5}
+.flow time small{display:block; font-size:12.5px; color:var(--ink-faint); font-weight:400}
+.flow b{display:block; font-weight:700; font-size:15.5px; line-height:1.5}
+.flow span{display:block; color:var(--ink-soft); font-size:14.5px; line-height:1.7}
+.flow .is-main{background:var(--tint); margin-inline:-12px; padding-inline:12px; border-radius:10px}
+.intern__grid p{color:var(--ink-soft); font-size:15px; line-height:1.75}
+.intern__grid p b{color:var(--ink); font-weight:700}
+.intern__grid .intern__sub{color:var(--ink)}
+.rules li{position:relative; padding:6px 0 6px 22px; color:var(--ink-soft); font-size:15px; line-height:1.7}
+.rules li::before{content:""; position:absolute; left:2px; top:.95em; width:10px; height:5px; border:solid var(--ink); border-width:0 0 2px 2px; transform:rotate(-45deg)}
+.intern__cert{margin-top:22px; padding:16px 18px; border-radius:12px; border:1px solid var(--rule-strong); font-size:15px; color:var(--ink-soft); line-height:1.75}
+.intern__cert b{color:var(--ink); font-weight:700}
+.intern__cert a{display:inline-block; margin-left:6px; font-weight:500; text-underline-offset:4px}
+.team__list{display:grid; gap:14px}
+.team__list > li{padding:18px 20px; border-radius:12px; background:var(--tint)}
+.team__role{font-size:13px; letter-spacing:.08em; color:var(--ink-faint)}
+.team h4{margin:2px 0 2px; font-family:var(--ff-display); font-size:1.2rem; font-weight:700; line-height:1.45}
+.team h4 small{margin-left:4px; font-family:var(--ff-body); font-size:13.5px; font-weight:500; color:var(--ink-soft)}
+.team__now{font-size:14.5px; color:var(--ink); font-weight:500; line-height:1.6}
+.creds{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px}
+.creds li{font-size:13px; line-height:1.5; padding:4px 10px; border-radius:999px; border:1px solid var(--rule-strong); color:var(--ink-soft)}
+@media (min-width:600px){ .intern__grid{display:grid; grid-template-columns:1fr 1fr; gap:28px} }
+@media (min-width:900px){ .flow li{grid-template-columns:5em 1fr} }
+
+/* keep the longer course name from breaking mid-word: 青年樂齡 / 運動教練培訓 */
+.vhero h1 .nb{display:inline-block}

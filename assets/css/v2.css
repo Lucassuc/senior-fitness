@@ -188,3 +188,11 @@
 @media (prefers-reduced-motion:reduce){
   .dock,.vbtn,.vhero__play{transition:none}
 }
+
+/* 2026-11-25 · Lucas: the round play button sat on people's faces in the
+   hero posters. It now appears only on mouse hover or keyboard focus; at
+   rest, and always on a phone (no hover there), a small ▶ in front of the
+   caption is what says "this is a video". */
+.vhero__play{opacity:0; transition:opacity .2s, transform .2s}
+.vhero__media:hover .vhero__play,.vhero__media:focus-visible .vhero__play{opacity:1}
+.vhero__cap b::before{content:""; display:inline-block; margin-right:.55em; border-left:.62em solid currentColor; border-block:.37em solid transparent; vertical-align:.02em}

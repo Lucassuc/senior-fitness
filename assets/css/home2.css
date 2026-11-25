@@ -71,3 +71,22 @@ dialog#player::backdrop{background:rgba(6,11,36,.92)}
 .player--tall{width:min(92vw, calc((100svh - 96px) * 9 / 16))}
 .player__box{aspect-ratio:9/16; background:#000; border-radius:12px; overflow:hidden}
 .player iframe{width:100%; height:100%; border:0; display:block}
+
+/* 2026-11-25 · same rule as the hero (v2.css): no play button over faces.
+   The one-minute film and the two Shorts show a small corner ▶ at rest;
+   the big button comes back only under a mouse or keyboard focus. */
+.film__play{background:transparent}
+.film__play svg{opacity:0; transition:opacity .2s, transform .5s}
+.film__play span{position:absolute; left:16px; bottom:14px; display:inline-flex; align-items:center; gap:8px; padding:6px 14px 6px 12px; border-radius:999px; background:rgba(6,11,36,.62); font-size:13px; letter-spacing:.12em; line-height:1.4}
+.film__play span::before{content:""; border-left:9px solid currentColor; border-block:5.5px solid transparent}
+.film__play:focus-visible svg{opacity:1}
+.short__tap{background:transparent; place-content:end start; padding:12px}
+.short__tap svg{width:14px; height:14px; padding:9px; background:rgba(6,11,36,.62); border-color:transparent}
+.short__tap:focus-visible{place-content:center}
+.short__tap:focus-visible svg{width:42px; height:42px; padding:11px; background:transparent; border-color:rgba(255,255,255,.5)}
+@media (hover:hover){
+  .film__play:hover{background:rgba(6,11,36,.12)}
+  .film__play:hover svg{opacity:1}
+  .short__tap:hover{place-content:center; background:rgba(6,11,36,.12)}
+  .short__tap:hover svg{width:42px; height:42px; padding:11px; background:transparent; border-color:rgba(255,255,255,.5)}
+}
